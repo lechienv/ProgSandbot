@@ -162,23 +162,23 @@ counter #(16) ComptCodLeft (PropLeftCodeurA,  ResetCompteurVitesse, CompteurCode
 counter #(16) ComptCodRight(PropRightCodeurA, ResetCompteurVitesse, CompteurCodeurRight);
 counter #(16) ComptCodLeftB (PropLeftCodeurB,  ResetCompteurVitesse, CompteurCodeurLeftB);
 counter #(16) ComptCodRightB(PropRightCodeurB, ResetCompteurVitesse, CompteurCodeurRightB);
-counter #(32) CompteurTesting(PropLeftCodeurA, LaserSync, CompteurTest);
+counter #(32) CompteurTesting(PropLeftCodeurA, ~KEY[1], CompteurTest);
 counter #(16) CompteTourTourelle(LaserSync, PIC32_RESET, CompteTour);
 
 always_ff@(posedge PropLeftCodeurA)
 begin 
 	if(PropLeftCodeurB)
-		positiveSpeedL <= 'b0;
-	else
 		positiveSpeedL <= 'b1;
+	else
+		positiveSpeedL <= 'b0;
 	
 end
 always_ff@(posedge PropRightCodeurA)
 begin 
 	if(PropRightCodeurB)
-		positiveSpeedR <= 'b1;
-	else
 		positiveSpeedR <= 'b0;
+	else
+		positiveSpeedR <= 'b1;
 	
 end
 	

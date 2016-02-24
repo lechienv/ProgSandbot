@@ -12,6 +12,7 @@ KEY[0] => PIC32_INT1.DATAB
 KEY[0] => Status[0].DATAIN
 KEY[1] => PIC32_INT2.DATAB
 KEY[1] => Status[1].DATAIN
+KEY[1] => _.IN1
 SW[0] => Status[4].DATAIN
 SW[1] => Status[5].DATAIN
 SW[2] => Status[6].DATAIN

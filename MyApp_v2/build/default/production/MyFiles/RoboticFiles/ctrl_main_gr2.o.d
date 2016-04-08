@@ -1,0 +1,27 @@
+build/default/production/MyFiles/RoboticFiles/ctrl_main_gr2.o:  \
+ MyFiles/RoboticFiles/ctrl_main_gr2.c  \
+ MyFiles/RoboticFiles/ctrl_main_gr2.h  \
+ MyFiles/RoboticFiles/CtrlStruct_gr2.h  \
+MyIncludes/MyApp.h  \
+ MyIncludes/MySPI.h  \
+MyIncludes/MyLED.h  \
+MyIncludes/MyCyclone.h  \
+ MyIncludes/MyConsole.h  \
+MyIncludes/MyCAN.h  \
+MyIncludes/MyRTCC.h  \
+ MyIncludes/MyIO.h  \
+MyIncludes/MyFlash.h  \
+MyIncludes/MyMIWI.h  \
+ MyIncludes/MyWIFI.h  \
+MyIncludes/MyTemperature.h  \
+MyIncludes/MyMDDFS.h  \
+ MyIncludes/MyCamera.h  \
+MyIncludes/MyMiniProjet.h  \
+ MyIncludes/../MyFiles/RoboticFiles/CtrlStruct_gr2.h  \
+ MyFiles/RoboticFiles/testBot_gr2.h  \
+ MyFiles/RoboticFiles/pathplanning_gr2.h  \
+ MyFiles/RoboticFiles/controller_gr2.h  \
+ MyFiles/RoboticFiles/strategy_gr2.h  \
+MyFiles/RoboticFiles/odometry_gr2.h  \
+ MyFiles/RoboticFiles/allParamInit_gr2.h  \
+MyFiles/RoboticFiles/tower_gr2.h 

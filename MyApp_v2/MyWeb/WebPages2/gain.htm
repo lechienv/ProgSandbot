@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Microchip TCP/IP Stack Demo App</title>
+<script src="mchp.js" type="text/javascript"></script>
+</head>
+
+<h1>Sélection des paramètres</h1>
+<form method="get">
+Gain de régulation var1: <input type="text" name="var1">
+<br>
+Gain de régulation var1 (actuel) = <span id="var1Status" style="font-weight:normal">?</span>
+<br>
+Gain de régulation var2: <input type="text" name="var2">
+<br>
+Gain de régulation var2 (actuel) = <span id="var2Status" style="font-weight:normal">?</span>
+<br>
+Gain de régulation var3: <input type="text" name="var3">
+<br>
+Gain de régulation var3 (actuel) = <span id="var3Status" style="font-weight:normal">?</span>
+<br>
+Gain de régulation var4: <input type="text" name="var4">
+<br>
+Gain de régulation var4 (actuel) = <span id="var4Status" style="font-weight:normal">?</span>
+<br>
+Gain de régulation var5: <input type="text" name="var5">
+<br>
+Gain de régulation var5 (actuel) = <span id="var5Status" style="font-weight:normal">?</span>
+<br>
+Gain de régulation var6: <input type="text" name="var6">
+<br>
+Gain de régulation var6 (actuel) = <span id="var6Status" style="font-weight:normal">?</span>
+<br>
+<input type="submit" value="Submit" class="btn">
+</form>
+
+
+
+
+<script type="text/javascript">
+<!--
+// Parses the xmlResponse from status.xml and updates the status box
+function updateStatus(xmlData) {
+	// Check if a timeout occurred
+	if(!xmlData)
+	{
+		return;
+	}
+	document.getElementById('var1Status').innerHTML = getXMLValue(xmlData, 'var1Status');
+	document.getElementById('var2Status').innerHTML = getXMLValue(xmlData, 'var2Status');
+	document.getElementById('var3Status').innerHTML = getXMLValue(xmlData, 'var3Status');
+	document.getElementById('var4Status').innerHTML = getXMLValue(xmlData, 'var4Status');
+	document.getElementById('var5Status').innerHTML = getXMLValue(xmlData, 'var5Status');
+	document.getElementById('var6Status').innerHTML = getXMLValue(xmlData, 'var6Status');
+
+
+}
+setTimeout("newAJAXCommand('status.xml', updateStatus, true)",500);
+//-->
+</script>
+
+</html>
+

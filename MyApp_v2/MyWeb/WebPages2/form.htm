@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Microchip TCP/IP Stack Demo App</title>
+<script src="mchp.js" type="text/javascript"></script>
+</head>
+
+<h1>Sélection des paramètres</h1>
+
+<form method="get">
+Tourelle: Choix du duty cycle: <input type="text" name="TourelleDC">
+<br>
+Moteur Droite: Choix du duty cycle: <input type="text" name="RightMotorDC">
+<br>
+Moteur Gauche: Choix du duty cycle: <input type="text" name="LeftMotorDC">
+<br>
+<input type="submit" value="Submit" class="btn">
+</form>
+
+ <p> Actuellement : <span id="Test" style="font-weight:normal>?</span></p>
+
+</div>
+
+
+<script type="text/javascript">
+<!--
+// Parses the xmlResponse from status.xml and updates the status box
+function updateStatus(xmlData) {
+
+	// Check if a timeout occurred
+	if(!xmlData)
+	{
+		return;
+	}
+	// Update the POT value
+	document.getElementById('Test').innerHTML = getXMLValue(xmlData, 'Test');
+}
+setTimeout("newAJAXCommand('status.xml', updateStatus, true)",500);
+//-->
+</script>
+
+</html>

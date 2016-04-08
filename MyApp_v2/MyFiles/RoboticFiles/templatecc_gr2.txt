@@ -1,0 +1,15 @@
+#include "filename.h"
+
+#ifndef REALBOT
+NAMESPACE_INIT(ctrlGr2);
+#endif // ! REALBOT
+
+/*********************
+*** FUNCTIONS ********
+**********************/
+
+
+
+#ifndef REALBOT
+NAMESPACE_CLOSE();
+#endif // ! REALBOT

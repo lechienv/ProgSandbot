@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Microchip TCP/IP Stack Demo App</title>
+<script src="mchp.js" type="text/javascript"></script>
+</head>
+
+<h1>RATEAU</h1>
+<form method="get">
+Speed <input type="text" name="var19">
+<br>
+Speed = <span id="var19Status" style="font-weight:normal">?</span>
+<br>
+KpPos <input type="text" name="var20">
+<br>
+KpPos = <span id="var20Status" style="font-weight:normal">?</span>
+<br>
+Ki <input type="text" name="var21">
+<br>
+Ki = <span id="var21Status" style="font-weight:normal">?</span>
+<br>
+dutyCycle <input type="text" name="var22">
+<br>
+dutyCycle = <span id="var22Status" style="font-weight:normal">?</span>
+<br>
+clicnumber: <input type="text" name="var23">
+<br>
+clicnumber = <span id="var23Status" style="font-weight:normal">?</span>
+<input type="submit" value="Submit" class="btn">
+</form>
+
+
+
+
+<script type="text/javascript">
+<!--
+// Parses the xmlResponse from status.xml and updates the status box
+function updateStatus(xmlData) {
+	// Check if a timeout occurred
+	if(!xmlData)
+	{
+		return;
+	}
+	document.getElementById('var19Status').innerHTML = getXMLValue(xmlData, 'var19Status');
+	document.getElementById('var20Status').innerHTML = getXMLValue(xmlData, 'var20Status');
+	document.getElementById('var21Status').innerHTML = getXMLValue(xmlData, 'var21Status');
+	document.getElementById('var22Status').innerHTML = getXMLValue(xmlData, 'var22Status');
+	document.getElementById('var23Status').innerHTML = getXMLValue(xmlData, 'var23Status');
+}
+setTimeout("newAJAXCommand('status.xml', updateStatus, true)",500);
+//-->
+</script>
+
+</html>
+

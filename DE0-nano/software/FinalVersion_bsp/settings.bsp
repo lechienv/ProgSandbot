@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>06-avr.-2016 14:25:05</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1459945505572</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>05-avr.-2016 18:56:32</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1459875392201</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\user\Documents\Master1_EPL\Projet_Mecatro\Programmation\Megre_TL-Sensor-Dyna\software\FinalVersion_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\DE0_LT24_SOPC.sopcinfo</SopcDesignFile>

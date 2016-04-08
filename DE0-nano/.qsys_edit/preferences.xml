@@ -3,10 +3,11 @@
  <debug showDebugMenu="0" />
  <systemtable filter="All Interfaces">
   <columns>
-   <connections preferredWidth="31" />
+   <connections preferredWidth="223" />
    <irq preferredWidth="34" />
   </columns>
  </systemtable>
- <library expandedCategories="Library,Project" />
- <window width="1100" height="728" x="0" y="0" />
+ <library
+   expandedCategories="Project,Library/Processors and Peripherals,Library,Library/Processors and Peripherals/Peripherals" />
+ <window width="1366" height="728" x="0" y="0" />
 </preferences>

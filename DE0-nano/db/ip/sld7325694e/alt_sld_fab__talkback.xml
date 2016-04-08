@@ -11,27 +11,27 @@
    <SOPCModuleParameter>
     <C>2</C>
     <Name>DESIGN_HASH</Name>
-    <Value>84f8481c755f0f0dd40a</Value>
+    <Value>ae3b4a043ea57b693256</Value>
    </SOPCModuleParameter>
    <SOPCModuleParameter>
     <C>3</C>
     <Name>NODE_COUNT</Name>
-    <Value>1</Value>
+    <Value>3</Value>
    </SOPCModuleParameter>
    <SOPCModuleParameter>
     <C>4</C>
     <Name>MAX_WIDTH</Name>
-    <Value>33</Value>
+    <Value>25</Value>
    </SOPCModuleParameter>
    <SOPCModuleParameter>
     <C>5</C>
     <Name>SETTINGS</Name>
-    <Value>{fabric sld dir agent mfr_code 110 type_code 0 version 6 instance 0 ir_width 10 psig f63706bb} </Value>
+    <Value>{fabric sld dir agent mfr_code 110 type_code 128 version 1 instance -1 ir_width 1 prefer_host { } psig f63706bb} {fabric sld dir agent mfr_code 70 type_code 34 version 3 instance 0 ir_width 2 psig f63706bb} {fabric sld dir agent mfr_code 110 type_code 1 version 0 instance 0 ir_width 2 psig f63706bb} </Value>
    </SOPCModuleParameter>
    <SOPCModuleParameter>
     <C>6</C>
     <Name>CLOCKS</Name>
-    <Value>{id {} } </Value>
+    <Value>{id {} } {id {} } {id {} } </Value>
    </SOPCModuleParameter>
    <SOPCModuleParameter>
     <C>7</C>
@@ -41,7 +41,7 @@
    <SOPCModuleParameter>
     <C>8</C>
     <Name>EP_INFOS</Name>
-    <Value>{hpath {sld_signaltap:auto_signaltap_0} } </Value>
+    <Value>{hpath {DE0_LT24_SOPC:DE0_LT24_SOPC_inst|DE0_LT24_SOPC_JTAG_UART:jtag_uart|alt_jtag_atlantic:DE0_LT24_SOPC_JTAG_UART_alt_jtag_atlantic|altera_sld_agent_endpoint:inst|altera_fabric_endpoint:ep} } {hpath {DE0_LT24_SOPC:DE0_LT24_SOPC_inst|DE0_LT24_SOPC_CPU:cpu|DE0_LT24_SOPC_CPU_nios2_oci:the_DE0_LT24_SOPC_CPU_nios2_oci|DE0_LT24_SOPC_CPU_jtag_debug_module_wrapper:the_DE0_LT24_SOPC_CPU_jtag_debug_module_wrapper|sld_virtual_jtag_basic:DE0_LT24_SOPC_CPU_jtag_debug_module_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst} } {hpath {pzdyqx:nabboc} } </Value>
    </SOPCModuleParameter>
    <SOPCModuleParameter>
     <C>9</C>
@@ -69,7 +69,7 @@
     <Value>Unknown</Value>
    </SOPCModuleParameter>
   </SOPCModule>
-  <SystemID>266462315</SystemID>
+  <SystemID>1805363013</SystemID>
  </SOPCSystem>
  <SchemaVersion>schema_2013-01-18</SchemaVersion>
 </ProgramExecution>

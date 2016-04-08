@@ -7,9 +7,9 @@ module MySPI (
 	output logic [16:0] Config,
 	input  logic [16:0] Status,
 	output logic [16:0] Led70,
-	input  logic [16:0] IO_A_Data_In,    IO_B_Data_In,    IO_C_Data_In,    IO_D_Data_In,    IO_E_Data_In,    IO_F_Data_In,    IO_G_Data_In,    IO_H_Data_In,    IO_I_Data_In,    IO_J_Data_In,
-	output logic [16:0] IO_A_Data_Out,   IO_B_Data_Out,   IO_C_Data_Out,   IO_D_Data_Out,   IO_E_Data_Out,   IO_F_Data_Out,   IO_G_Data_Out,   IO_H_Data_Out,   IO_I_Data_Out,   IO_J_Data_Out,
-	output logic [16:0] IO_A_Enable_Out, IO_B_Enable_Out, IO_C_Enable_Out, IO_D_Enable_Out, IO_E_Enable_Out, IO_F_Enable_Out, IO_G_Enable_Out, IO_H_Enable_Out, IO_I_Enable_Out, IO_J_Enable_Out);
+	input  logic [16:0] IO_A_Data_In,    IO_B_Data_In,    IO_C_Data_In,    IO_D_Data_In,    IO_E_Data_In,    IO_F_Data_In,    IO_G_Data_In,    IO_H_Data_In,    IO_I_Data_In,    IO_J_Data_In,    IO_K_Data_In,    IO_L_Data_In,    IO_M_Data_In,		IO_N_Data_In,		IO_O_Data_In,		IO_P_Data_In,
+	output logic [16:0] IO_A_Data_Out,   IO_B_Data_Out,   IO_C_Data_Out,   IO_D_Data_Out,   IO_E_Data_Out,   IO_F_Data_Out,   IO_G_Data_Out,   IO_H_Data_Out,   IO_I_Data_Out,   IO_J_Data_Out,   IO_K_Data_Out,   IO_L_Data_Out,   IO_M_Data_Out,		IO_N_Data_Out,		IO_O_Data_Out,		IO_P_Data_Out,
+	output logic [16:0] IO_A_Enable_Out, IO_B_Enable_Out, IO_C_Enable_Out, IO_D_Enable_Out, IO_E_Enable_Out, IO_F_Enable_Out, IO_G_Enable_Out, IO_H_Enable_Out, IO_I_Enable_Out, IO_J_Enable_Out, IO_K_Enable_Out, IO_L_Enable_Out, IO_M_Enable_Out, 	IO_N_Enable_Out,	IO_O_Enable_Out, 	IO_P_Enable_Out);
 
 //--- Registers Address ---------------------------------
 
@@ -36,6 +36,18 @@ parameter A_IO_I_Data  			= 15'h26;
 parameter A_IO_I_Enable_Out	= 15'h27;
 parameter A_IO_J_Data  			= 15'h28;
 parameter A_IO_J_Enable_Out	= 15'h29;
+parameter A_IO_K_Data  			= 15'h30;
+parameter A_IO_K_Enable_Out	= 15'h31;
+parameter A_IO_L_Data  			= 15'h32;
+parameter A_IO_L_Enable_Out	= 15'h33;
+parameter A_IO_M_Data  			= 15'h34;
+parameter A_IO_M_Enable_Out	= 15'h35;
+parameter A_IO_N_Data  			= 15'h36;
+parameter A_IO_N_Enable_Out	= 15'h37;
+parameter A_IO_O_Data  			= 15'h38;
+parameter A_IO_O_Enable_Out	= 15'h39;
+parameter A_IO_P_Data  			= 15'h3a;
+parameter A_IO_P_Enable_Out	= 15'h3b;
 
 //--- FSM States ----------------------------------------
 
@@ -140,6 +152,18 @@ begin
 				A_IO_I_Enable_Out : SPI_data <= IO_I_Enable_Out;
 				A_IO_J_Data 		: SPI_data <= IO_J_Data_In;
 				A_IO_J_Enable_Out : SPI_data <= IO_J_Enable_Out;
+				A_IO_K_Data 		: SPI_data <= IO_K_Data_In;
+				A_IO_K_Enable_Out : SPI_data <= IO_K_Enable_Out;
+				A_IO_L_Data 		: SPI_data <= IO_L_Data_In;
+				A_IO_L_Enable_Out : SPI_data <= IO_L_Enable_Out;
+				A_IO_M_Data 		: SPI_data <= IO_M_Data_In;
+				A_IO_M_Enable_Out : SPI_data <= IO_M_Enable_Out;
+				A_IO_N_Data 		: SPI_data <= IO_N_Data_In;
+				A_IO_N_Enable_Out : SPI_data <= IO_N_Enable_Out;
+				A_IO_O_Data 		: SPI_data <= IO_O_Data_In;
+				A_IO_O_Enable_Out : SPI_data <= IO_O_Enable_Out;
+				A_IO_P_Data 		: SPI_data <= IO_P_Data_In;
+				A_IO_P_Enable_Out : SPI_data <= IO_P_Enable_Out;
 			endcase
 		
 	if (theReset) Config <= 16'h00;
@@ -168,7 +192,19 @@ begin
 		else if ((SPI_data_update) & (SPI_address[14:0] == A_IO_I_Enable_Out)) IO_I_Enable_Out <= SPI_data;
 	if (theReset) IO_J_Enable_Out <= 16'h00;
 		else if ((SPI_data_update) & (SPI_address[14:0] == A_IO_J_Enable_Out)) IO_J_Enable_Out <= SPI_data;
-
+	if (theReset) IO_K_Enable_Out <= 16'h00;
+		else if ((SPI_data_update) & (SPI_address[14:0] == A_IO_K_Enable_Out)) IO_K_Enable_Out <= SPI_data;
+	if (theReset) IO_L_Enable_Out <= 16'h00;
+		else if ((SPI_data_update) & (SPI_address[14:0] == A_IO_L_Enable_Out)) IO_L_Enable_Out <= SPI_data;
+	if (theReset) IO_M_Enable_Out <= 16'h00;
+		else if ((SPI_data_update) & (SPI_address[14:0] == A_IO_M_Enable_Out)) IO_M_Enable_Out <= SPI_data;
+	if (theReset) IO_N_Enable_Out <= 16'h00;
+		else if ((SPI_data_update) & (SPI_address[14:0] == A_IO_N_Enable_Out)) IO_N_Enable_Out <= SPI_data;
+	if (theReset) IO_O_Enable_Out <= 16'h00;
+		else if ((SPI_data_update) & (SPI_address[14:0] == A_IO_O_Enable_Out)) IO_O_Enable_Out <= SPI_data;
+	if (theReset) IO_P_Enable_Out <= 16'h00;
+		else if ((SPI_data_update) & (SPI_address[14:0] == A_IO_P_Enable_Out)) IO_P_Enable_Out <= SPI_data;
+		
 	if (theReset) IO_A_Data_Out <= 16'h00;
 		else if ((SPI_data_update) & (SPI_address[14:0] == A_IO_A_Data)) IO_A_Data_Out <= SPI_data;	
 	if (theReset) IO_B_Data_Out <= 16'h00;
@@ -189,6 +225,18 @@ begin
 		else if ((SPI_data_update) & (SPI_address[14:0] == A_IO_I_Data)) IO_I_Data_Out <= SPI_data;
 	if (theReset) IO_J_Data_Out <= 16'h00;
 		else if ((SPI_data_update) & (SPI_address[14:0] == A_IO_J_Data)) IO_J_Data_Out <= SPI_data;
+	if (theReset) IO_K_Data_Out <= 16'h00;
+		else if ((SPI_data_update) & (SPI_address[14:0] == A_IO_K_Data)) IO_K_Data_Out <= SPI_data;
+	if (theReset) IO_L_Data_Out <= 16'h00;
+		else if ((SPI_data_update) & (SPI_address[14:0] == A_IO_L_Data)) IO_L_Data_Out <= SPI_data;
+	if (theReset) IO_M_Data_Out <= 16'h00;
+		else if ((SPI_data_update) & (SPI_address[14:0] == A_IO_M_Data)) IO_M_Data_Out <= SPI_data;
+	if (theReset) IO_N_Data_Out <= 16'h00;
+		else if ((SPI_data_update) & (SPI_address[14:0] == A_IO_N_Data)) IO_N_Data_Out <= SPI_data;
+	if (theReset) IO_O_Data_Out <= 16'h00;
+		else if ((SPI_data_update) & (SPI_address[14:0] == A_IO_O_Data)) IO_O_Data_Out <= SPI_data;
+	if (theReset) IO_P_Data_Out <= 16'h00;
+		else if ((SPI_data_update) & (SPI_address[14:0] == A_IO_P_Data)) IO_P_Data_Out <= SPI_data;
 		
 end
 

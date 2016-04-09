@@ -7,7 +7,6 @@
 
 /* Includes */
 #include "thats_my_gui.h"
-#include "system.h"
 
 
 void my_GUI_ShowWelcome(alt_video_display *pDisplay){
@@ -81,7 +80,7 @@ void my_GUI(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
     alt_u32 ColorCalib[4]  = {WHITE_24, WHITE_24, CYAN_24, CYAN_24};
     alt_u32 ColorChoose[4] = {GREEN_24, GREEN_24, VIOLET_24, VIOLET_24};
 
-    volatile int * response = 0x4007440; //(int*) RESPONSETL24_BASE;
+    volatile int * response = (int*) RESPONSETL24_BASE;
 
     // clean screen
     vid_clean_screen(pDisplay, BLACK_24);

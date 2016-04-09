@@ -63,7 +63,6 @@ output		         		LT24_RS,
 output		         		LT24_LCD_ON
 );
 
-
 //=======================================================
 //   TL24 Interface
 //=======================================================
@@ -283,10 +282,10 @@ assign PIC32_RESET	= GPIO_2[10];
 
 
 //--- Assign GPIO_0 Header -----------------------------
-
 assign GPIO_0[0]     = Config[4];
-assign GPIO_0[33]    = Config[5];
 
+//assign GPIO_0[33]    = Config[5]; 
+assign GPIO_0[28]		= Config[5]; // !!!! C'était la pin 33 pas 28
 
 assign PIC32_C1RX    = GPIO_0[29];
 assign GPIO_0[30]    = PIC32_C1TX;
@@ -317,11 +316,12 @@ logic [2:0] dynSelector;
 logic [31:0] dynDataWrite,dynDataRead;
 logic UARTTX,UARTRX,UARTDIR;
 
-/*
-assign PropLeftCodeurA 		= GPIO_0[1];
-assign PropLeftCodeurB 		= GPIO_0[2];
-assign PropRightCodeurA 	= GPIO_0[3];
-assign PropRightCodeurB 	= GPIO_0[4];
+
+
+assign PropRightCodeurA 	= GPIO_0[1];
+assign PropRightCodeurB 	= GPIO_0[2];
+assign PropLeftCodeurA 		= GPIO_0[3];
+assign PropLeftCodeurB 		= GPIO_0[4];
 assign LaserCodeurA 			= GPIO_0[5];
 assign LaserCodeurB 			= GPIO_0[6];
 assign RateauLeftCodeurA 	= GPIO_0[7];
@@ -344,10 +344,11 @@ assign uSwitchRateauRight 	= GPIO_0[23];
 assign UartTx 					= GPIO_0[24];
 assign UartRx 					= GPIO_0[25];
 assign UartDir 				= GPIO_0[26];
-assign Start 					= GPIO_0[33];
+assign Start = GPIO_0[33];
+
 assign ID						= SW[0];
-*/
-assign LaserSync = GPIO_0[7];
+
+/*assign LaserSync = GPIO_0[7];
 assign LaserSign = GPIO_0[8];
 assign LaserCodeurA = GPIO_0[4];
 assign LaserCodeurB = GPIO_0[5];
@@ -359,7 +360,7 @@ assign PropRightCodeurB = GPIO_0_IN[1];
 
 assign UartTx = GPIO_0[26];
 assign UartRx = GPIO_0[24];
-assign UartDir = GPIO_0[22];
+assign UartDir = GPIO_0[22];*/
 
 //--- Gestion LED ---------------------------------------
 logic [31:0] TestCodeurs;
@@ -367,7 +368,7 @@ counter #(32) CompteurTest(LaserCodeurA,PIC32_RESET,TestCodeurs);
 
 assign LED = {~LaserSign, LaserSync, LaserCodeurA, LaserCodeurB, PropLeftCodeurA, PropLeftCodeurB, PropRightCodeurA, PropRightCodeurB}; //
 //assign LED = IO_N_Data_Out[7:0];
-
+//assign LED = {Start, Start, Start, Start, Start, Start, Start, Start};
 //--- Gestion Glitch et Compteur Codeur -----------------
 
 logic [15:0] CompteurLaser;
@@ -443,9 +444,9 @@ end
 always_ff@(posedge OdoLeftCodeurA)
 begin 
 	if(OdoLeftCodeurB)
-		positiveSpeedOdoL <= 'b1;
-	else
 		positiveSpeedOdoL <= 'b0;
+	else
+		positiveSpeedOdoL <= 'b1;
 end
 always_ff@(posedge OdoRightCodeurA)
 begin 

@@ -1,6 +1,6 @@
 Flow report for DE0_Nano
-Wed Apr 06 14:47:50 2016
-Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
+Fri Apr 08 15:58:13 2016
+Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Full Version
 
 
 ---------------------
@@ -38,26 +38,26 @@ agreement for further details.
 
 
 
-+---------------------------------------------------------------------------------+
-; Flow Summary                                                                    ;
-+------------------------------------+--------------------------------------------+
-; Flow Status                        ; Successful - Wed Apr 06 14:47:36 2016      ;
-; Quartus II 64-Bit Version          ; 15.0.0 Build 145 04/22/2015 SJ Web Edition ;
-; Revision Name                      ; DE0_Nano                                   ;
-; Top-level Entity Name              ; DE0_NANO                                   ;
-; Family                             ; Cyclone IV E                               ;
-; Device                             ; EP4CE22F17C6                               ;
-; Timing Models                      ; Final                                      ;
-; Total logic elements               ; 6,547 / 22,320 ( 29 % )                    ;
-;     Total combinational functions  ; 5,548 / 22,320 ( 25 % )                    ;
-;     Dedicated logic registers      ; 4,246 / 22,320 ( 19 % )                    ;
-; Total registers                    ; 4315                                       ;
-; Total pins                         ; 146 / 154 ( 95 % )                         ;
-; Total virtual pins                 ; 0                                          ;
-; Total memory bits                  ; 207,616 / 608,256 ( 34 % )                 ;
-; Embedded Multiplier 9-bit elements ; 4 / 132 ( 3 % )                            ;
-; Total PLLs                         ; 1 / 4 ( 25 % )                             ;
-+------------------------------------+--------------------------------------------+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++------------------------------------+---------------------------------------------+
+; Flow Status                        ; Successful - Fri Apr 08 15:58:03 2016       ;
+; Quartus II 64-Bit Version          ; 15.0.0 Build 145 04/22/2015 SJ Full Version ;
+; Revision Name                      ; DE0_Nano                                    ;
+; Top-level Entity Name              ; DE0_NANO                                    ;
+; Family                             ; Cyclone IV E                                ;
+; Device                             ; EP4CE22F17C6                                ;
+; Timing Models                      ; Final                                       ;
+; Total logic elements               ; 7,832 / 22,320 ( 35 % )                     ;
+;     Total combinational functions  ; 6,241 / 22,320 ( 28 % )                     ;
+;     Dedicated logic registers      ; 5,412 / 22,320 ( 24 % )                     ;
+; Total registers                    ; 5481                                        ;
+; Total pins                         ; 146 / 154 ( 95 % )                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 214,144 / 608,256 ( 35 % )                  ;
+; Embedded Multiplier 9-bit elements ; 4 / 132 ( 3 % )                             ;
+; Total PLLs                         ; 1 / 4 ( 25 % )                              ;
++------------------------------------+---------------------------------------------+
 
 
 +-----------------------------------------+
@@ -65,38 +65,65 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/06/2016 14:45:21 ;
+; Start date & time ; 04/08/2016 15:56:16 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DE0_Nano            ;
 +-------------------+---------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                   ;
-+-------------------------------------+-----------------------------------------------------------------+---------------+---------------+------------+
-; Assignment Name                     ; Value                                                           ; Default Value ; Entity Name   ; Section Id ;
-+-------------------------------------+-----------------------------------------------------------------+---------------+---------------+------------+
-; COMPILER_SIGNATURE_ID               ; 128497559651730.145994672008872                                 ; --            ; --            ; --         ;
-; IGNORE_PARTITIONS                   ; On                                                              ; Off           ; --            ; --         ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                                              ; --            ; --            ; --         ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                                               ; --            ; --            ; --         ;
-; MISC_FILE                           ; DE0_LT24_SOPC/synthesis/../DE0_LT24_SOPC.cmp                    ; --            ; --            ; --         ;
-; MISC_FILE                           ; DE0_LT24_SOPC/synthesis/../../DE0_LT24_SOPC.qsys                ; --            ; --            ; --         ;
-; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                               ; --            ; --            ; --         ;
-; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                               ; --            ; --            ; --         ;
-; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                      ; --            ; --            ; --         ;
-; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                      ; --            ; --            ; --         ;
-; PARTITION_COLOR                     ; 16764057                                                        ; --            ; DE0_NANO      ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                                           ; --            ; DE0_NANO      ; Top        ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                                                          ; --            ; DE0_NANO      ; Top        ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                             ; --            ; --            ; --         ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                           ; --            ; --            ; --         ;
-; SLD_FILE                            ; DE0_LT24_SOPC/synthesis/DE0_LT24_SOPC.regmap                    ; --            ; --            ; --         ;
-; SLD_FILE                            ; DE0_LT24_SOPC/synthesis/DE0_LT24_SOPC.debuginfo                 ; --            ; --            ; --         ;
-; SLD_INFO                            ; QSYS_NAME DE0_LT24_SOPC HAS_SOPCINFO 1 GENERATION_ID 1459874631 ; --            ; DE0_LT24_SOPC ; --         ;
-; SOPCINFO_FILE                       ; DE0_LT24_SOPC/synthesis/../../DE0_LT24_SOPC.sopcinfo            ; --            ; --            ; --         ;
-; SYNTHESIS_ONLY_QIP                  ; On                                                              ; --            ; --            ; --         ;
-+-------------------------------------+-----------------------------------------------------------------+---------------+---------------+------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                                                                                                                                           ;
++-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+---------------+------------------+
+; Assignment Name                     ; Value                                                                                                                                                                                             ; Default Value ; Entity Name   ; Section Id       ;
++-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+---------------+------------------+
+; COMPILER_SIGNATURE_ID               ; 47098636832.146012377607696                                                                                                                                                                       ; --            ; --            ; --               ;
+; ENABLE_SIGNALTAP                    ; On                                                                                                                                                                                                ; --            ; --            ; --               ;
+; IGNORE_PARTITIONS                   ; On                                                                                                                                                                                                ; Off           ; --            ; --               ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                                                                                                                                                                                ; --            ; --            ; --               ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                                                                                                                                                                                 ; --            ; --            ; --               ;
+; MISC_FILE                           ; DE0_LT24_SOPC/synthesis/../DE0_LT24_SOPC.cmp                                                                                                                                                      ; --            ; --            ; --               ;
+; MISC_FILE                           ; DE0_LT24_SOPC/synthesis/../../DE0_LT24_SOPC.qsys                                                                                                                                                  ; --            ; --            ; --               ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                                                                                                                                                                 ; --            ; --            ; --               ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                                                                                                                                                                 ; --            ; --            ; --               ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                                                                                                                                                        ; --            ; --            ; --               ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                                                                                                                                                        ; --            ; --            ; --               ;
+; PARTITION_COLOR                     ; 16764057                                                                                                                                                                                          ; --            ; DE0_NANO      ; Top              ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                                                                                                                                                                             ; --            ; DE0_NANO      ; Top              ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                                                                                                                                                                                            ; --            ; DE0_NANO      ; Top              ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                                                                                                                                                               ; --            ; --            ; --               ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                                                                                                                                             ; --            ; --            ; --               ;
+; SLD_FILE                            ; DE0_LT24_SOPC/synthesis/DE0_LT24_SOPC.regmap                                                                                                                                                      ; --            ; --            ; --               ;
+; SLD_FILE                            ; DE0_LT24_SOPC/synthesis/DE0_LT24_SOPC.debuginfo                                                                                                                                                   ; --            ; --            ; --               ;
+; SLD_FILE                            ; db/stp1_auto_stripped.stp                                                                                                                                                                         ; --            ; --            ; --               ;
+; SLD_INFO                            ; QSYS_NAME DE0_LT24_SOPC HAS_SOPCINFO 1 GENERATION_ID 1459874631                                                                                                                                   ; --            ; DE0_LT24_SOPC ; --               ;
+; SLD_NODE_CREATOR_ID                 ; 110                                                                                                                                                                                               ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_ENTITY_NAME                ; sld_signaltap                                                                                                                                                                                     ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_BLOCK_TYPE=AUTO                                                                                                                                                                           ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_NODE_INFO=805334528                                                                                                                                                                           ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_POWER_UP_TRIGGER=0                                                                                                                                                                            ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0                                                                                                                                                     ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ATTRIBUTE_MEM_MODE=OFF                                                                                                                                                                        ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_FLOW_USE_GENERATED=0                                                                                                                                                                    ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_BITS=11                                                                                                                                                                                 ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_BUFFER_FULL_STOP=1                                                                                                                                                                            ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_CURRENT_RESOURCE_WIDTH=1                                                                                                                                                                      ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INCREMENTAL_ROUTING=1                                                                                                                                                                         ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL=1                                                                                                                                                                               ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_IN_ENABLED=0                                                                                                                                                                          ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ADVANCED_TRIGGER_ENTITY=basic,1,                                                                                                                                                              ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL_PIPELINE=1                                                                                                                                                                      ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ENABLE_ADVANCED_TRIGGER=0                                                                                                                                                                     ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SEGMENT_SIZE=128                                                                                                                                                                              ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SAMPLE_DEPTH=128                                                                                                                                                                              ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_DATA_BITS=51                                                                                                                                                                                  ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_BITS=51                                                                                                                                                                               ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_BITS=51                                                                                                                                                                     ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK=000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 ; --            ; --            ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK_LENGTH=174                                                                                                                                                                     ; --            ; --            ; auto_signaltap_0 ;
+; SOPCINFO_FILE                       ; DE0_LT24_SOPC/synthesis/../../DE0_LT24_SOPC.sopcinfo                                                                                                                                              ; --            ; --            ; --               ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                                                                                                                                                                ; --            ; --            ; --               ;
+; USE_SIGNALTAP_FILE                  ; stp1.stp                                                                                                                                                                                          ; --            ; --            ; --               ;
++-------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+---------------+------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -104,11 +131,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:01:13     ; 1.0                     ; 975 MB              ; 00:01:53                           ;
-; Fitter                    ; 00:00:47     ; 1.5                     ; 1613 MB             ; 00:01:08                           ;
-; Assembler                 ; 00:00:03     ; 1.0                     ; 643 MB              ; 00:00:03                           ;
-; TimeQuest Timing Analyzer ; 00:00:10     ; 1.6                     ; 832 MB              ; 00:00:13                           ;
-; Total                     ; 00:02:13     ; --                      ; --                  ; 00:03:17                           ;
+; Analysis & Synthesis      ; 00:00:59     ; 1.0                     ; 995 MB              ; 00:01:15                           ;
+; Fitter                    ; 00:00:35     ; 1.4                     ; 1597 MB             ; 00:00:46                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 650 MB              ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:08     ; 1.2                     ; 855 MB              ; 00:00:09                           ;
+; Total                     ; 00:01:45     ; --                      ; --                  ; 00:02:12                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -117,10 +144,10 @@ agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; vianney          ; Windows 7 ; 6.1        ; x86_64         ;
-; Fitter                    ; vianney          ; Windows 7 ; 6.1        ; x86_64         ;
-; Assembler                 ; vianney          ; Windows 7 ; 6.1        ; x86_64         ;
-; TimeQuest Timing Analyzer ; vianney          ; Windows 7 ; 6.1        ; x86_64         ;
+; Analysis & Synthesis      ; FARADAY-07       ; Windows 7 ; 6.1        ; x86_64         ;
+; Fitter                    ; FARADAY-07       ; Windows 7 ; 6.1        ; x86_64         ;
+; Assembler                 ; FARADAY-07       ; Windows 7 ; 6.1        ; x86_64         ;
+; TimeQuest Timing Analyzer ; FARADAY-07       ; Windows 7 ; 6.1        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 

@@ -7,25 +7,17 @@
 
 <h1>ROUES</h1>
 <form method="get">
-Speed <input type="text" name="var1">
+SpeedL = <span id="var24Status" style="font-weight:normal">?</span>
 <br>
-Speed = <span id="var1Status" style="font-weight:normal">?</span>
+SpeedR = <span id="var25Status" style="font-weight:normal">?</span>
 <br>
-Kp <input type="text" name="var2">
+Kp <input type="text" name="var22">
 <br>
-Kp = <span id="var2Status" style="font-weight:normal">?</span>
+Kp = <span id="var22Status" style="font-weight:normal">?</span>
 <br>
-Ki <input type="text" name="var3">
+Ki <input type="text" name="var23">
 <br>
-Ki = <span id="var3Status" style="font-weight:normal">?</span>
-<br>
-position <input type="text" name="var4">
-<br>
-position = <span id="var4Status" style="font-weight:normal">?</span>
-<br>
-clicnumber: <input type="text" name="var5">
-<br>
-clicnumber = <span id="var5Status" style="font-weight:normal">?</span>
+Ki = <span id="var23Status" style="font-weight:normal">?</span>
 <input type="submit" value="Submit" class="btn">
 </form>
 
@@ -41,11 +33,10 @@ function updateStatus(xmlData) {
 	{
 		return;
 	}
-	document.getElementById('var1Status').innerHTML = getXMLValue(xmlData, 'var1Status');
-	document.getElementById('var2Status').innerHTML = getXMLValue(xmlData, 'var2Status');
-	document.getElementById('var3Status').innerHTML = getXMLValue(xmlData, 'var3Status');
-	document.getElementById('var4Status').innerHTML = getXMLValue(xmlData, 'var4Status');
-	document.getElementById('var5Status').innerHTML = getXMLValue(xmlData, 'var5Status');
+	document.getElementById('var24Status').innerHTML = getXMLValue(xmlData, 'var24Status');
+	document.getElementById('var25Status').innerHTML = getXMLValue(xmlData, 'var25Status');
+	document.getElementById('var22Status').innerHTML = getXMLValue(xmlData, 'var22Status');
+	document.getElementById('var23Status').innerHTML = getXMLValue(xmlData, 'var23Status');
 }
 setTimeout("newAJAXCommand('status.xml', updateStatus, true)",500);
 //-->

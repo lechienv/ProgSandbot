@@ -313,11 +313,11 @@ void RefreshWebVariables(CtrlStruct *cvs){
     cvs->MotorL->Ki = var23;
 
 
-    var1Status = 0;
+    var1Status = var1;
     var2Status = cvs->time;
-    var3Status = 0;
-    var4Status = 0;
-    var5Status = 0;
+    var3Status = var3;
+    var4Status = var4;
+    var5Status = var5;
     var6Status = cvs->Odo->x;
     var7Status = cvs->Odo->y;
     var8Status = cvs->Odo->theta;

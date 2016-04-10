@@ -14,6 +14,8 @@
 /*****************************************************************************
  * MAIN
  *****************************************************************************/
+
+#define WEB
 void MyMiniProjet_Task(void)
 {
 
@@ -71,18 +73,23 @@ void MyMiniProjet_Task(void)
             while((bool) extractBits(A,13,13)){
                 MyConsole_Task();
                 //MyCAN_Task();
-                //MyWIFI_Task();
+#ifdef WEB
+                MyWIFI_Task();
+#endif
                 unsigned long long currentTime = ReadCoreTimer();
                 if((double)(currentTime - previousTime) > TIMESTEP_REALBOT*(SYS_FREQ/2000)*1000){//
                     previousTime = currentTime;
                     controller_loop(cvs);          
-        #define TESTS
+        //#define TESTS
+
         #ifndef TESTS
                     if((double)(currentTime - previousTimeData) > TIME_DATAREFRESH*(SYS_FREQ/2000)*1000){//
                         previousTimeData = currentTime;
+#ifdef WEB
                         /* Refresh Web Variables */
-                        //RefreshWebVariables(cvs);
+                        RefreshWebVariables(cvs);
                         /* Save on SD */
+#else
                         if(!hasSaved){
                             AddElement(cvs->MotorL->speed, speedLSD);
                             MyDelayMs(1);
@@ -91,7 +98,9 @@ void MyMiniProjet_Task(void)
                             AddElement(cvs->timeStep,timeSD);
                             MyDelayMs(1);
                         }
+#endif
                     }
+#ifndef WEB
                     /* Stopping condition*/
                     //unsigned int A = MyCyclone_Read(CYCLONE_IO_A_Data);
                     //int newTurn = extractBits(A,15,15);
@@ -109,6 +118,7 @@ void MyMiniProjet_Task(void)
                         hasSaved = true;
                     }
         #endif
+#endif
                 }    
             }
         }

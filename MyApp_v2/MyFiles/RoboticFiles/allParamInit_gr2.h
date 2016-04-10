@@ -23,8 +23,8 @@ NAMESPACE_INIT(ctrlGr2);
     #define clicNumberR_DEFAULT     10000
     #define clicNumberL_DEFAULT     10000
     #define clicNumberTower_DEFAULT 1000
-    #define wheelRRadius_DEFAULT 0.023
-    #define wheelLRadius_DEFAULT 0.023
+    #define wheelRRadius_DEFAULT 0.022749
+    #define wheelLRadius_DEFAULT 0.022725
 #endif // MINIBOT
     #define clicNumberRatL_DEFAULT  10000
     #define clicNumberRatR_DEFAULT  10000
@@ -160,7 +160,7 @@ NAMESPACE_INIT(ctrlGr2);
  * PARAMS ***************************
  ***********************************/
 #define radiusBot_INIT			0.015
-#define width_INIT				0.225
+#define width_INIT				0.2625
 #define lengthTower_INIT		0.0833
 #define wheelLRadius_INIT		wheelLRadius_DEFAULT
 #define wheelRRadius_INIT		wheelRRadius_DEFAULT

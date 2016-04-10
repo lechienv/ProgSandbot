@@ -22,13 +22,13 @@ void OdometryLoop(CtrlStruct *cvs) {
 	cvs->Odo->y += dc * sin(DEGtoRAD*cvs->Odo->theta);
 	cvs->Odo->theta += RADtoDEG*phi;
 	
-	
+	/*
 	if (cvs->Odo->theta > 180) {
 		cvs->Odo->theta = cvs->Odo->theta - 360;
 	}
 	else if (cvs->Odo->theta < -180) {
 		cvs->Odo->theta = cvs->Odo->theta + 360;
-	}
+	}*/
 	
     /*char theStr[64];
     sprintf(theStr,"speedL =  %f \t speedR = %f \t x = %f \t y = %f \t", cvs->Odo->speedL, cvs->Odo->speedR, cvs->Odo->x, cvs->Odo->y);

@@ -167,30 +167,8 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
 		if(ptr)
 			LED4_IO = (*ptr == '1');
 	}
-	
-	else if(!memcmppgm2ram(filename, "duty.htm", 8))
-	{
-		// Seek out each of the four LED strings, and if it exists set the LED states
-		ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"TourelleDC");
-		if(ptr){
-            if(*ptr != '\0'){
-                TourelleDC = atoi(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"RightMotorDC");
-		if(ptr){
-            if(*ptr != '\0'){
-                RightMotorDCWeb = atoi(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"LeftMotorDC");
-		if(ptr){
-            if(*ptr != '\0'){
-                LeftMotorDCWeb = atoi(ptr);
-            }
-        }
-    }
-    else if(!memcmppgm2ram(filename, "gain.htm", 8))
+
+    if(!memcmppgm2ram(filename, "action.htm", 10))
 	{
         ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var1");
 		if(ptr){
@@ -222,46 +200,7 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
                 var5 = atof(ptr);
             }
         }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var6");
-		if(ptr){
-            if(*ptr != '\0'){
-                var6 = atof(ptr);
-            }
-        }
     }
-    else if(!memcmppgm2ram(filename, "roues.htm", 9))
-	{
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var1");
-		if(ptr){
-            if(*ptr != '\0'){
-                var1 = atof(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var2");
-		if(ptr){
-            if(*ptr != '\0'){
-                var2 = atof(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var3");
-		if(ptr){
-            if(*ptr != '\0'){
-                var3 = atof(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var4");
-		if(ptr){
-            if(*ptr != '\0'){
-                var4 = atof(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var5");
-		if(ptr){
-            if(*ptr != '\0'){
-                var5 = atof(ptr);
-            }
-        }
-     }
     
     else if(!memcmppgm2ram(filename, "odo.htm", 7))
 	{
@@ -283,28 +222,6 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
                 var8 = atof(ptr);
             }
         }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var24");
-		if(ptr){
-            if(*ptr != '\0'){
-                var24 = atof(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var25");
-		if(ptr){
-            if(*ptr != '\0'){
-                var25 = atof(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var26");
-		if(ptr){
-            if(*ptr != '\0'){
-                var26 = atof(ptr);
-            }
-        }
-     }
-    
-    else if(!memcmppgm2ram(filename, "pathplanning.htm", 16))
-	{
         ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var9");
 		if(ptr){
             if(*ptr != '\0'){
@@ -335,16 +252,17 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
                 var13 = atof(ptr);
             }
         }
-     }
-    
-    else if(!memcmppgm2ram(filename, "pince.htm", 9))
-	{
         ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var14");
 		if(ptr){
             if(*ptr != '\0'){
                 var14 = atof(ptr);
             }
         }
+     }
+        
+    else if(!memcmppgm2ram(filename, "thetaAligned.htm", 16))
+	{
+
         ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var15");
 		if(ptr){
             if(*ptr != '\0'){
@@ -363,16 +281,17 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
                 var17 = atof(ptr);
             }
         }
+     }
+    
+    else if(!memcmppgm2ram(filename, "pathplanning.htm", 16))
+	{
         ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var18");
 		if(ptr){
             if(*ptr != '\0'){
                 var18 = atof(ptr);
             }
         }
-     }
-    
-    else if(!memcmppgm2ram(filename, "rateau.htm", 10))
-	{
+        
         ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var19");
 		if(ptr){
             if(*ptr != '\0'){
@@ -391,6 +310,11 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
                 var21 = atof(ptr);
             }
         }
+    }
+
+    
+    else if(!memcmppgm2ram(filename, "roues.htm", 9))
+	{       
         ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var22");
 		if(ptr){
             if(*ptr != '\0'){
@@ -403,92 +327,16 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
                 var23 = atof(ptr);
             }
         }
-     }
-    
-    else if(!memcmppgm2ram(filename, "others.htm", 10))
-	{
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var27");
+        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var24");
 		if(ptr){
             if(*ptr != '\0'){
-                var27 = atof(ptr);
+                var24 = atof(ptr);
             }
         }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var28");
+        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var25");
 		if(ptr){
             if(*ptr != '\0'){
-                var28 = atof(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var29");
-		if(ptr){
-            if(*ptr != '\0'){
-                var29 = atof(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var30");
-		if(ptr){
-            if(*ptr != '\0'){
-                var30 = atof(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var31");
-		if(ptr){
-            if(*ptr != '\0'){
-                var31 = atof(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var32");
-		if(ptr){
-            if(*ptr != '\0'){
-                var32 = atof(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var33");
-		if(ptr){
-            if(*ptr != '\0'){
-                var33 = atof(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var34");
-		if(ptr){
-            if(*ptr != '\0'){
-                var34 = atof(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var35");
-		if(ptr){
-            if(*ptr != '\0'){
-                var35 = atof(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var36");
-		if(ptr){
-            if(*ptr != '\0'){
-                var36 = atof(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var37");
-		if(ptr){
-            if(*ptr != '\0'){
-                var37 = atof(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var38");
-		if(ptr){
-            if(*ptr != '\0'){
-                var38 = atof(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var39");
-		if(ptr){
-            if(*ptr != '\0'){
-                var39 = atof(ptr);
-            }
-        }
-        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var40");
-		if(ptr){
-            if(*ptr != '\0'){
-                var40 = atof(ptr);
+                var25 = atof(ptr);
             }
         }
      }

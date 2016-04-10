@@ -17,8 +17,8 @@ NAMESPACE_INIT(ctrlGr2);
 #ifdef REALBOT
 void StrategyTest(CtrlStruct *cvs);
 void TorqueControl(Motor *Motor, double torqueRef);
-void Action1Test(CtrlStruct *cvs, double speedRef);
-void Action2Test(CtrlStruct *cvs, double torqueRef);
+void Action1Test(CtrlStruct *cvs);
+void Action2Test(CtrlStruct *cvs);
 void Action3Test(CtrlStruct *cvs);
 void Action4Test(CtrlStruct *cvs);
 void Action5Test(CtrlStruct *cvs);

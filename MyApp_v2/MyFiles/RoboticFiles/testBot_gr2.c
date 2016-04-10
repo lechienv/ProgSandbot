@@ -16,30 +16,30 @@ void TorqueControl(Motor *Motor, double torqueRef) {
 	Motor->dutyCycle += voltage*VOLTtoDC;
 }
 
-void Action1Test(CtrlStruct *cvs, double speedRef){
-    SpeedRefToDC(cvs, cvs->MotorL, speedRef);
-    SpeedRefToDC(cvs, cvs->MotorR, speedRef);
+void Action1Test(CtrlStruct *cvs){
+    SpeedRefToDC(cvs, cvs->MotorL, var3);
+    SpeedRefToDC(cvs, cvs->MotorR, var4);
 }
 
-void Action2Test(CtrlStruct *cvs, double torqueRef){
+void Action2Test(CtrlStruct *cvs){
     if (!cvs->Sensors->uSwitchPinceIn) {
-		TorqueControl(cvs->MotorPince,torqueRef);
+		TorqueControl(cvs->MotorPince,var3);
     }
     if(cvs->Sensors->uSwitchPinceOut){
         cvs->MotorPince->dutyCycle = 0;
     }
 }
 void Action3Test(CtrlStruct *cvs){
-    bool result = ReachPointPotential(cvs,-0.8, 0.8, 0.1);
+    bool result = ReachPointPotential(cvs,var3, var4, var5);
 }
 
 void Action4Test(CtrlStruct *cvs){
-    cvs->MotorL->dutyCycle = RightMotorDC;
-    cvs->MotorR->dutyCycle = RightMotorDC;
-    cvs->MotorPince->dutyCycle = RightMotorDC;
-    cvs->MotorRatL->dutyCycle = RightMotorDC;
-    cvs->MotorRatR->dutyCycle = RightMotorDC;
-    cvs->MotorTower->dutyCycle = RightMotorDC;
+    cvs->MotorL->dutyCycle = LeftMotorDC;//RightMotorDC;
+    cvs->MotorR->dutyCycle = RightMotorDC;// RightMotorDC;
+    cvs->MotorTower->dutyCycle = TourelleDC;
+    cvs->MotorRatL->dutyCycle = RateauLDC; //RightMotorDC;//RightMotorDC;
+    cvs->MotorRatR->dutyCycle = RateauRDC; //RightMotorDC;//RightMotorDC;
+    cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;
 }
 
 void Action5Test(CtrlStruct *cvs){
@@ -102,53 +102,64 @@ void Action11Test(CtrlStruct *cvs){
 }
 
 void Action12Test(CtrlStruct *cvs){
-    ReachPointPotential(cvs,var38, var39, 0.005);
+    IsAlignedWithTheta(cvs,var3,var4);
 }
 
 void Action13Test(CtrlStruct *cvs){
-    IsAlignedWithTheta(cvs,var39,0.1);
+    if(cvs->Odo->x < var3){
+        SpeedRefToDC(cvs,cvs->MotorL,var4);
+        SpeedRefToDC(cvs,cvs->MotorR,var5);
+    }
+}
+
+void Action14Test(CtrlStruct *cvs){
+    cvs->Odo->x = var3;
+    cvs->Odo->y = var4;
+    cvs->Odo->theta = var5;
 }
 
 void StrategyTest(CtrlStruct *cvs){
-    char theStr[256];
-    if(var40 == 1){
-        Action1Test(cvs, var38);
+    if(var1 == 1){
+        Action1Test(cvs);
     }
-    else if(var40 == 2){
-        Action2Test(cvs,var39);
+    else if(var1 == 2){
+        Action2Test(cvs);
     }
-    else if(var40 == 3){
+    else if(var1 == 3){
         Action3Test(cvs);
     }
-    else if(var40 == 4){
+    else if(var1 == 4){
         Action4Test(cvs);
     }
-    else if(var40 == 5){
+    else if(var1 == 5){
         Action5Test(cvs);
     }
-    else if(var40 == 6){
+    else if(var1 == 6){
         Action6Test(cvs);
     }
-    else if(var40 == 7){
+    else if(var1 == 7){
         Action7Test(cvs);
     }
-    else if(var40 == 8){
+    else if(var1 == 8){
         Action8Test(cvs);
     }
-    else if(var40 == 9){
+    else if(var1 == 9){
         Action9Test(cvs);
     }
-    else if(var40 == 10){
+    else if(var1 == 10){
         Action10Test(cvs);
     }
-    else if(var40 == 11){
+    else if(var1 == 11){
         Action11Test(cvs);
     }
-    else if(var40 == 12){
+    else if(var1 == 12){
         Action12Test(cvs);
     }
-    else if(var40 == 13){
+    else if(var1 == 13){
         Action13Test(cvs);
+    }
+    else if(var1 == 14){
+        Action14Test(cvs);
     }
 }
 #endif // REALBOT

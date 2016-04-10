@@ -155,6 +155,8 @@ void InitParam(CtrlStruct *cvs) {
 	cvs->Param->width				= width_INIT;
 	cvs->Param->lengthTower			= lengthTower_INIT;
 	cvs->Param->rayonBeacon			= rayonBeacon_INIT;
+    cvs->Param->wheelLRadius        = wheelLRadius_INIT;
+    cvs->Param->wheelRRadius        = wheelRRadius_INIT;
 	cvs->Param->wheelRadius			= wheelRadius_INIT;
 	cvs->Param->KpRot				= KpRot_INIT;
 	cvs->Param->KiRot				= KiRot_INIT;

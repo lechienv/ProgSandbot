@@ -82,6 +82,8 @@ typedef struct Parametres {
 	double radiusBot;
 	double width;
 	double lengthTower;
+    double wheelRRadius;
+    double wheelLRadius;
 	double wheelRadius;
 	double KpRot;
 	double KiRot;

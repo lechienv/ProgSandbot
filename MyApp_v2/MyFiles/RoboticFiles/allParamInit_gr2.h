@@ -155,6 +155,8 @@ NAMESPACE_INIT(ctrlGr2);
 #define radiusBot_INIT			0.015
 #define width_INIT				0.225
 #define lengthTower_INIT		0.0833
+#define wheelLRadius_INIT		0.03
+#define wheelRRadius_INIT		0.03
 #define wheelRadius_INIT		0.03
 #define KpRot_INIT				0.1
 #define KiRot_INIT				0.2

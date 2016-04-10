@@ -98,1034 +98,1034 @@ ${OBJECTDIR}/Microchip/Common/TimeDelay.o: Microchip/Common/TimeDelay.c  nbproje
 	@${MKDIR} "${OBJECTDIR}/Microchip/Common" 
 	@${RM} ${OBJECTDIR}/Microchip/Common/TimeDelay.o.d 
 	@${RM} ${OBJECTDIR}/Microchip/Common/TimeDelay.o 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/Common/TimeDelay.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/Common/TimeDelay.o.d" -o ${OBJECTDIR}/Microchip/Common/TimeDelay.o Microchip/Common/TimeDelay.c     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/Common/TimeDelay.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/Common/TimeDelay.o.d" -o ${OBJECTDIR}/Microchip/Common/TimeDelay.o Microchip/Common/TimeDelay.c   
 	
 ${OBJECTDIR}/Microchip/MDD\ File\ System/FSIO.o: Microchip/MDD\ File\ System/FSIO.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/MDD File System" 
 	@${RM} "${OBJECTDIR}/Microchip/MDD File System/FSIO.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/MDD File System/FSIO.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/MDD File System/FSIO.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/MDD File System/FSIO.o.d" -o "${OBJECTDIR}/Microchip/MDD File System/FSIO.o" "Microchip/MDD File System/FSIO.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/MDD File System/FSIO.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/MDD File System/FSIO.o.d" -o "${OBJECTDIR}/Microchip/MDD File System/FSIO.o" "Microchip/MDD File System/FSIO.c"   
 	
 ${OBJECTDIR}/Microchip/MDD\ File\ System/SD-SPI.o: Microchip/MDD\ File\ System/SD-SPI.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/MDD File System" 
 	@${RM} "${OBJECTDIR}/Microchip/MDD File System/SD-SPI.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/MDD File System/SD-SPI.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/MDD File System/SD-SPI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/MDD File System/SD-SPI.o.d" -o "${OBJECTDIR}/Microchip/MDD File System/SD-SPI.o" "Microchip/MDD File System/SD-SPI.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/MDD File System/SD-SPI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/MDD File System/SD-SPI.o.d" -o "${OBJECTDIR}/Microchip/MDD File System/SD-SPI.o" "Microchip/MDD File System/SD-SPI.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFConnectionAlgorithm.o: Microchip/TCPIP\ Stack/WIFI/WFConnectionAlgorithm.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.o" "Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.o" "Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFConnectionManager.o: Microchip/TCPIP\ Stack/WIFI/WFConnectionManager.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionManager.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionManager.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionManager.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionManager.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionManager.o" "Microchip/TCPIP Stack/WIFI/WFConnectionManager.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionManager.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionManager.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionManager.o" "Microchip/TCPIP Stack/WIFI/WFConnectionManager.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFConnectionProfile.o: Microchip/TCPIP\ Stack/WIFI/WFConnectionProfile.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionProfile.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionProfile.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionProfile.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionProfile.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionProfile.o" "Microchip/TCPIP Stack/WIFI/WFConnectionProfile.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionProfile.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionProfile.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionProfile.o" "Microchip/TCPIP Stack/WIFI/WFConnectionProfile.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFDataTxRx.o: Microchip/TCPIP\ Stack/WIFI/WFDataTxRx.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDataTxRx.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDataTxRx.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDataTxRx.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDataTxRx.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDataTxRx.o" "Microchip/TCPIP Stack/WIFI/WFDataTxRx.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDataTxRx.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDataTxRx.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDataTxRx.o" "Microchip/TCPIP Stack/WIFI/WFDataTxRx.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFDriverCom.o: Microchip/TCPIP\ Stack/WIFI/WFDriverCom.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverCom.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverCom.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverCom.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverCom.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverCom.o" "Microchip/TCPIP Stack/WIFI/WFDriverCom.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverCom.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverCom.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverCom.o" "Microchip/TCPIP Stack/WIFI/WFDriverCom.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFDriverRaw.o: Microchip/TCPIP\ Stack/WIFI/WFDriverRaw.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverRaw.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverRaw.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverRaw.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverRaw.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverRaw.o" "Microchip/TCPIP Stack/WIFI/WFDriverRaw.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverRaw.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverRaw.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverRaw.o" "Microchip/TCPIP Stack/WIFI/WFDriverRaw.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFEventHandler.o: Microchip/TCPIP\ Stack/WIFI/WFEventHandler.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFEventHandler.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFEventHandler.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFEventHandler.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFEventHandler.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFEventHandler.o" "Microchip/TCPIP Stack/WIFI/WFEventHandler.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFEventHandler.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFEventHandler.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFEventHandler.o" "Microchip/TCPIP Stack/WIFI/WFEventHandler.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFInit.o: Microchip/TCPIP\ Stack/WIFI/WFInit.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFInit.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFInit.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFInit.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFInit.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFInit.o" "Microchip/TCPIP Stack/WIFI/WFInit.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFInit.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFInit.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFInit.o" "Microchip/TCPIP Stack/WIFI/WFInit.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFMac.o: Microchip/TCPIP\ Stack/WIFI/WFMac.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMac.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMac.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMac.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMac.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMac.o" "Microchip/TCPIP Stack/WIFI/WFMac.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMac.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMac.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMac.o" "Microchip/TCPIP Stack/WIFI/WFMac.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFMgmtMsg.o: Microchip/TCPIP\ Stack/WIFI/WFMgmtMsg.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMgmtMsg.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMgmtMsg.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMgmtMsg.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMgmtMsg.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMgmtMsg.o" "Microchip/TCPIP Stack/WIFI/WFMgmtMsg.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMgmtMsg.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMgmtMsg.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMgmtMsg.o" "Microchip/TCPIP Stack/WIFI/WFMgmtMsg.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFParamMsg.o: Microchip/TCPIP\ Stack/WIFI/WFParamMsg.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFParamMsg.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFParamMsg.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFParamMsg.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFParamMsg.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFParamMsg.o" "Microchip/TCPIP Stack/WIFI/WFParamMsg.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFParamMsg.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFParamMsg.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFParamMsg.o" "Microchip/TCPIP Stack/WIFI/WFParamMsg.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFPowerSave.o: Microchip/TCPIP\ Stack/WIFI/WFPowerSave.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFPowerSave.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFPowerSave.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFPowerSave.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFPowerSave.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFPowerSave.o" "Microchip/TCPIP Stack/WIFI/WFPowerSave.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFPowerSave.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFPowerSave.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFPowerSave.o" "Microchip/TCPIP Stack/WIFI/WFPowerSave.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFScan.o: Microchip/TCPIP\ Stack/WIFI/WFScan.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFScan.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFScan.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFScan.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFScan.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFScan.o" "Microchip/TCPIP Stack/WIFI/WFScan.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFScan.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFScan.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFScan.o" "Microchip/TCPIP Stack/WIFI/WFScan.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFTxPower.o: Microchip/TCPIP\ Stack/WIFI/WFTxPower.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFTxPower.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFTxPower.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFTxPower.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFTxPower.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFTxPower.o" "Microchip/TCPIP Stack/WIFI/WFTxPower.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFTxPower.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFTxPower.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFTxPower.o" "Microchip/TCPIP Stack/WIFI/WFTxPower.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WF_Eint.o: Microchip/TCPIP\ Stack/WIFI/WF_Eint.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Eint.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Eint.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Eint.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Eint.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Eint.o" "Microchip/TCPIP Stack/WIFI/WF_Eint.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Eint.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Eint.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Eint.o" "Microchip/TCPIP Stack/WIFI/WF_Eint.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WF_Spi.o: Microchip/TCPIP\ Stack/WIFI/WF_Spi.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Spi.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Spi.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Spi.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Spi.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Spi.o" "Microchip/TCPIP Stack/WIFI/WF_Spi.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Spi.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Spi.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Spi.o" "Microchip/TCPIP Stack/WIFI/WF_Spi.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WiFi/WF_pbkdf2.o: Microchip/TCPIP\ Stack/WiFi/WF_pbkdf2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WiFi" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WiFi/WF_pbkdf2.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WiFi/WF_pbkdf2.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WiFi/WF_pbkdf2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WiFi/WF_pbkdf2.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WiFi/WF_pbkdf2.o" "Microchip/TCPIP Stack/WiFi/WF_pbkdf2.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WiFi/WF_pbkdf2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WiFi/WF_pbkdf2.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WiFi/WF_pbkdf2.o" "Microchip/TCPIP Stack/WiFi/WF_pbkdf2.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/ARP.o: Microchip/TCPIP\ Stack/ARP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/ARP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/ARP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/ARP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/ARP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/ARP.o" "Microchip/TCPIP Stack/ARP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/ARP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/ARP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/ARP.o" "Microchip/TCPIP Stack/ARP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/Announce.o: Microchip/TCPIP\ Stack/Announce.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Announce.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Announce.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Announce.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Announce.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Announce.o" "Microchip/TCPIP Stack/Announce.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Announce.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Announce.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Announce.o" "Microchip/TCPIP Stack/Announce.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/AutoIP.o: Microchip/TCPIP\ Stack/AutoIP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/AutoIP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/AutoIP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/AutoIP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/AutoIP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/AutoIP.o" "Microchip/TCPIP Stack/AutoIP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/AutoIP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/AutoIP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/AutoIP.o" "Microchip/TCPIP Stack/AutoIP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/BerkeleyAPI.o: Microchip/TCPIP\ Stack/BerkeleyAPI.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/BerkeleyAPI.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/BerkeleyAPI.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/BerkeleyAPI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/BerkeleyAPI.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/BerkeleyAPI.o" "Microchip/TCPIP Stack/BerkeleyAPI.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/BerkeleyAPI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/BerkeleyAPI.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/BerkeleyAPI.o" "Microchip/TCPIP Stack/BerkeleyAPI.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/DHCP.o: Microchip/TCPIP\ Stack/DHCP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DHCP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DHCP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DHCP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DHCP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DHCP.o" "Microchip/TCPIP Stack/DHCP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DHCP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DHCP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DHCP.o" "Microchip/TCPIP Stack/DHCP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/DHCPs.o: Microchip/TCPIP\ Stack/DHCPs.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DHCPs.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DHCPs.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DHCPs.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DHCPs.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DHCPs.o" "Microchip/TCPIP Stack/DHCPs.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DHCPs.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DHCPs.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DHCPs.o" "Microchip/TCPIP Stack/DHCPs.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/DNS.o: Microchip/TCPIP\ Stack/DNS.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DNS.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DNS.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DNS.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DNS.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DNS.o" "Microchip/TCPIP Stack/DNS.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DNS.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DNS.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DNS.o" "Microchip/TCPIP Stack/DNS.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/DNSs.o: Microchip/TCPIP\ Stack/DNSs.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DNSs.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DNSs.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DNSs.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DNSs.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DNSs.o" "Microchip/TCPIP Stack/DNSs.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DNSs.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DNSs.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DNSs.o" "Microchip/TCPIP Stack/DNSs.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/DynDNS.o: Microchip/TCPIP\ Stack/DynDNS.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DynDNS.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DynDNS.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DynDNS.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DynDNS.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DynDNS.o" "Microchip/TCPIP Stack/DynDNS.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DynDNS.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DynDNS.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DynDNS.o" "Microchip/TCPIP Stack/DynDNS.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/FTP.o: Microchip/TCPIP\ Stack/FTP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/FTP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/FTP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/FTP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/FTP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/FTP.o" "Microchip/TCPIP Stack/FTP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/FTP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/FTP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/FTP.o" "Microchip/TCPIP Stack/FTP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/FileSystem.o: Microchip/TCPIP\ Stack/FileSystem.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/FileSystem.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/FileSystem.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/FileSystem.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/FileSystem.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/FileSystem.o" "Microchip/TCPIP Stack/FileSystem.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/FileSystem.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/FileSystem.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/FileSystem.o" "Microchip/TCPIP Stack/FileSystem.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/HTTP2.o: Microchip/TCPIP\ Stack/HTTP2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/HTTP2.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/HTTP2.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/HTTP2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/HTTP2.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/HTTP2.o" "Microchip/TCPIP Stack/HTTP2.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/HTTP2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/HTTP2.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/HTTP2.o" "Microchip/TCPIP Stack/HTTP2.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/Hashes.o: Microchip/TCPIP\ Stack/Hashes.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Hashes.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Hashes.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Hashes.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Hashes.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Hashes.o" "Microchip/TCPIP Stack/Hashes.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Hashes.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Hashes.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Hashes.o" "Microchip/TCPIP Stack/Hashes.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/Helpers.o: Microchip/TCPIP\ Stack/Helpers.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Helpers.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Helpers.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Helpers.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Helpers.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Helpers.o" "Microchip/TCPIP Stack/Helpers.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Helpers.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Helpers.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Helpers.o" "Microchip/TCPIP Stack/Helpers.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/ICMP.o: Microchip/TCPIP\ Stack/ICMP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/ICMP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/ICMP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/ICMP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/ICMP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/ICMP.o" "Microchip/TCPIP Stack/ICMP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/ICMP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/ICMP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/ICMP.o" "Microchip/TCPIP Stack/ICMP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/IP.o: Microchip/TCPIP\ Stack/IP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/IP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/IP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/IP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/IP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/IP.o" "Microchip/TCPIP Stack/IP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/IP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/IP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/IP.o" "Microchip/TCPIP Stack/IP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/MPFS2.o: Microchip/TCPIP\ Stack/MPFS2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/MPFS2.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/MPFS2.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/MPFS2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/MPFS2.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/MPFS2.o" "Microchip/TCPIP Stack/MPFS2.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/MPFS2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/MPFS2.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/MPFS2.o" "Microchip/TCPIP Stack/MPFS2.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/NBNS.o: Microchip/TCPIP\ Stack/NBNS.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/NBNS.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/NBNS.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/NBNS.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/NBNS.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/NBNS.o" "Microchip/TCPIP Stack/NBNS.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/NBNS.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/NBNS.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/NBNS.o" "Microchip/TCPIP Stack/NBNS.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/RSA.o: Microchip/TCPIP\ Stack/RSA.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/RSA.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/RSA.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/RSA.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/RSA.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/RSA.o" "Microchip/TCPIP Stack/RSA.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/RSA.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/RSA.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/RSA.o" "Microchip/TCPIP Stack/RSA.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/Random.o: Microchip/TCPIP\ Stack/Random.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Random.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Random.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Random.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Random.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Random.o" "Microchip/TCPIP Stack/Random.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Random.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Random.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Random.o" "Microchip/TCPIP Stack/Random.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/Reboot.o: Microchip/TCPIP\ Stack/Reboot.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Reboot.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Reboot.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Reboot.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Reboot.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Reboot.o" "Microchip/TCPIP Stack/Reboot.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Reboot.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Reboot.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Reboot.o" "Microchip/TCPIP Stack/Reboot.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/SMTP.o: Microchip/TCPIP\ Stack/SMTP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SMTP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SMTP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SMTP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SMTP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SMTP.o" "Microchip/TCPIP Stack/SMTP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SMTP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SMTP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SMTP.o" "Microchip/TCPIP Stack/SMTP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/SNMP.o: Microchip/TCPIP\ Stack/SNMP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SNMP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SNMP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SNMP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SNMP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SNMP.o" "Microchip/TCPIP Stack/SNMP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SNMP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SNMP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SNMP.o" "Microchip/TCPIP Stack/SNMP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/SNMPv3.o: Microchip/TCPIP\ Stack/SNMPv3.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SNMPv3.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SNMPv3.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SNMPv3.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SNMPv3.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SNMPv3.o" "Microchip/TCPIP Stack/SNMPv3.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SNMPv3.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SNMPv3.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SNMPv3.o" "Microchip/TCPIP Stack/SNMPv3.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/SNTP.o: Microchip/TCPIP\ Stack/SNTP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SNTP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SNTP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SNTP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SNTP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SNTP.o" "Microchip/TCPIP Stack/SNTP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SNTP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SNTP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SNTP.o" "Microchip/TCPIP Stack/SNTP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/SPIFlash.o: Microchip/TCPIP\ Stack/SPIFlash.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SPIFlash.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SPIFlash.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SPIFlash.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SPIFlash.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SPIFlash.o" "Microchip/TCPIP Stack/SPIFlash.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SPIFlash.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SPIFlash.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SPIFlash.o" "Microchip/TCPIP Stack/SPIFlash.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/SSL.o: Microchip/TCPIP\ Stack/SSL.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SSL.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SSL.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SSL.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SSL.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SSL.o" "Microchip/TCPIP Stack/SSL.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SSL.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SSL.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SSL.o" "Microchip/TCPIP Stack/SSL.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/StackTsk.o: Microchip/TCPIP\ Stack/StackTsk.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/StackTsk.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/StackTsk.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/StackTsk.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/StackTsk.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/StackTsk.o" "Microchip/TCPIP Stack/StackTsk.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/StackTsk.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/StackTsk.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/StackTsk.o" "Microchip/TCPIP Stack/StackTsk.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/TCP.o: Microchip/TCPIP\ Stack/TCP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/TCP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/TCP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/TCP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/TCP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/TCP.o" "Microchip/TCPIP Stack/TCP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/TCP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/TCP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/TCP.o" "Microchip/TCPIP Stack/TCP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/TCPPerformanceTest.o: Microchip/TCPIP\ Stack/TCPPerformanceTest.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/TCPPerformanceTest.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/TCPPerformanceTest.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/TCPPerformanceTest.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/TCPPerformanceTest.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/TCPPerformanceTest.o" "Microchip/TCPIP Stack/TCPPerformanceTest.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/TCPPerformanceTest.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/TCPPerformanceTest.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/TCPPerformanceTest.o" "Microchip/TCPIP Stack/TCPPerformanceTest.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/TFTPc.o: Microchip/TCPIP\ Stack/TFTPc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/TFTPc.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/TFTPc.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/TFTPc.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/TFTPc.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/TFTPc.o" "Microchip/TCPIP Stack/TFTPc.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/TFTPc.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/TFTPc.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/TFTPc.o" "Microchip/TCPIP Stack/TFTPc.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/Telnet.o: Microchip/TCPIP\ Stack/Telnet.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Telnet.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Telnet.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Telnet.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Telnet.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Telnet.o" "Microchip/TCPIP Stack/Telnet.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Telnet.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Telnet.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Telnet.o" "Microchip/TCPIP Stack/Telnet.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/Tick.o: Microchip/TCPIP\ Stack/Tick.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Tick.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Tick.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Tick.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Tick.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Tick.o" "Microchip/TCPIP Stack/Tick.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Tick.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Tick.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Tick.o" "Microchip/TCPIP Stack/Tick.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/UDP.o: Microchip/TCPIP\ Stack/UDP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/UDP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/UDP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/UDP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/UDP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/UDP.o" "Microchip/TCPIP Stack/UDP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/UDP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/UDP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/UDP.o" "Microchip/TCPIP Stack/UDP.c"   
 	
 ${OBJECTDIR}/Microchip/Transceivers/MRF24J40/MRF24J40.o: Microchip/Transceivers/MRF24J40/MRF24J40.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/Transceivers/MRF24J40" 
 	@${RM} ${OBJECTDIR}/Microchip/Transceivers/MRF24J40/MRF24J40.o.d 
 	@${RM} ${OBJECTDIR}/Microchip/Transceivers/MRF24J40/MRF24J40.o 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/Transceivers/MRF24J40/MRF24J40.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/Transceivers/MRF24J40/MRF24J40.o.d" -o ${OBJECTDIR}/Microchip/Transceivers/MRF24J40/MRF24J40.o Microchip/Transceivers/MRF24J40/MRF24J40.c     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/Transceivers/MRF24J40/MRF24J40.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/Transceivers/MRF24J40/MRF24J40.o.d" -o ${OBJECTDIR}/Microchip/Transceivers/MRF24J40/MRF24J40.o Microchip/Transceivers/MRF24J40/MRF24J40.c   
 	
 ${OBJECTDIR}/Microchip/Transceivers/crc.o: Microchip/Transceivers/crc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/Transceivers" 
 	@${RM} ${OBJECTDIR}/Microchip/Transceivers/crc.o.d 
 	@${RM} ${OBJECTDIR}/Microchip/Transceivers/crc.o 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/Transceivers/crc.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/Transceivers/crc.o.d" -o ${OBJECTDIR}/Microchip/Transceivers/crc.o Microchip/Transceivers/crc.c     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/Transceivers/crc.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/Transceivers/crc.o.d" -o ${OBJECTDIR}/Microchip/Transceivers/crc.o Microchip/Transceivers/crc.c   
 	
 ${OBJECTDIR}/Microchip/Transceivers/security.o: Microchip/Transceivers/security.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/Transceivers" 
 	@${RM} ${OBJECTDIR}/Microchip/Transceivers/security.o.d 
 	@${RM} ${OBJECTDIR}/Microchip/Transceivers/security.o 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/Transceivers/security.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/Transceivers/security.o.d" -o ${OBJECTDIR}/Microchip/Transceivers/security.o Microchip/Transceivers/security.c     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/Transceivers/security.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/Transceivers/security.o.d" -o ${OBJECTDIR}/Microchip/Transceivers/security.o Microchip/Transceivers/security.c   
 	
 ${OBJECTDIR}/Microchip/WirelessProtocols/P2P/P2P.o: Microchip/WirelessProtocols/P2P/P2P.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/WirelessProtocols/P2P" 
 	@${RM} ${OBJECTDIR}/Microchip/WirelessProtocols/P2P/P2P.o.d 
 	@${RM} ${OBJECTDIR}/Microchip/WirelessProtocols/P2P/P2P.o 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/WirelessProtocols/P2P/P2P.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/WirelessProtocols/P2P/P2P.o.d" -o ${OBJECTDIR}/Microchip/WirelessProtocols/P2P/P2P.o Microchip/WirelessProtocols/P2P/P2P.c     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/WirelessProtocols/P2P/P2P.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/WirelessProtocols/P2P/P2P.o.d" -o ${OBJECTDIR}/Microchip/WirelessProtocols/P2P/P2P.o Microchip/WirelessProtocols/P2P/P2P.c   
 	
 ${OBJECTDIR}/Microchip/WirelessProtocols/SymbolTime.o: Microchip/WirelessProtocols/SymbolTime.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/WirelessProtocols" 
 	@${RM} ${OBJECTDIR}/Microchip/WirelessProtocols/SymbolTime.o.d 
 	@${RM} ${OBJECTDIR}/Microchip/WirelessProtocols/SymbolTime.o 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/WirelessProtocols/SymbolTime.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/WirelessProtocols/SymbolTime.o.d" -o ${OBJECTDIR}/Microchip/WirelessProtocols/SymbolTime.o Microchip/WirelessProtocols/SymbolTime.c     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/WirelessProtocols/SymbolTime.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/WirelessProtocols/SymbolTime.o.d" -o ${OBJECTDIR}/Microchip/WirelessProtocols/SymbolTime.o Microchip/WirelessProtocols/SymbolTime.c   
 	
 ${OBJECTDIR}/MyFiles/RoboticFiles/allParamInit_gr2.o: MyFiles/RoboticFiles/allParamInit_gr2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles/RoboticFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/allParamInit_gr2.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/allParamInit_gr2.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/allParamInit_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/allParamInit_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/allParamInit_gr2.o MyFiles/RoboticFiles/allParamInit_gr2.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/allParamInit_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/allParamInit_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/allParamInit_gr2.o MyFiles/RoboticFiles/allParamInit_gr2.c   
 	
 ${OBJECTDIR}/MyFiles/RoboticFiles/controller_gr2.o: MyFiles/RoboticFiles/controller_gr2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles/RoboticFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/controller_gr2.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/controller_gr2.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/controller_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/controller_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/controller_gr2.o MyFiles/RoboticFiles/controller_gr2.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/controller_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/controller_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/controller_gr2.o MyFiles/RoboticFiles/controller_gr2.c   
 	
 ${OBJECTDIR}/MyFiles/RoboticFiles/odometry_gr2.o: MyFiles/RoboticFiles/odometry_gr2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles/RoboticFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/odometry_gr2.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/odometry_gr2.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/odometry_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/odometry_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/odometry_gr2.o MyFiles/RoboticFiles/odometry_gr2.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/odometry_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/odometry_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/odometry_gr2.o MyFiles/RoboticFiles/odometry_gr2.c   
 	
 ${OBJECTDIR}/MyFiles/RoboticFiles/pathplanning_gr2.o: MyFiles/RoboticFiles/pathplanning_gr2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles/RoboticFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/pathplanning_gr2.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/pathplanning_gr2.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/pathplanning_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/pathplanning_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/pathplanning_gr2.o MyFiles/RoboticFiles/pathplanning_gr2.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/pathplanning_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/pathplanning_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/pathplanning_gr2.o MyFiles/RoboticFiles/pathplanning_gr2.c   
 	
 ${OBJECTDIR}/MyFiles/RoboticFiles/strategy_gr2.o: MyFiles/RoboticFiles/strategy_gr2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles/RoboticFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/strategy_gr2.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/strategy_gr2.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/strategy_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/strategy_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/strategy_gr2.o MyFiles/RoboticFiles/strategy_gr2.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/strategy_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/strategy_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/strategy_gr2.o MyFiles/RoboticFiles/strategy_gr2.c   
 	
 ${OBJECTDIR}/MyFiles/RoboticFiles/tower_gr2.o: MyFiles/RoboticFiles/tower_gr2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles/RoboticFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/tower_gr2.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/tower_gr2.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/tower_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/tower_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/tower_gr2.o MyFiles/RoboticFiles/tower_gr2.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/tower_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/tower_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/tower_gr2.o MyFiles/RoboticFiles/tower_gr2.c   
 	
 ${OBJECTDIR}/MyFiles/RoboticFiles/ctrl_main_gr2.o: MyFiles/RoboticFiles/ctrl_main_gr2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles/RoboticFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/ctrl_main_gr2.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/ctrl_main_gr2.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/ctrl_main_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/ctrl_main_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/ctrl_main_gr2.o MyFiles/RoboticFiles/ctrl_main_gr2.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/ctrl_main_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/ctrl_main_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/ctrl_main_gr2.o MyFiles/RoboticFiles/ctrl_main_gr2.c   
 	
 ${OBJECTDIR}/MyFiles/RoboticFiles/testBot_gr2.o: MyFiles/RoboticFiles/testBot_gr2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles/RoboticFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/testBot_gr2.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/testBot_gr2.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/testBot_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/testBot_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/testBot_gr2.o MyFiles/RoboticFiles/testBot_gr2.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/testBot_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/testBot_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/testBot_gr2.o MyFiles/RoboticFiles/testBot_gr2.c   
 	
 ${OBJECTDIR}/MyFiles/RoboticFiles/dynamixel_gr2.o: MyFiles/RoboticFiles/dynamixel_gr2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles/RoboticFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/dynamixel_gr2.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/dynamixel_gr2.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/dynamixel_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/dynamixel_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/dynamixel_gr2.o MyFiles/RoboticFiles/dynamixel_gr2.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/dynamixel_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/dynamixel_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/dynamixel_gr2.o MyFiles/RoboticFiles/dynamixel_gr2.c   
 	
 ${OBJECTDIR}/MyFiles/MyCAN.o: MyFiles/MyCAN.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyCAN.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyCAN.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyCAN.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyCAN.o.d" -o ${OBJECTDIR}/MyFiles/MyCAN.o MyFiles/MyCAN.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyCAN.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyCAN.o.d" -o ${OBJECTDIR}/MyFiles/MyCAN.o MyFiles/MyCAN.c   
 	
 ${OBJECTDIR}/MyFiles/MyConsole.o: MyFiles/MyConsole.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyConsole.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyConsole.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyConsole.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyConsole.o.d" -o ${OBJECTDIR}/MyFiles/MyConsole.o MyFiles/MyConsole.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyConsole.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyConsole.o.d" -o ${OBJECTDIR}/MyFiles/MyConsole.o MyFiles/MyConsole.c   
 	
 ${OBJECTDIR}/MyFiles/MyCyclone.o: MyFiles/MyCyclone.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyCyclone.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyCyclone.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyCyclone.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyCyclone.o.d" -o ${OBJECTDIR}/MyFiles/MyCyclone.o MyFiles/MyCyclone.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyCyclone.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyCyclone.o.d" -o ${OBJECTDIR}/MyFiles/MyCyclone.o MyFiles/MyCyclone.c   
 	
 ${OBJECTDIR}/MyFiles/MyFlash.o: MyFiles/MyFlash.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyFlash.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyFlash.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyFlash.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyFlash.o.d" -o ${OBJECTDIR}/MyFiles/MyFlash.o MyFiles/MyFlash.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyFlash.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyFlash.o.d" -o ${OBJECTDIR}/MyFiles/MyFlash.o MyFiles/MyFlash.c   
 	
 ${OBJECTDIR}/MyFiles/MyHTTP.o: MyFiles/MyHTTP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyHTTP.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyHTTP.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyHTTP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyHTTP.o.d" -o ${OBJECTDIR}/MyFiles/MyHTTP.o MyFiles/MyHTTP.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyHTTP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyHTTP.o.d" -o ${OBJECTDIR}/MyFiles/MyHTTP.o MyFiles/MyHTTP.c   
 	
 ${OBJECTDIR}/MyFiles/MyIO.o: MyFiles/MyIO.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyIO.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyIO.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyIO.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyIO.o.d" -o ${OBJECTDIR}/MyFiles/MyIO.o MyFiles/MyIO.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyIO.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyIO.o.d" -o ${OBJECTDIR}/MyFiles/MyIO.o MyFiles/MyIO.c   
 	
 ${OBJECTDIR}/MyFiles/MyLED.o: MyFiles/MyLED.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyLED.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyLED.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyLED.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyLED.o.d" -o ${OBJECTDIR}/MyFiles/MyLED.o MyFiles/MyLED.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyLED.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyLED.o.d" -o ${OBJECTDIR}/MyFiles/MyLED.o MyFiles/MyLED.c   
 	
 ${OBJECTDIR}/MyFiles/MyMDDFS.o: MyFiles/MyMDDFS.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyMDDFS.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyMDDFS.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyMDDFS.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyMDDFS.o.d" -o ${OBJECTDIR}/MyFiles/MyMDDFS.o MyFiles/MyMDDFS.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyMDDFS.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyMDDFS.o.d" -o ${OBJECTDIR}/MyFiles/MyMDDFS.o MyFiles/MyMDDFS.c   
 	
 ${OBJECTDIR}/MyFiles/MyMIWI.o: MyFiles/MyMIWI.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyMIWI.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyMIWI.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyMIWI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyMIWI.o.d" -o ${OBJECTDIR}/MyFiles/MyMIWI.o MyFiles/MyMIWI.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyMIWI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyMIWI.o.d" -o ${OBJECTDIR}/MyFiles/MyMIWI.o MyFiles/MyMIWI.c   
 	
 ${OBJECTDIR}/MyFiles/MyMiniProjet.o: MyFiles/MyMiniProjet.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyMiniProjet.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyMiniProjet.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyMiniProjet.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyMiniProjet.o.d" -o ${OBJECTDIR}/MyFiles/MyMiniProjet.o MyFiles/MyMiniProjet.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyMiniProjet.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyMiniProjet.o.d" -o ${OBJECTDIR}/MyFiles/MyMiniProjet.o MyFiles/MyMiniProjet.c   
 	
 ${OBJECTDIR}/MyFiles/MyRTCC.o: MyFiles/MyRTCC.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyRTCC.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyRTCC.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyRTCC.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyRTCC.o.d" -o ${OBJECTDIR}/MyFiles/MyRTCC.o MyFiles/MyRTCC.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyRTCC.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyRTCC.o.d" -o ${OBJECTDIR}/MyFiles/MyRTCC.o MyFiles/MyRTCC.c   
 	
 ${OBJECTDIR}/MyFiles/MySPI.o: MyFiles/MySPI.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MySPI.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MySPI.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MySPI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MySPI.o.d" -o ${OBJECTDIR}/MyFiles/MySPI.o MyFiles/MySPI.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MySPI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MySPI.o.d" -o ${OBJECTDIR}/MyFiles/MySPI.o MyFiles/MySPI.c   
 	
 ${OBJECTDIR}/MyFiles/MyTemperature.o: MyFiles/MyTemperature.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyTemperature.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyTemperature.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyTemperature.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyTemperature.o.d" -o ${OBJECTDIR}/MyFiles/MyTemperature.o MyFiles/MyTemperature.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyTemperature.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyTemperature.o.d" -o ${OBJECTDIR}/MyFiles/MyTemperature.o MyFiles/MyTemperature.c   
 	
 ${OBJECTDIR}/MyFiles/MyWIFI.o: MyFiles/MyWIFI.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyWIFI.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyWIFI.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyWIFI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyWIFI.o.d" -o ${OBJECTDIR}/MyFiles/MyWIFI.o MyFiles/MyWIFI.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyWIFI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyWIFI.o.d" -o ${OBJECTDIR}/MyFiles/MyWIFI.o MyFiles/MyWIFI.c   
 	
 ${OBJECTDIR}/MyFiles/MyCamera.o: MyFiles/MyCamera.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyCamera.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyCamera.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyCamera.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyCamera.o.d" -o ${OBJECTDIR}/MyFiles/MyCamera.o MyFiles/MyCamera.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyCamera.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyCamera.o.d" -o ${OBJECTDIR}/MyFiles/MyCamera.o MyFiles/MyCamera.c   
 	
 ${OBJECTDIR}/MyFiles/interfaceFPGA.o: MyFiles/interfaceFPGA.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/interfaceFPGA.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/interfaceFPGA.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/interfaceFPGA.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/interfaceFPGA.o.d" -o ${OBJECTDIR}/MyFiles/interfaceFPGA.o MyFiles/interfaceFPGA.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/interfaceFPGA.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/interfaceFPGA.o.d" -o ${OBJECTDIR}/MyFiles/interfaceFPGA.o MyFiles/interfaceFPGA.c   
 	
 ${OBJECTDIR}/MyFiles/SDInterface.o: MyFiles/SDInterface.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/SDInterface.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/SDInterface.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/SDInterface.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/SDInterface.o.d" -o ${OBJECTDIR}/MyFiles/SDInterface.o MyFiles/SDInterface.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/SDInterface.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/SDInterface.o.d" -o ${OBJECTDIR}/MyFiles/SDInterface.o MyFiles/SDInterface.c   
 	
 ${OBJECTDIR}/MyFiles/MyApp.o: MyFiles/MyApp.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyApp.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyApp.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyApp.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyApp.o.d" -o ${OBJECTDIR}/MyFiles/MyApp.o MyFiles/MyApp.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyApp.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyApp.o.d" -o ${OBJECTDIR}/MyFiles/MyApp.o MyFiles/MyApp.c   
 	
 else
 ${OBJECTDIR}/Microchip/Common/TimeDelay.o: Microchip/Common/TimeDelay.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/Common" 
 	@${RM} ${OBJECTDIR}/Microchip/Common/TimeDelay.o.d 
 	@${RM} ${OBJECTDIR}/Microchip/Common/TimeDelay.o 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/Common/TimeDelay.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/Common/TimeDelay.o.d" -o ${OBJECTDIR}/Microchip/Common/TimeDelay.o Microchip/Common/TimeDelay.c     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/Common/TimeDelay.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/Common/TimeDelay.o.d" -o ${OBJECTDIR}/Microchip/Common/TimeDelay.o Microchip/Common/TimeDelay.c   
 	
 ${OBJECTDIR}/Microchip/MDD\ File\ System/FSIO.o: Microchip/MDD\ File\ System/FSIO.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/MDD File System" 
 	@${RM} "${OBJECTDIR}/Microchip/MDD File System/FSIO.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/MDD File System/FSIO.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/MDD File System/FSIO.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/MDD File System/FSIO.o.d" -o "${OBJECTDIR}/Microchip/MDD File System/FSIO.o" "Microchip/MDD File System/FSIO.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/MDD File System/FSIO.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/MDD File System/FSIO.o.d" -o "${OBJECTDIR}/Microchip/MDD File System/FSIO.o" "Microchip/MDD File System/FSIO.c"   
 	
 ${OBJECTDIR}/Microchip/MDD\ File\ System/SD-SPI.o: Microchip/MDD\ File\ System/SD-SPI.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/MDD File System" 
 	@${RM} "${OBJECTDIR}/Microchip/MDD File System/SD-SPI.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/MDD File System/SD-SPI.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/MDD File System/SD-SPI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/MDD File System/SD-SPI.o.d" -o "${OBJECTDIR}/Microchip/MDD File System/SD-SPI.o" "Microchip/MDD File System/SD-SPI.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/MDD File System/SD-SPI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/MDD File System/SD-SPI.o.d" -o "${OBJECTDIR}/Microchip/MDD File System/SD-SPI.o" "Microchip/MDD File System/SD-SPI.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFConnectionAlgorithm.o: Microchip/TCPIP\ Stack/WIFI/WFConnectionAlgorithm.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.o" "Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.o" "Microchip/TCPIP Stack/WIFI/WFConnectionAlgorithm.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFConnectionManager.o: Microchip/TCPIP\ Stack/WIFI/WFConnectionManager.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionManager.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionManager.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionManager.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionManager.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionManager.o" "Microchip/TCPIP Stack/WIFI/WFConnectionManager.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionManager.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionManager.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionManager.o" "Microchip/TCPIP Stack/WIFI/WFConnectionManager.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFConnectionProfile.o: Microchip/TCPIP\ Stack/WIFI/WFConnectionProfile.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionProfile.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionProfile.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionProfile.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionProfile.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionProfile.o" "Microchip/TCPIP Stack/WIFI/WFConnectionProfile.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionProfile.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionProfile.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFConnectionProfile.o" "Microchip/TCPIP Stack/WIFI/WFConnectionProfile.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFDataTxRx.o: Microchip/TCPIP\ Stack/WIFI/WFDataTxRx.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDataTxRx.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDataTxRx.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDataTxRx.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDataTxRx.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDataTxRx.o" "Microchip/TCPIP Stack/WIFI/WFDataTxRx.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDataTxRx.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDataTxRx.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDataTxRx.o" "Microchip/TCPIP Stack/WIFI/WFDataTxRx.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFDriverCom.o: Microchip/TCPIP\ Stack/WIFI/WFDriverCom.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverCom.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverCom.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverCom.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverCom.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverCom.o" "Microchip/TCPIP Stack/WIFI/WFDriverCom.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverCom.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverCom.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverCom.o" "Microchip/TCPIP Stack/WIFI/WFDriverCom.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFDriverRaw.o: Microchip/TCPIP\ Stack/WIFI/WFDriverRaw.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverRaw.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverRaw.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverRaw.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverRaw.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverRaw.o" "Microchip/TCPIP Stack/WIFI/WFDriverRaw.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverRaw.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverRaw.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFDriverRaw.o" "Microchip/TCPIP Stack/WIFI/WFDriverRaw.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFEventHandler.o: Microchip/TCPIP\ Stack/WIFI/WFEventHandler.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFEventHandler.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFEventHandler.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFEventHandler.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFEventHandler.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFEventHandler.o" "Microchip/TCPIP Stack/WIFI/WFEventHandler.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFEventHandler.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFEventHandler.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFEventHandler.o" "Microchip/TCPIP Stack/WIFI/WFEventHandler.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFInit.o: Microchip/TCPIP\ Stack/WIFI/WFInit.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFInit.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFInit.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFInit.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFInit.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFInit.o" "Microchip/TCPIP Stack/WIFI/WFInit.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFInit.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFInit.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFInit.o" "Microchip/TCPIP Stack/WIFI/WFInit.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFMac.o: Microchip/TCPIP\ Stack/WIFI/WFMac.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMac.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMac.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMac.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMac.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMac.o" "Microchip/TCPIP Stack/WIFI/WFMac.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMac.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMac.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMac.o" "Microchip/TCPIP Stack/WIFI/WFMac.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFMgmtMsg.o: Microchip/TCPIP\ Stack/WIFI/WFMgmtMsg.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMgmtMsg.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMgmtMsg.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMgmtMsg.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMgmtMsg.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMgmtMsg.o" "Microchip/TCPIP Stack/WIFI/WFMgmtMsg.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMgmtMsg.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMgmtMsg.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFMgmtMsg.o" "Microchip/TCPIP Stack/WIFI/WFMgmtMsg.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFParamMsg.o: Microchip/TCPIP\ Stack/WIFI/WFParamMsg.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFParamMsg.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFParamMsg.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFParamMsg.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFParamMsg.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFParamMsg.o" "Microchip/TCPIP Stack/WIFI/WFParamMsg.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFParamMsg.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFParamMsg.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFParamMsg.o" "Microchip/TCPIP Stack/WIFI/WFParamMsg.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFPowerSave.o: Microchip/TCPIP\ Stack/WIFI/WFPowerSave.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFPowerSave.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFPowerSave.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFPowerSave.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFPowerSave.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFPowerSave.o" "Microchip/TCPIP Stack/WIFI/WFPowerSave.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFPowerSave.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFPowerSave.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFPowerSave.o" "Microchip/TCPIP Stack/WIFI/WFPowerSave.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFScan.o: Microchip/TCPIP\ Stack/WIFI/WFScan.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFScan.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFScan.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFScan.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFScan.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFScan.o" "Microchip/TCPIP Stack/WIFI/WFScan.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFScan.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFScan.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFScan.o" "Microchip/TCPIP Stack/WIFI/WFScan.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WFTxPower.o: Microchip/TCPIP\ Stack/WIFI/WFTxPower.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFTxPower.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFTxPower.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFTxPower.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFTxPower.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFTxPower.o" "Microchip/TCPIP Stack/WIFI/WFTxPower.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFTxPower.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFTxPower.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WFTxPower.o" "Microchip/TCPIP Stack/WIFI/WFTxPower.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WF_Eint.o: Microchip/TCPIP\ Stack/WIFI/WF_Eint.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Eint.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Eint.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Eint.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Eint.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Eint.o" "Microchip/TCPIP Stack/WIFI/WF_Eint.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Eint.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Eint.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Eint.o" "Microchip/TCPIP Stack/WIFI/WF_Eint.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WIFI/WF_Spi.o: Microchip/TCPIP\ Stack/WIFI/WF_Spi.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Spi.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Spi.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Spi.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Spi.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Spi.o" "Microchip/TCPIP Stack/WIFI/WF_Spi.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Spi.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Spi.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WIFI/WF_Spi.o" "Microchip/TCPIP Stack/WIFI/WF_Spi.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/WiFi/WF_pbkdf2.o: Microchip/TCPIP\ Stack/WiFi/WF_pbkdf2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack/WiFi" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WiFi/WF_pbkdf2.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/WiFi/WF_pbkdf2.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WiFi/WF_pbkdf2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WiFi/WF_pbkdf2.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WiFi/WF_pbkdf2.o" "Microchip/TCPIP Stack/WiFi/WF_pbkdf2.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/WiFi/WF_pbkdf2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/WiFi/WF_pbkdf2.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/WiFi/WF_pbkdf2.o" "Microchip/TCPIP Stack/WiFi/WF_pbkdf2.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/ARP.o: Microchip/TCPIP\ Stack/ARP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/ARP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/ARP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/ARP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/ARP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/ARP.o" "Microchip/TCPIP Stack/ARP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/ARP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/ARP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/ARP.o" "Microchip/TCPIP Stack/ARP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/Announce.o: Microchip/TCPIP\ Stack/Announce.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Announce.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Announce.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Announce.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Announce.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Announce.o" "Microchip/TCPIP Stack/Announce.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Announce.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Announce.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Announce.o" "Microchip/TCPIP Stack/Announce.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/AutoIP.o: Microchip/TCPIP\ Stack/AutoIP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/AutoIP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/AutoIP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/AutoIP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/AutoIP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/AutoIP.o" "Microchip/TCPIP Stack/AutoIP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/AutoIP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/AutoIP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/AutoIP.o" "Microchip/TCPIP Stack/AutoIP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/BerkeleyAPI.o: Microchip/TCPIP\ Stack/BerkeleyAPI.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/BerkeleyAPI.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/BerkeleyAPI.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/BerkeleyAPI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/BerkeleyAPI.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/BerkeleyAPI.o" "Microchip/TCPIP Stack/BerkeleyAPI.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/BerkeleyAPI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/BerkeleyAPI.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/BerkeleyAPI.o" "Microchip/TCPIP Stack/BerkeleyAPI.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/DHCP.o: Microchip/TCPIP\ Stack/DHCP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DHCP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DHCP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DHCP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DHCP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DHCP.o" "Microchip/TCPIP Stack/DHCP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DHCP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DHCP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DHCP.o" "Microchip/TCPIP Stack/DHCP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/DHCPs.o: Microchip/TCPIP\ Stack/DHCPs.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DHCPs.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DHCPs.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DHCPs.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DHCPs.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DHCPs.o" "Microchip/TCPIP Stack/DHCPs.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DHCPs.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DHCPs.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DHCPs.o" "Microchip/TCPIP Stack/DHCPs.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/DNS.o: Microchip/TCPIP\ Stack/DNS.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DNS.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DNS.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DNS.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DNS.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DNS.o" "Microchip/TCPIP Stack/DNS.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DNS.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DNS.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DNS.o" "Microchip/TCPIP Stack/DNS.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/DNSs.o: Microchip/TCPIP\ Stack/DNSs.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DNSs.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DNSs.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DNSs.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DNSs.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DNSs.o" "Microchip/TCPIP Stack/DNSs.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DNSs.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DNSs.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DNSs.o" "Microchip/TCPIP Stack/DNSs.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/DynDNS.o: Microchip/TCPIP\ Stack/DynDNS.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DynDNS.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/DynDNS.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DynDNS.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DynDNS.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DynDNS.o" "Microchip/TCPIP Stack/DynDNS.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/DynDNS.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/DynDNS.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/DynDNS.o" "Microchip/TCPIP Stack/DynDNS.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/FTP.o: Microchip/TCPIP\ Stack/FTP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/FTP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/FTP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/FTP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/FTP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/FTP.o" "Microchip/TCPIP Stack/FTP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/FTP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/FTP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/FTP.o" "Microchip/TCPIP Stack/FTP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/FileSystem.o: Microchip/TCPIP\ Stack/FileSystem.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/FileSystem.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/FileSystem.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/FileSystem.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/FileSystem.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/FileSystem.o" "Microchip/TCPIP Stack/FileSystem.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/FileSystem.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/FileSystem.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/FileSystem.o" "Microchip/TCPIP Stack/FileSystem.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/HTTP2.o: Microchip/TCPIP\ Stack/HTTP2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/HTTP2.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/HTTP2.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/HTTP2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/HTTP2.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/HTTP2.o" "Microchip/TCPIP Stack/HTTP2.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/HTTP2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/HTTP2.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/HTTP2.o" "Microchip/TCPIP Stack/HTTP2.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/Hashes.o: Microchip/TCPIP\ Stack/Hashes.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Hashes.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Hashes.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Hashes.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Hashes.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Hashes.o" "Microchip/TCPIP Stack/Hashes.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Hashes.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Hashes.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Hashes.o" "Microchip/TCPIP Stack/Hashes.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/Helpers.o: Microchip/TCPIP\ Stack/Helpers.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Helpers.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Helpers.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Helpers.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Helpers.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Helpers.o" "Microchip/TCPIP Stack/Helpers.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Helpers.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Helpers.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Helpers.o" "Microchip/TCPIP Stack/Helpers.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/ICMP.o: Microchip/TCPIP\ Stack/ICMP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/ICMP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/ICMP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/ICMP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/ICMP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/ICMP.o" "Microchip/TCPIP Stack/ICMP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/ICMP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/ICMP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/ICMP.o" "Microchip/TCPIP Stack/ICMP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/IP.o: Microchip/TCPIP\ Stack/IP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/IP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/IP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/IP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/IP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/IP.o" "Microchip/TCPIP Stack/IP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/IP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/IP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/IP.o" "Microchip/TCPIP Stack/IP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/MPFS2.o: Microchip/TCPIP\ Stack/MPFS2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/MPFS2.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/MPFS2.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/MPFS2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/MPFS2.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/MPFS2.o" "Microchip/TCPIP Stack/MPFS2.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/MPFS2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/MPFS2.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/MPFS2.o" "Microchip/TCPIP Stack/MPFS2.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/NBNS.o: Microchip/TCPIP\ Stack/NBNS.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/NBNS.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/NBNS.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/NBNS.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/NBNS.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/NBNS.o" "Microchip/TCPIP Stack/NBNS.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/NBNS.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/NBNS.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/NBNS.o" "Microchip/TCPIP Stack/NBNS.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/RSA.o: Microchip/TCPIP\ Stack/RSA.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/RSA.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/RSA.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/RSA.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/RSA.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/RSA.o" "Microchip/TCPIP Stack/RSA.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/RSA.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/RSA.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/RSA.o" "Microchip/TCPIP Stack/RSA.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/Random.o: Microchip/TCPIP\ Stack/Random.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Random.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Random.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Random.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Random.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Random.o" "Microchip/TCPIP Stack/Random.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Random.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Random.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Random.o" "Microchip/TCPIP Stack/Random.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/Reboot.o: Microchip/TCPIP\ Stack/Reboot.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Reboot.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Reboot.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Reboot.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Reboot.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Reboot.o" "Microchip/TCPIP Stack/Reboot.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Reboot.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Reboot.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Reboot.o" "Microchip/TCPIP Stack/Reboot.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/SMTP.o: Microchip/TCPIP\ Stack/SMTP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SMTP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SMTP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SMTP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SMTP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SMTP.o" "Microchip/TCPIP Stack/SMTP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SMTP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SMTP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SMTP.o" "Microchip/TCPIP Stack/SMTP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/SNMP.o: Microchip/TCPIP\ Stack/SNMP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SNMP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SNMP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SNMP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SNMP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SNMP.o" "Microchip/TCPIP Stack/SNMP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SNMP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SNMP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SNMP.o" "Microchip/TCPIP Stack/SNMP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/SNMPv3.o: Microchip/TCPIP\ Stack/SNMPv3.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SNMPv3.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SNMPv3.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SNMPv3.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SNMPv3.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SNMPv3.o" "Microchip/TCPIP Stack/SNMPv3.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SNMPv3.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SNMPv3.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SNMPv3.o" "Microchip/TCPIP Stack/SNMPv3.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/SNTP.o: Microchip/TCPIP\ Stack/SNTP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SNTP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SNTP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SNTP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SNTP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SNTP.o" "Microchip/TCPIP Stack/SNTP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SNTP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SNTP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SNTP.o" "Microchip/TCPIP Stack/SNTP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/SPIFlash.o: Microchip/TCPIP\ Stack/SPIFlash.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SPIFlash.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SPIFlash.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SPIFlash.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SPIFlash.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SPIFlash.o" "Microchip/TCPIP Stack/SPIFlash.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SPIFlash.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SPIFlash.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SPIFlash.o" "Microchip/TCPIP Stack/SPIFlash.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/SSL.o: Microchip/TCPIP\ Stack/SSL.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SSL.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/SSL.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SSL.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SSL.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SSL.o" "Microchip/TCPIP Stack/SSL.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/SSL.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/SSL.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/SSL.o" "Microchip/TCPIP Stack/SSL.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/StackTsk.o: Microchip/TCPIP\ Stack/StackTsk.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/StackTsk.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/StackTsk.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/StackTsk.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/StackTsk.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/StackTsk.o" "Microchip/TCPIP Stack/StackTsk.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/StackTsk.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/StackTsk.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/StackTsk.o" "Microchip/TCPIP Stack/StackTsk.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/TCP.o: Microchip/TCPIP\ Stack/TCP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/TCP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/TCP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/TCP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/TCP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/TCP.o" "Microchip/TCPIP Stack/TCP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/TCP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/TCP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/TCP.o" "Microchip/TCPIP Stack/TCP.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/TCPPerformanceTest.o: Microchip/TCPIP\ Stack/TCPPerformanceTest.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/TCPPerformanceTest.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/TCPPerformanceTest.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/TCPPerformanceTest.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/TCPPerformanceTest.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/TCPPerformanceTest.o" "Microchip/TCPIP Stack/TCPPerformanceTest.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/TCPPerformanceTest.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/TCPPerformanceTest.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/TCPPerformanceTest.o" "Microchip/TCPIP Stack/TCPPerformanceTest.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/TFTPc.o: Microchip/TCPIP\ Stack/TFTPc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/TFTPc.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/TFTPc.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/TFTPc.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/TFTPc.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/TFTPc.o" "Microchip/TCPIP Stack/TFTPc.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/TFTPc.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/TFTPc.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/TFTPc.o" "Microchip/TCPIP Stack/TFTPc.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/Telnet.o: Microchip/TCPIP\ Stack/Telnet.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Telnet.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Telnet.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Telnet.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Telnet.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Telnet.o" "Microchip/TCPIP Stack/Telnet.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Telnet.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Telnet.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Telnet.o" "Microchip/TCPIP Stack/Telnet.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/Tick.o: Microchip/TCPIP\ Stack/Tick.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Tick.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/Tick.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Tick.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Tick.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Tick.o" "Microchip/TCPIP Stack/Tick.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/Tick.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/Tick.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/Tick.o" "Microchip/TCPIP Stack/Tick.c"   
 	
 ${OBJECTDIR}/Microchip/TCPIP\ Stack/UDP.o: Microchip/TCPIP\ Stack/UDP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/TCPIP Stack" 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/UDP.o".d 
 	@${RM} "${OBJECTDIR}/Microchip/TCPIP Stack/UDP.o" 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/UDP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/UDP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/UDP.o" "Microchip/TCPIP Stack/UDP.c"     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/TCPIP Stack/UDP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/TCPIP Stack/UDP.o.d" -o "${OBJECTDIR}/Microchip/TCPIP Stack/UDP.o" "Microchip/TCPIP Stack/UDP.c"   
 	
 ${OBJECTDIR}/Microchip/Transceivers/MRF24J40/MRF24J40.o: Microchip/Transceivers/MRF24J40/MRF24J40.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/Transceivers/MRF24J40" 
 	@${RM} ${OBJECTDIR}/Microchip/Transceivers/MRF24J40/MRF24J40.o.d 
 	@${RM} ${OBJECTDIR}/Microchip/Transceivers/MRF24J40/MRF24J40.o 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/Transceivers/MRF24J40/MRF24J40.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/Transceivers/MRF24J40/MRF24J40.o.d" -o ${OBJECTDIR}/Microchip/Transceivers/MRF24J40/MRF24J40.o Microchip/Transceivers/MRF24J40/MRF24J40.c     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/Transceivers/MRF24J40/MRF24J40.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/Transceivers/MRF24J40/MRF24J40.o.d" -o ${OBJECTDIR}/Microchip/Transceivers/MRF24J40/MRF24J40.o Microchip/Transceivers/MRF24J40/MRF24J40.c   
 	
 ${OBJECTDIR}/Microchip/Transceivers/crc.o: Microchip/Transceivers/crc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/Transceivers" 
 	@${RM} ${OBJECTDIR}/Microchip/Transceivers/crc.o.d 
 	@${RM} ${OBJECTDIR}/Microchip/Transceivers/crc.o 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/Transceivers/crc.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/Transceivers/crc.o.d" -o ${OBJECTDIR}/Microchip/Transceivers/crc.o Microchip/Transceivers/crc.c     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/Transceivers/crc.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/Transceivers/crc.o.d" -o ${OBJECTDIR}/Microchip/Transceivers/crc.o Microchip/Transceivers/crc.c   
 	
 ${OBJECTDIR}/Microchip/Transceivers/security.o: Microchip/Transceivers/security.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/Transceivers" 
 	@${RM} ${OBJECTDIR}/Microchip/Transceivers/security.o.d 
 	@${RM} ${OBJECTDIR}/Microchip/Transceivers/security.o 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/Transceivers/security.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/Transceivers/security.o.d" -o ${OBJECTDIR}/Microchip/Transceivers/security.o Microchip/Transceivers/security.c     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/Transceivers/security.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/Transceivers/security.o.d" -o ${OBJECTDIR}/Microchip/Transceivers/security.o Microchip/Transceivers/security.c   
 	
 ${OBJECTDIR}/Microchip/WirelessProtocols/P2P/P2P.o: Microchip/WirelessProtocols/P2P/P2P.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/WirelessProtocols/P2P" 
 	@${RM} ${OBJECTDIR}/Microchip/WirelessProtocols/P2P/P2P.o.d 
 	@${RM} ${OBJECTDIR}/Microchip/WirelessProtocols/P2P/P2P.o 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/WirelessProtocols/P2P/P2P.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/WirelessProtocols/P2P/P2P.o.d" -o ${OBJECTDIR}/Microchip/WirelessProtocols/P2P/P2P.o Microchip/WirelessProtocols/P2P/P2P.c     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/WirelessProtocols/P2P/P2P.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/WirelessProtocols/P2P/P2P.o.d" -o ${OBJECTDIR}/Microchip/WirelessProtocols/P2P/P2P.o Microchip/WirelessProtocols/P2P/P2P.c   
 	
 ${OBJECTDIR}/Microchip/WirelessProtocols/SymbolTime.o: Microchip/WirelessProtocols/SymbolTime.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Microchip/WirelessProtocols" 
 	@${RM} ${OBJECTDIR}/Microchip/WirelessProtocols/SymbolTime.o.d 
 	@${RM} ${OBJECTDIR}/Microchip/WirelessProtocols/SymbolTime.o 
-	@${FIXDEPS} "${OBJECTDIR}/Microchip/WirelessProtocols/SymbolTime.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/WirelessProtocols/SymbolTime.o.d" -o ${OBJECTDIR}/Microchip/WirelessProtocols/SymbolTime.o Microchip/WirelessProtocols/SymbolTime.c     
+	@${FIXDEPS} "${OBJECTDIR}/Microchip/WirelessProtocols/SymbolTime.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/Microchip/WirelessProtocols/SymbolTime.o.d" -o ${OBJECTDIR}/Microchip/WirelessProtocols/SymbolTime.o Microchip/WirelessProtocols/SymbolTime.c   
 	
 ${OBJECTDIR}/MyFiles/RoboticFiles/allParamInit_gr2.o: MyFiles/RoboticFiles/allParamInit_gr2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles/RoboticFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/allParamInit_gr2.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/allParamInit_gr2.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/allParamInit_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/allParamInit_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/allParamInit_gr2.o MyFiles/RoboticFiles/allParamInit_gr2.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/allParamInit_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/allParamInit_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/allParamInit_gr2.o MyFiles/RoboticFiles/allParamInit_gr2.c   
 	
 ${OBJECTDIR}/MyFiles/RoboticFiles/controller_gr2.o: MyFiles/RoboticFiles/controller_gr2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles/RoboticFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/controller_gr2.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/controller_gr2.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/controller_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/controller_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/controller_gr2.o MyFiles/RoboticFiles/controller_gr2.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/controller_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/controller_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/controller_gr2.o MyFiles/RoboticFiles/controller_gr2.c   
 	
 ${OBJECTDIR}/MyFiles/RoboticFiles/odometry_gr2.o: MyFiles/RoboticFiles/odometry_gr2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles/RoboticFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/odometry_gr2.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/odometry_gr2.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/odometry_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/odometry_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/odometry_gr2.o MyFiles/RoboticFiles/odometry_gr2.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/odometry_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/odometry_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/odometry_gr2.o MyFiles/RoboticFiles/odometry_gr2.c   
 	
 ${OBJECTDIR}/MyFiles/RoboticFiles/pathplanning_gr2.o: MyFiles/RoboticFiles/pathplanning_gr2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles/RoboticFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/pathplanning_gr2.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/pathplanning_gr2.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/pathplanning_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/pathplanning_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/pathplanning_gr2.o MyFiles/RoboticFiles/pathplanning_gr2.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/pathplanning_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/pathplanning_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/pathplanning_gr2.o MyFiles/RoboticFiles/pathplanning_gr2.c   
 	
 ${OBJECTDIR}/MyFiles/RoboticFiles/strategy_gr2.o: MyFiles/RoboticFiles/strategy_gr2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles/RoboticFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/strategy_gr2.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/strategy_gr2.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/strategy_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/strategy_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/strategy_gr2.o MyFiles/RoboticFiles/strategy_gr2.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/strategy_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/strategy_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/strategy_gr2.o MyFiles/RoboticFiles/strategy_gr2.c   
 	
 ${OBJECTDIR}/MyFiles/RoboticFiles/tower_gr2.o: MyFiles/RoboticFiles/tower_gr2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles/RoboticFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/tower_gr2.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/tower_gr2.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/tower_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/tower_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/tower_gr2.o MyFiles/RoboticFiles/tower_gr2.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/tower_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/tower_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/tower_gr2.o MyFiles/RoboticFiles/tower_gr2.c   
 	
 ${OBJECTDIR}/MyFiles/RoboticFiles/ctrl_main_gr2.o: MyFiles/RoboticFiles/ctrl_main_gr2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles/RoboticFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/ctrl_main_gr2.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/ctrl_main_gr2.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/ctrl_main_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/ctrl_main_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/ctrl_main_gr2.o MyFiles/RoboticFiles/ctrl_main_gr2.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/ctrl_main_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/ctrl_main_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/ctrl_main_gr2.o MyFiles/RoboticFiles/ctrl_main_gr2.c   
 	
 ${OBJECTDIR}/MyFiles/RoboticFiles/testBot_gr2.o: MyFiles/RoboticFiles/testBot_gr2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles/RoboticFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/testBot_gr2.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/testBot_gr2.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/testBot_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/testBot_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/testBot_gr2.o MyFiles/RoboticFiles/testBot_gr2.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/testBot_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/testBot_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/testBot_gr2.o MyFiles/RoboticFiles/testBot_gr2.c   
 	
 ${OBJECTDIR}/MyFiles/RoboticFiles/dynamixel_gr2.o: MyFiles/RoboticFiles/dynamixel_gr2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles/RoboticFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/dynamixel_gr2.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/RoboticFiles/dynamixel_gr2.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/dynamixel_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/dynamixel_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/dynamixel_gr2.o MyFiles/RoboticFiles/dynamixel_gr2.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/RoboticFiles/dynamixel_gr2.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/RoboticFiles/dynamixel_gr2.o.d" -o ${OBJECTDIR}/MyFiles/RoboticFiles/dynamixel_gr2.o MyFiles/RoboticFiles/dynamixel_gr2.c   
 	
 ${OBJECTDIR}/MyFiles/MyCAN.o: MyFiles/MyCAN.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyCAN.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyCAN.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyCAN.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyCAN.o.d" -o ${OBJECTDIR}/MyFiles/MyCAN.o MyFiles/MyCAN.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyCAN.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyCAN.o.d" -o ${OBJECTDIR}/MyFiles/MyCAN.o MyFiles/MyCAN.c   
 	
 ${OBJECTDIR}/MyFiles/MyConsole.o: MyFiles/MyConsole.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyConsole.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyConsole.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyConsole.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyConsole.o.d" -o ${OBJECTDIR}/MyFiles/MyConsole.o MyFiles/MyConsole.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyConsole.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyConsole.o.d" -o ${OBJECTDIR}/MyFiles/MyConsole.o MyFiles/MyConsole.c   
 	
 ${OBJECTDIR}/MyFiles/MyCyclone.o: MyFiles/MyCyclone.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyCyclone.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyCyclone.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyCyclone.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyCyclone.o.d" -o ${OBJECTDIR}/MyFiles/MyCyclone.o MyFiles/MyCyclone.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyCyclone.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyCyclone.o.d" -o ${OBJECTDIR}/MyFiles/MyCyclone.o MyFiles/MyCyclone.c   
 	
 ${OBJECTDIR}/MyFiles/MyFlash.o: MyFiles/MyFlash.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyFlash.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyFlash.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyFlash.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyFlash.o.d" -o ${OBJECTDIR}/MyFiles/MyFlash.o MyFiles/MyFlash.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyFlash.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyFlash.o.d" -o ${OBJECTDIR}/MyFiles/MyFlash.o MyFiles/MyFlash.c   
 	
 ${OBJECTDIR}/MyFiles/MyHTTP.o: MyFiles/MyHTTP.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyHTTP.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyHTTP.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyHTTP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyHTTP.o.d" -o ${OBJECTDIR}/MyFiles/MyHTTP.o MyFiles/MyHTTP.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyHTTP.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyHTTP.o.d" -o ${OBJECTDIR}/MyFiles/MyHTTP.o MyFiles/MyHTTP.c   
 	
 ${OBJECTDIR}/MyFiles/MyIO.o: MyFiles/MyIO.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyIO.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyIO.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyIO.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyIO.o.d" -o ${OBJECTDIR}/MyFiles/MyIO.o MyFiles/MyIO.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyIO.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyIO.o.d" -o ${OBJECTDIR}/MyFiles/MyIO.o MyFiles/MyIO.c   
 	
 ${OBJECTDIR}/MyFiles/MyLED.o: MyFiles/MyLED.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyLED.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyLED.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyLED.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyLED.o.d" -o ${OBJECTDIR}/MyFiles/MyLED.o MyFiles/MyLED.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyLED.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyLED.o.d" -o ${OBJECTDIR}/MyFiles/MyLED.o MyFiles/MyLED.c   
 	
 ${OBJECTDIR}/MyFiles/MyMDDFS.o: MyFiles/MyMDDFS.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyMDDFS.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyMDDFS.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyMDDFS.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyMDDFS.o.d" -o ${OBJECTDIR}/MyFiles/MyMDDFS.o MyFiles/MyMDDFS.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyMDDFS.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyMDDFS.o.d" -o ${OBJECTDIR}/MyFiles/MyMDDFS.o MyFiles/MyMDDFS.c   
 	
 ${OBJECTDIR}/MyFiles/MyMIWI.o: MyFiles/MyMIWI.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyMIWI.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyMIWI.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyMIWI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyMIWI.o.d" -o ${OBJECTDIR}/MyFiles/MyMIWI.o MyFiles/MyMIWI.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyMIWI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyMIWI.o.d" -o ${OBJECTDIR}/MyFiles/MyMIWI.o MyFiles/MyMIWI.c   
 	
 ${OBJECTDIR}/MyFiles/MyMiniProjet.o: MyFiles/MyMiniProjet.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyMiniProjet.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyMiniProjet.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyMiniProjet.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyMiniProjet.o.d" -o ${OBJECTDIR}/MyFiles/MyMiniProjet.o MyFiles/MyMiniProjet.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyMiniProjet.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyMiniProjet.o.d" -o ${OBJECTDIR}/MyFiles/MyMiniProjet.o MyFiles/MyMiniProjet.c   
 	
 ${OBJECTDIR}/MyFiles/MyRTCC.o: MyFiles/MyRTCC.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyRTCC.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyRTCC.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyRTCC.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyRTCC.o.d" -o ${OBJECTDIR}/MyFiles/MyRTCC.o MyFiles/MyRTCC.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyRTCC.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyRTCC.o.d" -o ${OBJECTDIR}/MyFiles/MyRTCC.o MyFiles/MyRTCC.c   
 	
 ${OBJECTDIR}/MyFiles/MySPI.o: MyFiles/MySPI.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MySPI.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MySPI.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MySPI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MySPI.o.d" -o ${OBJECTDIR}/MyFiles/MySPI.o MyFiles/MySPI.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MySPI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MySPI.o.d" -o ${OBJECTDIR}/MyFiles/MySPI.o MyFiles/MySPI.c   
 	
 ${OBJECTDIR}/MyFiles/MyTemperature.o: MyFiles/MyTemperature.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyTemperature.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyTemperature.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyTemperature.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyTemperature.o.d" -o ${OBJECTDIR}/MyFiles/MyTemperature.o MyFiles/MyTemperature.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyTemperature.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyTemperature.o.d" -o ${OBJECTDIR}/MyFiles/MyTemperature.o MyFiles/MyTemperature.c   
 	
 ${OBJECTDIR}/MyFiles/MyWIFI.o: MyFiles/MyWIFI.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyWIFI.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyWIFI.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyWIFI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyWIFI.o.d" -o ${OBJECTDIR}/MyFiles/MyWIFI.o MyFiles/MyWIFI.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyWIFI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyWIFI.o.d" -o ${OBJECTDIR}/MyFiles/MyWIFI.o MyFiles/MyWIFI.c   
 	
 ${OBJECTDIR}/MyFiles/MyCamera.o: MyFiles/MyCamera.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyCamera.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyCamera.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyCamera.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyCamera.o.d" -o ${OBJECTDIR}/MyFiles/MyCamera.o MyFiles/MyCamera.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyCamera.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyCamera.o.d" -o ${OBJECTDIR}/MyFiles/MyCamera.o MyFiles/MyCamera.c   
 	
 ${OBJECTDIR}/MyFiles/interfaceFPGA.o: MyFiles/interfaceFPGA.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/interfaceFPGA.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/interfaceFPGA.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/interfaceFPGA.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/interfaceFPGA.o.d" -o ${OBJECTDIR}/MyFiles/interfaceFPGA.o MyFiles/interfaceFPGA.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/interfaceFPGA.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/interfaceFPGA.o.d" -o ${OBJECTDIR}/MyFiles/interfaceFPGA.o MyFiles/interfaceFPGA.c   
 	
 ${OBJECTDIR}/MyFiles/SDInterface.o: MyFiles/SDInterface.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/SDInterface.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/SDInterface.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/SDInterface.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/SDInterface.o.d" -o ${OBJECTDIR}/MyFiles/SDInterface.o MyFiles/SDInterface.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/SDInterface.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/SDInterface.o.d" -o ${OBJECTDIR}/MyFiles/SDInterface.o MyFiles/SDInterface.c   
 	
 ${OBJECTDIR}/MyFiles/MyApp.o: MyFiles/MyApp.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/MyFiles" 
 	@${RM} ${OBJECTDIR}/MyFiles/MyApp.o.d 
 	@${RM} ${OBJECTDIR}/MyFiles/MyApp.o 
-	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyApp.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyApp.o.d" -o ${OBJECTDIR}/MyFiles/MyApp.o MyFiles/MyApp.c     
+	@${FIXDEPS} "${OBJECTDIR}/MyFiles/MyApp.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I"MyIncludes" -I"MyConfig" -I"MyConfig/MyConfig_MIWI" -I"MyConfig/MyConfig_WIFI" -I"MyConfig/MyConfig_MDDFS" -I"Microchip/Include" -I"MyWeb" -MMD -MF "${OBJECTDIR}/MyFiles/MyApp.o.d" -o ${OBJECTDIR}/MyFiles/MyApp.o MyFiles/MyApp.c   
 	
 endif
 
@@ -1140,12 +1140,12 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 dist/${CND_CONF}/${IMAGE_TYPE}/MyApp_v2.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -mdebugger -D__MPLAB_DEBUGGER_PK3=1 -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/MyApp_v2.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}            -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,--defsym=_min_heap_size=20000
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -mdebugger -D__MPLAB_DEBUGGER_PK3=1 -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/MyApp_v2.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,--defsym=_min_heap_size=20000
 	
 else
 dist/${CND_CONF}/${IMAGE_TYPE}/MyApp_v2.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/MyApp_v2.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}            -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=_min_heap_size=20000
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/MyApp_v2.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=_min_heap_size=20000
 	${MP_CC_DIR}\\xc32-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/MyApp_v2.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} 
 endif
 

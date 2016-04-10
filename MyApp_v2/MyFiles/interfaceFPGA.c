@@ -230,53 +230,32 @@ void MyDelayUs(unsigned int usec){
 }
 
 void InitWebVariables(CtrlStruct *cvs){
-    var1 = cvs->MotorL->speed;
-    var2 = cvs->MotorL->Kp;
-    var3 = cvs->MotorL->Ki;
-    var4 = cvs->MotorL->position;
-    var5 = cvs->MotorL->clicNumber;
-    
+    var1 = 0;
+    var2 = cvs->time;
+    var3 = 0;
+    var4 = 0;
+    var5 = 0;
     var6 = cvs->Odo->x;
     var7 = cvs->Odo->y;
     var8 = cvs->Odo->theta;
+    var9 = cvs->Param->wheelRRadius;
+    var10 = cvs->Param->wheelLRadius;
+    var11 = cvs->Param->width;
+    var12 = cvs->Odo->speedL;
+    var13 = cvs->Odo->speedR;
+    var14 = cvs->Odo->clicNumber;
+    var15 = cvs->Param->KpRot;
+    var16 = cvs->Param->KiRot;
+    var17 = cvs->Param->KiAngleThreshold;
+    var18 = cvs->Poto->katt;
+    var19 = cvs->Poto->krep;
+    var20 = cvs->Poto->kw;
+    var21 = cvs->Poto->minDistance;
+    var22 = cvs->MotorL->Kp;
+    var23 = cvs->MotorL->Ki;
+    var24 = cvs->MotorL->speed;
+    var25 = cvs->MotorR->speed;
     
-    var9 = cvs->Poto->katt;
-    var10 = cvs->Poto->krep;
-    var11 = cvs->Poto->minDistance;
-    var12 = cvs->Poto->kw;
-    var13 = cvs->Poto->kFV;
-    
-    var14 = cvs->MotorPince->speed;
-    var15 = cvs->MotorPince->KpPos;
-    var16 = cvs->MotorPince->Ki;
-    var17 = cvs->MotorPince->dutyCycle;
-    var18 = cvs->MotorPince->clicNumber;
-    
-    var19 = cvs->MotorRatL->speed;
-    var20 = cvs->MotorRatL->KpPos;
-    var21 = cvs->MotorRatL->Ki;
-    var22 = cvs->MotorRatL->dutyCycle;
-    var23 = cvs->MotorRatL->clicNumber;
-    
-    var24 = cvs->Odo->speedL;
-    var25 = cvs->Odo->speedR;
-    var26 = cvs->Odo->clicNumber;
-    var27 = cvs->Param->radiusBot;
-    var28 = cvs->Param->width;
-    var29 = cvs->Param->KpRot;
-    var30 = cvs->Param->KiRot;
-    //var31 = cvs->Param->speedDifThreshold;
-    //var32 = cvs->Param->KiAngleThreshold;
-    var31 = cvs->MotorR->clicNumber;
-    var32 = cvs->MotorL->clicNumber;
-    var33 = cvs->Sensors->uSwitchLeft;
-    var34 = cvs->Sensors->uSwitchRight;
-    var35 = cvs->Sensors->uSwitchPinceIn;
-    var36 = cvs->Sensors->uSwitchPinceOut;
-    var37 = cvs->time;
-    var38 = 0;
-    var39 = 0;
-    var40 = 0;
     var1Status = var1;
     var2Status = var2;
     var3Status = var3;
@@ -319,103 +298,59 @@ void InitWebVariables(CtrlStruct *cvs){
     var40Status = var40; 
 }
 void RefreshWebVariables(CtrlStruct *cvs){
-    //cvs->MotorL->speed          = var1;
-    cvs->MotorL->Kp             = var2;
-    cvs->MotorL->Ki             = var3;
-    //cvs->MotorL->position       = var4;
-    cvs->MotorL->clicNumber     = var5;
-    
-    //cvs->Odo->x          = var6;
-    //cvs->Odo->y          = var7;
-    //cvs->Odo->theta      = var8;
-    
-    cvs->Poto->katt          = var9;
-    cvs->Poto->krep          = var10;
-    cvs->Poto->minDistance   = var11;
-    cvs->Poto->kw            = var12;
-    cvs->Poto->kFV           = var13;
-    
-    //cvs->MotorPince->speed          = var14;
-    cvs->MotorPince->KpPos          = var15;
-    cvs->MotorPince->Ki             = var16;    
-    //cvs->MotorPince->dutyCycle      = var17;
-    cvs->MotorPince->clicNumber     = var18;
-    
-    //cvs->MotorRatL->speed          = var19;
-    cvs->MotorRatL->KpPos          = var20;
-    cvs->MotorRatL->Ki             = var21;
-    //cvs->MotorRatL->dutyCycle      = var22;
-    cvs->MotorRatL->clicNumber     = var23;
-    
-    /*
-    cvs->Odo->speedL    = var24;
-    cvs->Odo->speedR    = var25;
-    */
-    cvs->Odo->clicNumber= var26;
-     
-    cvs->Param->radiusBot = var27;
-    cvs->Param->width = var28;
-    cvs->Param->KpRot = var29;
-    cvs->Param->KiRot = var30;
-    //cvs->Param->speedDifThreshold = var31;
-    cvs->MotorR->clicNumber= var31;
-    //cvs->Param->KiAngleThreshold = var32;
-    cvs->MotorL->clicNumber = var32;
-    /*
-    cvs->Sensors->uSwitchLeft = var33;
-    cvs->Sensors->uSwitchRight = var34;
-    cvs->Sensors->uSwitchPinceIn = var35;
-    cvs->Sensors->uSwitchPinceOut = var36;
-    cvs->robotID = var37;
-    cvs->time = var38;
-     */
-    
-    var1Status = cvs->MotorL->speed;
-    var2Status = cvs->MotorL->Kp;
-    var3Status = cvs->MotorL->Ki;
-    var4Status = cvs->MotorL->position;
-    var5Status = cvs->MotorL->clicNumber;
-    
+    cvs->Param->wheelRRadius = var9;
+    cvs->Param->wheelLRadius = var10;
+    cvs->Param->width = var11;
+    cvs->Odo->clicNumber = var14;
+    cvs->Param->KpRot = var15;
+    cvs->Param->KiRot = var16;
+    cvs->Param->KiAngleThreshold = var17;
+    cvs->Poto->katt = var18;
+    cvs->Poto->krep = var19;
+    cvs->Poto->kw = var20;
+    cvs->Poto->minDistance = var21;
+    cvs->MotorL->Kp = var22;
+    cvs->MotorL->Ki = var23;
+
+
+    var1Status = 0;
+    var2Status = cvs->time;
+    var3Status = 0;
+    var4Status = 0;
+    var5Status = 0;
     var6Status = cvs->Odo->x;
     var7Status = cvs->Odo->y;
     var8Status = cvs->Odo->theta;
-    
-    var9Status = cvs->Poto->katt;
-    var10Status = cvs->Poto->krep;
-    var11Status = cvs->Poto->minDistance;
-    var12Status = cvs->Poto->kw;
-    var13Status = cvs->Poto->kFV;
-    
-    var14Status = cvs->MotorPince->speed;
-    var15Status = cvs->MotorPince->KpPos;
-    var16Status = cvs->MotorPince->Ki;
-    var17Status = cvs->MotorPince->dutyCycle;
-    var18Status = cvs->MotorPince->clicNumber;
-    
-    var19Status = cvs->MotorRatL->speed;
-    var20Status = cvs->MotorRatL->KpPos;
-    var21Status = cvs->MotorRatL->Ki;
-    var22Status = cvs->MotorRatL->dutyCycle;
-    var23Status = cvs->MotorRatL->clicNumber;
-    
-    var24Status = cvs->Odo->speedL;
-    var25Status = cvs->Odo->speedR;
-    var26Status = cvs->Odo->clicNumber;
-    var27Status = cvs->Param->radiusBot;
-    var28Status = cvs->Param->width;
-    var29Status = cvs->Param->KpRot;
-    var30Status = cvs->Param->KiRot;
-    //var31Status = cvs->Param->speedDifThreshold;
-    var31Status = cvs->MotorR->clicNumber;
-    //var32Status = cvs->Param->KiAngleThreshold;
-    var32Status = cvs->MotorL->clicNumber;
-    var33Status = cvs->Sensors->uSwitchLeft;
-    var34Status = cvs->Sensors->uSwitchRight;
-    var35Status = cvs->Sensors->uSwitchPinceIn;
-    var36Status = cvs->Sensors->uSwitchPinceOut;
-    var37Status = cvs->time;
-    var38Status = var38;
-    var39Status = var39;
-    var40Status = var40;
-    
+    var9Status = cvs->Param->wheelRRadius;
+    var10Status = cvs->Param->wheelLRadius;
+    var11Status = cvs->Param->width;
+    var12Status = cvs->Odo->speedL;
+    var13Status = cvs->Odo->speedR;
+    var14Status = cvs->Odo->clicNumber;
+    var15Status = cvs->Param->KpRot;
+    var16Status = cvs->Param->KiRot;
+    var17Status = cvs->Param->KiAngleThreshold;
+    var18Status = cvs->Poto->katt;
+    var19Status = cvs->Poto->krep;
+    var20Status = cvs->Poto->kw;
+    var21Status = cvs->Poto->minDistance;
+    var22Status = cvs->MotorL->Kp;
+    var23Status = cvs->MotorL->Ki;
+    var24Status = cvs->MotorL->speed;
+    var25Status = cvs->MotorR->speed;
+    var26Status = 0;
+    var27Status = 0;
+    var28Status = 0;
+    var29Status = 0;
+    var30Status = 0;
+    var31Status = 0;
+    var32Status = 0;
+    var33Status = 0;
+    var34Status = 0;
+    var35Status = 0;
+    var36Status = 0;
+    var37Status = 0;
+    var38Status = 0;
+    var39Status = 0;
+    var40Status = 0;
 }

@@ -373,12 +373,11 @@ assign LED = {~LaserSign, LaserSync, LaserCodeurA, LaserCodeurB, PropLeftCodeurA
 
 logic [15:0] CompteurLaser;
 reg   [15:0] DebutReception, FinReception;
-logic somethingDetected;
 logic NewTowerTurn;
 
 counter #(16) CompteurTourelle(LaserCodeurA, LaserSync, CompteurLaser);
 
-GlitchHandler GlitchSignLaser(CLOCK_50, PIC32_RESET,  ~LaserSign, LaserSync, CompteurLaser, DebutReception, FinReception, somethingDetected, LaserCodeurA);
+GlitchHandler GlitchSignLaser(CLOCK_50, PIC32_RESET,  LaserSign, LaserSync, CompteurLaser, DebutReception, FinReception, LaserCodeurA);
 
 always_ff@(posedge LaserSync, posedge PIC32_RESET) begin
 	if(PIC32_RESET || NewTowerTurn === 'x) NewTowerTurn <= 1'b0;
@@ -503,7 +502,7 @@ assign GPIO_0[22] = UARTDIR;
 
 always @(posedge CLOCK_50)
 begin 
-	IO_A_Data_In <= {	NewTowerTurn,somethingDetected, Start,
+	IO_A_Data_In <= {	NewTowerTurn,1'b0, Start,
 							uSwitchRateauRight, uSwitchRateauLeft, uSwitchPince, uSwitchRight, uSwitchLeft,
 							positiveSpeedOdoR, positiveSpeedOdoL,
 							positiveSpeedPince,
@@ -642,44 +641,42 @@ module GlitchHandler(input logic clk,
 							input logic [15:0] NbrCodeur,
 							output reg [15:0] DebutReception,
 							output reg [15:0] FinReception,
-							output logic somethingDetected,
 							input logic LaserCodeurA); 
 //							output logic [15:0] BeauSignal);
 
 logic [15:0] Buffer;
 logic Flag, resetCount;
-logic somethingDetectedValue1;
-logic somethingDetectedValue2;
 //reg [15:0] SignalSansGlitch;
 typedef enum logic [1:0] {Wait, Reception, Glitch} statetype;
 statetype state, nextstate;
 
 always_ff @(posedge clk, posedge reset)
-	if (reset) begin state <= Wait; somethingDetectedValue1 = 1'b0; end
-	else state <= nextstate;
+	if (reset) begin state <= Wait; end
+	else begin  state <= nextstate; end
 	
 always
 	begin
 		case(state)
 			Wait: begin 
-						if(Sign) begin 
-							somethingDetectedValue2 = ~somethingDetected;
-							nextstate = Reception; 
-						end
-						else nextstate = Wait;
+						if(Sign == 1'b1) begin nextstate = Reception; end
+						else begin nextstate = Wait; end
 						resetCount <= 1'b0;
+						if(~Flag & ~Sign) nextstate = Wait;
 			      end
 					
 			Reception: begin
-								if(Sign == 1'b0) begin resetCount <= 1'b1; nextstate <= Glitch; end
+								if(Sign == 1'b0) begin resetCount = 1'b1; nextstate = Glitch; end
+								//if (Sign == 1'b0 && Flag == 1'b0) nextstate = Wait;
 								else nextstate = Reception;
+								if(~Flag & ~Sign) nextstate = Wait;
 						   end 
 						  
 			Glitch: begin
 						if(Flag == 1'b0) begin nextstate = Wait; end
-						else if (Sign == 1'b1) nextstate = Reception;
-						else nextstate = Glitch;
-						resetCount <= 1'b0;
+						else if (Sign == 1'b1) begin nextstate = Reception; end
+						else begin nextstate = Glitch; end
+						resetCount = 1'b0;
+						if(~Flag & ~Sign) nextstate = Wait;
 					  end
 		endcase
 	end
@@ -688,9 +685,10 @@ always//_ff @(posedge clk, posedge Sign)
 begin
 	if((nextstate == Reception) & (state == Wait)) DebutReception <= NbrCodeur;
 	else if((Sign == 1'b0) & (state == Reception)) Buffer <= NbrCodeur;
-	if ((nextstate == Wait) & (state == Glitch)) FinReception <= Buffer;
+	if ((nextstate == Wait) & ( (state == Glitch))) FinReception <= Buffer;//(state == Reception) |
 	//else if((Flag == 1'b0) & (state == Glitch)) FinReception <= Buffer;
 end
-assign somethingDetected = (reset) ? somethingDetectedValue1:somethingDetectedValue2;
+
 counter20Clk Compteur(LaserCodeurA, resetCount, Flag);
+
 endmodule

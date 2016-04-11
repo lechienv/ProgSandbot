@@ -1,10 +1,10 @@
-/* Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition */
+/* Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Full Version */
 JedecChain;
 	FileRevision(JESD32A);
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE22F17) Path("C:/Users/sebtims/Documents/CodeRealBot/ProgSandbot/DE0-nano/") File("DE0_Nano_time_limited.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE22) Path("Z:/ProgSandbot/DE0-nano/") File("output_file.jic") MfrSpec(OpMask(1) SEC_Device(EPCS64) Child_OpMask(1 1));
 
 ChainEnd;
 

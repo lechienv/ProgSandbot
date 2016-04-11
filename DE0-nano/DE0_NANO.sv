@@ -645,6 +645,7 @@ module GlitchHandler(input logic clk,
 //							output logic [15:0] BeauSignal);
 
 logic [15:0] Buffer;
+logic [15:0] DebutReceptionBuffer;
 logic Flag, resetCount;
 //reg [15:0] SignalSansGlitch;
 typedef enum logic [1:0] {Wait, Reception, Glitch} statetype;
@@ -660,7 +661,7 @@ always
 			Wait: begin 
 						if(Sign == 1'b1) begin nextstate = Reception; end
 						else begin nextstate = Wait; end
-						resetCount <= 1'b0;
+						resetCount <= 1'b1;
 						if(~Flag & ~Sign) nextstate = Wait;
 			      end
 					
@@ -683,9 +684,9 @@ always
 
 always//_ff @(posedge clk, posedge Sign)
 begin
-	if((nextstate == Reception) & (state == Wait)) DebutReception <= NbrCodeur;
+	if((nextstate == Reception) & (state == Wait)) DebutReceptionBuffer <= NbrCodeur;
 	else if((Sign == 1'b0) & (state == Reception)) Buffer <= NbrCodeur;
-	if ((nextstate == Wait) & ( (state == Glitch))) FinReception <= Buffer;//(state == Reception) |
+	if ((nextstate == Wait) & ( (state == Glitch)))begin DebutReception <= DebutReceptionBuffer; FinReception <= Buffer; end//(state == Reception) |
 	//else if((Flag == 1'b0) & (state == Glitch)) FinReception <= Buffer;
 end
 

@@ -14,6 +14,7 @@ int previousValue2 = 0;
 double timeGlitch = 0;
 double timePrevious = 0;
 
+int turnNumber = 0;
 void UpdateFromFPGARealBot(CtrlStruct *cvs){
     unsigned int A = MyCyclone_Read(CYCLONE_IO_A_Data);
     unsigned int B = MyCyclone_Read(CYCLONE_IO_B_Data);
@@ -65,20 +66,19 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
         cvs->Tower->nb_opponents = nb_opponents;
         nb_rising = 0;
         nb_falling = 0;
+        
+        turnNumber++;
     }
 
     int newValue1 = K; 
     int newValue2 = L;
-    /*
+    
     char theStr[512];
-    double angleRising2 = 2*M_PI*K/cvs->MotorTower->clicNumber;
-    double angleFalling2 = 2*M_PI*L/cvs->MotorTower->clicNumber;
-    sprintf(theStr, "AngleRising = %f \t AngleFalling = %f \t \n", angleRising2*RADtoDEG, angleFalling2*RADtoDEG);
-    MyConsole_SendMsg(theStr);*/
+    
     if(newValue1 != previousValue1 || newValue2 != previousValue2){
         previousValue1 = newValue1;
         previousValue2 = newValue2;
-        double angleOffset = 5*M_PI/4;
+        double angleOffset = 0;//5*M_PI/4;
         double angleRising = 2*M_PI*K/cvs->MotorTower->clicNumber + angleOffset;
         double angleFalling = 2*M_PI*L/cvs->MotorTower->clicNumber + angleOffset;
         while(angleRising > M_PI) angleRising = angleRising - 2*M_PI; //To work in [-pi; pi)
@@ -87,6 +87,9 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
         cvs->Tower->falling_index = falling_index;
         cvs->Tower->last_rising[rising_index] = angleRising;
         cvs->Tower->last_falling[falling_index] = angleFalling;
+        
+        sprintf(theStr, "AngleRising = %d \t AngleFalling = %d \t nb_rising = %d \t turnNumber = %d\n", K,L, nb_rising, turnNumber);
+        MyConsole_SendMsg(theStr);
         
         rising_index++;
         falling_index++;

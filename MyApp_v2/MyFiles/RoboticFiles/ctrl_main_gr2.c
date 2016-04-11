@@ -96,7 +96,17 @@ void controller_loop(CtrlStruct *cvs){
         }
     }*/
     //StrategyTest(cvs);
-     cvs->MotorTower->dutyCycle = TourelleDC;
+    
+    cvs->MotorL->dutyCycle = LeftMotorDC;//RightMotorDC;
+    cvs->MotorR->dutyCycle = RightMotorDC;// RightMotorDC;
+    cvs->MotorTower->dutyCycle = TourelleDC;
+    cvs->MotorRatL->dutyCycle = RateauLDC; //RightMotorDC;//RightMotorDC;
+    cvs->MotorRatR->dutyCycle = RateauRDC; //RightMotorDC;//RightMotorDC;
+    cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;
+    
+
+
+            
 	AlwaysEndController(cvs);
 }
 

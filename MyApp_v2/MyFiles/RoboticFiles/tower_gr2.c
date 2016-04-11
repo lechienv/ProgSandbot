@@ -86,7 +86,8 @@ bool IsBot(double x, double y) {
 double ComputeAngle(CtrlStruct *cvs, int risingIndex, int fallingIndex) {
 	double firstAngle = cvs->Tower->last_rising[risingIndex];
 	double lastAngle = cvs->Tower->last_falling[fallingIndex];
-
+    double offset = 18.0;
+    
 	bool changeFlag = false;
 	if (firstAngle > M_PI / 2 && lastAngle < -M_PI / 2) {
 		lastAngle = lastAngle + 2 * M_PI;
@@ -98,12 +99,13 @@ double ComputeAngle(CtrlStruct *cvs, int risingIndex, int fallingIndex) {
 	}
 	double angleFromTower = (firstAngle + lastAngle) / 2;
 	if (changeFlag) angleFromTower = angleFromTower - 2 * M_PI;
-	return RADtoDEG*angleFromTower;
+	return  RADtoDEG*angleFromTower - offset;
 }
 
 double ComputeDistance(CtrlStruct *cvs, int risingIndex, int fallingIndex) {
 	double firstAngle = cvs->Tower->last_rising[risingIndex];
 	double lastAngle = cvs->Tower->last_falling[fallingIndex];
+    double offset = 0.15;// rayonbeacon + distance entre la tourelle et le bord du robot?
 	if (firstAngle > 0 && lastAngle < 0)
 		lastAngle = lastAngle + 2 * M_PI;
 	else if (firstAngle < 0 && lastAngle > 0)

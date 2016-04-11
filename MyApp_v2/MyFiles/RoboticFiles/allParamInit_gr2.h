@@ -174,7 +174,7 @@ NAMESPACE_INIT(ctrlGr2);
 #ifdef MINIBOT
 #define rayonBeacon_INIT		0.04
 #else
-#define rayonBeacon_INIT		0.04
+#define rayonBeacon_INIT		0.03
 #endif
 /************************************
  * POTO *****************************

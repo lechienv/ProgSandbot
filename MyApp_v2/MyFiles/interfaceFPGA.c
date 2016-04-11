@@ -88,7 +88,7 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
         cvs->Tower->last_rising[rising_index] = angleRising;
         cvs->Tower->last_falling[falling_index] = angleFalling;
         
-        sprintf(theStr, "AngleRising = %d \t AngleFalling = %d \t nb_rising = %d \t turnNumber = %d\n", K,L, nb_rising, turnNumber);
+        sprintf(theStr, "AngleRising = %f \t AngleFalling = %f \t nb_rising = %d \t turnNumber = %d\n", RADtoDEG*angleRising, RADtoDEG*angleFalling, nb_rising, turnNumber);
         MyConsole_SendMsg(theStr);
         
         rising_index++;

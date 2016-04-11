@@ -1,16 +1,16 @@
-Fitter Status : Successful - Fri Apr 08 15:57:56 2016
+Fitter Status : Successful - Mon Apr 11 12:18:03 2016
 Quartus II 64-Bit Version : 15.0.0 Build 145 04/22/2015 SJ Full Version
 Revision Name : DE0_Nano
 Top-level Entity Name : DE0_NANO
 Family : Cyclone IV E
 Device : EP4CE22F17C6
 Timing Models : Final
-Total logic elements : 7,832 / 22,320 ( 35 % )
-    Total combinational functions : 6,241 / 22,320 ( 28 % )
-    Dedicated logic registers : 5,412 / 22,320 ( 24 % )
-Total registers : 5481
+Total logic elements : 8,289 / 22,320 ( 37 % )
+    Total combinational functions : 6,401 / 22,320 ( 29 % )
+    Dedicated logic registers : 5,850 / 22,320 ( 26 % )
+Total registers : 5919
 Total pins : 146 / 154 ( 95 % )
 Total virtual pins : 0
-Total memory bits : 214,144 / 608,256 ( 35 % )
+Total memory bits : 373,504 / 608,256 ( 61 % )
 Embedded Multiplier 9-bit elements : 4 / 132 ( 3 % )
 Total PLLs : 1 / 4 ( 25 % )

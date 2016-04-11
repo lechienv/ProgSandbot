@@ -547,7 +547,7 @@ begin
 end
 
 
-/*//--- Clock Test ----------------------------------------
+//--- Clock Test ----------------------------------------
 
 logic clk_Test, unused;
 	
@@ -556,7 +556,7 @@ ClockTest	ClockTest_inst (
 	.inclk0 ( CLOCK_50 ),
 	.c0 ( clk_Test ),
 	.locked ( unused )
-	);*/
+	);
 
 
 //--- SPI Interface -------------------------------------

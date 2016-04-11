@@ -104,11 +104,11 @@ void controller_loop(CtrlStruct *cvs){
     cvs->MotorRatL->dutyCycle = RateauLDC; //RightMotorDC;//RightMotorDC;
     cvs->MotorRatR->dutyCycle = RateauRDC; //RightMotorDC;//RightMotorDC;
     cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;
-    */
-
-        SpeedRefToDC(cvs,cvs->MotorR, 3*M_PI);
-        SpeedRefToDC(cvs,cvs->MotorL, 3*M_PI);
     
+
+    SpeedRefToDC(cvs,cvs->MotorR, 3*M_PI);
+    SpeedRefToDC(cvs,cvs->MotorL, 3*M_PI);*/
+    SpeedRefToDC(cvs, cvs->MotorTower, TourelleDC);
     
 	AlwaysEndController(cvs);
 }

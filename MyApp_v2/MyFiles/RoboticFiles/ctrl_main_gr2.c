@@ -95,20 +95,14 @@ void controller_loop(CtrlStruct *cvs){
             }
         }
     }*/
-    //StrategyTest(cvs);
-    
+    StrategyTest(cvs);
+    /*
     cvs->MotorL->dutyCycle = LeftMotorDC;//RightMotorDC;
     cvs->MotorR->dutyCycle = RightMotorDC;// RightMotorDC;
     cvs->MotorTower->dutyCycle = TourelleDC;
     cvs->MotorRatL->dutyCycle = RateauLDC; //RightMotorDC;//RightMotorDC;
     cvs->MotorRatR->dutyCycle = RateauRDC; //RightMotorDC;//RightMotorDC;
-    cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;
-        
-    char theStr[512];
-        sprintf(theStr, "angle = %f \t distance = %f \n", cvs->Tower->angle,cvs->Tower->distance);
-        MyConsole_SendMsg(theStr);
-
-            
+    cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;*/
 	AlwaysEndController(cvs);
 }
 

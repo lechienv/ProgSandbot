@@ -34,12 +34,11 @@ void Action3Test(CtrlStruct *cvs){
 }
 
 void Action4Test(CtrlStruct *cvs){
-    cvs->MotorL->dutyCycle = LeftMotorDC;//RightMotorDC;
-    cvs->MotorR->dutyCycle = RightMotorDC;// RightMotorDC;
-    cvs->MotorTower->dutyCycle = TourelleDC;
-    cvs->MotorRatL->dutyCycle = RateauLDC; //RightMotorDC;//RightMotorDC;
-    cvs->MotorRatR->dutyCycle = RateauRDC; //RightMotorDC;//RightMotorDC;
-    cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;
+    cvs->MotorL->dutyCycle = var1;//RightMotorDC;
+    cvs->MotorR->dutyCycle = var2;// RightMotorDC;
+    cvs->MotorTower->dutyCycle = var3;
+    cvs->MotorRatL->dutyCycle = var4; //RightMotorDC;//RightMotorDC;
+    cvs->MotorRatR->dutyCycle = var5; //RightMotorDC;//RightMotorDC;
 }
 
 void Action5Test(CtrlStruct *cvs){
@@ -55,7 +54,10 @@ void Action8Test(CtrlStruct *cvs){
     cvs->MotorRatL->dutyCycle = var39;
 }
 void Action9Test(CtrlStruct *cvs){
-    cvs->MotorRatR->dutyCycle = var39;
+    if(cvs->Odo->x < var3){
+        cvs->MotorL->dutyCycle = var4;
+        cvs->MotorR->dutyCycle = var5;
+    }
 }
 void Action10Test(CtrlStruct *cvs){
     cvs->MotorTower->dutyCycle = var39;

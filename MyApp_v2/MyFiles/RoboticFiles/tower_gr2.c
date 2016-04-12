@@ -38,7 +38,10 @@ void UpdateDetectedBotPosition(CtrlStruct *cvs) {
         double x = cvs->Odo->x + distance*cos(DEGtoRAD * (cvs->Odo->theta + angle));
 		double y = cvs->Odo->y + distance*sin(DEGtoRAD * (cvs->Odo->theta + angle));
 		if (IsBot(x, y)) { //TODECOMMENT
-			if (currentBot <= NumberOfCircles_INIT) { //If glitch or too much bots
+			if (currentBot < NumberOfCircles_INIT) { //If glitch or too much bots
+                char theStr[128];
+                sprintf(theStr,"Distance = %f \t Angle = %f \t Number = %d \t i = %d\n", distance, angle, numberDetected, i);
+                MyConsole_SendMsg(theStr);
 				cvs->Obstacles->CircleList[currentBot].x = x;
 				cvs->Obstacles->CircleList[currentBot].y = y;
 				cvs->Obstacles->CircleList[currentBot].isActive = true;

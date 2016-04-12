@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE22) Path("Z:/ProgSandbot/DE0-nano/") File("output_file.jic") MfrSpec(OpMask(1) SEC_Device(EPCS64) Child_OpMask(1 1));
+		Device PartName(EP4CE22F17) Path("Z:/ProgSandbot/DE0-nano/") File("DE0_Nano.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

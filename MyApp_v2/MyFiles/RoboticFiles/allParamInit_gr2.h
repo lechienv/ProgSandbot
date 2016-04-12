@@ -22,7 +22,7 @@ NAMESPACE_INIT(ctrlGr2);
 #else
     #define clicNumberR_DEFAULT     10000
     #define clicNumberL_DEFAULT     10000
-    #define clicNumberTower_DEFAULT 1000
+    #define clicNumberTower_DEFAULT 930
     #define wheelRRadius_DEFAULT 0.022749
     #define wheelLRadius_DEFAULT 0.022725
 #endif // MINIBOT
@@ -159,7 +159,7 @@ NAMESPACE_INIT(ctrlGr2);
 /************************************
  * PARAMS ***************************
  ***********************************/
-#define radiusBot_INIT			0.015
+#define radiusBot_INIT			0.15 //0.015 ?
 #define width_INIT				0.2625
 #define lengthTower_INIT		0.0833
 #define wheelLRadius_INIT		wheelLRadius_DEFAULT
@@ -169,7 +169,7 @@ NAMESPACE_INIT(ctrlGr2);
 #define KiRot_INIT				0.2
 #define totalErrorRot_INIT		0
 #define speedDifThreshold_INIT	1
-#define KiAngleThreshold_INIT	50
+#define KiAngleThreshold_INIT	10
 #define distanceRef_default_tower 3
 #ifdef MINIBOT
 #define rayonBeacon_INIT		0.04
@@ -180,11 +180,11 @@ NAMESPACE_INIT(ctrlGr2);
  * POTO *****************************
  ***********************************/
 #define katt_INIT				1.0
-#define krep_INIT				0.01
+#define krep_INIT				0.001
 #define kFV_INIT				30
 #define FXRob_INIT				0
 #define FyRob_INIT				0
-#define kw_INIT					1000
+#define kw_INIT					200
 #define minDistance_INIT		0.3
 
 /************************************
@@ -227,6 +227,10 @@ NAMESPACE_INIT(ctrlGr2);
 #define angle_INIT 0
 #define distance_INIT 3
 
+/************************************
+ * Dyna ***************************
+ ***********************************/
+// Id rateau gauche = 5, Id rateau droit = 6, Id parasol = 3
 /******************
 **** PROTOTYPES ***
 ******************/

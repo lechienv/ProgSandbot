@@ -1,5 +1,5 @@
 Fitter report for DE0_Nano
-Mon Apr 11 19:56:36 2016
+Tue Apr 12 12:02:28 2016
 Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Full Version
 
 
@@ -79,7 +79,7 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Mon Apr 11 19:56:36 2016       ;
+; Fitter Status                      ; Successful - Tue Apr 12 12:02:28 2016       ;
 ; Quartus II 64-Bit Version          ; 15.0.0 Build 145 04/22/2015 SJ Full Version ;
 ; Revision Name                      ; DE0_Nano                                    ;
 ; Top-level Entity Name              ; DE0_NANO                                    ;
@@ -165,12 +165,13 @@ agreement for further details.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.44        ;
+; Average used               ; 1.74        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;  14.6%      ;
+;     Processor 2            ;  26.2%      ;
+;     Processors 3-4         ;  23.8%      ;
 +----------------------------+-------------+
 
 
@@ -4874,7 +4875,7 @@ Info (170194): Fitter routing operations ending: elapsed time is 00:00:08
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 8.18 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 8.15 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -5020,10 +5021,10 @@ Warning (169064): Following 47 pins have no output enable or a GND or VCC output
     Info (169065): Pin GPIO_0[33] has a permanently disabled output enable
 Info (144001): Generated suppressed messages file Z:/ProgSandbot/DE0-nano/DE0_Nano.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 32 warnings
-    Info: Peak virtual memory: 1702 megabytes
-    Info: Processing ended: Mon Apr 11 19:56:42 2016
-    Info: Elapsed time: 00:00:51
-    Info: Total CPU time (on all processors): 00:00:58
+    Info: Peak virtual memory: 1699 megabytes
+    Info: Processing ended: Tue Apr 12 12:02:35 2016
+    Info: Elapsed time: 00:00:54
+    Info: Total CPU time (on all processors): 00:00:59
 
 
 +----------------------------+

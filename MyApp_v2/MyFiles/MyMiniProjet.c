@@ -84,7 +84,7 @@ void MyMiniProjet_Task(void)
 
         #ifndef TESTS
                     if((double)(currentTime - previousTimeData) > TIME_DATAREFRESH*(SYS_FREQ/2000)*1000){//
-                        previousTimeData = currentTime;
+                        previousTimeData = currentTime;                     
 #ifdef WEB
                         /* Refresh Web Variables */
                         RefreshWebVariables(cvs);

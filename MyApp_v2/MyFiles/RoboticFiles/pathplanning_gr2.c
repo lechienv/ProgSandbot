@@ -72,7 +72,7 @@ void RepulsiveForce(CtrlStruct *cvs) {
 	for (i = 0; i < cvs->Obstacles->NumberOfCircles; i++) {
 		if (cvs->Obstacles->CircleList[i].isActive)
 			ComputeFrepCircle(cvs, &(cvs->Obstacles->CircleList[i]), &FXInertial, &FYInertial);	
-	}
+	}/*
 	for (i = 0; i < cvs->Obstacles->NumberOfRectangles; i++) {
 		if(cvs->Obstacles->RectangleList[i].isActive)
 			ComputeFrepRectangle(cvs, &(cvs->Obstacles->RectangleList[i]), &FXInertial, &FYInertial);
@@ -80,7 +80,7 @@ void RepulsiveForce(CtrlStruct *cvs) {
 	for (i = 0; i < cvs->Obstacles->NumberOfQuarterOfCircle; i++) {
 		if (cvs->Obstacles->QuarterOfCircleList[i].isActive)
 			ComputeFrepQuarterOfCircle(cvs, &(cvs->Obstacles->QuarterOfCircleList[i]), &FXInertial, &FYInertial);
-	}
+	}*/
 	cvs->Poto->FXRob += cos(DEGtoRAD*cvs->Odo->theta)*FXInertial + sin(DEGtoRAD*cvs->Odo->theta)*FYInertial;
 	cvs->Poto->FYRob += -sin(DEGtoRAD*cvs->Odo->theta)*FXInertial + cos(DEGtoRAD*cvs->Odo->theta)*FYInertial;
 }

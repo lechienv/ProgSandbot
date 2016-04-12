@@ -21,7 +21,7 @@ NAMESPACE_INIT(ctrlGr2);
 
 #include <stdbool.h>
 
-#define LIMITACCELERATION true
+#define LIMITACCELERATION 1
 #define DEGtoRAD M_PI/180
 #define RADtoDEG 180/M_PI
 #define VOLTtoDC 100/24

@@ -310,6 +310,33 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
                 var21 = atof(ptr);
             }
         }
+        
+        
+                ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var26");
+		if(ptr){
+            if(*ptr != '\0'){
+                var26 = atof(ptr);
+            }
+        }
+        
+        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var27");
+		if(ptr){
+            if(*ptr != '\0'){
+                var27 = atof(ptr);
+            }
+        }
+        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var28");
+		if(ptr){
+            if(*ptr != '\0'){
+                var28 = atof(ptr);
+            }
+        }
+        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var29");
+		if(ptr){
+            if(*ptr != '\0'){
+                var29 = atof(ptr);
+            }
+        }
     }
 
     

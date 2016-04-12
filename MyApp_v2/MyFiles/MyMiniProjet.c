@@ -63,7 +63,7 @@ void MyMiniProjet_Task(void)
     while(1){
         unsigned int A = MyCyclone_Read(CYCLONE_IO_A_Data);
         unsigned int I = MyCyclone_Read(CYCLONE_IO_I_Data);
-
+        MyConsole_SendMsg("wtf \n");
         bool start = (bool) extractBits(A,13,13);
         if(start){
             MyConsole_SendMsg("Starting\n");

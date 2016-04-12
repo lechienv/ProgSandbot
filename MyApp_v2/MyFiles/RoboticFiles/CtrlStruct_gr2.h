@@ -21,7 +21,7 @@ NAMESPACE_INIT(ctrlGr2);
 
 #include <stdbool.h>
 
-
+#define LIMITACCELERATION true
 #define DEGtoRAD M_PI/180
 #define RADtoDEG 180/M_PI
 #define VOLTtoDC 100/24
@@ -63,6 +63,7 @@ typedef struct Potential {
 	double FYRob;
 	double kw;
 	double minDistance;
+    double thresholdAligned;
 } Potential;
 
 typedef struct Odometry {
@@ -91,6 +92,7 @@ typedef struct Parametres {
 	double speedDifThreshold;
 	double KiAngleThreshold;
 	double rayonBeacon;
+    double maxAcceleration;
 } Parametres;
 
 typedef struct Sensors {

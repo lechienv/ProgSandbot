@@ -10,6 +10,20 @@ double limitDC(double DC) {
 	else return DC;
 }
 
+//Return a speed;
+double limitXAcceleration(CtrlStruct *cvs, double speedRef){
+    double xSpeed = cvs->Param->wheelRadius*(cvs->MotorL->speed + cvs->MotorR->speed)/2;
+    double currentAcceleration = (cvs->Param->wheelRadius*speedRef - xSpeed) / cvs->timeStep;
+    double limit = cvs->Param->maxAcceleration;
+	if (currentAcceleration < limit)
+		if (currentAcceleration > -limit)
+			return speedRef;
+		else
+			return ((-limit*cvs->timeStep) + xSpeed)/cvs->Param->wheelRadius; 
+	else
+		return (limit*cvs->timeStep + xSpeed)/cvs->Param->wheelRadius;
+}
+
 void SpeedRefToDC(CtrlStruct *cvs, Motor *Motor, double speedRef)
 {    
 	double errorSpeed = speedRef - Motor->speed;
@@ -45,9 +59,14 @@ bool IsAlignedWithTheta(CtrlStruct *cvs, double thetaRef, double anglePrecision)
 		double errorAngle = thetaRef - cvs->Odo->theta;
 		if (cvs->Param->totalErrorRot > KIFLUSHLIMIT)
 			cvs->Param->totalErrorRot = 0;
-		double voltage = cvs->Param->KpRot * errorAngle + cvs->Param->KiRot * cvs->Param->totalErrorRot;
-		cvs->MotorL->dutyCycle += -voltage*VOLTtoDC;
-		cvs->MotorR->dutyCycle += +voltage*VOLTtoDC;
+		double speedRefW = cvs->Param->KpRot * errorAngle + cvs->Param->KiRot * cvs->Param->totalErrorRot;
+        double speedRefX = 0;
+        if(LIMITACCELERATION){
+            speedRefX = limitXAcceleration(cvs,0);
+        }
+        SpeedRefToDC(cvs,cvs->MotorL,speedRefX - speedRefW);
+        SpeedRefToDC(cvs,cvs->MotorR,speedRefX + speedRefW);
+        
 		cvs->Param->totalErrorRot += (fabs(errorAngle) <  cvs->Param->KiAngleThreshold) ? errorAngle * (cvs->timeStep) : 0;
 		return false;
 	}

@@ -163,6 +163,7 @@ void InitParam(CtrlStruct *cvs) {
 	cvs->Param->totalErrorRot		= totalErrorRot_INIT;
 	cvs->Param->speedDifThreshold	= speedDifThreshold_INIT; //Max speed difference before considering the robot "at rest"
 	cvs->Param->KiAngleThreshold	= KiAngleThreshold_INIT; //Angle control: threshold to activate Ki
+    cvs->Param->maxAcceleration     = maxAcceleration_INIT;
 }
 
 void InitSensors(CtrlStruct *cvs) {
@@ -207,6 +208,7 @@ void InitPotential(CtrlStruct *cvs) {
 	cvs->Poto->FYRob				= FyRob_INIT;
 	cvs->Poto->kw					= kw_INIT;
 	cvs->Poto->minDistance			= minDistance_INIT;
+    cvs->Poto->thresholdAligned     = thresholdAligned_INIT;
 }
 
 
@@ -219,7 +221,10 @@ void InitOdometry(CtrlStruct *cvs) {
 	int color = cvs->robotID;
 #ifdef REALBOT
     cvs->Odo->clicNumber = clicNumberOdo_INIT;
-#endif // REALBOT
+    cvs->Odo->x		= -0.1425;
+    cvs->Odo->y		= 1.3678;
+    cvs->Odo->theta	= -90.0;
+#else
 
 	if (color == RED) {
 		cvs->Odo->x		= -0.075;
@@ -246,6 +251,7 @@ void InitOdometry(CtrlStruct *cvs) {
 		cvs->Odo->y		= 0;
 		cvs->Odo->theta = 0;
 	}
+#endif // REALBOT
 }
 
 void InitGoals(CtrlStruct *cvs) {

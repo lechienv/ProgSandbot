@@ -165,8 +165,8 @@ NAMESPACE_INIT(ctrlGr2);
 #define wheelLRadius_INIT		wheelLRadius_DEFAULT
 #define wheelRRadius_INIT		wheelRRadius_DEFAULT
 #define wheelRadius_INIT		0.03
-#define KpRot_INIT				0.1
-#define KiRot_INIT				0.2
+#define KpRot_INIT				0.06//0.1
+#define KiRot_INIT				0.03//0.2
 #define totalErrorRot_INIT		0
 #define speedDifThreshold_INIT	1
 #define KiAngleThreshold_INIT	10
@@ -176,6 +176,7 @@ NAMESPACE_INIT(ctrlGr2);
 #else
 #define rayonBeacon_INIT		0.03
 #endif
+#define maxAcceleration_INIT    1
 /************************************
  * POTO *****************************
  ***********************************/
@@ -184,8 +185,9 @@ NAMESPACE_INIT(ctrlGr2);
 #define kFV_INIT				30
 #define FXRob_INIT				0
 #define FyRob_INIT				0
-#define kw_INIT					200
+#define kw_INIT					100
 #define minDistance_INIT		0.3
+#define thresholdAligned_INIT   10
 
 /************************************
  * ODOMETRY  ************************

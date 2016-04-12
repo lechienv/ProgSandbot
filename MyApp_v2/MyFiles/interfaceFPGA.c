@@ -252,6 +252,10 @@ void InitWebVariables(CtrlStruct *cvs){
     var23 = cvs->MotorL->Ki;
     var24 = cvs->MotorL->speed;
     var25 = cvs->MotorR->speed;
+    var26 = cvs->Poto->thresholdAligned;
+    var27 = cvs->Param->radiusBot;
+    var28 = 0;
+    var29 = cvs->Param->maxAcceleration;
     
     var1Status = var1;
     var2Status = var2;
@@ -308,7 +312,9 @@ void RefreshWebVariables(CtrlStruct *cvs){
     cvs->Poto->minDistance = var21;
     cvs->MotorL->Kp = var22;
     cvs->MotorL->Ki = var23;
-
+    cvs->Poto->thresholdAligned = var26;
+    cvs->Param->radiusBot = var27;
+    cvs->Param->maxAcceleration = var29;
 
     var1Status = var1;
     var2Status = cvs->time;
@@ -335,10 +341,10 @@ void RefreshWebVariables(CtrlStruct *cvs){
     var23Status = cvs->MotorL->Ki;
     var24Status = cvs->MotorL->speed;
     var25Status = cvs->MotorR->speed;
-    var26Status = 0;
-    var27Status = 0;
-    var28Status = 0;
-    var29Status = 0;
+    var26Status = cvs->Poto->thresholdAligned;
+    var27Status = cvs->Param->radiusBot;
+    var28Status = var28;
+    var29Status = cvs->Param->maxAcceleration;
     var30Status = 0;
     var31Status = 0;
     var32Status = 0;

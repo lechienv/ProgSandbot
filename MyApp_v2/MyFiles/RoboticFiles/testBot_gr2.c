@@ -36,13 +36,13 @@ void Action3Test(CtrlStruct *cvs){
 void Action4Test(CtrlStruct *cvs){
     cvs->MotorL->dutyCycle = var1;//RightMotorDC;
     cvs->MotorR->dutyCycle = var2;// RightMotorDC;
-    cvs->MotorTower->dutyCycle = var3;
+    cvs->MotorPince->dutyCycle = var3;
     cvs->MotorRatL->dutyCycle = var4; //RightMotorDC;//RightMotorDC;
     cvs->MotorRatR->dutyCycle = var5; //RightMotorDC;//RightMotorDC;
 }
 
 void Action5Test(CtrlStruct *cvs){
-    cvs->MotorL->dutyCycle = var39;
+    PointHomologation(cvs);
 }
 void Action6Test(CtrlStruct *cvs){
     cvs->MotorR->dutyCycle = var39;
@@ -164,6 +164,23 @@ void StrategyTest(CtrlStruct *cvs){
         Action14Test(cvs);
     }
 }
+
+bool PinceCalibration(CtrlStruct *cvs){
+    if(!cvs->Sensors->uSwitchPinceOut){
+        SpeedRefToDC(cvs, cvs->MotorPince, 6.14);
+        return false;
+    }
+    else{
+        cvs->MotorPince->position = 0;
+        return true;
+    }
+}
+
+void ClosePince(CtrlStruct *cvs){
+    cvs->MotorPince->dutyCycle = -30;
+}
+
+
 #endif // REALBOT
 
 #ifndef REALBOT

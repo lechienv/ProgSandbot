@@ -37,6 +37,7 @@ void controller_init(CtrlStruct *cvs){
 	cvs->stateCalib = (color == YELLOW || color == BLUE) ? Cal_y_av1 : Cal_y_arr;
 	cvs->stateReCalib = ReCal_rot1;
 	cvs->stateStrat = reachPointA;
+    cvs->stateHomologation = reachViaPoint;
 #ifdef REALBOT
     InitRegMotor(cvs->MotorL);
     InitRegMotor(cvs->MotorR);
@@ -189,6 +190,7 @@ void AlwaysInController(CtrlStruct *cvs) {
 	cvs->MotorL->position += cvs->MotorL->speed*cvs->timeStep;
 	cvs->MotorR->position += cvs->MotorR->speed*cvs->timeStep;
 	cvs->MotorTower->position += cvs->MotorTower->speed*cvs->timeStep;
+    
 #ifdef REALBOT
     cvs->MotorRatL->dutyCycle = 0;
     cvs->MotorRatR->dutyCycle = 0;

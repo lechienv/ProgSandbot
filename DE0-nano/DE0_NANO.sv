@@ -364,7 +364,7 @@ assign UartDir = GPIO_0[22];*/
 
 //--- Gestion LED ---------------------------------------
 logic [31:0] TestCodeurs;
-counter #(32) CompteurTest(LaserCodeurA,PIC32_RESET,TestCodeurs);
+counter #(32) CompteurTest(PinceCodeurA,PIC32_RESET,TestCodeurs);
 
 assign LED = {~LaserSign, LaserSync, LaserCodeurA, LaserCodeurB, PropLeftCodeurA, PropLeftCodeurB, PropRightCodeurA, PropRightCodeurB}; //
 //assign LED = IO_N_Data_Out[7:0];

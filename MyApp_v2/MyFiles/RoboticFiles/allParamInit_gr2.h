@@ -159,7 +159,7 @@ NAMESPACE_INIT(ctrlGr2);
 /************************************
  * PARAMS ***************************
  ***********************************/
-#define radiusBot_INIT			0.15 //0.015 ?
+#define radiusBot_INIT			0.2//0.15 //0.015 ?
 #define width_INIT				0.2625
 #define lengthTower_INIT		0.0833
 #define wheelLRadius_INIT		wheelLRadius_DEFAULT
@@ -180,8 +180,8 @@ NAMESPACE_INIT(ctrlGr2);
 /************************************
  * POTO *****************************
  ***********************************/
-#define katt_INIT				1.0
-#define krep_INIT				0.001
+#define katt_INIT				10//1.0
+#define krep_INIT				0.001//0.001
 #define kFV_INIT				30
 #define FXRob_INIT				0
 #define FyRob_INIT				0

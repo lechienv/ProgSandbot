@@ -319,17 +319,17 @@ void InitObstacles(CtrlStruct *cvs) {
 	cvs->Obstacles->QuarterOfCircleList = (QuarterOfCircle*)malloc(sizeof(QuarterOfCircle)*NumberOfQuarterOfCircle_INIT);
 	//EnnemyBot
 	cvs->Obstacles->CircleList[0].isActive = true;
-	cvs->Obstacles->CircleList[0].radius = 0.2;
+	cvs->Obstacles->CircleList[0].radius = 0.3;
 	cvs->Obstacles->CircleList[0].x = -2;
 	cvs->Obstacles->CircleList[0].y = -2;
 
 	cvs->Obstacles->CircleList[1].isActive = true;
-	cvs->Obstacles->CircleList[1].radius = 0.2;
+	cvs->Obstacles->CircleList[1].radius = 0.3;
 	cvs->Obstacles->CircleList[1].x = -2;
 	cvs->Obstacles->CircleList[1].y = -2;
 
 	cvs->Obstacles->CircleList[2].isActive = true;
-	cvs->Obstacles->CircleList[2].radius = 0.2;
+	cvs->Obstacles->CircleList[2].radius = 0.3;
 	cvs->Obstacles->CircleList[2].x = -2;
 	cvs->Obstacles->CircleList[2].y = -2;
 

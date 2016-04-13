@@ -24,7 +24,7 @@ void	ActivateBase(CtrlStruct *cvs);
 void	DisactivateBase(CtrlStruct *cvs);
 void	Calibration(CtrlStruct *cvs);
 void	ReCalibration(CtrlStruct *cvs);
-
+void    PointHomologation(CtrlStruct *cvs);
 #ifndef REALBOT
 NAMESPACE_CLOSE();
 #endif // ! REALBOT

@@ -2,7 +2,7 @@
 #define _TESTBOT_GR2_H_
 
 #include "CtrlStruct_gr2.h"
-
+#include "strategy_gr2.h"
 #ifndef REALBOT
 #include "namespace_ctrl.h"
 #include <stdlib.h>
@@ -31,6 +31,9 @@ void Action11Test(CtrlStruct *cvs);
 void Action12Test(CtrlStruct *cvs);
 void Action13Test(CtrlStruct *cvs);
 void StrategyTest(CtrlStruct *cvs);
+bool PinceCalibration(CtrlStruct *cvs);
+void ClosePince(CtrlStruct *cvs);
+
 #endif //REALBOT
 
 

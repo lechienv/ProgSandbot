@@ -121,6 +121,56 @@ void TheGoals(CtrlStruct *cvs)
 #endif // !REALBOT
 }
 
+void PointHomologation(CtrlStruct *cvs){
+    //enum StateHomologation {reachViaPoint, AlignWithTheta, ReachBlocs, ClosingPince, GoViaZone, GoInZone, OpeningPince};
+    switch (cvs->stateHomologation){
+        case reachViaPoint:{
+            bool isReached = ReachPointPotential(cvs, 0.1, 1.18, 0.03);
+            if(isReached)
+                cvs->stateHomologation = AlignWithTheta;
+            break;
+        }
+        case AlignWithTheta:{
+            bool isAligned = IsAlignedWithTheta(cvs,-90,1);
+            if(isAligned)
+                cvs->stateHomologation = ReachBlocs;
+            break;
+        }
+        case ReachBlocs:
+                if(cvs->Odo->y > 0.85 + 0.075 + 0.058){
+                    SpeedRefToDC(cvs,cvs->MotorL,3);
+                    SpeedRefToDC(cvs,cvs->MotorR,3);
+                }
+                else
+                    cvs->stateHomologation = ClosingPince;
+                break;
+        case ClosingPince:
+            cvs->stateHomologation = GoViaZone;
+            break;
+        case GoViaZone:{
+            bool isReached = ReachPointPotential(cvs, 0.1, 0.575, 0.05);
+            if(isReached)
+                cvs->stateHomologation = GoViaZone; //AlignZone
+            break;
+        }
+        case AlignZone:{
+            bool isAligned = IsAlignedWithTheta(cvs,-135,1);
+            if(isAligned)
+                cvs->stateHomologation = GoInZone;
+            break;
+        }
+        case GoInZone:
+            if(cvs->Odo->y > 0.4){
+                SpeedRefToDC(cvs,cvs->MotorL,3);
+                SpeedRefToDC(cvs,cvs->MotorR,3);
+            }
+            else
+                cvs->stateHomologation = OpeningPince;
+            break;
+        case OpeningPince:
+            break;
+    }
+}
 
 void goto_nextstate(CtrlStruct *cvs, bool my_bool)
 {		

@@ -25,6 +25,7 @@ void	DisactivateBase(CtrlStruct *cvs);
 void	Calibration(CtrlStruct *cvs);
 void	ReCalibration(CtrlStruct *cvs);
 bool	ReachPointPotential(CtrlStruct *cvs, double xGoal, double yGoal, double precisionRadius);
+void    PinceCalibration(CtrlStruct *cvs);
 
 #ifndef REALBOT
 NAMESPACE_CLOSE();

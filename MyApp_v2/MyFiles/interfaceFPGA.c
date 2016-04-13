@@ -26,7 +26,6 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
     unsigned int J = MyCyclone_Read(CYCLONE_IO_J_Data);
     unsigned int K = MyCyclone_Read(CYCLONE_IO_K_Data);
     unsigned int L = MyCyclone_Read(CYCLONE_IO_L_Data);
-    
 #ifdef MINIBOT
     cvs->MotorR->speed = ComputeSpeed(cvs->MotorL->clicNumber,C,extractBits(A,1,1));
     cvs->MotorL->speed = ComputeSpeed(cvs->MotorR->clicNumber,B,extractBits(A,2,2));
@@ -38,11 +37,9 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
     cvs->Odo->speedL = ComputeSpeed(cvs->Odo->clicNumber,D,extractBits(A,6,6));
     cvs->Odo->speedR = ComputeSpeed(cvs->Odo->clicNumber,E,extractBits(A,7,7));
 #endif
-
     cvs->MotorPince->speed = ComputeSpeed(cvs->MotorPince->clicNumber,F,extractBits(A,5,5));
     cvs->MotorRatL->speed = ComputeSpeed(cvs->MotorRatL->clicNumber,G,extractBits(A,3,3));
     cvs->MotorRatR->speed = ComputeSpeed(cvs->MotorRatR->clicNumber,H,extractBits(A,4,4));
-    
 #ifdef MINIBOT
    /* MyCAN_USwitch(&(cvs->Sensors->uSwitchLeft), &(cvs->Sensors->uSwitchRight));
     char theStr[64];
@@ -65,7 +62,6 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
         nb_rising = 0;
         nb_falling = 0;
     }
-
     int newValue1 = K; 
     int newValue2 = L;
     
@@ -92,7 +88,6 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
         nb_rising++;
         nb_falling++;
     }
-    
     cvs->time = getTime() - cvs->timeOffset;
 
     /*

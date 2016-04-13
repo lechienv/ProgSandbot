@@ -31,12 +31,13 @@ void controller_init(CtrlStruct *cvs){
 	InitSensors(cvs);
 	InitObstacles(cvs);
 	InitTower(cvs);
-	InitGoals(cvs);
+	//InitGoals(cvs);
     InitDyna(cvs);
 	int color = cvs->robotID;
-	cvs->stateCalib = (color == YELLOW || color == BLUE) ? Cal_y_av1 : Cal_y_arr;
+	//cvs->stateCalib = (color == YELLOW || color == BLUE) ? Cal_y_av1 : Cal_y_arr;
 	cvs->stateReCalib = ReCal_rot1;
 	cvs->stateStrat = reachPointA;
+    
 #ifdef REALBOT
     InitRegMotor(cvs->MotorL);
     InitRegMotor(cvs->MotorR);
@@ -45,6 +46,7 @@ void controller_init(CtrlStruct *cvs){
     InitRegMotor(cvs->MotorPince);
     InitRegMotor(cvs->MotorTower);
 #endif // REALBOT
+    
     AlwaysInController(cvs);
 }
 
@@ -95,9 +97,12 @@ void controller_loop(CtrlStruct *cvs){
             }
         }
     }*/
-    StrategyTest(cvs);
-    /*
-    cvs->MotorL->dutyCycle = LeftMotorDC;//RightMotorDC;
+    //StrategyTest(cvs);
+
+    
+    TheGoals(cvs);    
+    
+    /*cvs->MotorL->dutyCycle = LeftMotorDC;//RightMotorDC;
     cvs->MotorR->dutyCycle = RightMotorDC;// RightMotorDC;
     cvs->MotorTower->dutyCycle = TourelleDC;
     cvs->MotorRatL->dutyCycle = RateauLDC; //RightMotorDC;//RightMotorDC;
@@ -171,7 +176,6 @@ void UpdateFromFPGA(CtrlStruct *cvs) {
 
 
 void AlwaysInController(CtrlStruct *cvs) {
-
 #ifndef REALBOT
 	UpdateFromFPGA(cvs);
   //  OpponentDetection(cvs); //NEED TO BE IN TWO

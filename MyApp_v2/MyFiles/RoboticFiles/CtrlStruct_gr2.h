@@ -36,10 +36,9 @@ NAMESPACE_INIT(ctrlGr2);
 #define NB_STORE_EDGE 10
 #endif //REALBOT
 
-#define BLUE 0
-#define RED 1
-#define YELLOW 2
-#define WHITE  3
+#define GREEN 0
+#define PINK 1
+
 
 #define EPSILON 0.000001
 

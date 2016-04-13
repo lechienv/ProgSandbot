@@ -10,6 +10,8 @@ NAMESPACE_INIT(ctrlGr2);
 #endif // ! REALBOT
 void TheGoals(CtrlStruct *cvs)
 {
+    
+    PinceCalibration(cvs);
 #ifndef REALBOT
 	int color = cvs->robotID;
 	bool my_bool =false;
@@ -121,7 +123,7 @@ void TheGoals(CtrlStruct *cvs)
 #endif // !REALBOT
 }
 
-
+/*
 void goto_nextstate(CtrlStruct *cvs, bool my_bool)
 {		
 	if (cvs->Goals->goalIN == 0) {
@@ -178,7 +180,7 @@ void DisactivateBase(CtrlStruct *cvs) {
 	cvs->Obstacles->QuarterOfCircleList[0].isActive = true;
 	cvs->Obstacles->QuarterOfCircleList[1].isActive = true;
 }
-
+*/
 void Calibration(CtrlStruct *cvs) {
 	cvs->Obstacles->CircleList[0].isActive = 0;
 	cvs->Obstacles->CircleList[1].isActive = 0;
@@ -186,9 +188,11 @@ void Calibration(CtrlStruct *cvs) {
 	double time = cvs->time;
 	double x = cvs->Odo->x;
 	double y = cvs->Odo->y;
-	double theta = (cvs->Odo->theta);
+	double theta = cvs->Odo->theta;
 	int color = cvs->robotID;
-	bool TwoBots_bool = color == BLUE || color == YELLOW;
+    
+	//bool TwoBots_bool = color == BLUE || color == YELLOW;
+    
 	switch (cvs->stateCalib) {
 	case(Cal_y_av1) :
 		if (fabs(y) > 1.1) {
@@ -196,35 +200,31 @@ void Calibration(CtrlStruct *cvs) {
 			SpeedRefToDC(cvs, cvs->MotorR, 10);
 		}
 		else {
-			cvs->stateCalib = (color == BLUE) ? Cal_rot_neg : Cal_rot_pos;
+			cvs->stateCalib = (color == PINK) ? Cal_rot_neg : Cal_rot_pos;
 		}
 		break;
-
-	case(Cal_y_arr2) :
-		if (fabs(y) < 1.37) {
-			SpeedRefToDC(cvs, cvs->MotorL, -10);
-			SpeedRefToDC(cvs, cvs->MotorR, -10);
-		}
-		else {
-			cvs->stateCalib = Action1;
-		}
-		break;
-
+//0.1322
 	case(Cal_y_arr) :
 		if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
-			SpeedRefToDC(cvs, cvs->MotorL, ((color == YELLOW || color == BLUE) ? -12 : -6));
-			SpeedRefToDC(cvs, cvs->MotorR, ((color == YELLOW || color == BLUE) ? -12 : -6));
+			//SpeedRefToDC(cvs, cvs->MotorL, ((color == YELLOW || color == BLUE) ? -12 : -6));
+			//SpeedRefToDC(cvs, cvs->MotorR, ((color == YELLOW || color == BLUE) ? -12 : -6));
+            SpeedRefToDC(cvs, cvs->MotorL, -9);
+			SpeedRefToDC(cvs, cvs->MotorR, -9);
+            
 		}
 		else {
 			cvs->Odo->timein = (cvs->Odo->timeDelay == 0) ? cvs->time : cvs->Odo->timein;
 			cvs->Odo->timeDelay += 1;
 			if (fabs(cvs->Odo->timein - cvs->time) < 0.5) {
-				SpeedRefToDC(cvs, cvs->MotorL, ((color == YELLOW || color == BLUE) ? -12 : -6));
-				SpeedRefToDC(cvs, cvs->MotorR, ((color == YELLOW || color == BLUE) ? -12 : -6));
+				//SpeedRefToDC(cvs, cvs->MotorL, -9);
+                //SpeedRefToDC(cvs, cvs->MotorR, -9);
+                cvs->MotorL->dutyCycle = -9;
+                cvs->MotorR->dutyCycle = -9;
+				
 			}
 			else {
-				cvs->Odo->y = (color == RED || color == BLUE) ? -1.44 : 1.44;
-				cvs->Odo->theta = (color == RED || color == BLUE) ? 90 : -90;
+				cvs->Odo->y = (color == PINK) ? -1.3678 : 1.3678;
+				cvs->Odo->theta = (color == GREEN) ? 90 : -90;
 				cvs->stateCalib = Cal_y_av;
 				cvs->Odo->timein = 0;
 				cvs->Odo->timeDelay = 0;
@@ -233,38 +233,42 @@ void Calibration(CtrlStruct *cvs) {
 		break;
 
 	case(Cal_y_av) :
-		if (fabs(y) > ((color == YELLOW || color == BLUE) ? 1.2 : 1.42)) {
-			SpeedRefToDC(cvs, cvs->MotorL, ((color == YELLOW || color == BLUE) ? 12 : 6));
-			SpeedRefToDC(cvs, cvs->MotorR, ((color == YELLOW || color == BLUE) ? 12 : 6));
+		if (fabs(y) > 1.42) {
+			SpeedRefToDC(cvs, cvs->MotorL, 9);
+			SpeedRefToDC(cvs, cvs->MotorR, 9);
 		}
 		else {
-			cvs->stateCalib = (color == YELLOW || color == BLUE) ? Action1 : ((color == WHITE) ? Cal_rot_pos : Cal_rot_neg);
+			//cvs->stateCalib = (color == YELLOW || color == BLUE) ? Action1 : ((color == WHITE) ? Cal_rot_pos : Cal_rot_neg);
+            cvs->stateCalib = Action1;
 		}
 		break;
 
 	case(Cal_rot_neg) : {
-		double angleRef = (color == RED || color == BLUE) ? 0 : -90;
+		double angleRef = -90;
 		bool isAligned = IsAlignedWithTheta(cvs, angleRef, 5);
 		if (isAligned) {
-			cvs->stateCalib = (color == RED || color == BLUE) ? Cal_x_arr : ((color == WHITE) ? Cal_y_arr2 : Cal_y_arr);
+			cvs->stateCalib = (color == PINK) ? Cal_x_arr : Cal_y_arr;
 		}
 		break;
 	}
 
 	case(Cal_x_arr) :
 		if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
-			SpeedRefToDC(cvs, cvs->MotorL, ((color == YELLOW || color == BLUE) ? -12 : -6));
-			SpeedRefToDC(cvs, cvs->MotorR, ((color == YELLOW || color == BLUE) ? -12 : -6));
+			SpeedRefToDC(cvs, cvs->MotorL, -9);
+			SpeedRefToDC(cvs, cvs->MotorR, -9);
 		}
 		else {
 			cvs->Odo->timein = (cvs->Odo->timeDelay == 0) ? cvs->time : cvs->Odo->timein;
 			cvs->Odo->timeDelay += 1;
 			if (fabs(cvs->Odo->timein - cvs->time) < 0.5) {
-				SpeedRefToDC(cvs, cvs->MotorL, ((color == YELLOW || color == BLUE) ? -12 : -6));
-				SpeedRefToDC(cvs, cvs->MotorR, ((color == YELLOW || color == BLUE) ? -12 : -6));
+				//SpeedRefToDC(cvs, cvs->MotorL, ((color == YELLOW || color == BLUE) ? -12 : -6));
+				//SpeedRefToDC(cvs, cvs->MotorR, ((color == YELLOW || color == BLUE) ? -12 : -6));
+                cvs->MotorL->dutyCycle = -9;
+                cvs->MotorL->dutyCycle = -9;
+                
 			}
 			else {
-				cvs->Odo->x = -0.94;
+				cvs->Odo->x = -0.8678;
 				cvs->Odo->theta = 0;
 				cvs->stateCalib = Cal_x_av;
 				cvs->Odo->timein = 0;
@@ -274,20 +278,20 @@ void Calibration(CtrlStruct *cvs) {
 		break;
 
 	case(Cal_x_av) :
-		if (x < ((color == YELLOW || color == BLUE) ? -0.25 : -0.15)) {
-			SpeedRefToDC(cvs, cvs->MotorL, ((color == YELLOW || color == BLUE) ? 12 : 6));
-			SpeedRefToDC(cvs, cvs->MotorR, ((color == YELLOW || color == BLUE) ? 12 : 6));
+		if (x < -0.25) {
+			SpeedRefToDC(cvs, cvs->MotorL, 9);
+			SpeedRefToDC(cvs, cvs->MotorR, 9);
 		}
 		else {
-			cvs->stateCalib = (color == YELLOW || color == WHITE) ? Cal_rot_neg : Cal_rot_pos;
+			cvs->stateCalib = (color == GREEN) ? Cal_rot_neg : Cal_rot_pos;
 		}
 		break;
 
 	case(Cal_rot_pos) : {
-		double angleRef = (color == RED || color == BLUE) ? 90 : 0;
+		double angleRef = 90;
 		bool isAligned = IsAlignedWithTheta(cvs, angleRef, 5);
 		if (isAligned) {
-			cvs->stateCalib = (color == YELLOW || color == WHITE) ? Cal_x_arr : ((color == RED) ? Cal_y_arr2 : Cal_y_arr);
+			cvs->stateCalib = (color == PINK) ? Cal_y_arr : Cal_x_arr;
 		}
 		break;
 	}
@@ -297,7 +301,7 @@ void Calibration(CtrlStruct *cvs) {
 	cvs->Obstacles->CircleList[1].isActive = 1;
 	cvs->Obstacles->CircleList[2].isActive = 1;
 }
-
+/*
 void ReCalibration(CtrlStruct *cvs) {
 	cvs->Obstacles->CircleList[0].isActive = 0;
 	cvs->Obstacles->CircleList[1].isActive = 0;
@@ -402,6 +406,7 @@ void ReCalibration(CtrlStruct *cvs) {
 	cvs->Obstacles->CircleList[1].isActive = 1;
 	cvs->Obstacles->CircleList[2].isActive = 1;
 }
+*/
 
 bool ReachPointPotential(CtrlStruct *cvs, double xGoal, double yGoal, double precisionRadius) {
 	double speedRefL;
@@ -435,6 +440,15 @@ bool ReachPointPotential(CtrlStruct *cvs, double xGoal, double yGoal, double pre
 		}
 		return false;
 	} //Objective is not reached
+}
+
+void PinceCalibration(CtrlStruct *cvs){
+    if(cvs->Sensors->uSwitchPinceIn){
+        cvs->MotorPince->dutyCycle = 23;
+    }
+    else{
+        cvs->MotorPince->position = 0;
+    }
 }
 
 #ifndef REALBOT

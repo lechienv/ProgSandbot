@@ -221,25 +221,15 @@ void InitOdometry(CtrlStruct *cvs) {
     cvs->Odo->clicNumber = clicNumberOdo_INIT;
 #endif // REALBOT
 
-	if (color == RED) {
-		cvs->Odo->x		= -0.075;
-		cvs->Odo->y		= -1.4;
-		cvs->Odo->theta	= 90.0;
+	if (color == GREEN) {
+		cvs->Odo->x		= 0;
+		cvs->Odo->y		= 1.3678;
+		cvs->Odo->theta	= -90.0;
 	}
-	else if (color == BLUE) {
-		cvs->Odo->x		= -0.225;
-		cvs->Odo->y		= -1.15;
-		cvs->Odo->theta = 90;
-	}
-	else if (color == YELLOW) {
-		cvs->Odo->x		= -0.225;
-		cvs->Odo->y		= 1.15;
-		cvs->Odo->theta = -90.0;
-	}
-	else if (color == WHITE) {
-		cvs->Odo->x		= -0.075;
-		cvs->Odo->y		= 1.4;
-		cvs->Odo->theta = -90.0;
+	else if (color == PINK) {
+		cvs->Odo->x		= 0;
+		cvs->Odo->y		= -1.3678;
+		cvs->Odo->theta = 90.0;
 	}
 	else {
 		cvs->Odo->x		= 0;
@@ -247,7 +237,7 @@ void InitOdometry(CtrlStruct *cvs) {
 		cvs->Odo->theta = 0;
 	}
 }
-
+/*
 void InitGoals(CtrlStruct *cvs) {
 	cvs->Goals = (Goals*)malloc(sizeof(Goals));
 	cvs->Goals->NumberOfGoals = MaxGoals;
@@ -301,6 +291,7 @@ void InitGoals(CtrlStruct *cvs) {
 	cvs->Goals->nbr_target_prev = 0;
 }
 
+*/
 
 void InitObstacles(CtrlStruct *cvs) {
 	cvs->Obstacles = (Obstacles*)malloc(sizeof(Obstacles));
@@ -329,13 +320,13 @@ void InitObstacles(CtrlStruct *cvs) {
 
 	int color = cvs->robotID;
 	//MidAreaGreenSide
-	cvs->Obstacles->QuarterOfCircleList[0].isActive = ((color == WHITE) || (color == YELLOW)) ? false : true;
+	cvs->Obstacles->QuarterOfCircleList[0].isActive = (color == GREEN) ? false : true;
 	cvs->Obstacles->QuarterOfCircleList[0].quadrant = 1;
 	cvs->Obstacles->QuarterOfCircleList[0].radius = 0.6;
 	cvs->Obstacles->QuarterOfCircleList[0].x = -0.25;
 	cvs->Obstacles->QuarterOfCircleList[0].y = 0;
 	//MidAreaBlueSide
-	cvs->Obstacles->QuarterOfCircleList[1].isActive = ((color == BLUE) || (color == RED)) ? false : true;
+	cvs->Obstacles->QuarterOfCircleList[1].isActive = (color == PINK) ? false : true;
 	cvs->Obstacles->QuarterOfCircleList[1].quadrant = 4;
 	cvs->Obstacles->QuarterOfCircleList[1].radius = 0.6;
 	cvs->Obstacles->QuarterOfCircleList[1].x = -0.25;

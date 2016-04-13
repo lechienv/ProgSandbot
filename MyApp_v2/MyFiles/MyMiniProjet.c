@@ -31,8 +31,15 @@ void MyMiniProjet_Task(void)
     unsigned long long currentTime = 0;
     unsigned long long previousTime = 0;
     unsigned long long previousTimeData = 0;
+    
+    
+    
+    
     controller_init(cvs);
+    
     InitWebVariables(cvs);
+    
+    
     
     /*********************************
      * SD Memory *********************

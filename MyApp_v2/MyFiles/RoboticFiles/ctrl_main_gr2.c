@@ -37,7 +37,7 @@ void controller_init(CtrlStruct *cvs){
 	cvs->stateCalib = (color == YELLOW || color == BLUE) ? Cal_y_av1 : Cal_y_arr;
 	cvs->stateReCalib = ReCal_rot1;
 	cvs->stateStrat = reachPointA;
-    cvs->stateHomologation = reachViaPoint;
+    cvs->stateHomologation = PinceCalib;
 #ifdef REALBOT
     InitRegMotor(cvs->MotorL);
     InitRegMotor(cvs->MotorR);
@@ -103,8 +103,9 @@ void controller_loop(CtrlStruct *cvs){
     cvs->MotorTower->dutyCycle = TourelleDC;
     cvs->MotorRatL->dutyCycle = RateauLDC; //RightMotorDC;//RightMotorDC;
     cvs->MotorRatR->dutyCycle = RateauRDC; //RightMotorDC;//RightMotorDC;
-    cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;
-    * */
+    cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;*/
+    //PinceCalibration(cvs);
+
 	AlwaysEndController(cvs);
 }
 

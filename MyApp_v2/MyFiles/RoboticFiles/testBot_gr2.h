@@ -32,8 +32,7 @@ void Action12Test(CtrlStruct *cvs);
 void Action13Test(CtrlStruct *cvs);
 void StrategyTest(CtrlStruct *cvs);
 bool PinceCalibration(CtrlStruct *cvs);
-void ClosePince(CtrlStruct *cvs);
-
+bool ClosePince(CtrlStruct *cvs);
 #endif //REALBOT
 
 

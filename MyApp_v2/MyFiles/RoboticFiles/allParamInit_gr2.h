@@ -139,7 +139,7 @@ NAMESPACE_INIT(ctrlGr2);
 
     //MotorPince
     #define KpPince_INIT				0.3//0.5
-    #define KiPince_INIT				5//7
+    #define KiPince_INIT				1//7
 	#define KpPosPince_INIT				1
     #define KphiPince_INIT				0.3177
 	#define RPince_INIT					10
@@ -187,7 +187,7 @@ NAMESPACE_INIT(ctrlGr2);
 #define FyRob_INIT				0
 #define kw_INIT					100
 #define minDistance_INIT		0.3
-#define thresholdAligned_INIT   10
+#define thresholdAligned_INIT   0.5//10
 
 /************************************
  * ODOMETRY  ************************

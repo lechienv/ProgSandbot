@@ -54,7 +54,7 @@ enum StateReCalib {ReCal_y_arr, ReCal_y_av, ReCal_rot1, ReCal_x_arr, ReCal_x_av,
 enum StateStrat {reachPointA, reachPointB, reachPointC, reachPointD};
 enum StateDyna {grap, release};
 enum StateVia {backHomeViaBase, backHomeStraight, normalPoint, viaPoint};
-enum StateHomologation {reachViaPoint, AlignWithTheta, ReachBlocs, ClosingPince, GoViaZone, AlignZone, GoInZone, OpeningPince};
+enum StateHomologation {PinceCalib, reachViaPoint, AlignWithTheta, ReachBlocs, ClosingPince, GoViaZone, AlignZone, GoInZone, OpeningPince};
 
 typedef struct Potential {
 	double katt;

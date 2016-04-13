@@ -122,10 +122,16 @@ void TheGoals(CtrlStruct *cvs)
 }
 
 void PointHomologation(CtrlStruct *cvs){
-    //enum StateHomologation {reachViaPoint, AlignWithTheta, ReachBlocs, ClosingPince, GoViaZone, GoInZone, OpeningPince};
+    //enum StateHomologation {PinceCalib, reachViaPoint, AlignWithTheta, ReachBlocs, ClosingPince, GoViaZone, GoInZone, OpeningPince};
     switch (cvs->stateHomologation){
+        case PinceCalib:{
+            bool calibred = PinceCalibration(cvs);
+            if(calibred)
+                cvs->stateHomologation = reachViaPoint;
+            break;
+        }
         case reachViaPoint:{
-            bool isReached = ReachPointPotential(cvs, 0.1, 1.2, 0.03);
+            bool isReached = ReachPointPotential(cvs, -0.1, 1.2, 0.03);
             cvs->Obstacles->RectangleList[8].isActive = false;
             if(isReached){
                 cvs->Obstacles->RectangleList[8].isActive = true;
@@ -147,9 +153,12 @@ void PointHomologation(CtrlStruct *cvs){
                 else
                     cvs->stateHomologation = ClosingPince;
                 break;
-        case ClosingPince:
-            cvs->stateHomologation = GoViaZone;
+        case ClosingPince:{
+            bool closed = ClosePince(cvs);
+            if(closed)
+                cvs->stateHomologation = GoViaZone;
             break;
+        }
         case GoViaZone:{
             bool isReached = ReachPointPotential(cvs, 0.1, 0.575, 0.05);
             if(isReached)

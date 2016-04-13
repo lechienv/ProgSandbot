@@ -22,12 +22,7 @@ void Action1Test(CtrlStruct *cvs){
 }
 
 void Action2Test(CtrlStruct *cvs){
-    if (!cvs->Sensors->uSwitchPinceIn) {
-		TorqueControl(cvs->MotorPince,var3);
-    }
-    if(cvs->Sensors->uSwitchPinceOut){
-        cvs->MotorPince->dutyCycle = 0;
-    }
+  PinceCalibration(cvs);
 }
 void Action3Test(CtrlStruct *cvs){
     bool result = ReachPointPotential(cvs,var3, var4, var5);
@@ -45,7 +40,7 @@ void Action5Test(CtrlStruct *cvs){
     PointHomologation(cvs);
 }
 void Action6Test(CtrlStruct *cvs){
-    cvs->MotorR->dutyCycle = var39;
+    ClosePince(cvs);
 } 
 void Action7Test(CtrlStruct *cvs){
     cvs->MotorPince->dutyCycle = var39;
@@ -165,9 +160,10 @@ void StrategyTest(CtrlStruct *cvs){
     }
 }
 
+//ok
 bool PinceCalibration(CtrlStruct *cvs){
     if(!cvs->Sensors->uSwitchPinceOut){
-        SpeedRefToDC(cvs, cvs->MotorPince, 6.14);
+        SpeedRefToDC(cvs, cvs->MotorPince, 35);
         return false;
     }
     else{
@@ -176,8 +172,12 @@ bool PinceCalibration(CtrlStruct *cvs){
     }
 }
 
-void ClosePince(CtrlStruct *cvs){
-    cvs->MotorPince->dutyCycle = -30;
+bool ClosePince(CtrlStruct *cvs){
+    cvs->MotorPince->dutyCycle = -40;
+    if((cvs->MotorPince->speed == 0) && (!cvs->Sensors->uSwitchPinceOut) && (cvs->MotorPince->position < -100)){
+        return true;
+    }
+    return false;
 }
 
 

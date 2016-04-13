@@ -18,7 +18,7 @@ void controller_init(CtrlStruct *cvs){
     cvs->previousTimeCAN = 0;
     cvs->timeOffset = 0;
 #ifdef REALBOT
-    cvs->robotID = PINK; //getRobotID();
+    cvs->robotID = GREEN; //getRobotID();
     cvs->timeStep = TIMESTEP_REALBOT;
 #else
     cvs->robotID = cvs->inputs->robot_id;
@@ -34,7 +34,7 @@ void controller_init(CtrlStruct *cvs){
 	InitGoals(cvs);
     InitDyna(cvs);
 	int color = cvs->robotID;
-	cvs->stateCalib = (color == YELLOW || color == BLUE) ? Cal_y_av1 : Cal_y_arr;
+	cvs->stateCalib = Cal_y_arr;
 	cvs->stateReCalib = ReCal_rot1;
 	cvs->stateStrat = reachPointA;
     cvs->stateHomologation = PinceCalib;
@@ -96,8 +96,9 @@ void controller_loop(CtrlStruct *cvs){
             }
         }
     }*/
-    StrategyTest(cvs);
+    //StrategyTest(cvs);
     //PointHomologation(cvs);
+    Calibration(cvs);
     
    /* 
     cvs->MotorL->dutyCycle = LeftMotorDC;//RightMotorDC;

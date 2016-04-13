@@ -226,7 +226,7 @@ void InitOdometry(CtrlStruct *cvs) {
         cvs->Odo->y		= 1.3678;
         cvs->Odo->theta	= -90.0;
     }
-    if(color == PINK){
+    else if(color == PINK){
         cvs->Odo->x		= -0.1425;
         cvs->Odo->y		= -1.3678;
         cvs->Odo->theta	= 90.0;

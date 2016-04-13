@@ -15,7 +15,7 @@
  * MAIN
  *****************************************************************************/
 
-//#define WEB
+#define WEB
 void MyMiniProjet_Task(void)
 {
 
@@ -88,7 +88,15 @@ void MyMiniProjet_Task(void)
                         }
                     }*/
                     previousTime = currentTime;
-                    controller_loop(cvs);          
+                    controller_loop(cvs);    
+                    
+                    char s[659];
+                    sprintf(s,"x = %f \t y = %f \t stateCalib = %d \t color = %d\n", cvs->Odo->x, cvs->Odo->y, cvs->stateCalib, cvs->robotID);
+                    MyConsole_SendMsg(s);
+                    
+                    
+                    
+                    
         //#define TESTS
 
         #ifndef TESTS

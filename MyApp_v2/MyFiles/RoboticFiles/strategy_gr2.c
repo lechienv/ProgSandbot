@@ -125,9 +125,12 @@ void PointHomologation(CtrlStruct *cvs){
     //enum StateHomologation {reachViaPoint, AlignWithTheta, ReachBlocs, ClosingPince, GoViaZone, GoInZone, OpeningPince};
     switch (cvs->stateHomologation){
         case reachViaPoint:{
-            bool isReached = ReachPointPotential(cvs, 0.1, 1.18, 0.03);
-            if(isReached)
+            bool isReached = ReachPointPotential(cvs, 0.1, 1.2, 0.03);
+            cvs->Obstacles->RectangleList[8].isActive = false;
+            if(isReached){
+                cvs->Obstacles->RectangleList[8].isActive = true;
                 cvs->stateHomologation = AlignWithTheta;
+            }
             break;
         }
         case AlignWithTheta:{
@@ -150,11 +153,11 @@ void PointHomologation(CtrlStruct *cvs){
         case GoViaZone:{
             bool isReached = ReachPointPotential(cvs, 0.1, 0.575, 0.05);
             if(isReached)
-                cvs->stateHomologation = GoViaZone; //AlignZone
+                cvs->stateHomologation = AlignZone; //AlignZone
             break;
         }
         case AlignZone:{
-            bool isAligned = IsAlignedWithTheta(cvs,-135,1);
+            bool isAligned = IsAlignedWithTheta(cvs,-95,1);
             if(isAligned)
                 cvs->stateHomologation = GoInZone;
             break;

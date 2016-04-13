@@ -40,6 +40,8 @@ NAMESPACE_INIT(ctrlGr2);
 #define RED 1
 #define YELLOW 2
 #define WHITE  3
+#define GREEN 4
+#define PINK 5
 
 #define EPSILON 0.000001
 

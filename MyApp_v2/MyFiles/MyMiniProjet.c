@@ -15,7 +15,7 @@
  * MAIN
  *****************************************************************************/
 
-#define WEB
+//#define WEB
 void MyMiniProjet_Task(void)
 {
 
@@ -78,6 +78,15 @@ void MyMiniProjet_Task(void)
 #endif
                 unsigned long long currentTime = ReadCoreTimer();
                 if((double)(currentTime - previousTime) > TIMESTEP_REALBOT*(SYS_FREQ/2000)*1000){//
+                    /*if(currentTime > 90){
+                        while(1){
+                            cvs->MotorR->dutyCycle =0;                    
+                            cvs->MotorL->dutyCycle =0;
+                            cvs->MotorRatL->dutyCycle =0;
+                            cvs->MotorRatR->dutyCycle =0;
+                            cvs->MotorTower->dutyCycle =0;
+                        }
+                    }*/
                     previousTime = currentTime;
                     controller_loop(cvs);          
         //#define TESTS

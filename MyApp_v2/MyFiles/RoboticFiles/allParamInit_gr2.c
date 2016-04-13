@@ -221,11 +221,29 @@ void InitOdometry(CtrlStruct *cvs) {
 	int color = cvs->robotID;
 #ifdef REALBOT
     cvs->Odo->clicNumber = clicNumberOdo_INIT;
-    cvs->Odo->x		= -0.1425;
+    if(color == GREEN){
+        cvs->Odo->x		= -0.1425;
+        cvs->Odo->y		= 1.3678;
+        cvs->Odo->theta	= -90.0;
+    }
+    if(color == PINK){
+        cvs->Odo->x		= -0.1425;
+        cvs->Odo->y		= -1.3678;
+        cvs->Odo->theta	= 90.0;
+    }
+    else {
+		cvs->Odo->x		= 0;
+		cvs->Odo->y		= 0;
+		cvs->Odo->theta = 0;
+    }
+    /*cvs->Odo->x		= -0.1425;
     cvs->Odo->y		= 1.3678;
-    cvs->Odo->theta	= -90.0;
+    cvs->Odo->theta	= -90.0;*/
+    
+    
+     
 #else
-
+    
 	if (color == RED) {
 		cvs->Odo->x		= -0.075;
 		cvs->Odo->y		= -1.4;

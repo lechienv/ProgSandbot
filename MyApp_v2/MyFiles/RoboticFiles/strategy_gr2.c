@@ -123,6 +123,7 @@ void TheGoals(CtrlStruct *cvs)
 
 void PointHomologation(CtrlStruct *cvs){
     //enum StateHomologation {PinceCalib, reachViaPoint, AlignWithTheta, ReachBlocs, ClosingPince, GoViaZone, GoInZone, OpeningPince};
+    int color = cvs->robotID;
     switch (cvs->stateHomologation){
         case PinceCalib:{
             bool calibred = PinceCalibration(cvs);
@@ -131,7 +132,14 @@ void PointHomologation(CtrlStruct *cvs){
             break;
         }
         case reachViaPoint:{
-            bool isReached = ReachPointPotential(cvs, -0.1, 1.2, 0.03);
+            bool isReached;
+            if(color == GREEN){
+                isReached = ReachPointPotential(cvs, -0.1, 1.2, 0.03);
+            }
+            else{
+                isReached = ReachPointPotential(cvs, -0.1, -1.2, 0.03);
+            }
+             
             cvs->Obstacles->RectangleList[8].isActive = false;
             if(isReached){
                 cvs->Obstacles->RectangleList[8].isActive = true;
@@ -140,13 +148,19 @@ void PointHomologation(CtrlStruct *cvs){
             break;
         }
         case AlignWithTheta:{
-            bool isAligned = IsAlignedWithTheta(cvs,-90,1);
+            bool isAligned;
+            if(color == GREEN){
+                isAligned = IsAlignedWithTheta(cvs,-90,1);
+            }
+            else{
+                isAligned = IsAlignedWithTheta(cvs,90,1);
+            }
             if(isAligned)
                 cvs->stateHomologation = ReachBlocs;
             break;
         }
         case ReachBlocs:
-                if(cvs->Odo->y > 0.85 + 0.075 + 0.058){
+                if(fabs(cvs->Odo->y) > 0.85 + 0.075 + 0.058){
                     SpeedRefToDC(cvs,cvs->MotorL,3);
                     SpeedRefToDC(cvs,cvs->MotorR,3);
                 }
@@ -160,27 +174,41 @@ void PointHomologation(CtrlStruct *cvs){
             break;
         }
         case GoViaZone:{
-            bool isReached = ReachPointPotential(cvs, 0.1, 0.575, 0.05);
+            bool isReached;
+            if(color == GREEN){
+                isReached = ReachPointPotential(cvs, 0.1, 0.575, 0.05);
+            }
+            else{
+                isReached = ReachPointPotential(cvs, 0.1, -0.575, 0.05);
+            }
             if(isReached)
                 cvs->stateHomologation = AlignZone; //AlignZone
             break;
         }
         case AlignZone:{
-            bool isAligned = IsAlignedWithTheta(cvs,-95,1);
+            bool isAligned;
+            if(color == GREEN){
+                isAligned = IsAlignedWithTheta(cvs,-95,1);
+            }
+            else{
+                isAligned = IsAlignedWithTheta(cvs,95,1);
+            }
             if(isAligned)
                 cvs->stateHomologation = GoInZone;
             break;
         }
         case GoInZone:
-            if(cvs->Odo->y > 0.4){
+            if(fabs(cvs->Odo->y) > 0.4){
                 SpeedRefToDC(cvs,cvs->MotorL,3);
                 SpeedRefToDC(cvs,cvs->MotorR,3);
             }
             else
                 cvs->stateHomologation = OpeningPince;
             break;
-        case OpeningPince:
+        case OpeningPince:{
+            bool calibred = PinceCalibration(cvs);               
             break;
+        }
     }
 }
 

@@ -177,6 +177,8 @@ NAMESPACE_INIT(ctrlGr2);
 #define rayonBeacon_INIT		0.03
 #endif
 #define maxAcceleration_INIT    1
+# define PasFiletVisRat_INIT       3.0
+# define PasFiletVisPince_INIT       2.0
 /************************************
  * POTO *****************************
  ***********************************/

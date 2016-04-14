@@ -187,9 +187,11 @@ bool ClosePince(CtrlStruct *cvs){
     if(cvs->time >5 && cvs->time <20)
     {   
         RatGoTop(cvs, cvs->MotorRatL); 
+        RatGoTop(cvs, cvs->MotorRatR); 
     }
     else if (cvs->time >30 && cvs->time <50)
     { RatGoBottom(cvs, cvs->MotorRatL);
+    RatGoBottom(cvs, cvs->MotorRatR);
     }
     else
     { 

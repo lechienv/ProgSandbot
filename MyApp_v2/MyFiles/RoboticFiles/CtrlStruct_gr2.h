@@ -98,6 +98,8 @@ typedef struct Parametres {
 	double rayonBeacon;
     double maxAcceleration;
     bool MotorCommandByHand;
+    double PasFiletVisRat;
+    double PasFiletVisPince;
 } Parametres;
 
 typedef struct Sensors {

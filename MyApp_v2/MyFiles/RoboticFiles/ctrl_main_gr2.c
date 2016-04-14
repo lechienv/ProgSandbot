@@ -209,9 +209,9 @@ void AlwaysInController(CtrlStruct *cvs) {
     cvs->MotorRatR->dutyCycle = 0;
     cvs->MotorPince->dutyCycle = 0;
 
-	cvs->MotorPince->position += cvs->MotorPince->speed*cvs->timeStep;
-	cvs->MotorRatL->position += cvs->MotorRatL->speed*cvs->timeStep/(M_PI);
-	cvs->MotorRatR->position += cvs->MotorRatR->speed*cvs->timeStep/(M_PI);
+	cvs->MotorPince->position += cvs->MotorPince->speed*cvs->timeStep *cvs->Param->PasFiletVisPince/ (2*M_PI); // en mm
+	cvs->MotorRatL->position += cvs->MotorRatL->speed*cvs->timeStep *cvs->Param->PasFiletVisRat / (2*M_PI); // en mm
+	cvs->MotorRatR->position += cvs->MotorRatR->speed*cvs->timeStep *cvs->Param->PasFiletVisRat / (2*M_PI); // en mm
 #endif //REALBOT
 	OpponentDetection(cvs);
 }

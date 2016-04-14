@@ -165,6 +165,8 @@ void InitParam(CtrlStruct *cvs) {
 	cvs->Param->KiAngleThreshold	= KiAngleThreshold_INIT; //Angle control: threshold to activate Ki
     cvs->Param->maxAcceleration     = maxAcceleration_INIT;
     cvs->Param->MotorCommandByHand = false;
+    cvs->Param->PasFiletVisPince = PasFiletVisPince_INIT;
+    cvs->Param->PasFiletVisRat = PasFiletVisRat_INIT;
 }
 
 void InitSensors(CtrlStruct *cvs) {

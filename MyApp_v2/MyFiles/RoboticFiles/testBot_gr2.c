@@ -188,22 +188,21 @@ bool ClosePince(CtrlStruct *cvs){
 
 bool DeposeBlock(CtrlStruct *cvs){
     bool isOpen;
-    double x = cvs->Odo->x;
-    double y = cvs->Odo->y;
-    if(cvs->Odo->bufferTime > cvs->time - 1){
-        cvs->MotorL->dutyCycle = 20;
-        cvs->MotorR->dutyCycle = 20;
-        return false;
+    if((fabs(cvs->Odo->bufferPosition) > fabs(cvs->Odo->x)-0.05) && cvs->Odo->flagBufferPosition == 0){
+        cvs->MotorL->dutyCycle = 10;
+        cvs->MotorR->dutyCycle = 10;
     }
-    else if (cvs->Odo->bufferTime > cvs->time - 2){
+    if((fabs(cvs->Odo->bufferPosition) >=fabs(cvs->Odo->x)-0.05)){
         cvs->Odo->flagBufferPosition == 1;
-        cvs->MotorL->dutyCycle = -20;
-        cvs->MotorR->dutyCycle = -20;
         isOpen = PinceCalibration(cvs);
     }
-    if(cvs->Odo->flagBufferPosition == 1 && (cvs->Odo->bufferTime > cvs->time - 9)){
+    if(isOpen){
+        cvs->MotorL->dutyCycle = -15;
+        cvs->MotorR->dutyCycle = -15;
+    }
+    if((cvs->Odo->x <= cvs->Odo->bufferPosition) && cvs->Odo->flagBufferPosition == 1){
         cvs->Odo->flagBufferPosition = 0;
-        cvs->Odo->bufferTime = -100000;
+        cvs->Odo->bufferPosition = -100000;
         return true;
     }
 }

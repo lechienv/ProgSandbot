@@ -218,7 +218,7 @@ void InitOdometry(CtrlStruct *cvs) {
 	cvs->Odo->timeDelay = 0.0;
     cvs->Odo->speedL = 0;
     cvs->Odo->speedR = 0;
-    cvs->Odo->bufferTime = -100000;
+    cvs->Odo->bufferPosition = -100000;
     cvs->Odo->flagBufferPosition = 0;
 	int color = cvs->robotID;
 #ifdef REALBOT

@@ -282,9 +282,8 @@ enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, GoToBlocOne, Align
 	int color = cvs->robotID;
     
 switch (cvs->stateCalib) {
-	case(Cal_y_arr) :{
-                bool isDeposed = DeposeBlock(cvs);
-		/*if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
+	case(Cal_y_arr) :
+		if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
 			SpeedRefToDC(cvs, cvs->MotorL, -5);
 			SpeedRefToDC(cvs, cvs->MotorR, -5);
 		}
@@ -302,9 +301,8 @@ switch (cvs->stateCalib) {
 				cvs->Odo->timein = 0;
 				cvs->Odo->timeDelay = 0;
 			}
-		}*/
+		}
 		break;
-        }
 
 	case(GoToPoint) :{
         PinceCalibration(cvs);
@@ -534,8 +532,8 @@ void Strategie(CtrlStruct *cvs){
     }
     case(ReleaseBlockOne):{
         bool reached;
-        if(cvs->Odo->bufferTime == -100000)
-            cvs->Odo->bufferTime = (cvs->Odo->x*cvs->Odo->x + cvs->Odo->y*cvs->Odo->y);
+        if(cvs->Odo->bufferPosition == -100000)
+            cvs->Odo->bufferPosition = cvs->Odo->x;
         bool isDeposed = DeposeBlock(cvs);
         if(isDeposed){
             reached = ReachPointPotential(cvs, -0.2 , 1, 0.03);

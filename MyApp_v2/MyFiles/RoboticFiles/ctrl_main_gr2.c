@@ -100,7 +100,6 @@ void controller_loop(CtrlStruct *cvs){
     //PointHomologation(cvs);
     Calibration(cvs);
     
-    
    /* 
     cvs->MotorL->dutyCycle = LeftMotorDC;//RightMotorDC;
     cvs->MotorR->dutyCycle = RightMotorDC;// RightMotorDC;

@@ -79,7 +79,7 @@ typedef struct Odometry {
 	double theta;
     double speedL;
     double speedR;
-    double bufferTime;
+    double bufferPosition;
     double flagBufferPosition;
 #ifdef REALBOT
     double clicNumber;

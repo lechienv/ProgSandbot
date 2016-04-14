@@ -366,144 +366,47 @@ switch (cvs->stateCalib) {
 			if (fabs(cvs->Odo->timein - cvs->time) < 0.5) {
 				SpeedRefToDC(cvs, cvs->MotorL, -1);
 				SpeedRefToDC(cvs, cvs->MotorR, -1);
-			}
-			else {
-				cvs->Odo->y = (1.5-0.1322);
-				cvs->Odo->theta = -90;
-				cvs->Odo->timein = 0;
-				cvs->Odo->timeDelay = 0;
-                                cvs->stateCalib = Wait;
-			}
-		}
+                }
+                else {
+                        cvs->Odo->y = (1.5-0.1322);
+                        cvs->Odo->theta = -90;
+                        cvs->Odo->timein = 0;
+                        cvs->Odo->timeDelay = 0;
+                        cvs->stateCalib = Wait;
+                }
+            }
          }
          break;
     }
     case(Wait):{
-        Strategie(cvs);
+        Action2(cvs);
         break;
     }
   }
 }
 	
 
-void ReCalibration(CtrlStruct *cvs) {
-	cvs->Obstacles->CircleList[0].isActive = 0;
-	cvs->Obstacles->CircleList[1].isActive = 0;
-	cvs->Obstacles->CircleList[2].isActive = 0;
-	double time = cvs->time;
-	double x = cvs->Odo->x;
-	double y = cvs->Odo->y;
-	double theta = (cvs->Odo->theta);
-	int color = cvs->robotID;
-	bool TwoBots_bool = color == BLUE || color == YELLOW;
-	switch (cvs->stateReCalib) {
 
-	case(ReCal_rot1) : {
-		double angleRef = 0;
-		bool isAligned = IsAlignedWithTheta(cvs, angleRef, 5);
-		if (isAligned) {
-			cvs->stateReCalib = ReCal_x_arr;
-		}
-		break;
-	}
 
-	case(ReCal_x_arr) : {
-		if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
-			SpeedRefToDC(cvs, cvs->MotorL,-MAXSPEED);
-			SpeedRefToDC(cvs, cvs->MotorR,-MAXSPEED);
-		}
-		else {
-			cvs->Odo->timein = (cvs->Odo->timeDelay == 0) ? cvs->time : cvs->Odo->timein;
-			cvs->Odo->timeDelay += 1;
-			if (fabs(cvs->Odo->timein - cvs->time) < 0.5) {
-				SpeedRefToDC(cvs, cvs->MotorL, -MAXSPEED);
-				SpeedRefToDC(cvs, cvs->MotorR, -MAXSPEED);
-			}
-			else {
-				cvs->Odo->x = -0.168;
-				cvs->Odo->theta = 0;
-				cvs->stateReCalib = ReCal_x_av;
-				cvs->Odo->timein = 0;
-				cvs->Odo->timeDelay = 0;
-			}
-		}
-		break;
-	}
+void Action1(CtrlStruct *cvs){
+    double time = cvs->time;
+    double x = cvs->Odo->x;
+    double y = cvs->Odo->y;
+    double theta = (cvs->Odo->theta);
+    int color = cvs->robotID;
 
-	case(ReCal_x_av) : {
-		if (x < 0) {
-			SpeedRefToDC(cvs, cvs->MotorL, MAXSPEED / 2);
-			SpeedRefToDC(cvs, cvs->MotorR, MAXSPEED / 2);
-		}
-		else {
-			cvs->stateReCalib = ReCal_rot2;
-		}
-		break;
-	}
-
-	case(ReCal_rot2) : {
-		double angleRef = ((color == BLUE || color == RED) ? -90 : 90);
-		bool isAligned = IsAlignedWithTheta(cvs, angleRef, 5);
-		if (isAligned) {
-			cvs->stateReCalib = ReCal_y_arr;
-		}
-		break;
-	}
-
-	case(ReCal_y_arr) : {
-		if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
-			SpeedRefToDC(cvs, cvs->MotorL,-MAXSPEED);
-			SpeedRefToDC(cvs, cvs->MotorR,-MAXSPEED);
-		}
-		else {
-			cvs->Odo->timein = (cvs->Odo->timeDelay == 0) ? cvs->time : cvs->Odo->timein;
-			cvs->Odo->timeDelay += 1;
-			if (fabs(cvs->Odo->timein - cvs->time) < 0.5) {
-				SpeedRefToDC(cvs, cvs->MotorL, -MAXSPEED);
-				SpeedRefToDC(cvs, cvs->MotorR, -MAXSPEED);
-			}
-			else{
-				cvs->Odo->y = (color == RED || color == BLUE) ? -0.071 : 0.071;
-				cvs->Odo->theta = (color == RED || color == BLUE) ? -90 : 90;
-				cvs->stateReCalib = ReCal_y_av;
-				cvs->Odo->timein = 0;
-				cvs->Odo->timeDelay = 0;
-			}
-		}
-		break;
-	}
-
-	case(ReCal_y_av) : {
-		if (fabs(y) < 0.6) {//0.9
-			SpeedRefToDC(cvs, cvs->MotorL, MAXSPEED / 2);
-			SpeedRefToDC(cvs, cvs->MotorR, MAXSPEED / 2);
-		}
-		else {
-			cvs->stateReCalib = ReCal_nextStrat;
-		}
-		break;
-	}
-
-	default: break;
-	}
-	cvs->Obstacles->CircleList[0].isActive = 1;
-	cvs->Obstacles->CircleList[1].isActive = 1;
-	cvs->Obstacles->CircleList[2].isActive = 1;
-}
-
-void Strategie(CtrlStruct *cvs){
-    switch(cvs->stateStrategie){
+    switch(cvs->stateAction1){
     case(GoToBlocOne) :{
             bool reached = ReachPointPotential(cvs, -0.1 , 1+0.075, 0.03);
             if(reached){
-                cvs->stateStrategie = AlignForBlocOne;
+                cvs->stateAction1 = AlignForBlocOne;
             }
             break;
         }
     case(AlignForBlocOne):{
             bool isAligned = IsAlignedWithTheta(cvs,-90,1);
             if(isAligned)
-                cvs->stateStrategie = TakeBlocOne;
+                cvs->stateAction1 = TakeBlocOne;
             break;
         }
     case(TakeBlocOne):{
@@ -513,21 +416,21 @@ void Strategie(CtrlStruct *cvs){
             SpeedRefToDC(cvs,cvs->MotorL,1);
             SpeedRefToDC(cvs,cvs->MotorR,1);
             if(close){
-                cvs->stateStrategie = BringBlockOne;
+                cvs->stateAction1 = BringBlockOne;
             }
          break;
     }
     case(BringBlockOne):{
         bool reached = ReachPointPotential(cvs, 0.1 , 0.55, 0.03);
         if(reached){
-                cvs->stateStrategie = AlignForBlockOne;
+                cvs->stateAction1 = AlignForBlockOne;
         }
         break;
     }
     case(AlignForBlockOne):{
         bool isAligned = IsAlignedWithTheta(cvs,-90,1);
             if(isAligned)
-                cvs->stateStrategie = ReleaseBlockOne;
+                cvs->stateAction1 = ReleaseBlockOne;
             break;
     }
     case(ReleaseBlockOne):{
@@ -536,10 +439,83 @@ void Strategie(CtrlStruct *cvs){
             cvs->Odo->bufferTime = cvs->time;
         bool isDeposed = DeposeBlock(cvs);
         if(isDeposed){
+            reached = ReachPointPotential(cvs, 0 , 1.2, 0.03);
+        }
+        if(reached){
+            Action2(cvs);
+        }
+        break;
+    }
+
+    default: break;
+    }
+}
+void Action2(CtrlStruct *cvs){
+    double time = cvs->time;
+    double x = cvs->Odo->x;
+    double y = cvs->Odo->y;
+    double theta = (cvs->Odo->theta);
+    int color = cvs->robotID;
+
+   switch(cvs->stateAction2){
+    case(GoToBlocTwo) :{
+            PinceCalibration(cvs);
+            bool reached = ReachPointPotential(cvs, -0.6 , 0.7 - 0.1375 - 0.045, 0.03);
+            if(reached){
+                cvs->stateAction2 = AlignForBlocTwo;
+            }
+            break;
+        }
+    case(AlignForBlocTwo):{
+            bool isOpen = PinceCalibration(cvs);
+            bool isAligned = IsAlignedWithTheta(cvs,180,1);
+            if(isAligned && isOpen)
+                cvs->stateAction2 = AvanceForBlockTwo;
+            break;
+        }
+    case(AvanceForBlockTwo):{
+        bool isClosed;
+            if(cvs->Odo->bufferTime < 0)
+                cvs->Odo->bufferTime = cvs->time;
+
+            if(cvs->Odo->bufferTime > cvs->time - 1){
+                cvs->MotorL->dutyCycle = 2;
+                cvs->MotorR->dutyCycle = 2;
+                cvs->Odo->flagBufferPosition = 1;
+            }
+             else{
+                cvs->Odo->flagBufferPosition = 0;
+                isClosed = ClosePince(cvs);
+                if(isClosed){
+                    cvs->Odo->bufferTime = -100000;
+                    cvs->stateAction2 = BringBlockTwo;
+                }
+             }
+         break;
+    }
+    case(BringBlockTwo):{
+        bool reached = ReachPointPotential(cvs, 0.1 , 0.55, 0.03);
+        if(reached){
+                //cvs->stateAction2 = AlignForBlockTwo;
+        }
+        break;
+    }
+    case(AlignForBlockTwo):{
+        bool isAligned = IsAlignedWithTheta(cvs,-90,1);
+            if(isAligned)
+                cvs->stateAction2 = ReleaseBlockOne;
+            break;
+    }
+    case(ReleaseBlockTwo):{
+        bool reached;
+        if(cvs->Odo->bufferTime == -100000)
+            cvs->Odo->bufferTime = cvs->time;
+        bool isDeposed = DeposeBlock(cvs);
+        if(isDeposed){
             reached = ReachPointPotential(cvs, -0.2 , 1, 0.03);
         }
         if(reached){
-            //cvs->stateCalib = AlignForBlockOne;
+            Action2(cvs);
         }
         break;
     }

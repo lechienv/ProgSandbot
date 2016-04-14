@@ -58,7 +58,8 @@ enum StateStrat {reachPointA, reachPointB, reachPointC, reachPointD};
 enum StateDyna {grap, release};
 enum StateVia {backHomeViaBase, backHomeStraight, normalPoint, viaPoint};
 enum StateHomologation {PinceCalib, reachViaPoint, AlignWithTheta, ReachBlocs, ClosingPince, GoViaZone, AlignZone, GoInZone, OpeningPince};
-enum StateStrategie{GoToBlocOne, AlignForBlocOne, TakeBlocOne, BringBlockOne, ReleaseBlockOne, AlignForBlockOne};
+enum StateAction1{GoToBlocOne, AlignForBlocOne, TakeBlocOne, BringBlockOne, ReleaseBlockOne, AlignForBlockOne};
+enum StateAction2{GoToBlocTwo, AlignForBlocTwo, AvanceForBlockTwo, TakeBlocTwo, BringBlockTwo, ReleaseBlockTwo, AlignForBlockTwo};
 
 typedef struct Potential {
 	double katt;
@@ -236,7 +237,8 @@ typedef struct CtrlStruct
 	enum StateStrat stateStrat;
 	enum StateVia stateVia;
         enum StateHomologation stateHomologation;
-        enum StateStrategie stateStrategie;
+        enum StateAction1 stateAction1;
+        enum StateAction2 stateAction2;
 	Parametres *Param;
 	Potential *Poto;
 	Odometry *Odo;

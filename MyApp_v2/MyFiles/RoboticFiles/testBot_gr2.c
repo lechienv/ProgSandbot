@@ -180,7 +180,7 @@ bool ClosePince(CtrlStruct *cvs){
     else
         cvs->MotorPince->dutyCycle = -40;
 
-    if((cvs->MotorPince->speed == 0) && (!cvs->Sensors->uSwitchPinceOut) && (cvs->MotorPince->position < -100)){
+    if((cvs->MotorPince->speed == 0) && (!cvs->Sensors->uSwitchPinceIn) && (cvs->MotorPince->position < -100)){
         return true;
     }
     return false;
@@ -190,15 +190,17 @@ bool DeposeBlock(CtrlStruct *cvs){
     bool isOpen;
     
     if(cvs->Odo->bufferTime > cvs->time - 1){
-        cvs->MotorL->dutyCycle = 20;
-        cvs->MotorR->dutyCycle = 20;
+        cvs->MotorL->dutyCycle = 25;
+        cvs->MotorR->dutyCycle = 25;
+        isOpen = PinceCalibration(cvs);
         return false;
     }
     else if (cvs->Odo->bufferTime > cvs->time - 2){
         cvs->Odo->flagBufferPosition == 1;
-        cvs->MotorL->dutyCycle = -20;
-        cvs->MotorR->dutyCycle = -20;
+        cvs->MotorL->dutyCycle = -25;
+        cvs->MotorR->dutyCycle = -25;
         isOpen = PinceCalibration(cvs);
+        return false;
     }
     if(cvs->Odo->flagBufferPosition == 1 && (cvs->Odo->bufferTime > cvs->time - 3)){
         cvs->Odo->flagBufferPosition = 0;

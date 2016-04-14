@@ -33,6 +33,9 @@ void Action13Test(CtrlStruct *cvs);
 void StrategyTest(CtrlStruct *cvs);
 bool PinceCalibration(CtrlStruct *cvs);
 bool ClosePince(CtrlStruct *cvs);
+void StartMyRat(CtrlStruct *cvs);
+void UpdateRatPosition(CtrlStruct *cvs);
+bool RatIsBottom(CtrlStruct *cvs);
 #endif //REALBOT
 
 

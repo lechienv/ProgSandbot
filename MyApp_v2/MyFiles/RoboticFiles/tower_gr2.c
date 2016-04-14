@@ -11,7 +11,7 @@ NAMESPACE_INIT(ctrlGr2);
 **********************/
 void OpponentDetection(CtrlStruct *cvs)
 {
-    cvs->MotorTower->dutyCycle = -80;
+  //  cvs->MotorTower->dutyCycle = -80;
 	UpdateDetectedBotPosition(cvs);
 }
 

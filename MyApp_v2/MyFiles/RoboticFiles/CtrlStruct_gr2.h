@@ -97,6 +97,7 @@ typedef struct Parametres {
 	double KiAngleThreshold;
 	double rayonBeacon;
     double maxAcceleration;
+    bool MotorCommandByHand;
 } Parametres;
 
 typedef struct Sensors {
@@ -104,7 +105,8 @@ typedef struct Sensors {
 	bool uSwitchRight;
 #ifdef REALBOT
     bool uSwitchPinceIn;
-    bool uSwitchPinceOut;
+    bool uSwitchRatL;
+    bool uSwitchRatR; 
 #endif // REALBOT
 } Sensors;
 

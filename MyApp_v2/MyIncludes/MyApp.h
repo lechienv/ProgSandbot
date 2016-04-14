@@ -174,6 +174,7 @@ int        TourelleDC;
 int        RateauLDC;
 int        RateauRDC;
 int        PinceDC;
+bool       MotorCommandByHand;
 
 int        LeftMotorDCWeb;
 int        RightMotorDCWeb;

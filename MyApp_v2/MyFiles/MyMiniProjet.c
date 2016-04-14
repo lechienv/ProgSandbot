@@ -63,7 +63,7 @@ void MyMiniProjet_Task(void)
     while(1){
         unsigned int A = MyCyclone_Read(CYCLONE_IO_A_Data);
         unsigned int I = MyCyclone_Read(CYCLONE_IO_I_Data);
-        MyConsole_SendMsg("wtf \n");
+        MyConsole_SendMsg("waiting for start \n");
         bool start = (bool) extractBits(A,13,13);
         if(start){
             MyConsole_SendMsg("Starting\n");
@@ -88,11 +88,24 @@ void MyMiniProjet_Task(void)
                         }
                     }*/
                     previousTime = currentTime;
-                    controller_loop(cvs);    
                     
-                    char s[659];
-                    sprintf(s,"x = %f \t y = %f \t stateCalib = %d \t color = %d\n", cvs->Odo->x, cvs->Odo->y, cvs->stateCalib, cvs->robotID);
-                    MyConsole_SendMsg(s);
+                    if(cvs->time<90)
+                   {
+                             controller_loop(cvs);      
+                    }
+                    else
+                    {
+                            cvs->MotorR->dutyCycle =0;                    
+                            cvs->MotorL->dutyCycle =0;
+                            cvs->MotorRatL->dutyCycle =0;
+                            cvs->MotorRatR->dutyCycle =0;
+                            cvs->MotorTower->dutyCycle =0;
+                    }
+
+             /*                  
+                    char s[128];
+                    sprintf(s,"current time %f \n", currentTime);
+                    MyConsole_SendMsg(s);*/
                     
                     
                     
@@ -173,6 +186,7 @@ void InitSPIChannel(){
     PinceDC = 0;
     RateauRDC = 0;
     RateauLDC = 0;
+    MotorCommandByHand = false;
 }
 
 double fmin(double A, double B){

@@ -10,6 +10,8 @@ NAMESPACE_INIT(ctrlGr2);
 **********************/
 #ifdef REALBOT
 
+
+    
 void TorqueControl(Motor *Motor, double torqueRef) {
 	double currentValue = torqueRef / Motor->Kphi;
 	double voltage = Motor->R*currentValue + Motor->Kphi * Motor->speed;
@@ -162,7 +164,7 @@ void StrategyTest(CtrlStruct *cvs){
 
 //ok
 bool PinceCalibration(CtrlStruct *cvs){
-    if(!cvs->Sensors->uSwitchPinceOut){
+    if(!cvs->Sensors->uSwitchPinceIn){
         SpeedRefToDC(cvs, cvs->MotorPince, 35);
         return false;
     }
@@ -174,12 +176,63 @@ bool PinceCalibration(CtrlStruct *cvs){
 
 bool ClosePince(CtrlStruct *cvs){
     cvs->MotorPince->dutyCycle = -40;
-    if((cvs->MotorPince->speed == 0) && (!cvs->Sensors->uSwitchPinceOut) && (cvs->MotorPince->position < -100)){
+    if((cvs->MotorPince->speed == 0) && (!cvs->Sensors->uSwitchPinceIn) && (cvs->MotorPince->position < -100)){
         return true;
     }
     return false;
 }
 
+ void StartMyRat(CtrlStruct *cvs){
+      
+
+
+    if(cvs->time >5 && cvs->time <15)
+    {   
+        UpdateRatPosition(cvs);
+
+               if( cvs->MotorRatL->position <100) //150
+               {   
+                 cvs->MotorRatL->dutyCycle = +20;
+               }
+               else
+               { 
+                   cvs->MotorRatL->dutyCycle = 0;
+               }
+        
+    }
+    else if (cvs->time >15 && cvs->time < 25)
+    { RatIsBottom(cvs);
+    }
+    else
+    { 
+        cvs->MotorRatL->dutyCycle = 0;
+    }
+  
+}
+ 
+  void UpdateRatPosition(CtrlStruct *cvs){
+      double my_cst_ratL =0.01;
+           cvs->MotorRatL->position = cvs->MotorRatL->position + cvs->MotorRatL->dutyCycle * my_cst_ratL * cvs->timeStep;
+  }
+  
+ bool RatIsBottom(CtrlStruct *cvs){
+      UpdateRatPosition(cvs);
+      if(!cvs->Sensors->uSwitchRatL)
+     {
+         cvs->MotorRatL->dutyCycle = -10;
+         return false;
+     }
+     else
+     {
+        cvs->MotorRatL->position =0;
+        cvs->MotorRatL->dutyCycle = 0;
+        return true; 
+     }
+    
+  }
+
+ 
+ 
 
 #endif // REALBOT
 

@@ -98,17 +98,26 @@ void controller_loop(CtrlStruct *cvs){
     }*/
     //StrategyTest(cvs);
     //PointHomologation(cvs);
-    Calibration(cvs);
+   // Calibration(cvs);
     
-   /* 
-    cvs->MotorL->dutyCycle = LeftMotorDC;//RightMotorDC;
-    cvs->MotorR->dutyCycle = RightMotorDC;// RightMotorDC;
-    cvs->MotorTower->dutyCycle = TourelleDC;
-    cvs->MotorRatL->dutyCycle = RateauLDC; //RightMotorDC;//RightMotorDC;
-    cvs->MotorRatR->dutyCycle = RateauRDC; //RightMotorDC;//RightMotorDC;
-    cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;*/
     //PinceCalibration(cvs);
-
+    cvs->Param->MotorCommandByHand = MotorCommandByHand;;
+    if(cvs->Param->MotorCommandByHand)
+    {
+        cvs->MotorL->dutyCycle = LeftMotorDC;//RightMotorDC;
+        cvs->MotorR->dutyCycle = RightMotorDC;// RightMotorDC;
+        cvs->MotorTower->dutyCycle = TourelleDC;
+        cvs->MotorRatL->dutyCycle = RateauLDC; //RightMotorDC;//RightMotorDC;
+        cvs->MotorRatR->dutyCycle = RateauRDC; //RightMotorDC;//RightMotorDC;
+        cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;
+     }
+    else
+    {
+          char theStr[128];
+        StartMyRat(cvs);
+        sprintf(theStr, "My_position = %f \t my time = %f \n", cvs->MotorRatL->position, cvs->time);
+        MyConsole_SendMsg(theStr);
+    }
 	AlwaysEndController(cvs);
 }
 

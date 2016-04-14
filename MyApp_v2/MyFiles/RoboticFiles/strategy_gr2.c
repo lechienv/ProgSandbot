@@ -518,7 +518,7 @@ void Strategie(CtrlStruct *cvs){
          break;
     }
     case(BringBlockOne):{
-        bool reached = ReachPointPotential(cvs, 0.2 , 0.55, 0.03);
+        bool reached = ReachPointPotential(cvs, 0.1 , 0.55, 0.03);
         if(reached){
                 cvs->stateStrategie = AlignForBlockOne;
         }
@@ -532,8 +532,8 @@ void Strategie(CtrlStruct *cvs){
     }
     case(ReleaseBlockOne):{
         bool reached;
-        if(cvs->Odo->bufferPosition == -100000)
-            cvs->Odo->bufferPosition = cvs->Odo->x;
+        if(cvs->Odo->bufferTime == -100000)
+            cvs->Odo->bufferTime = cvs->time;
         bool isDeposed = DeposeBlock(cvs);
         if(isDeposed){
             reached = ReachPointPotential(cvs, -0.2 , 1, 0.03);

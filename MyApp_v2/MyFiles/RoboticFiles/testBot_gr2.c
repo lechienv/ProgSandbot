@@ -184,7 +184,7 @@ bool ClosePince(CtrlStruct *cvs){
 
  void StartMyRat(CtrlStruct *cvs){
       
-    if(cvs->time >5 && cvs->time <30)
+    if(cvs->time >5 && cvs->time <20)
     {   
         RatGoTop(cvs, cvs->MotorRatL); 
     }
@@ -209,14 +209,18 @@ bool ClosePince(CtrlStruct *cvs){
                if( Motor->position >50 && Motor->position <150) //150
                {   
                  Motor->dutyCycle = +35;
+                 return false;
                }
                else if( Motor->position <50)
                {
+                  
                  Motor->dutyCycle = +25;
+                 return false;
                }
                else
                { 
                    Motor->dutyCycle = 0;
+                   return  true;
                }
   }
  bool RatGoBottom(CtrlStruct *cvs, Motor *Motor){

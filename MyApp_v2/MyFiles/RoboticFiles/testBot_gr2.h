@@ -34,8 +34,8 @@ void StrategyTest(CtrlStruct *cvs);
 bool PinceCalibration(CtrlStruct *cvs);
 bool ClosePince(CtrlStruct *cvs);
 void StartMyRat(CtrlStruct *cvs);
-void UpdateRatPosition(CtrlStruct *cvs);
-bool RatGotBottom(CtrlStruct *cvs);
+bool RatGoBottom(CtrlStruct *cvs, Motor *Motor);
+bool RatGoTop(CtrlStruct *cvs, Motor *Motor);
 #endif //REALBOT
 
 

@@ -283,7 +283,7 @@ enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, GoToBlocOne, Align
 
 switch (cvs->stateCalib) {
 	case(Cal_y_arr) :
-		if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
+		/*if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
 			SpeedRefToDC(cvs, cvs->MotorL, -5);
 			SpeedRefToDC(cvs, cvs->MotorR, -5);
 		}
@@ -301,7 +301,8 @@ switch (cvs->stateCalib) {
 				cvs->Odo->timein = 0;
 				cvs->Odo->timeDelay = 0;
 			}
-		}
+		}*/
+            PinceCalibration(cvs);
 		break;
 
 	case(GoToPoint) :{
@@ -531,16 +532,16 @@ void Strategie(CtrlStruct *cvs){
             break;
     }
     case(ReleaseBlockOne):{
-        bool reached;
+        /*bool reached;
         if(cvs->Odo->bufferPosition == -100000)
-            cvs->Odo->bufferPosition = cvs->Odo->x;
+            cvs->Odo->bufferPosition = sqrt(cvs->Odo->x*cvs->Odo->x + cvs->Odo->y*cvs->Odo->y);
         bool isDeposed = DeposeBlock(cvs);
         if(isDeposed){
             reached = ReachPointPotential(cvs, -0.2 , 1, 0.03);
         }
         if(reached){
             //cvs->stateCalib = AlignForBlockOne;
-        }
+        }*/
         break;
     }
 

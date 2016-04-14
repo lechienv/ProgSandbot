@@ -8,6 +8,7 @@
 *******************************************************************************/
 #include "MyApp.h"
 #include "interfaceFPGA.h"
+#include "RoboticFiles/CtrlStruct_gr2.h"
 /*****************************************************************************
  * STRUCTURES
  *****************************************************************************/
@@ -82,9 +83,7 @@ void MyMiniProjet_Task(void)
                     previousTime = currentTime;
                     controller_loop(cvs);
 
-                    char s[659];
-                    sprintf(s,"x = %f \t y = %f \t stateCalib = %d \t color = %d\n", cvs->Odo->x, cvs->Odo->y, cvs->stateCalib, cvs->robotID);
-                    MyConsole_SendMsg(s);
+                    
 
 
 
@@ -97,6 +96,10 @@ void MyMiniProjet_Task(void)
 #ifdef WEB
                         /* Refresh Web Variables */
                         RefreshWebVariables(cvs);
+                        char s[659];
+                    sprintf(s,"vitesse = %f, uswitchPince = %d\n", cvs->MotorPince->speed, cvs->Sensors->uSwitchPinceIn);
+                    MyConsole_SendMsg(s);
+                    
                         /* Save on SD */
 #else
                         if(!hasSaved){

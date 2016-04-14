@@ -162,8 +162,8 @@ void StrategyTest(CtrlStruct *cvs){
 
 //ok
 bool PinceCalibration(CtrlStruct *cvs){
-    if(!cvs->Sensors->uSwitchPinceOut){
-        SpeedRefToDC(cvs, cvs->MotorPince, 35);
+    if(cvs->Sensors->uSwitchPinceIn){
+        SpeedRefToDC(cvs, cvs->MotorPince, 1);
         return false;
     }
     else{
@@ -173,14 +173,14 @@ bool PinceCalibration(CtrlStruct *cvs){
 }
 
 bool ClosePince(CtrlStruct *cvs){
-    if(cvs->MotorPince->position < -400){
+    if(cvs->MotorPince->position < -400 && cvs->MotorPince->position > 0){
         cvs->MotorPince->dutyCycle = 0;
         return true;
     }
     else
         cvs->MotorPince->dutyCycle = -40;
 
-    if((cvs->MotorPince->speed == 0) && (!cvs->Sensors->uSwitchPinceOut) && (cvs->MotorPince->position < -100)){
+    if((cvs->MotorPince->speed == 0) && (!cvs->Sensors->uSwitchPinceIn) && (cvs->MotorPince->position < -100)){
         return true;
     }
     return false;
@@ -188,11 +188,13 @@ bool ClosePince(CtrlStruct *cvs){
 
 bool DeposeBlock(CtrlStruct *cvs){
     bool isOpen;
-    if((fabs(cvs->Odo->bufferPosition) > fabs(cvs->Odo->x)-0.05) && cvs->Odo->flagBufferPosition == 0){
+    double x = cvs->Odo->x;
+    double y = cvs->Odo->y;
+    if((fabs(cvs->Odo->bufferPosition) > fabs(x*x+y*y)-0.05) && cvs->Odo->flagBufferPosition == 0){
         cvs->MotorL->dutyCycle = 10;
         cvs->MotorR->dutyCycle = 10;
     }
-    if((fabs(cvs->Odo->bufferPosition) >=fabs(cvs->Odo->x)-0.05)){
+    if((fabs(cvs->Odo->bufferPosition) >=fabs(x*x+y*y)-0.05)){
         cvs->Odo->flagBufferPosition == 1;
         isOpen = PinceCalibration(cvs);
     }
@@ -200,7 +202,7 @@ bool DeposeBlock(CtrlStruct *cvs){
         cvs->MotorL->dutyCycle = -15;
         cvs->MotorR->dutyCycle = -15;
     }
-    if((cvs->Odo->x <= cvs->Odo->bufferPosition) && cvs->Odo->flagBufferPosition == 1){
+    if((fabs(x*x+y*y) <= fabs(cvs->Odo->bufferPosition)) && cvs->Odo->flagBufferPosition == 1){
         cvs->Odo->flagBufferPosition = 0;
         cvs->Odo->bufferPosition = -100000;
         return true;

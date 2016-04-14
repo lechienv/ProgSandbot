@@ -48,11 +48,13 @@ NAMESPACE_INIT(ctrlGr2);
 #define KIFLUSHLIMIT 1000
 #define MaxGoals 15
 
-enum StateCalib {Cal_y_arr, Cal_y_arr2, Cal_y_av, Cal_y_av1, Cal_rot_neg, Cal_x_arr, Cal_x_av, Cal_rot_pos, Action1 };
+enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, ReturnToBase, AlignForBaseAndReturnInIt, Wait}; // GoToBlocOne, AlignBlocOne, TakeBlocOne, BringBlocOne, ReleaseBlockOne, AlignForBlockOne};
 enum StateReCalib {ReCal_y_arr, ReCal_y_av, ReCal_rot1, ReCal_x_arr, ReCal_x_av, ReCal_rot2, ReCal_nextStrat };
 enum StateStrat {reachPointA, reachPointB, reachPointC, reachPointD};
 enum StateDyna {grap, release};
 enum StateVia {backHomeViaBase, backHomeStraight, normalPoint, viaPoint};
+enum StateHomologation {PinceCalib, reachViaPoint, AlignWithTheta, ReachBlocs, ClosingPince, GoViaZone, AlignZone, GoInZone, OpeningPince};
+enum StateStrategie{GoToBlocOne, AlignForBlocOne, TakeBlocOne, BringBlockOne, ReleaseBlockOne, AlignForBlockOne};
 
 typedef struct Potential {
 	double katt;
@@ -72,6 +74,8 @@ typedef struct Odometry {
 	double theta;
     double speedL;
     double speedR;
+    double bufferPosition;
+    double flagBufferPosition;
 #ifdef REALBOT
     double clicNumber;
 #endif // REALBOT
@@ -225,6 +229,8 @@ typedef struct CtrlStruct
 	enum StateReCalib stateReCalib;
 	enum StateStrat stateStrat;
 	enum StateVia stateVia;
+        enum StateHomologation stateHomologation;
+        enum StateStrategie stateStrategie;
 	Parametres *Param;
 	Potential *Poto;
 	Odometry *Odo;

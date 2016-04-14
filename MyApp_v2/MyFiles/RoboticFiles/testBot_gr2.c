@@ -164,6 +164,52 @@ void StrategyTest(CtrlStruct *cvs){
         Action14Test(cvs);
     }
 }
+
+bool PinceCalibration(CtrlStruct *cvs){
+    if(!cvs->Sensors->uSwitchPinceOut){
+        SpeedRefToDC(cvs, cvs->MotorPince, 35);
+        return false;
+    }
+    else{
+        cvs->MotorPince->position = 0;
+        return true;
+    }
+}
+
+bool ClosePince(CtrlStruct *cvs){
+    if(cvs->MotorPince->position < -400){
+        cvs->MotorPince->dutyCycle = 0;
+        return true;
+    }
+    else
+        cvs->MotorPince->dutyCycle = -40;
+
+    if((cvs->MotorPince->speed == 0) && (!cvs->Sensors->uSwitchPinceOut) && (cvs->MotorPince->position < -100)){
+        return true;
+    }
+    return false;
+}
+
+bool DeposeBlock(CtrlStruct *cvs){
+    bool isOpen;
+    if((fabs(cvs->Odo->bufferPosition) > fabs(cvs->Odo->x)-0.05) && cvs->Odo->flagBufferPosition == 0){
+        cvs->MotorL->dutyCycle = 10;
+        cvs->MotorR->dutyCycle = 10;
+    }
+    if((fabs(cvs->Odo->bufferPosition) >=fabs(cvs->Odo->x)-0.05)){
+        cvs->Odo->flagBufferPosition == 1;
+        isOpen = PinceCalibration(cvs);
+    }
+    if(isOpen){
+        cvs->MotorL->dutyCycle = -15;
+        cvs->MotorR->dutyCycle = -15;
+    }
+    if((cvs->Odo->x <= cvs->Odo->bufferPosition) && cvs->Odo->flagBufferPosition == 1){
+        cvs->Odo->flagBufferPosition = 0;
+        cvs->Odo->bufferPosition = -100000;
+        return true;
+    }
+}
 #endif // REALBOT
 
 #ifndef REALBOT

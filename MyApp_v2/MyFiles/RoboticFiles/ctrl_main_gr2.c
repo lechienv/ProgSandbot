@@ -100,7 +100,7 @@ void controller_loop(CtrlStruct *cvs){
     //StrategyTest(cvs);
 
     
-    TheGoals(cvs);    
+    Calibration(cvs);
     
     /*cvs->MotorL->dutyCycle = LeftMotorDC;//RightMotorDC;
     cvs->MotorR->dutyCycle = RightMotorDC;// RightMotorDC;

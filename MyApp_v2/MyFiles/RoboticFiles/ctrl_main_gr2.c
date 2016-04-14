@@ -98,8 +98,6 @@ void controller_loop(CtrlStruct *cvs){
     }*/
     //StrategyTest(cvs);
     //PointHomologation(cvs);
-    if(cvs->Odo->bufferPosition == -100000)
-        cvs->Odo->bufferPosition = (cvs->Odo->x*cvs->Odo->x + cvs->Odo->y*cvs->Odo->y);
     Calibration(cvs);
     
     

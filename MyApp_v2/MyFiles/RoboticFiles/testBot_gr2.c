@@ -190,28 +190,20 @@ bool DeposeBlock(CtrlStruct *cvs){
     bool isOpen;
     double x = cvs->Odo->x;
     double y = cvs->Odo->y;
-    if(cvs->Odo->bufferPosition > (x*x + y*y - 0.05) && cvs->Odo->flagBufferPosition == 0){
-        cvs->MotorL->dutyCycle = 35;
-        cvs->MotorR->dutyCycle = 35;
-        char s[128];
-    sprintf(s,"position = %f, buffer = %f\n", cvs->Odo->x*cvs->Odo->x + cvs->Odo->y*cvs->Odo->y, cvs->Odo->bufferPosition);
-    MyConsole_SendMsg(s);
+    if(cvs->Odo->bufferTime > cvs->time - 1){
+        cvs->MotorL->dutyCycle = 20;
+        cvs->MotorR->dutyCycle = 20;
         return false;
     }
-    if((fabs(cvs->Odo->bufferPosition) <= fabs(x*x + y*y))){
+    else if (cvs->Odo->bufferTime > cvs->time - 2){
         cvs->Odo->flagBufferPosition == 1;
-        cvs->MotorL->dutyCycle = -35;
-        cvs->MotorR->dutyCycle = -35;
+        cvs->MotorL->dutyCycle = -20;
+        cvs->MotorR->dutyCycle = -20;
         isOpen = PinceCalibration(cvs);
     }
-    if(isOpen){
-        cvs->MotorL->dutyCycle = -35;
-        cvs->MotorR->dutyCycle = -35;
-        PinceCalibration(cvs);
-    }
-    if((fabs(x*x + y*y) <= fabs(cvs->Odo->bufferPosition)) && cvs->Odo->flagBufferPosition == 1){
+    if(cvs->Odo->flagBufferPosition == 1 && (cvs->Odo->bufferTime > cvs->time - 9)){
         cvs->Odo->flagBufferPosition = 0;
-        cvs->Odo->bufferPosition = -100000;
+        cvs->Odo->bufferTime = -100000;
         return true;
     }
 }

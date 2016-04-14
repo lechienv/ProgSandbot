@@ -19,7 +19,7 @@
 void MyMiniProjet_Task(void)
 {
 
-    MyConsole_SendMsg("here \n");
+    MyConsole_SendMsg("Here we go ! \n");
     MyDelayMs(2000);
     
     /*********************************

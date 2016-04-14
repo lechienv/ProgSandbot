@@ -468,9 +468,9 @@ begin
 	else
 		positiveSpeedRateauL <= 'b0;
 end
-always_ff@(posedge RateauLeftCodeurB)
+always_ff@(posedge RateauRightCodeurA)
 begin 
-	if(RateauLeftCodeurB)
+	if(RateauRightCodeurB)
 		positiveSpeedRateauR <= 'b1;
 	else
 		positiveSpeedRateauR <= 'b0;

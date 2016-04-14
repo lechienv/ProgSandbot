@@ -40,9 +40,13 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
 #endif
 
     cvs->MotorPince->speed = ComputeSpeed(cvs->MotorPince->clicNumber,F,!extractBits(A,5,5));
-    cvs->MotorRatL->speed = ComputeSpeed(cvs->MotorRatL->clicNumber,G,extractBits(A,3,3));
-    cvs->MotorRatR->speed = ComputeSpeed(cvs->MotorRatR->clicNumber,H,extractBits(A,4,4));
-    
+    cvs->MotorRatL->speed = ComputeSpeed(cvs->MotorRatL->clicNumber,H,!extractBits(A,4, 4));
+    cvs->MotorRatR->speed = ComputeSpeed(cvs->MotorRatR->clicNumber,G,extractBits(A,3,3));
+        
+   /* char my_Str[128];
+    sprintf(my_Str,"rateauG positif = %d \t rateauD positif = %d \t \n", (bool) extractBits(A,4, 4), (bool) extractBits(A,3,3) );
+    MyConsole_SendMsg(my_Str);
+    */
 #ifdef MINIBOT
    /* MyCAN_USwitch(&(cvs->Sensors->uSwitchLeft), &(cvs->Sensors->uSwitchRight));
     char theStr[64];

@@ -184,24 +184,12 @@ bool ClosePince(CtrlStruct *cvs){
 
  void StartMyRat(CtrlStruct *cvs){
       
-
-
-    if(cvs->time >5 && cvs->time <15)
+    if(cvs->time >5 && cvs->time <30)
     {   
-        UpdateRatPosition(cvs);
-
-               if( cvs->MotorRatL->position <100) //150
-               {   
-                 cvs->MotorRatL->dutyCycle = +20;
-               }
-               else
-               { 
-                   cvs->MotorRatL->dutyCycle = 0;
-               }
-        
+        RatGoTop(cvs, cvs->MotorRatL); 
     }
-    else if (cvs->time >15 && cvs->time < 25)
-    { RatIsBottom(cvs);
+    else if (cvs->time >30 && cvs->time <50)
+    { RatGoBottom(cvs, cvs->MotorRatL);
     }
     else
     { 
@@ -210,22 +198,46 @@ bool ClosePince(CtrlStruct *cvs){
   
 }
  
-  void UpdateRatPosition(CtrlStruct *cvs){
+  /*void UpdateRatPosition(CtrlStruct *cvs){
       double my_cst_ratL =0.01;
            cvs->MotorRatL->position = cvs->MotorRatL->position + cvs->MotorRatL->dutyCycle * my_cst_ratL * cvs->timeStep;
-  }
+  }*/
   
- bool RatIsBottom(CtrlStruct *cvs){
-      UpdateRatPosition(cvs);
-      if(!cvs->Sensors->uSwitchRatL)
+  bool RatGoTop(CtrlStruct *cvs, Motor *Motor){
+      
+      
+               if( Motor->position >50 && Motor->position <150) //150
+               {   
+                 Motor->dutyCycle = +35;
+               }
+               else if( Motor->position <50)
+               {
+                 Motor->dutyCycle = +25;
+               }
+               else
+               { 
+                   Motor->dutyCycle = 0;
+               }
+  }
+ bool RatGoBottom(CtrlStruct *cvs, Motor *Motor){
+     // UpdateRatPosition(cvs);
+     bool my_bool = (Motor->ID==RATLMOTOR ) ? !cvs->Sensors->uSwitchRatR : cvs->Sensors->uSwitchRatL ;
+     if(my_bool)
      {
-         cvs->MotorRatL->dutyCycle = -10;
+        if( Motor->position <50)
+        {
+           Motor->dutyCycle = -10;
+        }
+        else
+        {
+           Motor->dutyCycle = -20;
+        }
          return false;
      }
      else
-     {
-        cvs->MotorRatL->position =0;
-        cvs->MotorRatL->dutyCycle = 0;
+     { 
+       Motor->position =0;
+       Motor->dutyCycle = 0;
         return true; 
      }
     

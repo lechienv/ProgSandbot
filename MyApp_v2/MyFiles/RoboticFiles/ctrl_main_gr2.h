@@ -23,6 +23,7 @@
 #include "allParamInit_gr2.h"
 #include "controller_gr2.h"
 #include "tower_gr2.h"
+#include <math.h>
 
 
 #ifndef REALBOT

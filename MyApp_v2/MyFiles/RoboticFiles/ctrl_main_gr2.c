@@ -113,9 +113,9 @@ void controller_loop(CtrlStruct *cvs){
      }
     else
     {
-          char theStr[128];
+          char theStr[512];
         StartMyRat(cvs);
-        sprintf(theStr, "My_position = %f \t my time = %f \n", cvs->MotorRatL->position, cvs->time);
+        sprintf(theStr, "My_positionL = %f \t my time = %f \t vitesseL = %f \n", cvs->MotorRatL->position, cvs->time,cvs->MotorRatL->speed);
         MyConsole_SendMsg(theStr);
     }
 	AlwaysEndController(cvs);
@@ -210,8 +210,8 @@ void AlwaysInController(CtrlStruct *cvs) {
     cvs->MotorPince->dutyCycle = 0;
 
 	cvs->MotorPince->position += cvs->MotorPince->speed*cvs->timeStep;
-	cvs->MotorRatL->position += cvs->MotorRatL->speed*cvs->timeStep;
-	cvs->MotorRatL->position += cvs->MotorRatR->speed*cvs->timeStep;
+	cvs->MotorRatL->position += cvs->MotorRatL->speed*cvs->timeStep/(M_PI);
+	cvs->MotorRatR->position += cvs->MotorRatR->speed*cvs->timeStep/(M_PI);
 #endif //REALBOT
 	OpponentDetection(cvs);
 }

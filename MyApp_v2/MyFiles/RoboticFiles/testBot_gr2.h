@@ -35,7 +35,7 @@ bool PinceCalibration(CtrlStruct *cvs);
 bool ClosePince(CtrlStruct *cvs);
 void StartMyRat(CtrlStruct *cvs);
 void UpdateRatPosition(CtrlStruct *cvs);
-bool RatIsBottom(CtrlStruct *cvs);
+bool RatGotBottom(CtrlStruct *cvs);
 #endif //REALBOT
 
 

@@ -1,4 +1,4 @@
-/*! 
+/*!
  * \file ctrl_main_gr2.h
  * \brief main header of the controller
  */

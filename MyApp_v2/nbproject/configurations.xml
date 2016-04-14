@@ -374,6 +374,8 @@
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="voltagevalue" value="3.25"/>
       </PICkit3PlatformTool>
+      <XC32>
+      </XC32>
     </conf>
   </confs>
 </configurationDescriptor>

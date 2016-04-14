@@ -1,4 +1,4 @@
-/*! 
+/*!
  * \file CtrlStruct_gr2.h
  * \brief Controller main structure
  */
@@ -21,7 +21,7 @@ NAMESPACE_INIT(ctrlGr2);
 
 #include <stdbool.h>
 
-
+#define LIMITACCELERATION 1
 #define DEGtoRAD M_PI/180
 #define RADtoDEG 180/M_PI
 #define VOLTtoDC 100/24
@@ -36,9 +36,12 @@ NAMESPACE_INIT(ctrlGr2);
 #define NB_STORE_EDGE 10
 #endif //REALBOT
 
-#define GREEN 0
-#define PINK 1
-
+#define BLUE 0
+#define RED 1
+#define YELLOW 2
+#define WHITE  3
+#define GREEN 4
+#define PINK 5
 
 #define EPSILON 0.000001
 
@@ -48,6 +51,7 @@ NAMESPACE_INIT(ctrlGr2);
 #define KIFLUSHLIMIT 1000
 #define MaxGoals 15
 
+//enum StateCalib {Cal_y_arr, Cal_y_arr2, Cal_y_av, Cal_y_av1, Cal_rot_neg, Cal_x_arr, Cal_x_av, Cal_rot_pos, Action1 };
 enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, ReturnToBase, AlignForBaseAndReturnInIt, Wait}; // GoToBlocOne, AlignBlocOne, TakeBlocOne, BringBlocOne, ReleaseBlockOne, AlignForBlockOne};
 enum StateReCalib {ReCal_y_arr, ReCal_y_av, ReCal_rot1, ReCal_x_arr, ReCal_x_av, ReCal_rot2, ReCal_nextStrat };
 enum StateStrat {reachPointA, reachPointB, reachPointC, reachPointD};
@@ -64,6 +68,7 @@ typedef struct Potential {
 	double FYRob;
 	double kw;
 	double minDistance;
+    double thresholdAligned;
 } Potential;
 
 typedef struct Odometry {
@@ -94,6 +99,7 @@ typedef struct Parametres {
 	double speedDifThreshold;
 	double KiAngleThreshold;
 	double rayonBeacon;
+    double maxAcceleration;
 } Parametres;
 
 typedef struct Sensors {
@@ -120,9 +126,9 @@ typedef struct Motor {
     bool areBrakesEnabled;
 	int ID;
 #ifdef REALBOT
-    int PWMReg; 
+    int PWMReg;
     int timerReg;
-    int perReg; 
+    int perReg;
     int brakesMask;
     int SID;
     double clicNumber;
@@ -193,20 +199,20 @@ typedef struct Goals {
 } Goals;
 
 typedef struct Tower {
-    double tower_pos; 
-	double last_rising[NB_STORE_EDGE];  
-	double last_falling[NB_STORE_EDGE]; 
-	int rising_index;  
+    double tower_pos;
+	double last_rising[NB_STORE_EDGE];
+	double last_falling[NB_STORE_EDGE];
+	int rising_index;
 	int falling_index;
-	int nb_rising;  
-	int nb_falling; 
-	int nb_opponents; 
+	int nb_rising;
+	int nb_falling;
+	int nb_opponents;
 	double last_rising_fixed[NB_STORE_EDGE];
 	double last_falling_fixed[NB_STORE_EDGE];
-	int rising_index_fixed;  
-	int falling_index_fixed; 
-	int nb_rising_fixed;  
-	int nb_falling_fixed; 
+	int rising_index_fixed;
+	int falling_index_fixed;
+	int nb_rising_fixed;
+	int nb_falling_fixed;
 	double angle;
 	double distance;
 } Tower;

@@ -1,4 +1,4 @@
-/*! 
+/*!
  * \file path_planning.h
  * \brief main header of the pathplanning
  */
@@ -15,7 +15,7 @@
 #include "user_realtime.h"
 NAMESPACE_INIT(ctrlGr2);
 #endif // ! REALBOT
-
+bool	ReachPointPotential(CtrlStruct *cvs, double xGoal, double yGoal, double precisionRadius);
 double	limitSpeed(double speed, double limit);
 void	AttractiveForce(CtrlStruct *cvs, double xGoal, double yGoal);
 void	RepulsiveForce(CtrlStruct *cvs);

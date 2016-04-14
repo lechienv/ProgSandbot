@@ -22,12 +22,7 @@ void Action1Test(CtrlStruct *cvs){
 }
 
 void Action2Test(CtrlStruct *cvs){
-    if (!cvs->Sensors->uSwitchPinceIn) {
-		TorqueControl(cvs->MotorPince,var3);
-    }
-    if(cvs->Sensors->uSwitchPinceOut){
-        cvs->MotorPince->dutyCycle = 0;
-    }
+  PinceCalibration(cvs);
 }
 void Action3Test(CtrlStruct *cvs){
     bool result = ReachPointPotential(cvs,var3, var4, var5);
@@ -36,17 +31,17 @@ void Action3Test(CtrlStruct *cvs){
 void Action4Test(CtrlStruct *cvs){
     cvs->MotorL->dutyCycle = var1;//RightMotorDC;
     cvs->MotorR->dutyCycle = var2;// RightMotorDC;
-    cvs->MotorTower->dutyCycle = var3;
+    cvs->MotorPince->dutyCycle = var3;
     cvs->MotorRatL->dutyCycle = var4; //RightMotorDC;//RightMotorDC;
     cvs->MotorRatR->dutyCycle = var5; //RightMotorDC;//RightMotorDC;
 }
 
 void Action5Test(CtrlStruct *cvs){
-    cvs->MotorL->dutyCycle = var39;
+    PointHomologation(cvs);
 }
 void Action6Test(CtrlStruct *cvs){
-    cvs->MotorR->dutyCycle = var39;
-} 
+    ClosePince(cvs);
+}
 void Action7Test(CtrlStruct *cvs){
     cvs->MotorPince->dutyCycle = var39;
 }
@@ -165,6 +160,7 @@ void StrategyTest(CtrlStruct *cvs){
     }
 }
 
+//ok
 bool PinceCalibration(CtrlStruct *cvs){
     if(!cvs->Sensors->uSwitchPinceOut){
         SpeedRefToDC(cvs, cvs->MotorPince, 35);
@@ -192,7 +188,7 @@ bool ClosePince(CtrlStruct *cvs){
 
 bool DeposeBlock(CtrlStruct *cvs){
     bool isOpen;
-    if((fabs(cvs->Odo->bufferPosition) > fabs(sqrt((cvs->Odo->x)^2 + (cvs->Odo->y)^2))-0.05) && cvs->Odo->flagBufferPosition == 0){
+    if((fabs(cvs->Odo->bufferPosition) > fabs(cvs->Odo->x)-0.05) && cvs->Odo->flagBufferPosition == 0){
         cvs->MotorL->dutyCycle = 10;
         cvs->MotorR->dutyCycle = 10;
     }
@@ -210,6 +206,8 @@ bool DeposeBlock(CtrlStruct *cvs){
         return true;
     }
 }
+
+
 #endif // REALBOT
 
 #ifndef REALBOT

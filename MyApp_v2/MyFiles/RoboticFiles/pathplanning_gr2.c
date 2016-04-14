@@ -1,4 +1,4 @@
-/*! 
+/*!
  * \file pathplanning.cc
  * \
  */
@@ -8,6 +8,45 @@
 #ifndef REALBOT
 NAMESPACE_INIT(ctrlGr2);
 #endif // ! REALBOT
+
+
+bool ReachPointPotential(CtrlStruct *cvs, double xGoal, double yGoal, double precisionRadius) {
+	double speedRefL;
+	double speedRefR;
+	double hasReached = false;
+	if ((cvs->Odo->x - xGoal)*(cvs->Odo->x - xGoal) + (cvs->Odo->y - yGoal)*(cvs->Odo->y - yGoal) < precisionRadius*precisionRadius) {
+		speedRefL = 0;
+		speedRefR = 0;
+		SpeedRefToDC(cvs, cvs->MotorL, speedRefL);
+		SpeedRefToDC(cvs, cvs->MotorR, speedRefR);
+		return true;
+	} //Objective is reached
+	else {
+		AttractiveForce(cvs, xGoal, yGoal);
+		RepulsiveForce(cvs);
+
+		// Taking into account non-holonmy
+		double angle = atan2(cvs->Poto->FYRob, cvs->Poto->FXRob);
+		if (fabs(cvs->Poto->FYRob) > cvs->Poto->thresholdAligned * fabs(cvs->Poto->FXRob)) {
+			bool result = IsAlignedWithTheta(cvs, RADtoDEG*angle + cvs->Odo->theta, 5);
+		}
+		else {
+			double speedRefW = cvs->Poto->kw * angle;
+			double speedRefX = cvs->Poto->kFV*cvs->Poto->FXRob;
+			speedRefX = limitSpeed(speedRefX, MAXSPEED);
+            if(LIMITACCELERATION){
+                speedRefX = limitXAcceleration(cvs,speedRefX);
+            }
+			speedRefW = limitSpeed(speedRefW, MAXSPEEDROT);
+			speedRefL = speedRefX - cvs->Param->wheelRadius*speedRefW;
+			speedRefR = speedRefX + cvs->Param->wheelRadius*speedRefW;
+			SpeedRefToDC(cvs, cvs->MotorL, speedRefL);
+			SpeedRefToDC(cvs, cvs->MotorR, speedRefR);
+		}
+		return false;
+	} //Objective is not reached
+}
+
 
 double limitSpeed(double speed, double limit) {
 	if (speed < limit)
@@ -32,16 +71,17 @@ void RepulsiveForce(CtrlStruct *cvs) {
 	int i;
 	for (i = 0; i < cvs->Obstacles->NumberOfCircles; i++) {
 		if (cvs->Obstacles->CircleList[i].isActive)
-			ComputeFrepCircle(cvs, &(cvs->Obstacles->CircleList[i]), &FXInertial, &FYInertial);	
+			ComputeFrepCircle(cvs, &(cvs->Obstacles->CircleList[i]), &FXInertial, &FYInertial);
 	}
 	for (i = 0; i < cvs->Obstacles->NumberOfRectangles; i++) {
 		if(cvs->Obstacles->RectangleList[i].isActive)
 			ComputeFrepRectangle(cvs, &(cvs->Obstacles->RectangleList[i]), &FXInertial, &FYInertial);
 	}
+    /*
 	for (i = 0; i < cvs->Obstacles->NumberOfQuarterOfCircle; i++) {
 		if (cvs->Obstacles->QuarterOfCircleList[i].isActive)
 			ComputeFrepQuarterOfCircle(cvs, &(cvs->Obstacles->QuarterOfCircleList[i]), &FXInertial, &FYInertial);
-	}
+	}*/
 	cvs->Poto->FXRob += cos(DEGtoRAD*cvs->Odo->theta)*FXInertial + sin(DEGtoRAD*cvs->Odo->theta)*FYInertial;
 	cvs->Poto->FYRob += -sin(DEGtoRAD*cvs->Odo->theta)*FXInertial + cos(DEGtoRAD*cvs->Odo->theta)*FYInertial;
 }

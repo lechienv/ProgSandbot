@@ -21,7 +21,7 @@ void MyMiniProjet_Task(void)
 
     MyConsole_SendMsg("here \n");
     MyDelayMs(2000);
-    
+
     /*********************************
      *DO NOT TOUCH THAT **************
      ********************************/
@@ -31,38 +31,31 @@ void MyMiniProjet_Task(void)
     unsigned long long currentTime = 0;
     unsigned long long previousTime = 0;
     unsigned long long previousTimeData = 0;
-    
-    
-    
-    
     controller_init(cvs);
-    
     InitWebVariables(cvs);
-    
-    
-    
+
     /*********************************
      * SD Memory *********************
      ********************************/
     unsigned int size = 8192;
     char timeSD[size];
     CreateBuffer(timeSD);
-    
+
     char xSD[size];
     CreateBuffer(xSD);
-        
+
     char ySD[size];
     CreateBuffer(ySD);
-    
+
     char thetaSD[size];
     CreateBuffer(thetaSD);
-    
+
     char speedLSD[size];
     CreateBuffer(speedLSD);
-    
+
     char speedRSD[size];
     CreateBuffer(speedRSD);
-    
+
     bool hasSaved = false;
     /*********************************
     * MAIN LOOP **********************
@@ -70,7 +63,7 @@ void MyMiniProjet_Task(void)
     while(1){
         unsigned int A = MyCyclone_Read(CYCLONE_IO_A_Data);
         unsigned int I = MyCyclone_Read(CYCLONE_IO_I_Data);
-
+        MyConsole_SendMsg("wtf \n");
         bool start = (bool) extractBits(A,13,13);
         if(start){
             MyConsole_SendMsg("Starting\n");
@@ -85,8 +78,17 @@ void MyMiniProjet_Task(void)
 #endif
                 unsigned long long currentTime = ReadCoreTimer();
                 if((double)(currentTime - previousTime) > TIMESTEP_REALBOT*(SYS_FREQ/2000)*1000){//
+
                     previousTime = currentTime;
-                    controller_loop(cvs);          
+                    controller_loop(cvs);
+
+                    char s[659];
+                    sprintf(s,"x = %f \t y = %f \t stateCalib = %d \t color = %d\n", cvs->Odo->x, cvs->Odo->y, cvs->stateCalib, cvs->robotID);
+                    MyConsole_SendMsg(s);
+
+
+
+
         //#define TESTS
 
         #ifndef TESTS
@@ -115,24 +117,24 @@ void MyMiniProjet_Task(void)
                     //if((newTurn != previousTurn) && !hasSaved){
                         //MyConsole_SendMsg("Here2 \n");
                         /* Save data on SD */
-                        WriteSDMemory(timeSD, "time.txt", size);     
-                        WriteSDMemory(speedLSD, "speedL.txt", size);  
-                        WriteSDMemory(speedRSD, "speedR.txt", size);  
+                        WriteSDMemory(timeSD, "time.txt", size);
+                        WriteSDMemory(speedLSD, "speedL.txt", size);
+                        WriteSDMemory(speedRSD, "speedR.txt", size);
                         //WriteSDMemory(xSD, "odox.txt", size);
                         //WriteSDMemory(ySD, "odoy.txt",size);
                         //WriteSDMemory(thetaSD, "theta.txt",size);
-                       
+
                         hasSaved = true;
                     }
         #endif
 #endif
-                }    
+                }
             }
         }
-    }	
+    }
 
     /* Finish the program */
-    controller_finish(cvs);    
+    controller_finish(cvs);
     free(cvs);
 
 }

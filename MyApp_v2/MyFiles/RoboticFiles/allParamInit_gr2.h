@@ -8,7 +8,7 @@
 NAMESPACE_INIT(ctrlGr2);
 #endif // !REALBOT
 
-/****************** 
+/******************
  ***** MACROS *****
  ******************/
 
@@ -52,7 +52,7 @@ NAMESPACE_INIT(ctrlGr2);
 #define totalErrorL_INIT		0
 #define dutyCycleL_INIT			0
 #ifdef REALBOT
-    #define clicNumberL_INIT        clicNumberL_DEFAULT  
+    #define clicNumberL_INIT        clicNumberL_DEFAULT
     #define PWMRegL_INIT            0x25
     #define timerRegL_INIT          0x21
     #define perRegL_INIT            0x23
@@ -112,7 +112,7 @@ NAMESPACE_INIT(ctrlGr2);
     #define reverseRotationRatL_INIT	1
     #define totalErrorRatL_INIT         0
     #define dutyCycleRatL_INIT			0
-    #define clicNumberRatL_INIT         clicNumberRatL_DEFAULT  
+    #define clicNumberRatL_INIT         clicNumberRatL_DEFAULT
     #define PWMRegRatL_INIT             0x25
     #define timerRegRatL_INIT           0x21
     #define perRegRatL_INIT             0x23
@@ -130,7 +130,7 @@ NAMESPACE_INIT(ctrlGr2);
     #define reverseRotationRatR_INIT	1
     #define totalErrorRatR_INIT         0
     #define dutyCycleRatR_INIT			0
-    #define clicNumberRatR_INIT         clicNumberRatR_DEFAULT  
+    #define clicNumberRatR_INIT         clicNumberRatR_DEFAULT
     #define PWMRegRatR_INIT             0x26
     #define timerRegRatR_INIT           0x22
     #define perRegRatR_INIT             0x24
@@ -139,7 +139,7 @@ NAMESPACE_INIT(ctrlGr2);
 
     //MotorPince
     #define KpPince_INIT				0.3//0.5
-    #define KiPince_INIT				5//7
+    #define KiPince_INIT				1//7
 	#define KpPosPince_INIT				1
     #define KphiPince_INIT				0.3177
 	#define RPince_INIT					10
@@ -159,14 +159,14 @@ NAMESPACE_INIT(ctrlGr2);
 /************************************
  * PARAMS ***************************
  ***********************************/
-#define radiusBot_INIT			0.15 //0.015 ?
+#define radiusBot_INIT			0.2//0.15 //0.015 ?
 #define width_INIT				0.2625
 #define lengthTower_INIT		0.0833
 #define wheelLRadius_INIT		wheelLRadius_DEFAULT
 #define wheelRRadius_INIT		wheelRRadius_DEFAULT
 #define wheelRadius_INIT		0.03
-#define KpRot_INIT				0.1
-#define KiRot_INIT				0.2
+#define KpRot_INIT				0.06//0.1
+#define KiRot_INIT				0.03//0.2
 #define totalErrorRot_INIT		0
 #define speedDifThreshold_INIT	1
 #define KiAngleThreshold_INIT	10
@@ -176,16 +176,18 @@ NAMESPACE_INIT(ctrlGr2);
 #else
 #define rayonBeacon_INIT		0.03
 #endif
+#define maxAcceleration_INIT    1
 /************************************
  * POTO *****************************
  ***********************************/
-#define katt_INIT				1.0
-#define krep_INIT				0.001
+#define katt_INIT				10//1.0
+#define krep_INIT				0.001//0.001
 #define kFV_INIT				30
 #define FXRob_INIT				0
 #define FyRob_INIT				0
-#define kw_INIT					200
+#define kw_INIT					100
 #define minDistance_INIT		0.3
+#define thresholdAligned_INIT   0.5//10
 
 /************************************
  * ODOMETRY  ************************
@@ -199,7 +201,7 @@ NAMESPACE_INIT(ctrlGr2);
  ***********************************/
 #define NumberOfQuarterOfCircle_INIT 2
 #define NumberOfRectangles_INIT 10
-#define NumberOfCircles_INIT	3 //3Bots + 1 
+#define NumberOfCircles_INIT	3 //3Bots + 1
  /************************************
  * GOALS ************************
  ***********************************/

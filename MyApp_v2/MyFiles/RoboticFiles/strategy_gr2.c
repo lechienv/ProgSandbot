@@ -10,8 +10,6 @@ NAMESPACE_INIT(ctrlGr2);
 #endif // ! REALBOT
 void TheGoals(CtrlStruct *cvs)
 {
-    
-    PinceCalibration(cvs);
 #ifndef REALBOT
 	int color = cvs->robotID;
 	bool my_bool =false;
@@ -32,7 +30,7 @@ void TheGoals(CtrlStruct *cvs)
 		if (!cvs->Goals->via && !cvs->Goals->inConstr) {
 			cvs->Goals->via = ReachPointPotential(cvs, 0, (color == BLUE || color == RED) ? -0.7 : 0.7, cvs->Goals->precision);
 		}
-		/// Go in constr area 
+		/// Go in constr area
 		else if (cvs->Goals->via && !cvs->Goals->inConstr) {
 			cvs->Goals->inConstr = ReachPointPotential(cvs, 0, (color == BLUE || color == RED) ? -0.25 : 0.25, cvs->Goals->precision);
 		}
@@ -66,7 +64,7 @@ void TheGoals(CtrlStruct *cvs)
 			cvs->Goals->via = ReachPointPotential(cvs, 0, (color == BLUE || color == RED) ? -0.85 : 0.85, cvs->Goals->precision);
 		}
 
-		/// Go in constr area 
+		/// Go in constr area
 		else if (cvs->Goals->via && !cvs->Goals->endConstr) {
 			cvs->Goals->endConstr = ReachPointPotential(cvs, 0, (color == BLUE || color == RED) ? -0.25 : 0.25, cvs->Goals->precision);
 		}
@@ -102,7 +100,7 @@ void TheGoals(CtrlStruct *cvs)
 	if (nbrTaken == 7) {
 		cvs->Goals->backHome = true;
 	}
-	
+
 	/* ---- Determine if bot is stuck ---- */
 	if (fabs(cvs->time - cvs->Goals->timeIN) > cvs->Goals->maxtimewait) {
 		cvs->Goals->isblocked = true;
@@ -123,9 +121,99 @@ void TheGoals(CtrlStruct *cvs)
 #endif // !REALBOT
 }
 
-/*
+void PointHomologation(CtrlStruct *cvs){
+    //enum StateHomologation {PinceCalib, reachViaPoint, AlignWithTheta, ReachBlocs, ClosingPince, GoViaZone, GoInZone, OpeningPince};
+    int color = cvs->robotID;
+    switch (cvs->stateHomologation){
+        case PinceCalib:{
+            bool calibred = PinceCalibration(cvs);
+            if(calibred)
+                cvs->stateHomologation = reachViaPoint;
+            break;
+        }
+        case reachViaPoint:{
+            bool isReached;
+            if(color == GREEN){
+                isReached = ReachPointPotential(cvs, -0.1, 1.2, 0.03);
+            }
+            else{
+                isReached = ReachPointPotential(cvs, -0.1, -1.2, 0.03);
+            }
+
+            cvs->Obstacles->RectangleList[8].isActive = false;
+            if(isReached){
+                cvs->Obstacles->RectangleList[8].isActive = true;
+                cvs->stateHomologation = AlignWithTheta;
+            }
+            break;
+        }
+        case AlignWithTheta:{
+            bool isAligned;
+            if(color == GREEN){
+                isAligned = IsAlignedWithTheta(cvs,-90,1);
+            }
+            else{
+                isAligned = IsAlignedWithTheta(cvs,90,1);
+            }
+            if(isAligned)
+                cvs->stateHomologation = ReachBlocs;
+            break;
+        }
+        case ReachBlocs:
+                if(fabs(cvs->Odo->y) > 0.85 + 0.075 + 0.058){
+                    SpeedRefToDC(cvs,cvs->MotorL,3);
+                    SpeedRefToDC(cvs,cvs->MotorR,3);
+                }
+                else
+                    cvs->stateHomologation = ClosingPince;
+                break;
+        case ClosingPince:{
+            bool closed = ClosePince(cvs);
+            if(closed)
+                cvs->stateHomologation = GoViaZone;
+            break;
+        }
+        case GoViaZone:{
+            bool isReached;
+            if(color == GREEN){
+                isReached = ReachPointPotential(cvs, 0.1, 0.575, 0.05);
+            }
+            else{
+                isReached = ReachPointPotential(cvs, 0.1, -0.575, 0.05);
+            }
+            if(isReached)
+                cvs->stateHomologation = AlignZone; //AlignZone
+            break;
+        }
+        case AlignZone:{
+            bool isAligned;
+            if(color == GREEN){
+                isAligned = IsAlignedWithTheta(cvs,-95,1);
+            }
+            else{
+                isAligned = IsAlignedWithTheta(cvs,95,1);
+            }
+            if(isAligned)
+                cvs->stateHomologation = GoInZone;
+            break;
+        }
+        case GoInZone:
+            if(fabs(cvs->Odo->y) > 0.4){
+                SpeedRefToDC(cvs,cvs->MotorL,3);
+                SpeedRefToDC(cvs,cvs->MotorR,3);
+            }
+            else
+                cvs->stateHomologation = OpeningPince;
+            break;
+        case OpeningPince:{
+            bool calibred = PinceCalibration(cvs);
+            break;
+        }
+    }
+}
+
 void goto_nextstate(CtrlStruct *cvs, bool my_bool)
-{		
+{
 	if (cvs->Goals->goalIN == 0) {
 		cvs->Goals->timeIN = cvs->time;
 	}
@@ -180,44 +268,43 @@ void DisactivateBase(CtrlStruct *cvs) {
 	cvs->Obstacles->QuarterOfCircleList[0].isActive = true;
 	cvs->Obstacles->QuarterOfCircleList[1].isActive = true;
 }
-*/
-//0.1322
+
 void Calibration(CtrlStruct *cvs) {
-    /*cvs->Obstacles->CircleList[0].isActive = 0;
-    cvs->Obstacles->CircleList[1].isActive = 0;
-    cvs->Obstacles->CircleList[2].isActive = 0;
+	/*cvs->Obstacles->CircleList[0].isActive = 0;
+	cvs->Obstacles->CircleList[1].isActive = 0;
+	cvs->Obstacles->CircleList[2].isActive = 0;
 enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, GoToBlocOne, AlignBlocOne, TakeBlocOne, BringBlocOne};*/
 
-    double time = cvs->time;
-    double x = cvs->Odo->x;
-    double y = cvs->Odo->y;
-    double theta = (cvs->Odo->theta);
-    int color = cvs->robotID;
+	double time = cvs->time;
+	double x = cvs->Odo->x;
+	double y = cvs->Odo->y;
+	double theta = (cvs->Odo->theta);
+	int color = cvs->robotID;
 
 switch (cvs->stateCalib) {
-    case(Cal_y_arr) :
-        if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
-            SpeedRefToDC(cvs, cvs->MotorL, -5);
-            SpeedRefToDC(cvs, cvs->MotorR, -5);
-        }
-        else {
-            cvs->Odo->timein = (cvs->Odo->timeDelay == 0) ? cvs->time : cvs->Odo->timein;
-            cvs->Odo->timeDelay += 1;
-            if (fabs(cvs->Odo->timein - cvs->time) < 0.5) {
-                SpeedRefToDC(cvs, cvs->MotorL, -1);
-                SpeedRefToDC(cvs, cvs->MotorR, -1);
-            }
-            else {
-                cvs->Odo->y = (1.5-0.1322);
-                cvs->Odo->theta = -90;
-                cvs->stateCalib = GoToPoint;
-                cvs->Odo->timein = 0;
-                cvs->Odo->timeDelay = 0;
-            }
-        }
-        break;
+	case(Cal_y_arr) :
+		if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
+			SpeedRefToDC(cvs, cvs->MotorL, -5);
+			SpeedRefToDC(cvs, cvs->MotorR, -5);
+		}
+		else {
+			cvs->Odo->timein = (cvs->Odo->timeDelay == 0) ? cvs->time : cvs->Odo->timein;
+			cvs->Odo->timeDelay += 1;
+			if (fabs(cvs->Odo->timein - cvs->time) < 0.5) {
+				SpeedRefToDC(cvs, cvs->MotorL, -1);
+				SpeedRefToDC(cvs, cvs->MotorR, -1);
+			}
+			else {
+				cvs->Odo->y = (1.5-0.1322);
+				cvs->Odo->theta = -90;
+				cvs->stateCalib = GoToPoint;
+				cvs->Odo->timein = 0;
+				cvs->Odo->timeDelay = 0;
+			}
+		}
+		break;
 
-    case(GoToPoint) :{
+	case(GoToPoint) :{
         PinceCalibration(cvs);
         bool reached = ReachPointPotential(cvs, 0.7, 0.85, 0.03);
         if(reached){
@@ -226,7 +313,7 @@ switch (cvs->stateCalib) {
         break;
     }
 
-    case(AlignAngle) :{
+	case(AlignAngle) :{
             PinceCalibration(cvs);
             bool isAligned = IsAlignedWithTheta(cvs,180,3);
             if(isAligned)
@@ -234,28 +321,28 @@ switch (cvs->stateCalib) {
             break;
         }
 
-    case(Cal_x_arr) :
+	case(Cal_x_arr) :
             PinceCalibration(cvs);
-        if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
-            SpeedRefToDC(cvs, cvs->MotorL, -5);
-            SpeedRefToDC(cvs, cvs->MotorR, -5);
-        }
-        else {
-            cvs->Odo->timein = (cvs->Odo->timeDelay == 0) ? cvs->time : cvs->Odo->timein;
-            cvs->Odo->timeDelay += 1;
-            if (fabs(cvs->Odo->timein - cvs->time) < 0.5) {
-                SpeedRefToDC(cvs, cvs->MotorL, -1);
-                SpeedRefToDC(cvs, cvs->MotorR, -1);
-            }
-            else {
-                cvs->Odo->x = (1-0.1322);
-                cvs->Odo->theta = 180;
-                cvs->stateCalib = ReturnToBase;
-                cvs->Odo->timein = 0;
-                cvs->Odo->timeDelay = 0;
-            }
+		if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
+			SpeedRefToDC(cvs, cvs->MotorL, -5);
+			SpeedRefToDC(cvs, cvs->MotorR, -5);
+		}
+		else {
+			cvs->Odo->timein = (cvs->Odo->timeDelay == 0) ? cvs->time : cvs->Odo->timein;
+			cvs->Odo->timeDelay += 1;
+			if (fabs(cvs->Odo->timein - cvs->time) < 0.5) {
+				SpeedRefToDC(cvs, cvs->MotorL, -1);
+				SpeedRefToDC(cvs, cvs->MotorR, -1);
+			}
+			else {
+				cvs->Odo->x = (1-0.1322);
+				cvs->Odo->theta = 180;
+				cvs->stateCalib = ReturnToBase;
+				cvs->Odo->timein = 0;
+				cvs->Odo->timeDelay = 0;
+			}
                     break;
-        }
+		}
 
     case(ReturnToBase):{
         bool isopen = PinceCalibration(cvs);
@@ -270,24 +357,24 @@ switch (cvs->stateCalib) {
          bool isAligned = IsAlignedWithTheta(cvs,-90,1);
          if(isAligned){
              if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
-            SpeedRefToDC(cvs, cvs->MotorL, -5);
-            SpeedRefToDC(cvs, cvs->MotorR, -5);
-        }
-        else {
-            cvs->Odo->timein = (cvs->Odo->timeDelay == 0) ? cvs->time : cvs->Odo->timein;
-            cvs->Odo->timeDelay += 1;
-            if (fabs(cvs->Odo->timein - cvs->time) < 0.5) {
-                SpeedRefToDC(cvs, cvs->MotorL, -1);
-                SpeedRefToDC(cvs, cvs->MotorR, -1);
-            }
-            else {
-                cvs->Odo->y = (1.5-0.1322);
-                cvs->Odo->theta = -90;
-                cvs->Odo->timein = 0;
-                cvs->Odo->timeDelay = 0;
+			SpeedRefToDC(cvs, cvs->MotorL, -5);
+			SpeedRefToDC(cvs, cvs->MotorR, -5);
+		}
+		else {
+			cvs->Odo->timein = (cvs->Odo->timeDelay == 0) ? cvs->time : cvs->Odo->timein;
+			cvs->Odo->timeDelay += 1;
+			if (fabs(cvs->Odo->timein - cvs->time) < 0.5) {
+				SpeedRefToDC(cvs, cvs->MotorL, -1);
+				SpeedRefToDC(cvs, cvs->MotorR, -1);
+			}
+			else {
+				cvs->Odo->y = (1.5-0.1322);
+				cvs->Odo->theta = -90;
+				cvs->Odo->timein = 0;
+				cvs->Odo->timeDelay = 0;
                                 cvs->stateCalib = Wait;
-            }
-        }
+			}
+		}
          }
          break;
     }
@@ -297,7 +384,8 @@ switch (cvs->stateCalib) {
     }
   }
 }
-/*
+
+
 void ReCalibration(CtrlStruct *cvs) {
 	cvs->Obstacles->CircleList[0].isActive = 0;
 	cvs->Obstacles->CircleList[1].isActive = 0;
@@ -402,41 +490,6 @@ void ReCalibration(CtrlStruct *cvs) {
 	cvs->Obstacles->CircleList[1].isActive = 1;
 	cvs->Obstacles->CircleList[2].isActive = 1;
 }
-*/
-
-bool ReachPointPotential(CtrlStruct *cvs, double xGoal, double yGoal, double precisionRadius) {
-	double speedRefL;
-	double speedRefR;
-	double hasReached = false;
-	if ((cvs->Odo->x - xGoal)*(cvs->Odo->x - xGoal) + (cvs->Odo->y - yGoal)*(cvs->Odo->y - yGoal) < precisionRadius*precisionRadius) {
-		speedRefL = 0;
-		speedRefR = 0;
-		SpeedRefToDC(cvs, cvs->MotorL, speedRefL);
-		SpeedRefToDC(cvs, cvs->MotorR, speedRefR);
-		return true;
-	} //Objective is reached
-	else {
-		AttractiveForce(cvs, xGoal, yGoal);
-		RepulsiveForce(cvs);
-
-		// Taking into account non-holonmy
-		double angle = atan2(cvs->Poto->FYRob, cvs->Poto->FXRob);
-		if (fabs(cvs->Poto->FYRob) > fabs(cvs->Poto->FXRob)) {
-			bool result = IsAlignedWithTheta(cvs, RADtoDEG*angle + cvs->Odo->theta, 5);
-		}
-		else {
-			double speedRefW = cvs->Poto->kw * angle;
-			double speedRefX = cvs->Poto->kFV*cvs->Poto->FXRob;
-			speedRefX = limitSpeed(speedRefX, MAXSPEED);
-			speedRefW = limitSpeed(speedRefW, MAXSPEEDROT);
-			speedRefL = speedRefX - cvs->Param->wheelRadius*speedRefW;
-			speedRefR = speedRefX + cvs->Param->wheelRadius*speedRefW;
-			SpeedRefToDC(cvs, cvs->MotorL, speedRefL);
-			SpeedRefToDC(cvs, cvs->MotorR, speedRefR);
-		}
-		return false;
-	} //Objective is not reached
-}
 
 void Strategie(CtrlStruct *cvs){
     switch(cvs->stateStrategie){
@@ -480,7 +533,7 @@ void Strategie(CtrlStruct *cvs){
     case(ReleaseBlockOne):{
         bool reached;
         if(cvs->Odo->bufferPosition == -100000)
-            cvs->Odo->bufferPosition = sqrt((cvs->Odo->x)^2 + (cvs->Odo->y)^2);
+            cvs->Odo->bufferPosition = cvs->Odo->x;
         bool isDeposed = DeposeBlock(cvs);
         if(isDeposed){
             reached = ReachPointPotential(cvs, -0.2 , 1, 0.03);
@@ -495,6 +548,24 @@ void Strategie(CtrlStruct *cvs){
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #ifndef REALBOT
 NAMESPACE_CLOSE();
 #endif // ! REALBOT
+
+
+
+

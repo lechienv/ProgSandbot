@@ -30,7 +30,7 @@ void InitMotor(CtrlStruct *cvs)
     cvs->MotorL->SID                = SIDL_INIT;
     cvs->MotorL->clicNumber         = clicNumberL_INIT;
 #endif // REALBOT
-    
+
     /* Right motor */
 	cvs->MotorR = (Motor*)malloc(sizeof(Motor));
 	cvs->MotorR->Kp					= KpR_INIT;
@@ -54,7 +54,7 @@ void InitMotor(CtrlStruct *cvs)
     cvs->MotorR->SID                = SIDR_INIT;
     cvs->MotorR->clicNumber         = clicNumberR_INIT;
 #endif // REALBOT
-    
+
 	/* Tower motor */
 	cvs->MotorTower = (Motor*)malloc(sizeof(Motor));
 	cvs->MotorTower->Kp             = KpTower_INIT;
@@ -101,7 +101,7 @@ void InitMotor(CtrlStruct *cvs)
     cvs->MotorRatR->brakesMask          = brakesMaskRatR_INIT;
     cvs->MotorRatR->SID                 = SIDRatR_INIT;
     cvs->MotorRatR->clicNumber          = clicNumberRatR_INIT;
-    
+
     /* Left rateau motor */
     cvs->MotorRatL = (Motor*)malloc(sizeof(Motor));
 	cvs->MotorRatL->Kp					= KpRatL_INIT;
@@ -123,7 +123,7 @@ void InitMotor(CtrlStruct *cvs)
     cvs->MotorRatL->brakesMask          = brakesMaskRatL_INIT;
     cvs->MotorRatL->SID                 = SIDRatL_INIT;
     cvs->MotorRatL->clicNumber          = clicNumberRatL_INIT;
-    
+
     /* Pince motor */
     cvs->MotorPince = (Motor*)malloc(sizeof(Motor));
 	cvs->MotorPince->Kp					= KpPince_INIT;
@@ -163,6 +163,7 @@ void InitParam(CtrlStruct *cvs) {
 	cvs->Param->totalErrorRot		= totalErrorRot_INIT;
 	cvs->Param->speedDifThreshold	= speedDifThreshold_INIT; //Max speed difference before considering the robot "at rest"
 	cvs->Param->KiAngleThreshold	= KiAngleThreshold_INIT; //Angle control: threshold to activate Ki
+    cvs->Param->maxAcceleration     = maxAcceleration_INIT;
 }
 
 void InitSensors(CtrlStruct *cvs) {
@@ -179,7 +180,7 @@ void InitTower(CtrlStruct * cvs)
 	cvs->Tower = (Tower*)malloc(sizeof(Tower));
 	cvs->Tower->falling_index						= falling_index_INIT;
 	cvs->Tower->falling_index_fixed					= last_falling_fixed_INIT;
-	int i; 
+	int i;
 	for (i = 0; i <  NB_STORE_EDGE ; i++) {
 		cvs->Tower->last_falling[i]			= last_falling_INIT;
 		cvs->Tower->last_falling_fixed[i]	= last_falling_fixed_INIT;
@@ -207,6 +208,7 @@ void InitPotential(CtrlStruct *cvs) {
 	cvs->Poto->FYRob				= FyRob_INIT;
 	cvs->Poto->kw					= kw_INIT;
 	cvs->Poto->minDistance			= minDistance_INIT;
+    cvs->Poto->thresholdAligned     = thresholdAligned_INIT;
 }
 
 
@@ -216,28 +218,62 @@ void InitOdometry(CtrlStruct *cvs) {
 	cvs->Odo->timeDelay = 0.0;
     cvs->Odo->speedL = 0;
     cvs->Odo->speedR = 0;
+    cvs->Odo->bufferPosition = -100000;
+    cvs->Odo->flagBufferPosition = 0;
 	int color = cvs->robotID;
 #ifdef REALBOT
     cvs->Odo->clicNumber = clicNumberOdo_INIT;
-#endif // REALBOT
+    if(color == GREEN){
+        cvs->Odo->x		= -0.1425;
+        cvs->Odo->y		= 1.3678;
+        cvs->Odo->theta	= -90.0;
+    }
+    else if(color == PINK){
+        cvs->Odo->x		= -0.1425;
+        cvs->Odo->y		= -1.3678;
+        cvs->Odo->theta	= 90.0;
+    }
+    else {
+		cvs->Odo->x		= 0;
+		cvs->Odo->y		= 0;
+		cvs->Odo->theta = 0;
+    }
+    /*cvs->Odo->x		= -0.1425;
+    cvs->Odo->y		= 1.3678;
+    cvs->Odo->theta	= -90.0;*/
 
-	if (color == GREEN) {
-		cvs->Odo->x		= 0;
-		cvs->Odo->y		= 1.3678;
-		cvs->Odo->theta	= -90.0;
+
+
+#else
+
+	if (color == RED) {
+		cvs->Odo->x		= -0.075;
+		cvs->Odo->y		= -1.4;
+		cvs->Odo->theta	= 90.0;
 	}
-	else if (color == PINK) {
-		cvs->Odo->x		= 0;
-		cvs->Odo->y		= -1.3678;
-		cvs->Odo->theta = 90.0;
+	else if (color == BLUE) {
+		cvs->Odo->x		= -0.225;
+		cvs->Odo->y		= -1.15;
+		cvs->Odo->theta = 90;
+	}
+	else if (color == YELLOW) {
+		cvs->Odo->x		= -0.225;
+		cvs->Odo->y		= 1.15;
+		cvs->Odo->theta = -90.0;
+	}
+	else if (color == WHITE) {
+		cvs->Odo->x		= -0.075;
+		cvs->Odo->y		= 1.4;
+		cvs->Odo->theta = -90.0;
 	}
 	else {
 		cvs->Odo->x		= 0;
 		cvs->Odo->y		= 0;
 		cvs->Odo->theta = 0;
 	}
+#endif // REALBOT
 }
-/*
+
 void InitGoals(CtrlStruct *cvs) {
 	cvs->Goals = (Goals*)malloc(sizeof(Goals));
 	cvs->Goals->NumberOfGoals = MaxGoals;
@@ -291,7 +327,6 @@ void InitGoals(CtrlStruct *cvs) {
 	cvs->Goals->nbr_target_prev = 0;
 }
 
-*/
 
 void InitObstacles(CtrlStruct *cvs) {
 	cvs->Obstacles = (Obstacles*)malloc(sizeof(Obstacles));
@@ -304,29 +339,29 @@ void InitObstacles(CtrlStruct *cvs) {
 	cvs->Obstacles->QuarterOfCircleList = (QuarterOfCircle*)malloc(sizeof(QuarterOfCircle)*NumberOfQuarterOfCircle_INIT);
 	//EnnemyBot
 	cvs->Obstacles->CircleList[0].isActive = true;
-	cvs->Obstacles->CircleList[0].radius = 0.2;
+	cvs->Obstacles->CircleList[0].radius = 0.3;
 	cvs->Obstacles->CircleList[0].x = -2;
 	cvs->Obstacles->CircleList[0].y = -2;
 
 	cvs->Obstacles->CircleList[1].isActive = true;
-	cvs->Obstacles->CircleList[1].radius = 0.2;
+	cvs->Obstacles->CircleList[1].radius = 0.3;
 	cvs->Obstacles->CircleList[1].x = -2;
 	cvs->Obstacles->CircleList[1].y = -2;
 
 	cvs->Obstacles->CircleList[2].isActive = true;
-	cvs->Obstacles->CircleList[2].radius = 0.2;
+	cvs->Obstacles->CircleList[2].radius = 0.3;
 	cvs->Obstacles->CircleList[2].x = -2;
 	cvs->Obstacles->CircleList[2].y = -2;
 
 	int color = cvs->robotID;
 	//MidAreaGreenSide
-	cvs->Obstacles->QuarterOfCircleList[0].isActive = (color == GREEN) ? false : true;
+	cvs->Obstacles->QuarterOfCircleList[0].isActive = ((color == WHITE) || (color == YELLOW)) ? false : true;
 	cvs->Obstacles->QuarterOfCircleList[0].quadrant = 1;
 	cvs->Obstacles->QuarterOfCircleList[0].radius = 0.6;
 	cvs->Obstacles->QuarterOfCircleList[0].x = -0.25;
 	cvs->Obstacles->QuarterOfCircleList[0].y = 0;
 	//MidAreaBlueSide
-	cvs->Obstacles->QuarterOfCircleList[1].isActive = (color == PINK) ? false : true;
+	cvs->Obstacles->QuarterOfCircleList[1].isActive = ((color == BLUE) || (color == RED)) ? false : true;
 	cvs->Obstacles->QuarterOfCircleList[1].quadrant = 4;
 	cvs->Obstacles->QuarterOfCircleList[1].radius = 0.6;
 	cvs->Obstacles->QuarterOfCircleList[1].x = -0.25;
@@ -402,12 +437,12 @@ void InitDyna(CtrlStruct *cvs){
     cvs->DynaLeft->timer = 0;
     cvs->DynaLeft->enable = false;
     cvs->DynaLeft->stateDyna = grap;
-    
+
     cvs->DynaRight = (Dyna*)malloc(sizeof(Dyna));
     cvs->DynaRight->timer = 0;
     cvs->DynaRight->enable = false;
     cvs->DynaRight->stateDyna = grap;
-    
+
     SendMessageDyna(0x06,0x0005,0x0008,0x0000);
     SendMessageDyna(0x06,0x0005,0x0019,0x1);
 #endif

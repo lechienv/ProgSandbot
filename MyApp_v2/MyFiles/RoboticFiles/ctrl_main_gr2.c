@@ -1,4 +1,4 @@
-/*! 
+/*!
  * \file ctrl_main_gr2.cc
  * \brief Initialization, loop and finilization of the controller written in C (but compiled as C++)
  */
@@ -10,15 +10,15 @@ NAMESPACE_INIT(ctrlGr2);
 #endif // ! REALBOT
 
 /*! \brief initialize controller operations (called once)
- * 
+ *
  * \param[in] cvs controller main structure
  */
-    
-void controller_init(CtrlStruct *cvs){	
+
+void controller_init(CtrlStruct *cvs){
     cvs->previousTimeCAN = 0;
     cvs->timeOffset = 0;
 #ifdef REALBOT
-    cvs->robotID = getRobotID();
+    cvs->robotID = GREEN; //getRobotID();
     cvs->timeStep = TIMESTEP_REALBOT;
 #else
     cvs->robotID = cvs->inputs->robot_id;
@@ -31,13 +31,13 @@ void controller_init(CtrlStruct *cvs){
 	InitSensors(cvs);
 	InitObstacles(cvs);
 	InitTower(cvs);
-	//InitGoals(cvs);
+	InitGoals(cvs);
     InitDyna(cvs);
 	int color = cvs->robotID;
-	//cvs->stateCalib = (color == YELLOW || color == BLUE) ? Cal_y_av1 : Cal_y_arr;
+	cvs->stateCalib = Cal_y_arr;
 	cvs->stateReCalib = ReCal_rot1;
 	cvs->stateStrat = reachPointA;
-    
+    cvs->stateHomologation = PinceCalib;
 #ifdef REALBOT
     InitRegMotor(cvs->MotorL);
     InitRegMotor(cvs->MotorR);
@@ -46,12 +46,11 @@ void controller_init(CtrlStruct *cvs){
     InitRegMotor(cvs->MotorPince);
     InitRegMotor(cvs->MotorTower);
 #endif // REALBOT
-    
     AlwaysInController(cvs);
 }
 
 /*! \brief controller loop (called every timestep)
- * 
+ *
  * \param[in] cvs controller main structure
  */
 void controller_loop(CtrlStruct *cvs){
@@ -98,22 +97,24 @@ void controller_loop(CtrlStruct *cvs){
         }
     }*/
     //StrategyTest(cvs);
-
-    
+    //PointHomologation(cvs);
     Calibration(cvs);
-    
-    /*cvs->MotorL->dutyCycle = LeftMotorDC;//RightMotorDC;
+
+   /*
+    cvs->MotorL->dutyCycle = LeftMotorDC;//RightMotorDC;
     cvs->MotorR->dutyCycle = RightMotorDC;// RightMotorDC;
     cvs->MotorTower->dutyCycle = TourelleDC;
     cvs->MotorRatL->dutyCycle = RateauLDC; //RightMotorDC;//RightMotorDC;
     cvs->MotorRatR->dutyCycle = RateauRDC; //RightMotorDC;//RightMotorDC;
     cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;*/
+    //PinceCalibration(cvs);
+
 	AlwaysEndController(cvs);
 }
 
 
 /*! \brief last controller operations (called once)
- * 
+ *
  * \param[in] cvs controller main structure
  */
 void controller_finish(CtrlStruct *cvs)
@@ -151,7 +152,7 @@ void UpdateFromFPGA(CtrlStruct *cvs) {
     cvs->Odo->speedL = cvs->MotorL->speed;
 	cvs->Tower->falling_index = cvs->inputs->falling_index;
 	cvs->Tower->falling_index_fixed = cvs->inputs->falling_index_fixed;
-	
+
 	int i;
 	for (i = 0; i <  NB_STORE_EDGE ; i++) {
 		cvs->Tower->last_falling[i] = cvs->inputs->last_falling[i];
@@ -176,10 +177,11 @@ void UpdateFromFPGA(CtrlStruct *cvs) {
 
 
 void AlwaysInController(CtrlStruct *cvs) {
+
 #ifndef REALBOT
 	UpdateFromFPGA(cvs);
   //  OpponentDetection(cvs); //NEED TO BE IN TWO
-#else 
+#else
     UpdateFromFPGARealBot(cvs);
 #endif // ! REALBOT
     cvs->timeStep = cvs->time - cvs->previousTime;
@@ -192,6 +194,7 @@ void AlwaysInController(CtrlStruct *cvs) {
 	cvs->MotorL->position += cvs->MotorL->speed*cvs->timeStep;
 	cvs->MotorR->position += cvs->MotorR->speed*cvs->timeStep;
 	cvs->MotorTower->position += cvs->MotorTower->speed*cvs->timeStep;
+
 #ifdef REALBOT
     cvs->MotorRatL->dutyCycle = 0;
     cvs->MotorRatR->dutyCycle = 0;

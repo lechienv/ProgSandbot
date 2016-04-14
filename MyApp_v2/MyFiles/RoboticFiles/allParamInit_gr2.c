@@ -30,7 +30,7 @@ void InitMotor(CtrlStruct *cvs)
     cvs->MotorL->SID                = SIDL_INIT;
     cvs->MotorL->clicNumber         = clicNumberL_INIT;
 #endif // REALBOT
-
+    
     /* Right motor */
 	cvs->MotorR = (Motor*)malloc(sizeof(Motor));
 	cvs->MotorR->Kp					= KpR_INIT;
@@ -54,7 +54,7 @@ void InitMotor(CtrlStruct *cvs)
     cvs->MotorR->SID                = SIDR_INIT;
     cvs->MotorR->clicNumber         = clicNumberR_INIT;
 #endif // REALBOT
-
+    
 	/* Tower motor */
 	cvs->MotorTower = (Motor*)malloc(sizeof(Motor));
 	cvs->MotorTower->Kp             = KpTower_INIT;
@@ -101,7 +101,7 @@ void InitMotor(CtrlStruct *cvs)
     cvs->MotorRatR->brakesMask          = brakesMaskRatR_INIT;
     cvs->MotorRatR->SID                 = SIDRatR_INIT;
     cvs->MotorRatR->clicNumber          = clicNumberRatR_INIT;
-
+    
     /* Left rateau motor */
     cvs->MotorRatL = (Motor*)malloc(sizeof(Motor));
 	cvs->MotorRatL->Kp					= KpRatL_INIT;
@@ -123,7 +123,7 @@ void InitMotor(CtrlStruct *cvs)
     cvs->MotorRatL->brakesMask          = brakesMaskRatL_INIT;
     cvs->MotorRatL->SID                 = SIDRatL_INIT;
     cvs->MotorRatL->clicNumber          = clicNumberRatL_INIT;
-
+    
     /* Pince motor */
     cvs->MotorPince = (Motor*)malloc(sizeof(Motor));
 	cvs->MotorPince->Kp					= KpPince_INIT;
@@ -145,7 +145,6 @@ void InitMotor(CtrlStruct *cvs)
     cvs->MotorPince->brakesMask         = brakesMaskPince_INIT;
     cvs->MotorPince->SID                = SIDPince_INIT;
     cvs->MotorPince->clicNumber         = clicNumberPince_INIT;
-    cvs->MotorPince->timeSecurity = 0;
 #endif // REALBOT
 
 }
@@ -181,7 +180,7 @@ void InitTower(CtrlStruct * cvs)
 	cvs->Tower = (Tower*)malloc(sizeof(Tower));
 	cvs->Tower->falling_index						= falling_index_INIT;
 	cvs->Tower->falling_index_fixed					= last_falling_fixed_INIT;
-	int i;
+	int i; 
 	for (i = 0; i <  NB_STORE_EDGE ; i++) {
 		cvs->Tower->last_falling[i]			= last_falling_INIT;
 		cvs->Tower->last_falling_fixed[i]	= last_falling_fixed_INIT;
@@ -242,11 +241,11 @@ void InitOdometry(CtrlStruct *cvs) {
     /*cvs->Odo->x		= -0.1425;
     cvs->Odo->y		= 1.3678;
     cvs->Odo->theta	= -90.0;*/
-
-
-
+    
+    
+     
 #else
-
+    
 	if (color == RED) {
 		cvs->Odo->x		= -0.075;
 		cvs->Odo->y		= -1.4;
@@ -438,12 +437,12 @@ void InitDyna(CtrlStruct *cvs){
     cvs->DynaLeft->timer = 0;
     cvs->DynaLeft->enable = false;
     cvs->DynaLeft->stateDyna = grap;
-
+    
     cvs->DynaRight = (Dyna*)malloc(sizeof(Dyna));
     cvs->DynaRight->timer = 0;
     cvs->DynaRight->enable = false;
     cvs->DynaRight->stateDyna = grap;
-
+    
     SendMessageDyna(0x06,0x0005,0x0008,0x0000);
     SendMessageDyna(0x06,0x0005,0x0019,0x1);
 #endif

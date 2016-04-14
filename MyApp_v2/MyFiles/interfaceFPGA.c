@@ -26,7 +26,7 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
     unsigned int J = MyCyclone_Read(CYCLONE_IO_J_Data);
     unsigned int K = MyCyclone_Read(CYCLONE_IO_K_Data);
     unsigned int L = MyCyclone_Read(CYCLONE_IO_L_Data);
-
+    
 #ifdef MINIBOT
     cvs->MotorR->speed = ComputeSpeed(cvs->MotorL->clicNumber,C,extractBits(A,1,1));
     cvs->MotorL->speed = ComputeSpeed(cvs->MotorR->clicNumber,B,extractBits(A,2,2));
@@ -42,7 +42,7 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
     cvs->MotorPince->speed = ComputeSpeed(cvs->MotorPince->clicNumber,F,!extractBits(A,5,5));
     cvs->MotorRatL->speed = ComputeSpeed(cvs->MotorRatL->clicNumber,G,extractBits(A,3,3));
     cvs->MotorRatR->speed = ComputeSpeed(cvs->MotorRatR->clicNumber,H,extractBits(A,4,4));
-
+    
 #ifdef MINIBOT
    /* MyCAN_USwitch(&(cvs->Sensors->uSwitchLeft), &(cvs->Sensors->uSwitchRight));
     char theStr[64];
@@ -54,10 +54,10 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
 #endif // MINIBOT
     cvs->Sensors->uSwitchPinceOut = !((bool) extractBits(A,10,10));
     cvs->Sensors->uSwitchPinceIn = (bool) extractBits(A,11,11);
-
+    
     /* TOWER */
     int newTurn = extractBits(A,15,15);
-    if(newTurn != previousTurn){
+    if(newTurn != previousTurn){        
         previousTurn = newTurn;
         cvs->Tower->nb_rising = nb_rising;
         cvs->Tower->nb_falling = nb_falling;
@@ -66,11 +66,11 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
         nb_falling = 0;
     }
 
-    int newValue1 = K;
+    int newValue1 = K; 
     int newValue2 = L;
-
+    
     char theStr[512];
-
+    
     if(newValue1 != previousValue1 || newValue2 != previousValue2){
         previousValue1 = newValue1;
         previousValue2 = newValue2;
@@ -92,7 +92,7 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
         nb_rising++;
         nb_falling++;
     }
-
+    
     cvs->time = getTime() - cvs->timeOffset;
 
     /*
@@ -100,7 +100,7 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
     sprintf(theStr,"SpeedL = %f \t SpeedR = %f \t SpeedOdoL = %f \t SpeedOdoR = %f \t \n", cvs->MotorL->speed, cvs->MotorR->speed, cvs->Odo->speedL, cvs->Odo->speedR);
     MyConsole_SendMsg(theStr);
     */
-
+    
     //char theStr[1024];
     //sprintf(theStr,"A %d \t B %d \t C %d \t D %d \t E %d \t F %d \t G %d \t H %d \t I %d \t J %d \t K %d \t \n \n ", A, B, C, D, E, F, G, H, I, J, K);
     /*char theStr[128];
@@ -175,7 +175,7 @@ void InitRegMotor(Motor *Motor){
     //ActivateMotor_RealBot(Motor);
 }
 
-void ActivateMotor_RealBot(Motor *Motor){
+void ActivateMotor_RealBot(Motor *Motor){   
    // DisableBrakes(Motor);
     char theData[3];
     unsigned char DC = DutyCycle_RealBot((int) Motor->dutyCycle);
@@ -256,7 +256,7 @@ void InitWebVariables(CtrlStruct *cvs){
     var27 = cvs->Param->radiusBot;
     var28 = 0;
     var29 = cvs->Param->maxAcceleration;
-
+    
     var1Status = var1;
     var2Status = var2;
     var3Status = var3;
@@ -282,21 +282,21 @@ void InitWebVariables(CtrlStruct *cvs){
     var23Status = var23;
     var24Status = var24;
     var25Status = var25;
-    var26Status = var26;
-    var27Status = var27;
-    var28Status = var28;
-    var29Status = var29;
-    var30Status = var30;
-    var31Status = var31;
-    var32Status = var32;
-    var33Status = var33;
-    var34Status = var34;
-    var35Status = var35;
-    var36Status = var36;
-    var37Status = var37;
-    var38Status = var38;
-    var39Status = var39;
-    var40Status = var40;
+    var26Status = var26; 
+    var27Status = var27; 
+    var28Status = var28; 
+    var29Status = var29; 
+    var30Status = var30; 
+    var31Status = var31; 
+    var32Status = var32; 
+    var33Status = var33; 
+    var34Status = var34; 
+    var35Status = var35; 
+    var36Status = var36; 
+    var37Status = var37; 
+    var38Status = var38; 
+    var39Status = var39; 
+    var40Status = var40; 
 }
 void RefreshWebVariables(CtrlStruct *cvs){
     cvs->Param->wheelRRadius = var9;

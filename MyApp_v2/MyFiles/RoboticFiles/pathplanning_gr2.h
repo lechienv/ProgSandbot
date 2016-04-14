@@ -1,4 +1,4 @@
-/*!
+/*! 
  * \file path_planning.h
  * \brief main header of the pathplanning
  */

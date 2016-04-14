@@ -30,7 +30,7 @@ void TheGoals(CtrlStruct *cvs)
 		if (!cvs->Goals->via && !cvs->Goals->inConstr) {
 			cvs->Goals->via = ReachPointPotential(cvs, 0, (color == BLUE || color == RED) ? -0.7 : 0.7, cvs->Goals->precision);
 		}
-		/// Go in constr area
+		/// Go in constr area 
 		else if (cvs->Goals->via && !cvs->Goals->inConstr) {
 			cvs->Goals->inConstr = ReachPointPotential(cvs, 0, (color == BLUE || color == RED) ? -0.25 : 0.25, cvs->Goals->precision);
 		}
@@ -64,7 +64,7 @@ void TheGoals(CtrlStruct *cvs)
 			cvs->Goals->via = ReachPointPotential(cvs, 0, (color == BLUE || color == RED) ? -0.85 : 0.85, cvs->Goals->precision);
 		}
 
-		/// Go in constr area
+		/// Go in constr area 
 		else if (cvs->Goals->via && !cvs->Goals->endConstr) {
 			cvs->Goals->endConstr = ReachPointPotential(cvs, 0, (color == BLUE || color == RED) ? -0.25 : 0.25, cvs->Goals->precision);
 		}
@@ -100,7 +100,7 @@ void TheGoals(CtrlStruct *cvs)
 	if (nbrTaken == 7) {
 		cvs->Goals->backHome = true;
 	}
-
+	
 	/* ---- Determine if bot is stuck ---- */
 	if (fabs(cvs->time - cvs->Goals->timeIN) > cvs->Goals->maxtimewait) {
 		cvs->Goals->isblocked = true;
@@ -139,7 +139,7 @@ void PointHomologation(CtrlStruct *cvs){
             else{
                 isReached = ReachPointPotential(cvs, -0.1, -1.2, 0.03);
             }
-
+             
             cvs->Obstacles->RectangleList[8].isActive = false;
             if(isReached){
                 cvs->Obstacles->RectangleList[8].isActive = true;
@@ -206,14 +206,14 @@ void PointHomologation(CtrlStruct *cvs){
                 cvs->stateHomologation = OpeningPince;
             break;
         case OpeningPince:{
-            bool calibred = PinceCalibration(cvs);
+            bool calibred = PinceCalibration(cvs);               
             break;
         }
     }
 }
 
 void goto_nextstate(CtrlStruct *cvs, bool my_bool)
-{
+{		
 	if (cvs->Goals->goalIN == 0) {
 		cvs->Goals->timeIN = cvs->time;
 	}
@@ -274,16 +274,15 @@ void Calibration(CtrlStruct *cvs) {
 	cvs->Obstacles->CircleList[1].isActive = 0;
 	cvs->Obstacles->CircleList[2].isActive = 0;
 enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, GoToBlocOne, AlignBlocOne, TakeBlocOne, BringBlocOne};*/
-
+    
 	double time = cvs->time;
 	double x = cvs->Odo->x;
 	double y = cvs->Odo->y;
 	double theta = (cvs->Odo->theta);
 	int color = cvs->robotID;
-
+    
 switch (cvs->stateCalib) {
 	case(Cal_y_arr) :
-            PinceCalibration(cvs);
 		if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
 			SpeedRefToDC(cvs, cvs->MotorL, -5);
 			SpeedRefToDC(cvs, cvs->MotorR, -5);
@@ -354,7 +353,7 @@ switch (cvs->stateCalib) {
         break;
     }
     case(AlignForBaseAndReturnInIt):{
-
+        
          bool isAligned = IsAlignedWithTheta(cvs,-90,1);
          if(isAligned){
              if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
@@ -385,7 +384,7 @@ switch (cvs->stateCalib) {
     }
   }
 }
-
+	
 
 void ReCalibration(CtrlStruct *cvs) {
 	cvs->Obstacles->CircleList[0].isActive = 0;
@@ -532,16 +531,16 @@ void Strategie(CtrlStruct *cvs){
             break;
     }
     case(ReleaseBlockOne):{
-        /*bool reached;
+        bool reached;
         if(cvs->Odo->bufferPosition == -100000)
-            cvs->Odo->bufferPosition = sqrt(cvs->Odo->x*cvs->Odo->x + cvs->Odo->y*cvs->Odo->y);
+            cvs->Odo->bufferPosition = cvs->Odo->x;
         bool isDeposed = DeposeBlock(cvs);
         if(isDeposed){
             reached = ReachPointPotential(cvs, -0.2 , 1, 0.03);
         }
         if(reached){
             //cvs->stateCalib = AlignForBlockOne;
-        }*/
+        }
         break;
     }
 

@@ -8,7 +8,7 @@
 NAMESPACE_INIT(ctrlGr2);
 #endif // !REALBOT
 
-/******************
+/****************** 
  ***** MACROS *****
  ******************/
 
@@ -52,7 +52,7 @@ NAMESPACE_INIT(ctrlGr2);
 #define totalErrorL_INIT		0
 #define dutyCycleL_INIT			0
 #ifdef REALBOT
-    #define clicNumberL_INIT        clicNumberL_DEFAULT
+    #define clicNumberL_INIT        clicNumberL_DEFAULT  
     #define PWMRegL_INIT            0x25
     #define timerRegL_INIT          0x21
     #define perRegL_INIT            0x23
@@ -112,7 +112,7 @@ NAMESPACE_INIT(ctrlGr2);
     #define reverseRotationRatL_INIT	1
     #define totalErrorRatL_INIT         0
     #define dutyCycleRatL_INIT			0
-    #define clicNumberRatL_INIT         clicNumberRatL_DEFAULT
+    #define clicNumberRatL_INIT         clicNumberRatL_DEFAULT  
     #define PWMRegRatL_INIT             0x25
     #define timerRegRatL_INIT           0x21
     #define perRegRatL_INIT             0x23
@@ -130,7 +130,7 @@ NAMESPACE_INIT(ctrlGr2);
     #define reverseRotationRatR_INIT	1
     #define totalErrorRatR_INIT         0
     #define dutyCycleRatR_INIT			0
-    #define clicNumberRatR_INIT         clicNumberRatR_DEFAULT
+    #define clicNumberRatR_INIT         clicNumberRatR_DEFAULT  
     #define PWMRegRatR_INIT             0x26
     #define timerRegRatR_INIT           0x22
     #define perRegRatR_INIT             0x24
@@ -201,7 +201,7 @@ NAMESPACE_INIT(ctrlGr2);
  ***********************************/
 #define NumberOfQuarterOfCircle_INIT 2
 #define NumberOfRectangles_INIT 10
-#define NumberOfCircles_INIT	3 //3Bots + 1
+#define NumberOfCircles_INIT	3 //3Bots + 1 
  /************************************
  * GOALS ************************
  ***********************************/

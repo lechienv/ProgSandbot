@@ -22,7 +22,7 @@ void UpdateDetectedBotPosition(CtrlStruct *cvs) {
 	int currentBot = 0;
 	for (i = 0; i < numberDetected; i++) { //Loop to add coordinates of each bot
 		int risingIndex = cvs->Tower->rising_index - i;
-		if (risingIndex < 0)
+		if (risingIndex < 0) 
 			risingIndex = risingIndex + NB_STORE_EDGE;
 
 		int fallingIndex = cvs->Tower->falling_index - i;
@@ -38,13 +38,13 @@ void UpdateDetectedBotPosition(CtrlStruct *cvs) {
         cvs->Tower->angle = angle;
         double x = cvs->Odo->x + distance*cos(DEGtoRAD * (cvs->Odo->theta + angle));
 		double y = cvs->Odo->y + distance*sin(DEGtoRAD * (cvs->Odo->theta + angle));
-
+  
 		//if (IsBot(x, y)) { //TODECOMMENT
 			if (currentBot < NumberOfCircles_INIT) { //If glitch or too much bots
 				cvs->Obstacles->CircleList[currentBot].x = x;
 				cvs->Obstacles->CircleList[currentBot].y = y;
 				cvs->Obstacles->CircleList[currentBot].isActive = true;
-
+                
 				currentBot++;
 			}
 		//}
@@ -90,7 +90,7 @@ double ComputeAngle(CtrlStruct *cvs, int risingIndex, int fallingIndex) {
 	double firstAngle = cvs->Tower->last_rising[risingIndex];
 	double lastAngle = cvs->Tower->last_falling[fallingIndex];
     double offset = 18.0;
-
+    
 	bool changeFlag = false;
 	if (firstAngle > M_PI / 2 && lastAngle < -M_PI / 2) {
 		lastAngle = lastAngle + 2 * M_PI;
@@ -114,7 +114,7 @@ double ComputeDistance(CtrlStruct *cvs, int risingIndex, int fallingIndex) {
 	else if (firstAngle < 0 && lastAngle > 0)
 		firstAngle = firstAngle + 2 * M_PI;
 	double distanceFromTower = cvs->Param->rayonBeacon / sin(fabs(lastAngle - firstAngle) / 2);
-              /*
+              /*    
         char theStr[1024];
         sprintf(theStr,"distanceFromTower = %f \t \n", distanceFromTower);
         MyConsole_SendMsg(theStr);

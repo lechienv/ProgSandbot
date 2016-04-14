@@ -1,4 +1,4 @@
-/*!
+/*! 
  * \file pathplanning.cc
  * \
  */
@@ -71,7 +71,7 @@ void RepulsiveForce(CtrlStruct *cvs) {
 	int i;
 	for (i = 0; i < cvs->Obstacles->NumberOfCircles; i++) {
 		if (cvs->Obstacles->CircleList[i].isActive)
-			ComputeFrepCircle(cvs, &(cvs->Obstacles->CircleList[i]), &FXInertial, &FYInertial);
+			ComputeFrepCircle(cvs, &(cvs->Obstacles->CircleList[i]), &FXInertial, &FYInertial);	
 	}
 	for (i = 0; i < cvs->Obstacles->NumberOfRectangles; i++) {
 		if(cvs->Obstacles->RectangleList[i].isActive)

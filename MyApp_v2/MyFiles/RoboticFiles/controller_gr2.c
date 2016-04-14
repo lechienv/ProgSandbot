@@ -19,18 +19,18 @@ double limitXAcceleration(CtrlStruct *cvs, double speedRef){
 		if (currentAcceleration > -limit)
 			return speedRef;
 		else
-			return ((-limit*cvs->timeStep) + xSpeed)/cvs->Param->wheelRadius;
+			return ((-limit*cvs->timeStep) + xSpeed)/cvs->Param->wheelRadius; 
 	else
 		return (limit*cvs->timeStep + xSpeed)/cvs->Param->wheelRadius;
 }
 
 void SpeedRefToDC(CtrlStruct *cvs, Motor *Motor, double speedRef)
-{
+{    
 	double errorSpeed = speedRef - Motor->speed;
 	if (Motor->totalError > KIFLUSHLIMIT)
 		Motor->totalError = 0;
 	double voltage = (Motor->Kp*errorSpeed + (Motor->Ki)*Motor->totalError + Motor->Kphi*Motor->speed)*Motor->reverseRotation;
-
+    
 	Motor->dutyCycle += voltage*VOLTtoDC;
 	Motor->totalError += errorSpeed*cvs->timeStep;
     /*
@@ -66,7 +66,7 @@ bool IsAlignedWithTheta(CtrlStruct *cvs, double thetaRef, double anglePrecision)
         }
         SpeedRefToDC(cvs,cvs->MotorL,speedRefX - speedRefW);
         SpeedRefToDC(cvs,cvs->MotorR,speedRefX + speedRefW);
-
+        
 		cvs->Param->totalErrorRot += (fabs(errorAngle) <  cvs->Param->KiAngleThreshold) ? errorAngle * (cvs->timeStep) : 0;
 		return false;
 	}
@@ -84,7 +84,7 @@ void SendMotorCommand(CtrlStruct *cvs) {
     else{
         DisableBrakes(cvs->MotorPince);
         if((cvs->MotorPince->previousDutyCycle != cvs->MotorPince->dutyCycle)){
-            cvs->MotorPince->previousDutyCycle = cvs->MotorPince->dutyCycle;
+            cvs->MotorPince->previousDutyCycle = cvs->MotorPince->dutyCycle;       
             ActivateMotor_RealBot(cvs->MotorPince);
         }
     }
@@ -97,7 +97,7 @@ void SendMotorCommand(CtrlStruct *cvs) {
     else{
         DisableBrakes(cvs->MotorRatL);
         if((cvs->MotorRatL->previousDutyCycle != cvs->MotorRatL->dutyCycle)){
-            cvs->MotorRatL->previousDutyCycle = cvs->MotorRatL->dutyCycle;
+            cvs->MotorRatL->previousDutyCycle = cvs->MotorRatL->dutyCycle;       
             ActivateMotor_RealBot(cvs->MotorRatL);
         }
     }
@@ -110,12 +110,12 @@ void SendMotorCommand(CtrlStruct *cvs) {
     else{
         DisableBrakes(cvs->MotorRatR);
         if((cvs->MotorRatR->previousDutyCycle != cvs->MotorRatR->dutyCycle)){
-            cvs->MotorRatR->previousDutyCycle = cvs->MotorRatR->dutyCycle;
+            cvs->MotorRatR->previousDutyCycle = cvs->MotorRatR->dutyCycle;       
             ActivateMotor_RealBot(cvs->MotorRatR);
         }
     }
 #endif
-
+   
 // Motor LEFT
     if((cvs->MotorL->dutyCycle == 0)){
         if((!cvs->MotorL->areBrakesEnabled)){
@@ -125,11 +125,11 @@ void SendMotorCommand(CtrlStruct *cvs) {
     else{
         DisableBrakes(cvs->MotorL);
         if((cvs->MotorL->previousDutyCycle != cvs->MotorL->dutyCycle)){
-            cvs->MotorL->previousDutyCycle = cvs->MotorL->dutyCycle;
+            cvs->MotorL->previousDutyCycle = cvs->MotorL->dutyCycle;       
             ActivateMotor_RealBot(cvs->MotorL);
         }
     }
-
+   
 //  Motor RIGHT
     if((cvs->MotorR->dutyCycle == 0)){
         if((!cvs->MotorR->areBrakesEnabled)){
@@ -139,11 +139,11 @@ void SendMotorCommand(CtrlStruct *cvs) {
     else{
         DisableBrakes(cvs->MotorR);
         if((cvs->MotorR->previousDutyCycle != cvs->MotorR->dutyCycle)){
-            cvs->MotorR->previousDutyCycle = cvs->MotorR->dutyCycle;
+            cvs->MotorR->previousDutyCycle = cvs->MotorR->dutyCycle;       
             ActivateMotor_RealBot(cvs->MotorR);
         }
     }
-
+    
 // TOWER
     if((cvs->MotorTower->dutyCycle == 0)){
         if((!cvs->MotorTower->areBrakesEnabled)){
@@ -153,11 +153,11 @@ void SendMotorCommand(CtrlStruct *cvs) {
     else{
         DisableBrakes(cvs->MotorTower);
         if((cvs->MotorTower->previousDutyCycle != cvs->MotorTower->dutyCycle)){
-            cvs->MotorTower->previousDutyCycle = cvs->MotorTower->dutyCycle;
+            cvs->MotorTower->previousDutyCycle = cvs->MotorTower->dutyCycle;       
             ActivateMotor_RealBot(cvs->MotorTower);
         }
     }
-
+    
 #else
     cvs->outputs->wheel_commands[cvs->MotorL->ID] = limitDC(cvs->MotorL->dutyCycle);
 	cvs->outputs->wheel_commands[cvs->MotorR->ID] = limitDC(cvs->MotorR->dutyCycle);

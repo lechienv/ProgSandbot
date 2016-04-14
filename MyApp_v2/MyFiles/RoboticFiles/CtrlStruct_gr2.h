@@ -1,4 +1,4 @@
-/*!
+/*! 
  * \file CtrlStruct_gr2.h
  * \brief Controller main structure
  */
@@ -123,13 +123,12 @@ typedef struct Motor {
 	double totalError;
 	double dutyCycle;
     double previousDutyCycle;
-    double timeSecurity;
     bool areBrakesEnabled;
 	int ID;
 #ifdef REALBOT
-    int PWMReg;
+    int PWMReg; 
     int timerReg;
-    int perReg;
+    int perReg; 
     int brakesMask;
     int SID;
     double clicNumber;
@@ -200,20 +199,20 @@ typedef struct Goals {
 } Goals;
 
 typedef struct Tower {
-    double tower_pos;
-	double last_rising[NB_STORE_EDGE];
-	double last_falling[NB_STORE_EDGE];
-	int rising_index;
+    double tower_pos; 
+	double last_rising[NB_STORE_EDGE];  
+	double last_falling[NB_STORE_EDGE]; 
+	int rising_index;  
 	int falling_index;
-	int nb_rising;
-	int nb_falling;
-	int nb_opponents;
+	int nb_rising;  
+	int nb_falling; 
+	int nb_opponents; 
 	double last_rising_fixed[NB_STORE_EDGE];
 	double last_falling_fixed[NB_STORE_EDGE];
-	int rising_index_fixed;
-	int falling_index_fixed;
-	int nb_rising_fixed;
-	int nb_falling_fixed;
+	int rising_index_fixed;  
+	int falling_index_fixed; 
+	int nb_rising_fixed;  
+	int nb_falling_fixed; 
 	double angle;
 	double distance;
 } Tower;

@@ -192,7 +192,7 @@ bool ClosePince(CtrlStruct *cvs){
 
 bool DeposeBlock(CtrlStruct *cvs){
     bool isOpen;
-    if((fabs(cvs->Odo->bufferPosition) > fabs(cvs->Odo->x)-0.05) && cvs->Odo->flagBufferPosition == 0){
+    if((fabs(cvs->Odo->bufferPosition) > fabs(sqrt((cvs->Odo->x)^2 + (cvs->Odo->y)^2))-0.05) && cvs->Odo->flagBufferPosition == 0){
         cvs->MotorL->dutyCycle = 10;
         cvs->MotorR->dutyCycle = 10;
     }

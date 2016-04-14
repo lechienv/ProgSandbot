@@ -480,7 +480,7 @@ void Strategie(CtrlStruct *cvs){
     case(ReleaseBlockOne):{
         bool reached;
         if(cvs->Odo->bufferPosition == -100000)
-            cvs->Odo->bufferPosition = cvs->Odo->x;
+            cvs->Odo->bufferPosition = sqrt((cvs->Odo->x)^2 + (cvs->Odo->y)^2);
         bool isDeposed = DeposeBlock(cvs);
         if(isDeposed){
             reached = ReachPointPotential(cvs, -0.2 , 1, 0.03);

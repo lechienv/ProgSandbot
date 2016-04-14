@@ -283,7 +283,8 @@ enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, GoToBlocOne, Align
 
 switch (cvs->stateCalib) {
 	case(Cal_y_arr) :
-		/*if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
+            PinceCalibration(cvs);
+		if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
 			SpeedRefToDC(cvs, cvs->MotorL, -5);
 			SpeedRefToDC(cvs, cvs->MotorR, -5);
 		}
@@ -301,8 +302,7 @@ switch (cvs->stateCalib) {
 				cvs->Odo->timein = 0;
 				cvs->Odo->timeDelay = 0;
 			}
-		}*/
-            PinceCalibration(cvs);
+		}
 		break;
 
 	case(GoToPoint) :{

@@ -145,6 +145,7 @@ void InitMotor(CtrlStruct *cvs)
     cvs->MotorPince->brakesMask         = brakesMaskPince_INIT;
     cvs->MotorPince->SID                = SIDPince_INIT;
     cvs->MotorPince->clicNumber         = clicNumberPince_INIT;
+    cvs->MotorPince->timeSecurity = 0;
 #endif // REALBOT
 
 }

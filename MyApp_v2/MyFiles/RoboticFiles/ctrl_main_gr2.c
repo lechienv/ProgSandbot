@@ -98,17 +98,18 @@ void controller_loop(CtrlStruct *cvs){
     }*/
     //StrategyTest(cvs);
     //PointHomologation(cvs);
-    if(cvs->Sensors->uSwitchLeft){
+        Calibration(cvs);
+    /*if(!cvs->Sensors->uSwitchLeft){
         cvs->MotorPince->dutyCycle = -80;
     }
-    else if(cvs->Sensors->uSwitchRight){
+    else if(!cvs->Sensors->uSwitchRight){
         //cvs->MotorPince->dutyCycle = 80;
         SpeedRefToDC(cvs, cvs->MotorPince, TourelleDC);
     }
     else{
         //Calibration(cvs);
         //PinceCalibration(cvs);
-    }
+    }*/
 
         //DeposeBlock(cvs);
 

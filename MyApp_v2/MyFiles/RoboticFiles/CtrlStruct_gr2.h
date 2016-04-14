@@ -123,6 +123,7 @@ typedef struct Motor {
 	double totalError;
 	double dutyCycle;
     double previousDutyCycle;
+    double timeSecurity;
     bool areBrakesEnabled;
 	int ID;
 #ifdef REALBOT

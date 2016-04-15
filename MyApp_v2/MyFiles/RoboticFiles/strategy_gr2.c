@@ -460,7 +460,7 @@ void Action2(CtrlStruct *cvs){
    switch(cvs->stateAction2){
     case(GoToBlocTwo) :{
             PinceCalibration(cvs);
-            bool reached = ReachPointPotential(cvs, -0.6 , 0.7 - 0.1375 - 0.04, 0.02);
+            bool reached = ReachPointPotential(cvs, -0.6 , 0.7 - 0.1375 - 0.039, 0.02);
             if(reached){
                 cvs->stateAction2 = AlignForBlocTwo;
             }
@@ -478,7 +478,7 @@ void Action2(CtrlStruct *cvs){
             if((cvs->Odo->bufferTime < 0))
                 cvs->Odo->bufferTime = cvs->time;
 
-            if(cvs->Odo->bufferTime > cvs->time - 1){
+            if(cvs->Odo->bufferTime > cvs->time - 2){
                 cvs->MotorL->dutyCycle = 25;
                 cvs->MotorR->dutyCycle = 25;
                 cvs->Odo->flagBufferPosition = 1;
@@ -490,11 +490,11 @@ void Action2(CtrlStruct *cvs){
                     SpeedRefToDC(cvs, cvs->MotorL, 0);
                     SpeedRefToDC(cvs, cvs->MotorR, 0);
                     cvs->Odo->bufferTime = -100000;
-                    cvs->stateAction2 = AlignForBlocTwo;//ReculeForBlockTwo;
+                    cvs->stateAction2 = ReculeForBlockTwo;
                 }
               else{
-                    cvs->MotorL->dutyCycle = 5;
-                    cvs->MotorR->dutyCycle = 5;
+                    cvs->MotorL->dutyCycle = 10;
+                    cvs->MotorR->dutyCycle = 10;
                     cvs->Odo->flagBufferPosition = 0;
                 }
              }

@@ -6,6 +6,9 @@
 ********************************************************************************
 * Version : 1.00 - July 2011                                                   *
 *******************************************************************************/
+
+#include "RoboticFiles/CtrlStruct_gr2.h"
+
 #include "MyApp.h"
 #include "interfaceFPGA.h"
 /*****************************************************************************
@@ -75,9 +78,8 @@ void MyMiniProjet_Task(void)
                
 
               while((bool) extractBits(A,13,13)){
-                if(cvs->time <90)
-                {
-                                   MyConsole_Task();
+                
+                    MyConsole_Task();
                   //MyCAN_Task();
   #ifdef WEB
                   MyWIFI_Task();
@@ -89,9 +91,9 @@ void MyMiniProjet_Task(void)
 
                           controller_loop(cvs);
 
-                     /* char s[659];
-                      sprintf(s,"x = %f \t y = %f \t stateCalib = %d \t color = %d\n", cvs->Odo->x, cvs->Odo->y, cvs->stateCalib, cvs->robotID);
-                      MyConsole_SendMsg(s);*/
+                     /*char s[659];
+                     sprintf(s,"vitesse droite = %f \t vitesse gaucge = %f\n", cvs->Odo->speedR, cvs->Odo->speedL);
+                     MyConsole_SendMsg(s);*/
 
         //#define TESTS
 
@@ -133,18 +135,6 @@ void MyMiniProjet_Task(void)
           #endif
   #endif
                   }
-              }
-                 else
-                 {
-                            MyConsole_SendMsg("end \n");
-                            cvs->MotorL->dutyCycle =0;
-                            cvs->MotorR->dutyCycle = 0;
-                            cvs->MotorTower->dutyCycle =0;
-                            cvs->MotorRatL->dutyCycle = 0;
-                            cvs->MotorRatR->dutyCycle = 0;
-                            cvs->MotorPince->dutyCycle = 0;
-                            SendMotorCommand(cvs);
-                 }
               }
 
           }

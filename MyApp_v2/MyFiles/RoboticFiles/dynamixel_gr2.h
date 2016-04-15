@@ -21,6 +21,7 @@ void TurnCCW(int value);
 void TurnCW(int value);
 void ReadDyna();
 void StopTurn(int i);
+void AllumeLed();
 
 #endif
 

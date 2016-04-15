@@ -10,6 +10,7 @@
 #include <math.h>
 #include "controller_gr2.h"
 #include "ctrl_main_gr2.h"
+#include "dynamixel_gr2.h"
 #ifndef REALBOT
 #include "namespace_ctrl.h"
 #include <stdlib.h>
@@ -27,6 +28,7 @@ void	ReCalibration(CtrlStruct *cvs);
 void    PointHomologation(CtrlStruct *cvs);
 void    Action1(CtrlStruct *cvs);
 void    Action2(CtrlStruct *cvs);
+void    DynaTestFunction(CtrlStruct *cvs);
 #ifndef REALBOT
 NAMESPACE_CLOSE();
 #endif // ! REALBOT

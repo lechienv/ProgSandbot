@@ -110,13 +110,21 @@ void controller_loop(CtrlStruct *cvs){
     cvs->MotorRatR->dutyCycle = RateauRDC; //RightMotorDC;//RightMotorDC;
     cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;*/   
    }
-   else
-   {  
-        char s[659];
+   else if(cvs->time > 90){
+       cvs->MotorL->dutyCycle = 0;//RightMotorDC;
+        cvs->MotorR->dutyCycle = 0;// RightMotorDC;
+        cvs->MotorTower->dutyCycle = 0;
+        cvs->MotorRatL->dutyCycle = 0; //RightMotorDC;//RightMotorDC;
+        cvs->MotorRatR->dutyCycle = 0; //RightMotorDC;//RightMotorDC;
+        cvs->MotorPince->dutyCycle = 0;//RightMotorDC;*/
+   }
+   else{
+        /*char s[659];
        sprintf(s,"time = %f \t my position = %f \t my speed  = %f \t my switch left = %d \n", cvs->time, cvs->MotorRatL->position, cvs->MotorRatL->speed, cvs->Sensors->uSwitchRatL);
-        MyConsole_SendMsg(s);
+        MyConsole_SendMsg(s);*/
           //   StartMyRat(cvs);
-          Calibration(cvs);
+          //Calibration(cvs);
+       DynaTestFunction(cvs);
        
    }
     //PinceCalibration(cvs);
@@ -212,7 +220,7 @@ void AlwaysInController(CtrlStruct *cvs) {
     cvs->MotorRatR->dutyCycle = 0;
     cvs->MotorPince->dutyCycle = 0;
 
-	cvs->MotorPince->position += cvs->MotorPince->speed*cvs->timeStep *cvs->Param->PasFiletVisPince/ (2*M_PI); // en mm
+	cvs->MotorPince->position += cvs->MotorPince->speed*cvs->timeStep; // *cvs->Param->PasFiletVisPince/ (2*M_PI); // en mm
 	cvs->MotorRatL->position += cvs->MotorRatL->speed*cvs->timeStep *cvs->Param->PasFiletVisRat / (2*M_PI); // en mm
 	cvs->MotorRatR->position += cvs->MotorRatR->speed*cvs->timeStep *cvs->Param->PasFiletVisRat / (2*M_PI); // en mm
 #endif //REALBOT

@@ -460,7 +460,7 @@ void Action2(CtrlStruct *cvs){
    switch(cvs->stateAction2){
     case(GoToBlocTwo) :{
             PinceCalibration(cvs);
-            bool reached = ReachPointPotential(cvs, -0.6 , 0.7 - 0.1375 - 0.039, 0.02);
+            bool reached = ReachPointPotential(cvs, -0.6 , 0.7 - 0.1375 - 0.039 - 0.08, 0.02);
             if(reached){
                 cvs->stateAction2 = AlignForBlocTwo;
             }
@@ -468,13 +468,14 @@ void Action2(CtrlStruct *cvs){
         }
     case(AlignForBlocTwo):{
             bool isOpen = PinceCalibration(cvs);
-            bool isAligned = IsAlignedWithTheta(cvs,180,1);
+            bool isAligned = IsAlignedWithTheta(cvs,145,1);
             if(isAligned && isOpen)
                 cvs->stateAction2 = AvanceForBlockTwo;
             break;
         }
     case(AvanceForBlockTwo):{
         bool isClosed;
+        bool isAlign;
             if((cvs->Odo->bufferTime < 0))
                 cvs->Odo->bufferTime = cvs->time;
 
@@ -486,6 +487,7 @@ void Action2(CtrlStruct *cvs){
              else{
                 //isClosed = ClosePince(cvs);
                 isClosed = ClosePince(cvs);
+                isAlign = IsAlignedWithTheta(cvs,180,1);
                 if(isClosed){
                     SpeedRefToDC(cvs, cvs->MotorL, 0);
                     SpeedRefToDC(cvs, cvs->MotorR, 0);
@@ -558,6 +560,10 @@ void Action2(CtrlStruct *cvs){
 
     default: break;
     }
+}
+
+void DynaTestFunction(CtrlStruct *cvs){
+    AllumeLed();
 }
 
 

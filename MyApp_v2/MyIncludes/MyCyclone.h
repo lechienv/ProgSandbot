@@ -69,6 +69,12 @@
 #define CYCLONE_IO_L_Enable_Out 0x33
 #define CYCLONE_IO_M_Data       0x34
 #define CYCLONE_IO_M_Enable_Out 0x35
+#define CYCLONE_IO_N_Data       0x36
+#define CYCLONE_IO_N_Enable_Out 0x37
+#define CYCLONE_IO_O_Data       0x38
+#define CYCLONE_IO_O_Enable_Out 0x39
+#define CYCLONE_IO_P_Data       0x3a
+#define CYCLONE_IO_P_Enable_Out 0x3b
 
 #define CYCLONE_ENABLE_INT_KEY0 0x01
 #define CYCLONE_ENABLE_INT_KEY1 0x02

@@ -115,7 +115,7 @@ void controller_loop(CtrlStruct *cvs){
         char s[659];
        sprintf(s,"time = %f \t my position = %f \t my speed  = %f \t my switch left = %d \n", cvs->time, cvs->MotorRatL->position, cvs->MotorRatL->speed, cvs->Sensors->uSwitchRatL);
         MyConsole_SendMsg(s);
-             //StartMyRat(cvs);
+             StartMyRat(cvs);
           // Calibration(cvs);
        
    }

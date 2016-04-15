@@ -75,7 +75,7 @@ void MyMiniProjet_Task(void)
                
 
               while((bool) extractBits(A,13,13)){
-                               if(cvs->time <90)
+                if(cvs->time <90)
                 {
                                    MyConsole_Task();
                   //MyCAN_Task();
@@ -134,15 +134,16 @@ void MyMiniProjet_Task(void)
   #endif
                   }
               }
-                             else
+                 else
                  {
-                                  MyConsole_SendMsg("end \n");
+                            MyConsole_SendMsg("end \n");
                             cvs->MotorL->dutyCycle =0;
                             cvs->MotorR->dutyCycle = 0;
                             cvs->MotorTower->dutyCycle =0;
                             cvs->MotorRatL->dutyCycle = 0;
                             cvs->MotorRatR->dutyCycle = 0;
                             cvs->MotorPince->dutyCycle = 0;
+                            SendMotorCommand(cvs);
                  }
               }
 

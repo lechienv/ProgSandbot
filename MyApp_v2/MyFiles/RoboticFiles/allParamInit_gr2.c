@@ -132,7 +132,7 @@ void InitMotor(CtrlStruct *cvs)
 	cvs->MotorPince->Kphi				= KphiPince_INIT;
 	cvs->MotorPince->R					= RPince_INIT;
 	cvs->MotorPince->speed				= speedPince_INIT;
-	cvs->MotorPince->speed				= positionPince_INIT;
+	cvs->MotorPince->position           = positionPince_INIT;
 	cvs->MotorPince->reverseRotation    = reverseRotationPince_INIT;
 	cvs->MotorPince->totalError			= totalErrorPince_INIT;
 	cvs->MotorPince->dutyCycle			= dutyCyclePince_INIT;
@@ -164,6 +164,9 @@ void InitParam(CtrlStruct *cvs) {
 	cvs->Param->speedDifThreshold	= speedDifThreshold_INIT; //Max speed difference before considering the robot "at rest"
 	cvs->Param->KiAngleThreshold	= KiAngleThreshold_INIT; //Angle control: threshold to activate Ki
     cvs->Param->maxAcceleration     = maxAcceleration_INIT;
+    cvs->Param->MotorCommandByHand = false;
+    cvs->Param->PasFiletVisPince = PasFiletVisPince_INIT;
+    cvs->Param->PasFiletVisRat = PasFiletVisRat_INIT;
 }
 
 void InitSensors(CtrlStruct *cvs) {
@@ -172,7 +175,8 @@ void InitSensors(CtrlStruct *cvs) {
 	cvs->Sensors->uSwitchRight		= false;
 #ifdef REALBOT
     cvs->Sensors->uSwitchPinceIn    = false;
-    cvs->Sensors->uSwitchPinceOut   = false;
+    cvs->Sensors->uSwitchRatR = false;
+    cvs->Sensors->uSwitchRatL = false;
 #endif // REALBOT
 }
 void InitTower(CtrlStruct * cvs)

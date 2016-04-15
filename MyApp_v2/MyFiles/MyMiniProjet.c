@@ -80,11 +80,25 @@ void MyMiniProjet_Task(void)
                 if((double)(currentTime - previousTime) > TIMESTEP_REALBOT*(SYS_FREQ/2000)*1000){//
 
                     previousTime = currentTime;
-                    controller_loop(cvs);
-
+                    
+                    if(cvs->time < 90)
+                    {
+                        controller_loop(cvs);
+                                                
                     char s[659];
                     sprintf(s,"x = %f \t y = %f \t stateCalib = %d \t color = %d\n", cvs->Odo->x, cvs->Odo->y, cvs->stateCalib, cvs->robotID);
                     MyConsole_SendMsg(s);
+                    }
+                    else
+                    {
+                            cvs->MotorL->dutyCycle =0;
+                            cvs->MotorR->dutyCycle = 0;
+                            cvs->MotorTower->dutyCycle =0;
+                            cvs->MotorRatL->dutyCycle = 0;
+                            cvs->MotorRatR->dutyCycle = 0;
+                            cvs->MotorPince->dutyCycle = 0;
+                    }
+
 
 
 
@@ -165,6 +179,7 @@ void InitSPIChannel(){
     PinceDC = 0;
     RateauRDC = 0;
     RateauLDC = 0;
+    MotorCommandByHand = false;
 }
 
 double fmin(double A, double B){

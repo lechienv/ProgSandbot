@@ -171,6 +171,9 @@ NAMESPACE_INIT(ctrlGr2);
 #define speedDifThreshold_INIT	1
 #define KiAngleThreshold_INIT	10
 #define distanceRef_default_tower 3
+# define PasFiletVisRat_INIT       3.0
+# define PasFiletVisPince_INIT       2.0
+
 #ifdef MINIBOT
 #define rayonBeacon_INIT		0.04
 #else

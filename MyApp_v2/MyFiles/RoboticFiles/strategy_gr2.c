@@ -283,7 +283,6 @@ enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, GoToBlocOne, Align
     
 switch (cvs->stateCalib) {
 	case(Cal_y_arr) :
-            /*PinceCalibration(cvs);
 		if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
 			SpeedRefToDC(cvs, cvs->MotorL, -5);
 			SpeedRefToDC(cvs, cvs->MotorR, -5);
@@ -302,9 +301,7 @@ switch (cvs->stateCalib) {
 				cvs->Odo->timein = 0;
 				cvs->Odo->timeDelay = 0;
 			}
-		}*/
-            cvs->stateAction2 = AvanceForBlockTwo;
-            Action2(cvs);
+		}
 		break;
 
 	case(GoToPoint) :{
@@ -487,16 +484,17 @@ void Action2(CtrlStruct *cvs){
                 cvs->Odo->flagBufferPosition = 1;
             }
              else{
+                //isClosed = ClosePince(cvs);
                 isClosed = ClosePince(cvs);
                 if(isClosed){
-                    cvs->MotorL->dutyCycle = 0;
-                    cvs->MotorR->dutyCycle = 0;
+                    SpeedRefToDC(cvs, cvs->MotorL, 0);
+                    SpeedRefToDC(cvs, cvs->MotorR, 0);
                     cvs->Odo->bufferTime = -100000;
                     cvs->stateAction2 = AlignForBlocTwo;//ReculeForBlockTwo;
                 }
-                else{
-                    cvs->MotorL->dutyCycle = 2;
-                    cvs->MotorR->dutyCycle = 2;
+              else{
+                    cvs->MotorL->dutyCycle = 5;
+                    cvs->MotorR->dutyCycle = 5;
                     cvs->Odo->flagBufferPosition = 0;
                 }
              }

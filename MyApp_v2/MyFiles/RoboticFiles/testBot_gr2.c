@@ -162,7 +162,7 @@ void StrategyTest(CtrlStruct *cvs){
 
 //ok
 bool PinceCalibration(CtrlStruct *cvs){
-    if(!cvs->Sensors->uSwitchPinceIn){
+    if(!cvs->Sensors->uSwitchPinceOut){
         SpeedRefToDC(cvs, cvs->MotorPince, 45);
         return false;
     }
@@ -180,7 +180,7 @@ bool ClosePince(CtrlStruct *cvs){
     else
         cvs->MotorPince->dutyCycle = -40;
 
-    if((cvs->MotorPince->speed == 0) && (!cvs->Sensors->uSwitchPinceIn) && (cvs->MotorPince->position < -100)){
+    if((cvs->MotorPince->speed == 0) && (!cvs->Sensors->uSwitchPinceOut) && (cvs->MotorPince->position < -100)){
         return true;
     }
     return false;

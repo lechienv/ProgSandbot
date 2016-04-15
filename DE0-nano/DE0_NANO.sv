@@ -470,7 +470,7 @@ begin
 end
 always_ff@(posedge RateauRightCodeurA)
 begin 
-	if(RateauLeftCodeurB)
+	if(RateauRightCodeurB)
 		positiveSpeedRateauR <= 'b1;
 	else
 		positiveSpeedRateauR <= 'b0;

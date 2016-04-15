@@ -85,12 +85,13 @@ void MyMiniProjet_Task(void)
                     {
                         controller_loop(cvs);
                                                 
-                    char s[659];
+                   /* char s[659];
                     sprintf(s,"x = %f \t y = %f \t stateCalib = %d \t color = %d\n", cvs->Odo->x, cvs->Odo->y, cvs->stateCalib, cvs->robotID);
-                    MyConsole_SendMsg(s);
+                    MyConsole_SendMsg(s);*/
                     }
                     else
                     {
+                            MyConsole_SendMsg("end \n");
                             cvs->MotorL->dutyCycle =0;
                             cvs->MotorR->dutyCycle = 0;
                             cvs->MotorTower->dutyCycle =0;

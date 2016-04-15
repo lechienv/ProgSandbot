@@ -174,7 +174,7 @@ void InitSensors(CtrlStruct *cvs) {
 	cvs->Sensors->uSwitchLeft		= false;
 	cvs->Sensors->uSwitchRight		= false;
 #ifdef REALBOT
-    cvs->Sensors->uSwitchPinceIn    = false;
+    cvs->Sensors->uSwitchPinceOut    = false;
     cvs->Sensors->uSwitchRatR = false;
     cvs->Sensors->uSwitchRatL = false;
 #endif // REALBOT

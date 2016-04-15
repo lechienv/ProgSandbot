@@ -111,8 +111,13 @@ void controller_loop(CtrlStruct *cvs){
     cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;*/   
    }
    else
-   {      StartMyRat(cvs);
+   {  
+        char s[659];
+       sprintf(s,"time = %f \t my position = %f \t my speed  = %f \t my switch left = %d \n", cvs->time, cvs->MotorRatL->position, cvs->MotorRatL->speed, cvs->Sensors->uSwitchRatL);
+        MyConsole_SendMsg(s);
+             //StartMyRat(cvs);
           // Calibration(cvs);
+       
    }
     //PinceCalibration(cvs);
 
@@ -207,9 +212,9 @@ void AlwaysInController(CtrlStruct *cvs) {
     cvs->MotorRatR->dutyCycle = 0;
     cvs->MotorPince->dutyCycle = 0;
 
-	cvs->MotorPince->position += cvs->MotorPince->speed*cvs->timeStep;
-	cvs->MotorRatL->position += cvs->MotorRatL->speed*cvs->timeStep;
-	cvs->MotorRatL->position += cvs->MotorRatR->speed*cvs->timeStep;
+	cvs->MotorPince->position += cvs->MotorPince->speed*cvs->timeStep *cvs->Param->PasFiletVisPince/ (2*M_PI); // en mm
+	cvs->MotorRatL->position += cvs->MotorRatL->speed*cvs->timeStep *cvs->Param->PasFiletVisRat / (2*M_PI); // en mm
+	cvs->MotorRatR->position += cvs->MotorRatR->speed*cvs->timeStep *cvs->Param->PasFiletVisRat / (2*M_PI); // en mm
 #endif //REALBOT
 	OpponentDetection(cvs);
 }

@@ -110,7 +110,7 @@ typedef struct Sensors {
 	bool uSwitchLeft;
 	bool uSwitchRight;
 #ifdef REALBOT
-    bool uSwitchPinceIn;
+    bool uSwitchPinceOut;
     bool uSwitchRatL;
     bool uSwitchRatR; 
 #endif // REALBOT

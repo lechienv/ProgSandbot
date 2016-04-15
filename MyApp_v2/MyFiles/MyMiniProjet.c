@@ -68,6 +68,9 @@ void MyMiniProjet_Task(void)
     while(1){
           unsigned int A = MyCyclone_Read(CYCLONE_IO_A_Data);
           unsigned int I = MyCyclone_Read(CYCLONE_IO_I_Data);
+
+          MyCyclone_Write(CYCLONE_IO_P_Data, 0x1111);
+
           MyConsole_SendMsg("waiting for start \n");
           bool start = (bool) extractBits(A,13,13);
           if(start){
@@ -169,6 +172,9 @@ void InitSPIChannel(){
     MyCyclone_Write(CYCLONE_IO_K_Enable_Out, 0x00);
     MyCyclone_Write(CYCLONE_IO_L_Enable_Out, 0x00);
     MyCyclone_Write(CYCLONE_IO_M_Enable_Out, 0x00);
+    MyCyclone_Write(CYCLONE_IO_N_Enable_Out, 0x00);
+    MyCyclone_Write(CYCLONE_IO_O_Enable_Out, 0x00);
+    MyCyclone_Write(CYCLONE_IO_P_Enable_Out, 0x00);
     RightMotorDC = 0;
     LeftMotorDC = 0;
     PinceDC = 0;

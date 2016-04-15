@@ -563,7 +563,8 @@ void Action2(CtrlStruct *cvs){
 }
 
 void DynaTestFunction(CtrlStruct *cvs){
-    AllumeLed();
+    //AllumeLed();
+    //MyCyclone_Write(CYCLONE_IO_O_Data, 0x1111);
 }
 
 

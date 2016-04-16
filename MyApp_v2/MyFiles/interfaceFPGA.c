@@ -54,7 +54,7 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
 #endif // MINIBOT
     cvs->Sensors->uSwitchPinceOut = !((bool) extractBits(A,10,10));
 //    cvs->Sensors->uSwitchPinceIn = (bool) extractBits(A,11,11);
-        cvs->Sensors->uSwitchRatL = (bool) extractBits(A,12,12);
+    cvs->Sensors->uSwitchRatL = (bool) extractBits(A,12,12);
     cvs->Sensors->uSwitchRatR = (bool) extractBits(A,11,11); 
     
     /* TOWER */

@@ -15,7 +15,7 @@ void MyStrategy(CtrlStruct *cvs)
         case(GoCalibration) :{ 
                 bool succeed =  Calibration(cvs);
                 if(succeed){
-                    cvs->stateStrategy = GoAction1;
+                    cvs->stateStrategy = GoAction2;
                 }
                 break;
         }
@@ -29,7 +29,7 @@ void MyStrategy(CtrlStruct *cvs)
         case(GoAction2) :{
                 bool succeed = Action2(cvs);
                 if(succeed){
-                    cvs->stateStrategy = GoAction3;
+                    //cvs->stateStrategy = GoAction3;
                 }
                 break;
         }
@@ -181,7 +181,7 @@ switch (cvs->stateCalib) {
          break;
     }
     case(Wait):{
-        cvs->stateStrategy = GoAction1;
+        //cvs->stateStrategy = GoAction1;
        return true;
         break;
     }

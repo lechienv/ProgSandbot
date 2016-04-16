@@ -135,6 +135,7 @@ void controller_loop(CtrlStruct *cvs){
     //   ReachPointPotential(cvs, 0.8, 0.8, 0.03);
      //  DynaTestFunction(cvs);
       MyStrategy(cvs);
+       
    }
     //PinceCalibration(cvs);
 

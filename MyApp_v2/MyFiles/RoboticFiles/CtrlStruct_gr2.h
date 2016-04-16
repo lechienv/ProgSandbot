@@ -21,7 +21,7 @@ NAMESPACE_INIT(ctrlGr2);
 
 #include <stdbool.h>
 
-#define LIMITACCELERATION 1
+
 #define DEGtoRAD M_PI/180
 #define RADtoDEG 180/M_PI
 #define VOLTtoDC 100/24
@@ -45,22 +45,24 @@ NAMESPACE_INIT(ctrlGr2);
 
 #define EPSILON 0.000001
 
+#define LIMITACCELERATION 1
 #define MAXSPEED 2*M_PI
 #define MAXSPEEDROT 30*MAXSPEED
-#define BEACON_POSITION_TOLERANCE 0.1
+
 #define KIFLUSHLIMIT 1000
 #define MaxGoals 15
 
+#define TOWER_AVERAGING_NUMBER 4
+#define TOWER_OUTLIERS_COMPARE 4
+#define BEACON_POSITION_TOLERANCE 0.1
+#define MAXSPEED_ENNEMYBOT 2
 //enum StateCalib {Cal_y_arr, Cal_y_arr2, Cal_y_av, Cal_y_av1, Cal_rot_neg, Cal_x_arr, Cal_x_av, Cal_rot_pos, Action1 };
 enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, ReturnToBase, AlignForBaseAndReturnInIt, Wait}; // GoToBlocOne, AlignBlocOne, TakeBlocOne, BringBlocOne, ReleaseBlockOne, AlignForBlockOne};
-enum StateReCalib {ReCal_y_arr, ReCal_y_av, ReCal_rot1, ReCal_x_arr, ReCal_x_av, ReCal_rot2, ReCal_nextStrat };
-enum StateStrat {reachPointA, reachPointB, reachPointC, reachPointD};
 enum StateDyna {grap, release};
 enum StateVia {backHomeViaBase, backHomeStraight, normalPoint, viaPoint};
 enum StateHomologation {PinceCalib, reachViaPoint, AlignWithTheta, ReachBlocs, ClosingPince, GoViaZone, AlignZone, GoInZone, OpeningPince};
 enum StateAction1{GoToBlocOne, AlignForBlocOne, TakeBlocOne, BringBlockOne, ReleaseBlockOne, AlignForBlockOne};
 enum StateAction2{GoToBlocTwo, AlignForBlocTwo, AvanceForBlockTwo, ReculeForBlockTwo, BringBlockTwoViaPoint, TakeBlocTwo, BringBlockTwo, ReleaseBlockTwo, AlignForBlockTwo};
-
 typedef struct Potential {
 	double katt;
 	double krep;
@@ -156,6 +158,7 @@ typedef struct Rectangle {
 
 typedef struct Circle {
 	bool isActive;
+	bool hasBeenUpdated;
 	double x;
 	double y;
 	double radius;
@@ -204,7 +207,9 @@ typedef struct Goals {
 } Goals;
 
 typedef struct Tower {
+	bool newTurn;
     double tower_pos; 
+	double tower_prevPos;
 	double last_rising[NB_STORE_EDGE];  
 	double last_falling[NB_STORE_EDGE]; 
 	int rising_index;  
@@ -218,10 +223,20 @@ typedef struct Tower {
 	int falling_index_fixed; 
 	int nb_rising_fixed;  
 	int nb_falling_fixed; 
-	double angle;
-	double distance;
 } Tower;
 
+typedef struct FilterTower {
+	int currentIndex;
+	int currentCountOutliers;
+	double xList[TOWER_AVERAGING_NUMBER];
+	double yList[TOWER_AVERAGING_NUMBER];
+	bool detectedVeryClose;
+} FilterTower;
+
+typedef struct AllFiltersTower {
+	int numberOfEnnemy;
+	FilterTower *FilterTowerList;
+} AllFiltersTower;
 
 /// Main controller structure
 typedef struct CtrlStruct
@@ -237,12 +252,10 @@ typedef struct CtrlStruct
 	CtrlOut *outputs; ///< controller outputs
 #endif // !REALBOT
 	enum StateCalib stateCalib;
-	enum StateReCalib stateReCalib;
-	enum StateStrat stateStrat;
 	enum StateVia stateVia;
-        enum StateHomologation stateHomologation;
-        enum StateAction1 stateAction1;
-        enum StateAction2 stateAction2;
+    enum StateHomologation stateHomologation;
+    enum StateAction1 stateAction1;
+    enum StateAction2 stateAction2;
 	Parametres *Param;
 	Potential *Poto;
 	Odometry *Odo;
@@ -260,6 +273,7 @@ typedef struct CtrlStruct
 	Obstacles *Obstacles;
 	Tower *Tower;
 	Goals *Goals;
+	AllFiltersTower *AllFiltersTower;
 } CtrlStruct;
 
 

@@ -182,8 +182,9 @@ void InitSensors(CtrlStruct *cvs) {
 void InitTower(CtrlStruct * cvs)
 {
 	cvs->Tower = (Tower*)malloc(sizeof(Tower));
-	cvs->Tower->falling_index						= falling_index_INIT;
-	cvs->Tower->falling_index_fixed					= last_falling_fixed_INIT;
+	cvs->Tower->newTurn = false;
+	cvs->Tower->falling_index				= falling_index_INIT;
+	cvs->Tower->falling_index_fixed			= last_falling_fixed_INIT;
 	int i; 
 	for (i = 0; i <  NB_STORE_EDGE ; i++) {
 		cvs->Tower->last_falling[i]			= last_falling_INIT;
@@ -191,16 +192,15 @@ void InitTower(CtrlStruct * cvs)
 		cvs->Tower->last_rising[i]			= last_rising_INIT;
 		cvs->Tower->last_rising_fixed[i]	= rising_index_INIT;
 	}
-	cvs->Tower->nb_falling							= nb_falling_fixed_INIT;
-	cvs->Tower->nb_falling_fixed					= nb_falling_fixed_INIT;
-	cvs->Tower->nb_opponents						= nb_opponents_INIT;
-	cvs->Tower->nb_rising							=  nb_rising_INIT;
-	cvs->Tower->nb_rising_fixed						= nb_rising_fixed_INIT;
-	cvs->Tower->rising_index						= rising_index_fixed_INIT;
-	cvs->Tower->rising_index_fixed					= rising_index_fixed_INIT;
-	cvs->Tower->tower_pos							= tower_pos_INIT;
-	cvs->Tower->angle								= angle_INIT;
-	cvs->Tower->distance							= distance_INIT;
+	cvs->Tower->nb_falling			= nb_falling_fixed_INIT;
+	cvs->Tower->nb_falling_fixed	= nb_falling_fixed_INIT;
+	cvs->Tower->nb_opponents		= nb_opponents_INIT;
+	cvs->Tower->nb_rising			=  nb_rising_INIT;
+	cvs->Tower->nb_rising_fixed		= nb_rising_fixed_INIT;
+	cvs->Tower->rising_index		= rising_index_fixed_INIT;
+	cvs->Tower->rising_index_fixed	= rising_index_fixed_INIT;
+	cvs->Tower->tower_pos			= tower_pos_INIT;
+	cvs->Tower->tower_prevPos		= cvs->Tower->tower_pos;
 }
 
 void InitPotential(CtrlStruct *cvs) {
@@ -275,6 +275,7 @@ void InitOdometry(CtrlStruct *cvs) {
 		cvs->Odo->y		= 0;
 		cvs->Odo->theta = 0;
 	}
+
 #endif // REALBOT
 }
 
@@ -342,20 +343,17 @@ void InitObstacles(CtrlStruct *cvs) {
 	cvs->Obstacles->RectangleList = (Rectangle*)malloc(sizeof(Rectangle)*NumberOfRectangles_INIT);
 	cvs->Obstacles->QuarterOfCircleList = (QuarterOfCircle*)malloc(sizeof(QuarterOfCircle)*NumberOfQuarterOfCircle_INIT);
 	//EnnemyBot
+	cvs->Obstacles->CircleList[0].hasBeenUpdated = false;
 	cvs->Obstacles->CircleList[0].isActive = true;
-	cvs->Obstacles->CircleList[0].radius = 0.3;
+	cvs->Obstacles->CircleList[0].radius = radiusEnnemyBot;
 	cvs->Obstacles->CircleList[0].x = -2;
 	cvs->Obstacles->CircleList[0].y = -2;
 
+	cvs->Obstacles->CircleList[1].hasBeenUpdated = false;
 	cvs->Obstacles->CircleList[1].isActive = true;
-	cvs->Obstacles->CircleList[1].radius = 0.3;
+	cvs->Obstacles->CircleList[1].radius = radiusEnnemyBot;
 	cvs->Obstacles->CircleList[1].x = -2;
 	cvs->Obstacles->CircleList[1].y = -2;
-
-	cvs->Obstacles->CircleList[2].isActive = true;
-	cvs->Obstacles->CircleList[2].radius = 0.3;
-	cvs->Obstacles->CircleList[2].x = -2;
-	cvs->Obstacles->CircleList[2].y = -2;
 
 	int color = cvs->robotID;
 	//MidAreaGreenSide
@@ -370,6 +368,19 @@ void InitObstacles(CtrlStruct *cvs) {
 	cvs->Obstacles->QuarterOfCircleList[1].radius = 0.6;
 	cvs->Obstacles->QuarterOfCircleList[1].x = -0.25;
 	cvs->Obstacles->QuarterOfCircleList[1].y = 0;
+	//Lateral Shells
+	cvs->Obstacles->QuarterOfCircleList[1].isActive = true;
+	cvs->Obstacles->QuarterOfCircleList[1].quadrant = 3;
+	cvs->Obstacles->QuarterOfCircleList[1].radius = 0.25;
+	cvs->Obstacles->QuarterOfCircleList[1].x = 1.0;
+	cvs->Obstacles->QuarterOfCircleList[1].y = 1.5;
+	//Lateral Shells
+	cvs->Obstacles->QuarterOfCircleList[1].isActive = true;
+	cvs->Obstacles->QuarterOfCircleList[1].quadrant = 2;
+	cvs->Obstacles->QuarterOfCircleList[1].radius = 0.25;
+	cvs->Obstacles->QuarterOfCircleList[1].x = 1.0;
+	cvs->Obstacles->QuarterOfCircleList[1].y = -1.5;
+
 
 	//MidWall
 	cvs->Obstacles->RectangleList[0].isActive = true;
@@ -451,7 +462,22 @@ void InitDyna(CtrlStruct *cvs){
     SendMessageDyna(0x06,0x0005,0x0019,0x1);
 #endif
 }
-
+void InitTowerFilters(CtrlStruct *cvs) {
+	cvs->AllFiltersTower = (AllFiltersTower*)malloc(sizeof(AllFiltersTower));
+	cvs->AllFiltersTower->numberOfEnnemy = NumberOfCircles_INIT;
+	cvs->AllFiltersTower->FilterTowerList = (FilterTower*)malloc(sizeof(FilterTower)*NumberOfCircles_INIT);
+	int i;
+	int j;
+	for (i = 0; i < NumberOfCircles_INIT; i++) {
+		cvs->AllFiltersTower->FilterTowerList[i].currentIndex = 0;
+		cvs->AllFiltersTower->FilterTowerList[i].currentCountOutliers = 0;
+		cvs->AllFiltersTower->FilterTowerList[i].detectedVeryClose = false;
+		for (j = 0; j < TOWER_AVERAGING_NUMBER; j++) {
+			cvs->AllFiltersTower->FilterTowerList[i].xList[j] = 0.0;
+			cvs->AllFiltersTower->FilterTowerList[i].yList[j] = 0.0;
+		}
+	}
+}
 
 #ifndef REALBOT
 NAMESPACE_CLOSE();

@@ -27,7 +27,20 @@ bool ReachPointPotential(CtrlStruct *cvs, double xGoal, double yGoal, double pre
 
 		// Taking into account non-holonmy
 		double angle = atan2(cvs->Poto->FYRob, cvs->Poto->FXRob);
-		if (fabs(cvs->Poto->FYRob) > cvs->Poto->thresholdAligned * fabs(cvs->Poto->FXRob)) {
+		if (RADtoDEG*angle > 140 || RADtoDEG*angle < -140) {
+			double speedRefW = cvs->Poto->kw * angle;
+			double speedRefX = cvs->Poto->kFV*cvs->Poto->FXRob;
+			speedRefX = limitSpeed(speedRefX, MAXSPEED);
+			if (LIMITACCELERATION) {
+				speedRefX = limitXAcceleration(cvs, speedRefX);
+			}
+			speedRefW = -limitSpeed(speedRefW, MAXSPEEDROT);
+			speedRefL = speedRefX - cvs->Param->wheelRadius*speedRefW;
+			speedRefR = speedRefX + cvs->Param->wheelRadius*speedRefW;
+			SpeedRefToDC(cvs, cvs->MotorL, speedRefL);
+			SpeedRefToDC(cvs, cvs->MotorR, speedRefR);
+		}
+		else if (fabs(cvs->Poto->FYRob) > cvs->Poto->thresholdAligned * fabs(cvs->Poto->FXRob)) {
 			bool result = IsAlignedWithTheta(cvs, RADtoDEG*angle + cvs->Odo->theta, 5);
 		}
 		else {
@@ -70,18 +83,17 @@ void RepulsiveForce(CtrlStruct *cvs) {
 	double FYInertial = 0;
 	int i;
 	for (i = 0; i < cvs->Obstacles->NumberOfCircles; i++) {
-		if (cvs->Obstacles->CircleList[i].isActive)
-			ComputeFrepCircle(cvs, &(cvs->Obstacles->CircleList[i]), &FXInertial, &FYInertial);	
+		if (cvs->Obstacles->CircleList[i].isActive) 
+			ComputeFrepCircle(cvs, &(cvs->Obstacles->CircleList[i]), &FXInertial, &FYInertial);
 	}
 	for (i = 0; i < cvs->Obstacles->NumberOfRectangles; i++) {
 		if(cvs->Obstacles->RectangleList[i].isActive)
 			ComputeFrepRectangle(cvs, &(cvs->Obstacles->RectangleList[i]), &FXInertial, &FYInertial);
 	}
-    /*
 	for (i = 0; i < cvs->Obstacles->NumberOfQuarterOfCircle; i++) {
 		if (cvs->Obstacles->QuarterOfCircleList[i].isActive)
 			ComputeFrepQuarterOfCircle(cvs, &(cvs->Obstacles->QuarterOfCircleList[i]), &FXInertial, &FYInertial);
-	}*/
+	}
 	cvs->Poto->FXRob += cos(DEGtoRAD*cvs->Odo->theta)*FXInertial + sin(DEGtoRAD*cvs->Odo->theta)*FYInertial;
 	cvs->Poto->FYRob += -sin(DEGtoRAD*cvs->Odo->theta)*FXInertial + cos(DEGtoRAD*cvs->Odo->theta)*FYInertial;
 }

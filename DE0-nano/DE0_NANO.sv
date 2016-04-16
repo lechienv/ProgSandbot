@@ -375,7 +375,7 @@ logic [15:0] CompteurLaser;
 reg   [15:0] DebutReception, FinReception;
 logic NewTowerTurn;
 
-counter #(16) CompteurTourelle(LaserCodeurA, LaserSync, CompteurLaser);
+counterPulseReset #(16) CompteurTourelle(LaserCodeurA, LaserSync, CompteurLaser); //modifed !
 
 GlitchHandler GlitchSignLaser(CLOCK_50, PIC32_RESET,  LaserSign, LaserSync, CompteurLaser, DebutReception, FinReception, LaserCodeurA);
 
@@ -391,6 +391,7 @@ logic [15:0] CompteurCodeurLeft, CompteurCodeurRight, CompteurCodeurLeftB, Compt
 logic [15:0] CompteurOdoLeftA, CompteurOdoRightA, CompteurOdoLeftB, CompteurOdoRightB;
 logic [15:0] CompteurPinceA, CompteurPinceB;
 logic [15:0] CompteurRateauLeftA, CompteurRateauRightA, CompteurRateauLeftB, CompteurRateauRightB;
+logic [15:0] CompteurLaserA;
 
 logic [31:0] CompteurVitesse;
 
@@ -402,6 +403,7 @@ reg 	[15:0] SpeedPince;
 reg			 positiveSpeedPince;
 reg 	[15:0] SpeedRateauL,SpeedRateauR;
 reg			 positiveSpeedRateauL, positiveSpeedRateauR;
+reg 	[15:0] SpeedTower;
 
 logic ResetCompteurVitesse; 
 
@@ -424,6 +426,8 @@ counter #(16) ComptCodRateauLeftA (RateauLeftCodeurA,  ResetCompteurVitesse, Com
 counter #(16) ComptCodRateauRightA(RateauRightCodeurA, ResetCompteurVitesse, CompteurRateauRightA);
 counter #(16) ComptCodRateauLeftB (RateauLeftCodeurB,  ResetCompteurVitesse, CompteurRateauLeftB);
 counter #(16) ComptCodRateauRightB(RateauRightCodeurB, ResetCompteurVitesse, CompteurRateauRightB);
+
+counter #(16) ComptCodTowerA(LaserCodeurA, ResetCompteurVitesse, CompteurLaserA);
 
 // SpeedDirection
 always_ff@(posedge PropLeftCodeurA)
@@ -487,6 +491,7 @@ begin
 			SpeedRateauL <= (CompteurRateauLeftA + CompteurRateauLeftB)/2;
 			SpeedRateauR <= (CompteurRateauRightA + CompteurRateauRightB)/2;
 			SpeedPince <= (CompteurPinceA + CompteurPinceB)/2;
+			SpeedTower <= CompteurLaserA;
 		end
 	else if (CompteurVitesse == 32'd500001) 
 			ResetCompteurVitesse <= 1'b1; 
@@ -516,7 +521,7 @@ begin
 	IO_F_Data_In <= SpeedPince[15:0];
 	IO_G_Data_In <= SpeedRateauL[15:0];
 	IO_H_Data_In <= SpeedRateauR[15:0];
-	IO_I_Data_In <= TestCodeurs[31:16];
+	IO_I_Data_In <= SpeedTower[15:0];
 	IO_J_Data_In <= TestCodeurs[15:0];
 	IO_K_Data_In <= DebutReception[15:0];
 	IO_L_Data_In <= FinReception[15:0];
@@ -604,6 +609,31 @@ always_ff @ (posedge clk, posedge reset)
 	begin
 		if(reset | (count === 'x)) count	<=	'b0;
 		else count <= count + 'b1;
+	end	    
+	
+endmodule  
+
+/*
+=======================================================
+=============== Compteur Avec Pulse Reset =============
+=======================================================
+*/
+
+module counterPulseReset #(	parameter bits = 32	)
+					 ( input 	 	logic clk,
+					   input			logic	reset,
+						output reg	[bits-1:0]	count	);
+logic hasReset;
+always_ff @ (posedge clk, posedge reset)
+	begin
+		if(reset | (count === 'x)) begin
+			if(~hasReset) count	<=	'b0;
+			hasReset <= 1'b1;
+			end
+		else begin
+			count <= count + 'b1;
+			hasReset <= 1'b0;
+		end
 	end	    
 	
 endmodule  

@@ -11,50 +11,132 @@ NAMESPACE_INIT(ctrlGr2);
 **********************/
 void OpponentDetection(CtrlStruct *cvs)
 {
-    cvs->MotorTower->dutyCycle = -80;
+#ifndef REALBOT
+    cvs->MotorTower->dutyCycle = 15;
+#else
+	cvs->MotorTower->dutyCycle = -80;
+#endif
 	UpdateDetectedBotPosition(cvs);
 }
 
-
 void UpdateDetectedBotPosition(CtrlStruct *cvs) {
-	int numberDetected = cvs->Tower->nb_rising;//fmin(cvs->Tower->nb_rising, cvs->Tower->nb_falling);
-	int i;
-	int currentBot = 0;
-	for (i = 0; i < numberDetected; i++) { //Loop to add coordinates of each bot
-		int risingIndex = cvs->Tower->rising_index - i;
-		if (risingIndex < 0) 
-			risingIndex = risingIndex + NB_STORE_EDGE;
-
-		int fallingIndex = cvs->Tower->falling_index - i;
-		if (fallingIndex < 0)
-			fallingIndex = fallingIndex + NB_STORE_EDGE;
-
-		double angleFromTower = ComputeAngle(cvs, risingIndex, fallingIndex);
-		double distanceFromTower = ComputeDistance(cvs, risingIndex, fallingIndex);
-
-		double distance = distanceFromTower;// - cvs->Param->radiusBot; // sqrt(distanceFromTower*distanceFromTower + cvs->Param->lengthTower*cvs->Param->lengthTower - 2 * distanceFromTower*cvs->Param->lengthTower*cos(DEGtoRAD*(180 - angleFromTower))); //Al Kaishi
-		double angle = angleFromTower; // RADtoDEG*asin(distanceFromTower*sin(M_PI / 2 - angleFromTower) / distance);
-		cvs->Tower->distance = distance;
-        cvs->Tower->angle = angle;
-        double x = cvs->Odo->x + distance*cos(DEGtoRAD * (cvs->Odo->theta + angle));
-		double y = cvs->Odo->y + distance*sin(DEGtoRAD * (cvs->Odo->theta + angle));
-  
-		//if (IsBot(x, y)) { //TODECOMMENT
-			if (currentBot < NumberOfCircles_INIT) { //If glitch or too much bots
-				cvs->Obstacles->CircleList[currentBot].x = x;
-				cvs->Obstacles->CircleList[currentBot].y = y;
-				cvs->Obstacles->CircleList[currentBot].isActive = true;
-                
-				currentBot++;
-			}
-		//}
+#ifndef REALBOT
+	if (cvs->Tower->tower_pos > 0 && cvs->Tower->tower_prevPos < 0) {
+		cvs->Tower->newTurn = true;
+		cvs->Tower->tower_prevPos = cvs->Tower->tower_pos;
 	}
-	for (i = currentBot; i < NumberOfCircles_INIT; i++) { //Deactivate the bots that have not been detected
-		cvs->Obstacles->CircleList[i].isActive = false;
+	else {
+		cvs->Tower->tower_prevPos = cvs->Tower->tower_pos;
+	}
+#endif
+	
+	if (cvs->Tower->newTurn) {
+		int j;
+		for (j = 0; j < cvs->AllFiltersTower->numberOfEnnemy; j++) {
+			cvs->Obstacles->CircleList[j].hasBeenUpdated = false;
+		}
+		
+		cvs->Tower->newTurn = false;
+		int numberDetected = cvs->Tower->nb_rising;
+		int i;
+		int numberUpdated = 0;
+		for (i = 0; i < numberDetected; i++) { //Loop to add coordinates of each bot
+			int risingIndex = cvs->Tower->rising_index - i;
+			if (risingIndex < 0)
+				risingIndex = risingIndex + NB_STORE_EDGE;
+
+			int fallingIndex = cvs->Tower->falling_index - i;
+			if (fallingIndex < 0)
+				fallingIndex = fallingIndex + NB_STORE_EDGE;
+
+			double angleFromTower = ComputeAngle(cvs, risingIndex, fallingIndex);
+			double distanceFromTower = ComputeDistance(cvs, risingIndex, fallingIndex);
+			double distance = distanceFromTower;
+			double angle = angleFromTower;
+			double x = cvs->Odo->x + distance*cos(DEGtoRAD * (cvs->Odo->theta + angle));
+			double y = cvs->Odo->y + distance*sin(DEGtoRAD * (cvs->Odo->theta + angle));
+			if(IsBot(x, y)) {
+				if (numberUpdated < NumberOfCircles_INIT) { //If all bots have not been updated
+					FilterTowerBot(cvs, x, y);
+					numberUpdated++;
+				}
+			}
+		}
+		for (i = 0; i < NumberOfCircles_INIT; i++) { //Deactivate the bots that have not been detected
+			if(!cvs->Obstacles->CircleList[i].hasBeenUpdated)
+				cvs->Obstacles->CircleList[i].isActive = false;
+		}
 	}
 }
 
-//Not useful here since the external beacons are not detected, but might be really useful for the cup (glitch).
+void FilterTowerBot(CtrlStruct *cvs, double x, double y) {
+		int botNumber = FindCorrespondingBot(cvs,x,y);
+		int currentIndex = cvs->AllFiltersTower->FilterTowerList[botNumber].currentIndex;
+		if (currentIndex >= TOWER_AVERAGING_NUMBER) {
+			AverageAndAddPosition(cvs, botNumber);
+			currentIndex = 0;
+		}
+		if (!IsPositionOutliers(cvs, botNumber, x, y)) {
+			cvs->AllFiltersTower->FilterTowerList[botNumber].xList[currentIndex] = x;
+			cvs->AllFiltersTower->FilterTowerList[botNumber].yList[currentIndex] = y;
+			currentIndex++;
+		}
+		cvs->AllFiltersTower->FilterTowerList[botNumber].currentIndex = currentIndex;
+}
+
+
+int FindCorrespondingBot(CtrlStruct *cvs, double x, double y) {
+	int index = 0;
+	double previousMinError = 1000;
+	double error;
+	int i;
+	for (i = 0; i < cvs->AllFiltersTower->numberOfEnnemy; i++) {
+		if (!cvs->Obstacles->CircleList[i].hasBeenUpdated) {
+			error = pow(cvs->Obstacles->CircleList[i].x - x, 2) + pow(cvs->Obstacles->CircleList[i].y - y, 2);
+			if (error < previousMinError) {
+				previousMinError = error;
+				index = i;
+			}
+		}
+	}
+	cvs->Obstacles->CircleList[index].hasBeenUpdated = true;
+	return index;
+}
+
+void AverageAndAddPosition(CtrlStruct *cvs, int botNumber) {
+	double xAvg = 0;
+	double yAvg = 0;
+	int i;
+	for (i = 0; i < TOWER_AVERAGING_NUMBER; i++) {
+		xAvg += cvs->AllFiltersTower->FilterTowerList[botNumber].xList[i];
+		yAvg += cvs->AllFiltersTower->FilterTowerList[botNumber].yList[i];
+	}
+	xAvg = xAvg / TOWER_AVERAGING_NUMBER;
+	yAvg = yAvg / TOWER_AVERAGING_NUMBER;
+	cvs->Obstacles->CircleList[botNumber].x = xAvg;
+	cvs->Obstacles->CircleList[botNumber].y = yAvg;
+	cvs->Obstacles->CircleList[botNumber].isActive = true;
+}
+
+bool IsPositionOutliers(CtrlStruct *cvs, int botNumber, double x, double y) {
+	double time = 2 * M_PI / cvs->MotorTower->speed;
+	double ennemySpeed = sqrt(pow(cvs->Obstacles->CircleList[botNumber].x - x, 2) + pow(cvs->Obstacles->CircleList[botNumber].y - y, 2))/time;
+	if (ennemySpeed < MAXSPEED_ENNEMYBOT) {
+		cvs->AllFiltersTower->FilterTowerList[botNumber].currentCountOutliers = 0;
+		return false;
+	}
+	else { // (ennemySpeed > MAXSPEED_ENNEMYBOT)
+		if (cvs->AllFiltersTower->FilterTowerList[botNumber].currentCountOutliers >= TOWER_OUTLIERS_COMPARE) {
+			cvs->AllFiltersTower->FilterTowerList[botNumber].currentCountOutliers = 0;
+			return false;
+		}
+		else {
+			cvs->AllFiltersTower->FilterTowerList[botNumber].currentCountOutliers++;
+			return true;
+		}
+	}
+}
+
 bool IsBot(double x, double y) {
 	if ((x + BEACON_POSITION_TOLERANCE > 1) || (x - BEACON_POSITION_TOLERANCE < -1))
 			return false;//Outside map
@@ -66,6 +148,8 @@ bool IsBot(double x, double y) {
 			return false;//Top Mid Beacon
 		else if ((y + BEACON_POSITION_TOLERANCE > 1.562) && (y - BEACON_POSITION_TOLERANCE < 1.562))
 			return false;//Bottom Mid Beacon
+		else
+			return true;
 	}
 
 	else if ((x + BEACON_POSITION_TOLERANCE > 1.062) && (x - BEACON_POSITION_TOLERANCE < 1.062)) {
@@ -73,6 +157,8 @@ bool IsBot(double x, double y) {
 			return false;//Top Right Beacon
 		else if ((y + BEACON_POSITION_TOLERANCE > 1.562) && (y - BEACON_POSITION_TOLERANCE < 1.562))
 			return false;//Bottom Right Beacon
+		else
+			return true;
 	}
 
 	else if ((x + BEACON_POSITION_TOLERANCE > -1.062) && (x - BEACON_POSITION_TOLERANCE < -1.062)) {
@@ -80,6 +166,8 @@ bool IsBot(double x, double y) {
 			return false;//Top Left Beacon
 		else if ((y + BEACON_POSITION_TOLERANCE > 1.562) && (y - BEACON_POSITION_TOLERANCE < 1.562))
 			return false;//Bottom Left Beacon
+		else
+			return true;
 	}
 
 	else
@@ -108,17 +196,11 @@ double ComputeAngle(CtrlStruct *cvs, int risingIndex, int fallingIndex) {
 double ComputeDistance(CtrlStruct *cvs, int risingIndex, int fallingIndex) {
 	double firstAngle = cvs->Tower->last_rising[risingIndex];
 	double lastAngle = cvs->Tower->last_falling[fallingIndex];
-    double offset = 0.15;// rayonbeacon + distance entre la tourelle et le bord du robot?
 	if (firstAngle > 0 && lastAngle < 0)
 		lastAngle = lastAngle + 2 * M_PI;
 	else if (firstAngle < 0 && lastAngle > 0)
 		firstAngle = firstAngle + 2 * M_PI;
 	double distanceFromTower = cvs->Param->rayonBeacon / sin(fabs(lastAngle - firstAngle) / 2);
-              /*    
-        char theStr[1024];
-        sprintf(theStr,"distanceFromTower = %f \t \n", distanceFromTower);
-        MyConsole_SendMsg(theStr);
-        */
     if(distanceFromTower > 3)
         distanceFromTower = 3;
     else if(distanceFromTower < 0)

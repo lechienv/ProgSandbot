@@ -61,7 +61,7 @@ enum StateHomologation {PinceCalib, reachViaPoint, AlignWithTheta, ReachBlocs, C
 enum StateAction1{GoToHouses, AlignedWithHouses, PushHouses, FreeHouses};
 enum StateAction2{GoToBlocOne, AlignForBlocOne, TakeBlocOne, BringBlockOne, ReleaseBlockOne, AlignForBlockOne,AlignForCalibAction2, Calib_y};
 enum StateAction3{GoToBlocTwoCalib, AlignForCalibAction3, Calib_x, GoToBlocTwo, AlignForBlocTwo, AvanceForBlockTwo, ReculeForBlockTwo, BringBlockTwoViaPoint, TakeBlocTwo, BringBlockTwo, ReleaseBlockTwo, AlignForBlockTwo};
-enum StateAction4{GoToFish, AlignedWithFishes};
+enum StateAction4{GoToFish, AlignForCalibFishes, CalibFishes, DecaleBordFishes, AlignedWithFishes};
 enum StateStrategy{GoCalibration, GoAction1, GoAction2, GoAction3,GoBase};
 
 

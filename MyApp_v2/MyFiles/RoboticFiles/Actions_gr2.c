@@ -153,32 +153,33 @@ bool Action3(CtrlStruct *cvs){
             break;
         }
     case(AlignForCalibAction3) :{
-        bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , (0.7 - 0.1375 - 0.039), 0.02) : ReachPointPotential(cvs, -0.6 , -(0.7 - 0.1375 - 0.039), 0.02);
-            if(reached){
+        bool isOpen = PinceCalibration(cvs);
+            bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs,180,1) : IsAlignedWithTheta(cvs,180, 1);
+            if(isAligned && isOpen)
                 cvs->stateAction3 = Calib_x;
-            } 
-            return false; 
+            return false;
             break;
      }
     case(Calib_x) :{
-        bool isCalibrate = XCalibration(cvs, (-0.25 - 1322), 180);
+        bool isCalibrate = XCalibration(cvs, (-0.25 - 0.1322), 180);
         if(isCalibrate){
-            cvs->stateAction3 = AlignForBlocTwo;
+            cvs->stateAction3 = GoToBlocTwo;
         }
          return false; 
          break;
      }
     case(GoToBlocTwo) :{
-        bool isCalibrate = XCalibration(cvs, (-0.25 - 1322), 180);
-        if(isCalibrate){
-            cvs->stateAction3 = AlignForBlocTwo;
-        }
-         return false; 
-         break;
+        PinceCalibration(cvs);
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , (0.7 - 0.1375 - 0.021), 0.02) : ReachPointPotential(cvs, -0.6 , -(0.7 - 0.1375 - 0.021), 0.02);
+            if(reached){
+                cvs->stateAction3 = AlignForBlocTwo;
+            } 
+            return false; 
+            break;
      }
     case(AlignForBlocTwo):{
             bool isOpen = PinceCalibration(cvs);
-            bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs,180,1) : IsAlignedWithTheta(cvs,180, 1);
+            bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs,-177,1) : IsAlignedWithTheta(cvs,-183, 1);
             if(isAligned && isOpen)
                 cvs->stateAction3 = AvanceForBlockTwo;
             return false;
@@ -246,7 +247,7 @@ bool Action3(CtrlStruct *cvs){
         break;
     }
     case(BringBlockTwo):{
-        bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0 , 0.55, 0.03): ReachPointPotential(cvs, 0 , -0.55, 0.03);
+        bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0 , 0.55, 0.05): ReachPointPotential(cvs, 0 , -0.55, 0.05);
         if(reached){
             cvs->stateAction3 = AlignForBlockTwo;
         }
@@ -254,7 +255,7 @@ bool Action3(CtrlStruct *cvs){
         break;
     }
     case(AlignForBlockTwo):{
-        bool isAligned = IsAlignedWithTheta(cvs,-90,1);
+        bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs,-90,1) : IsAlignedWithTheta(cvs,90,1);
             if(isAligned)
                 cvs->stateAction3 = ReleaseBlockTwo;
             return false;
@@ -285,13 +286,51 @@ bool Action4(CtrlStruct *cvs)
     case(GoToFish) :{
             bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0.8 , 0.8, 0.02) : ReachPointPotential(cvs, 0.8 , -0.8 , 0.02) ;
             if(reached){
-                cvs->stateAction4 = AlignedWithFishes;
+                cvs->stateAction4 = AlignForCalibFishes;
             }
             return false;
             break;
         }
+     case(AlignForCalibFishes) :{
+         bool isAligned = IsAlignedWithTheta(cvs, 180, 1);
+         if(isAligned){
+             cvs->stateAction4 = CalibFishes;
+         }
+            return false;
+            break;
+     }
+     case(CalibFishes) :{
+         bool isCalibrate = XCalibration(cvs, -1+1322, 180) ;
+         if(isCalibrate){
+             cvs->stateAction4 = DecaleBordFishes;
+         }
+            return false;
+            break;
+     }
+       case(DecaleBordFishes) :{
+         if(cvs->Odo->bufferTime < 0)
+                cvs->Odo->bufferTime = cvs->time;
+
+            if(cvs->Odo->bufferTime > cvs->time - 1){
+                cvs->MotorL->dutyCycle = 10;
+                cvs->MotorR->dutyCycle = 10;
+                cvs->Odo->flagBufferPosition = 1;
+            }
+             else{
+                cvs->MotorL->dutyCycle = 0;
+                cvs->MotorR->dutyCycle = 0;
+                cvs->Odo->flagBufferPosition = 0;
+                cvs->stateAction4 = AlignedWithFishes;
+                
+            }
+         return false;
+         break;
+       }
      case(AlignedWithFishes) :{
-                ActionBase(cvs);
+         bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, -90, 1) : IsAlignedWithTheta(cvs, 90, 1);
+         if(isAligned){
+             cvs->stateAction4 = AlignedWithFishes;
+         }
             return true;
             break;
      }

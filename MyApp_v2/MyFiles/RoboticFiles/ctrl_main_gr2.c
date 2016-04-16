@@ -18,7 +18,7 @@ void controller_init(CtrlStruct *cvs){
     cvs->previousTimeCAN = 0;
     cvs->timeOffset = 0;
 #ifdef REALBOT
-    cvs->robotID = GREEN; //getRobotID();
+    cvs->robotID = PINK; //getRobotID();
     cvs->timeStep = TIMESTEP_REALBOT;
 #else
     cvs->robotID = cvs->inputs->robot_id;
@@ -40,9 +40,9 @@ void controller_init(CtrlStruct *cvs){
     cvs->stateHomologation = PinceCalib;
     cvs->stateAction1 = GoToHouses;
     cvs->stateAction2 = GoToBlocOne;
-    cvs->stateAction3 = GoToBlocTwo;
+    cvs->stateAction3 = GoToBlocTwoCalib;
     cvs->stateAction4 = GoToFish;
-    cvs->stateStrategy = GoAction2;//GoCalibration;
+    cvs->stateStrategy = GoCalibration;
 #ifdef REALBOT
     InitRegMotor(cvs->MotorL);
     InitRegMotor(cvs->MotorR);

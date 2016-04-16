@@ -159,7 +159,7 @@ NAMESPACE_INIT(ctrlGr2);
 /************************************
  * PARAMS ***************************
  ***********************************/
-#define radiusBot_INIT			0.16//0.2 //0.015 ?
+#define radiusBot_INIT			0.15//0.2 //0.015 ?
 #define width_INIT				0.2625
 #define lengthTower_INIT		0.0833
 #define wheelLRadius_INIT		wheelLRadius_DEFAULT

@@ -15,7 +15,7 @@ void MyStrategy(CtrlStruct *cvs)
         case(GoCalibration) :{ 
                 bool succeed =  Calibration(cvs);
                 if(succeed){
-                    cvs->stateStrategy = GoAction2;
+                    cvs->stateStrategy = GoAction3;
                 }
                 break;
         }
@@ -29,7 +29,7 @@ void MyStrategy(CtrlStruct *cvs)
         case(GoAction2) :{
                 bool succeed = Action2(cvs);
                 if(succeed){
-                    //cvs->stateStrategy = GoAction3;
+                    cvs->stateStrategy = GoAction3;
                 }
                 break;
         }
@@ -78,26 +78,11 @@ enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, GoToBlocOne, Align
     
 switch (cvs->stateCalib) {
 	case(Cal_y_arr) : {
-		if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
-			SpeedRefToDC(cvs, cvs->MotorL, -5);
-			SpeedRefToDC(cvs, cvs->MotorR, -5);
-		}
-		else {
-			cvs->Odo->timein = (cvs->Odo->timeDelay == 0) ? cvs->time : cvs->Odo->timein;
-			cvs->Odo->timeDelay += 1;
-			if (fabs(cvs->Odo->timein - cvs->time) < 0.5) {
-				SpeedRefToDC(cvs, cvs->MotorL, -1);
-				SpeedRefToDC(cvs, cvs->MotorR, -1);
-			}
-			else {
-				cvs->Odo->y =  (color == GREEN) ? (1.5-0.1322) : -(1.5-0.1322);
-				cvs->Odo->theta =  (color == GREEN) ? -90 : 90;
-				cvs->stateCalib = GoToPoint;
-				cvs->Odo->timein = 0;
-				cvs->Odo->timeDelay = 0;
-			}
-		}
-       return false;
+        bool isCalibrate = YCalibration(cvs, (color == GREEN) ? (1.5-0.1322) : -(1.5-0.1322), (color == GREEN) ? -90 : 90);
+       if(isCalibrate){
+           cvs->stateCalib = GoToPoint;
+       } 
+        return false;
        break;
     }
 	case(GoToPoint) :{
@@ -119,29 +104,16 @@ switch (cvs->stateCalib) {
             break;
         }
 
-	case(Cal_x_arr) :
+	case(Cal_x_arr) :{
             PinceCalibration(cvs);
-		if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
-			SpeedRefToDC(cvs, cvs->MotorL, -5);
-			SpeedRefToDC(cvs, cvs->MotorR, -5);
-		}
-		else {
-			cvs->Odo->timein = (cvs->Odo->timeDelay == 0) ? cvs->time : cvs->Odo->timein;
-			cvs->Odo->timeDelay += 1;
-			if (fabs(cvs->Odo->timein - cvs->time) < 0.5) {
-				SpeedRefToDC(cvs, cvs->MotorL, -1);
-				SpeedRefToDC(cvs, cvs->MotorR, -1);
-			}
-			else {
-				cvs->Odo->x = (color == GREEN) ? (1-0.1322) : -(1-0.1322);
-				cvs->Odo->theta = 180;
-				cvs->stateCalib = ReturnToBase;
-				cvs->Odo->timein = 0;
-				cvs->Odo->timeDelay = 0;
-			}
+            bool isCalibrate = XCalibration(cvs, (1-0.1322), 180);
+            if(isCalibrate){
+                cvs->stateCalib = ReturnToBase;
+            }
+
             return false;
-                    break;
-		}
+            break;
+    }
 
     case(ReturnToBase):{
         bool isopen = PinceCalibration(cvs);
@@ -154,7 +126,7 @@ switch (cvs->stateCalib) {
     }
     case(AlignForBaseAndReturnInIt):{
         
-         bool isAligned = IsAlignedWithTheta(cvs,-90,1);
+         bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs,-90,1) : IsAlignedWithTheta(cvs,90,1);
          if(isAligned){
              if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
 			SpeedRefToDC(cvs, cvs->MotorL, -5);

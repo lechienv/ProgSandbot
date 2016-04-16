@@ -208,7 +208,53 @@ bool DeposeBlock(CtrlStruct *cvs){
         return true;
     }
 }
+bool YCalibration(CtrlStruct *cvs, double Y, double Theta){
+    int color = cvs->robotID;
+        if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
+			SpeedRefToDC(cvs, cvs->MotorL, -5);
+			SpeedRefToDC(cvs, cvs->MotorR, -5);
+		}
+		else {
+			cvs->Odo->timein = (cvs->Odo->timeDelay == 0) ? cvs->time : cvs->Odo->timein;
+			cvs->Odo->timeDelay += 1;
+			if (fabs(cvs->Odo->timein - cvs->time) < 0.5) {
+				SpeedRefToDC(cvs, cvs->MotorL, -1);
+				SpeedRefToDC(cvs, cvs->MotorR, -1);
+			}
+			else {
+				cvs->Odo->y = Y; //(color == GREEN) ? (1.5-0.1322) : -(1.5-0.1322);
+				cvs->Odo->theta = Theta;  //(color == GREEN) ? -90 : 90;
+				cvs->Odo->timein = 0;
+				cvs->Odo->timeDelay = 0;
+                return true;
+			}
+		}
+    return false;
+}
 
+bool XCalibration(CtrlStruct *cvs, double X, double Theta){
+    int color = cvs->robotID;
+    		if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
+			SpeedRefToDC(cvs, cvs->MotorL, -5);
+			SpeedRefToDC(cvs, cvs->MotorR, -5);
+		}
+		else {
+			cvs->Odo->timein = (cvs->Odo->timeDelay == 0) ? cvs->time : cvs->Odo->timein;
+			cvs->Odo->timeDelay += 1;
+			if (fabs(cvs->Odo->timein - cvs->time) < 0.5) {
+				SpeedRefToDC(cvs, cvs->MotorL, -1);
+				SpeedRefToDC(cvs, cvs->MotorR, -1);
+			}
+			else {
+				cvs->Odo->x = X; //(1-0.1322);
+				cvs->Odo->theta = Theta; //180;
+				cvs->Odo->timein = 0;
+				cvs->Odo->timeDelay = 0;
+                return true;
+			}
+		}
+    return false;
+}
 
 #endif // REALBOT
 

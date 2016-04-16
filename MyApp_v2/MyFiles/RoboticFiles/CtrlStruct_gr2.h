@@ -58,8 +58,12 @@ enum StateStrat {reachPointA, reachPointB, reachPointC, reachPointD};
 enum StateDyna {grap, release};
 enum StateVia {backHomeViaBase, backHomeStraight, normalPoint, viaPoint};
 enum StateHomologation {PinceCalib, reachViaPoint, AlignWithTheta, ReachBlocs, ClosingPince, GoViaZone, AlignZone, GoInZone, OpeningPince};
-enum StateAction1{GoToBlocOne, AlignForBlocOne, TakeBlocOne, BringBlockOne, ReleaseBlockOne, AlignForBlockOne};
-enum StateAction2{GoToBlocTwo, AlignForBlocTwo, AvanceForBlockTwo, ReculeForBlockTwo, BringBlockTwoViaPoint, TakeBlocTwo, BringBlockTwo, ReleaseBlockTwo, AlignForBlockTwo};
+enum StateAction1{GoToHouses, AlignedWithHouses, PushHouses, FreeHouses};
+enum StateAction2{GoToBlocOne, AlignForBlocOne, TakeBlocOne, BringBlockOne, ReleaseBlockOne, AlignForBlockOne};
+enum StateAction3{GoToBlocTwo, AlignForBlocTwo, AvanceForBlockTwo, ReculeForBlockTwo, BringBlockTwoViaPoint, TakeBlocTwo, BringBlockTwo, ReleaseBlockTwo, AlignForBlockTwo};
+enum StateAction4{GoToFish, AlignedWithFishes};
+enum StateStrategy{GoCalibration, GoAction1, GoAction2, GoAction3,GoBase};
+
 
 typedef struct Potential {
 	double katt;
@@ -243,6 +247,9 @@ typedef struct CtrlStruct
         enum StateHomologation stateHomologation;
         enum StateAction1 stateAction1;
         enum StateAction2 stateAction2;
+        enum StateAction3 stateAction3;
+        enum StateAction4 stateAction4;
+        enum StateStrategy stateStrategy;
 	Parametres *Param;
 	Potential *Poto;
 	Odometry *Odo;

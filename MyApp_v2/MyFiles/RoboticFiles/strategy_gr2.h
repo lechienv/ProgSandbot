@@ -18,16 +18,15 @@
 NAMESPACE_INIT(ctrlGr2);
 #endif // ! REALBOT
 
+void    MyStrategy(CtrlStruct *cvs);
 void	TheGoals(CtrlStruct *cvs);
 void	goto_nextstate(CtrlStruct *cvs, bool my_bool);
 void	UpdateTarget(CtrlStruct *cvs);
 void	ActivateBase(CtrlStruct *cvs);
 void	DisactivateBase(CtrlStruct *cvs);
-void	Calibration(CtrlStruct *cvs);
+bool	Calibration(CtrlStruct *cvs);
 void	ReCalibration(CtrlStruct *cvs);
 void    PointHomologation(CtrlStruct *cvs);
-void    Action1(CtrlStruct *cvs);
-void    Action2(CtrlStruct *cvs);
 void    DynaTestFunction(CtrlStruct *cvs);
 #ifndef REALBOT
 NAMESPACE_CLOSE();

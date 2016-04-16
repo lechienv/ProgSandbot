@@ -38,6 +38,11 @@ void controller_init(CtrlStruct *cvs){
 	cvs->stateReCalib = ReCal_rot1;
 	cvs->stateStrat = reachPointA;
     cvs->stateHomologation = PinceCalib;
+    cvs->stateAction1 = GoToHouses;
+    cvs->stateAction2 = GoToBlocOne;
+    cvs->stateAction3 = GoToBlocTwo;
+    cvs->stateAction4 = GoToFish;
+    cvs->stateStrategy = GoAction2;//GoCalibration;
 #ifdef REALBOT
     InitRegMotor(cvs->MotorL);
     InitRegMotor(cvs->MotorR);
@@ -110,7 +115,7 @@ void controller_loop(CtrlStruct *cvs){
     cvs->MotorRatR->dutyCycle = RateauRDC; //RightMotorDC;//RightMotorDC;
     cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;*/   
    }
-   else if(cvs->time > 90){
+   else if(cvs->time > 200){
        cvs->MotorL->dutyCycle = 0;//RightMotorDC;
         cvs->MotorR->dutyCycle = 0;// RightMotorDC;
         cvs->MotorTower->dutyCycle = 0;
@@ -119,13 +124,17 @@ void controller_loop(CtrlStruct *cvs){
         cvs->MotorPince->dutyCycle = 0;//RightMotorDC;*/
    }
    else{
-        /*char s[659];
-       sprintf(s,"time = %f \t my position = %f \t my speed  = %f \t my switch left = %d \n", cvs->time, cvs->MotorRatL->position, cvs->MotorRatL->speed, cvs->Sensors->uSwitchRatL);
-        MyConsole_SendMsg(s);*/
+
           //   StartMyRat(cvs);
-          //Calibration(cvs);
-       DynaTestFunction(cvs);
-       
+
+                   /*char s[659];
+       sprintf(s,"time = %f \t speedL = %f \t speedR = %f \t x = %f  \t y = %f \theta = %f \n", cvs->time, cvs->MotorL->speed, cvs->MotorR->speed, cvs->Odo->x, cvs->Odo->y, cvs->Odo->theta);
+        MyConsole_SendMsg(s);*/
+     //  Calibration(cvs);
+
+    //   ReachPointPotential(cvs, 0.8, 0.8, 0.03);
+     //  DynaTestFunction(cvs);
+      MyStrategy(cvs);
    }
     //PinceCalibration(cvs);
 

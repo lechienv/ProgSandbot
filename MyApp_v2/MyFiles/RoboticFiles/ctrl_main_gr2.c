@@ -18,7 +18,7 @@ void controller_init(CtrlStruct *cvs){
     cvs->previousTimeCAN = 0;
     cvs->timeOffset = 0;
 #ifdef REALBOT
-    cvs->robotID = PINK; //getRobotID();
+    cvs->robotID = GREEN;//PINK; //getRobotID();
     cvs->timeStep = TIMESTEP_REALBOT;
 #else
     cvs->robotID = cvs->inputs->robot_id;
@@ -42,7 +42,7 @@ void controller_init(CtrlStruct *cvs){
     cvs->stateAction2 = GoToBlocOne;
     cvs->stateAction3 = GoToBlocTwoCalib;
     cvs->stateAction4 = GoToFish;
-    cvs->stateStrategy = GoCalibration;
+    cvs->stateStrategy =  GoAction4;//GoCalibration;
 #ifdef REALBOT
     InitRegMotor(cvs->MotorL);
     InitRegMotor(cvs->MotorR);
@@ -105,7 +105,7 @@ void controller_loop(CtrlStruct *cvs){
     //PointHomologation(cvs);
 
     
-   cvs->Param->MotorCommandByHand = MotorCommandByHand;
+   cvs->Param->MotorCommandByHand = CommandMotorByHand;
    if(cvs->Param->MotorCommandByHand)
    {
     cvs->MotorL->dutyCycle = LeftMotorDC;//RightMotorDC;
@@ -113,7 +113,6 @@ void controller_loop(CtrlStruct *cvs){
     cvs->MotorTower->dutyCycle = TourelleDC;
     cvs->MotorRatL->dutyCycle = RateauLDC; //RightMotorDC;//RightMotorDC;
     cvs->MotorRatR->dutyCycle = RateauRDC; //RightMotorDC;//RightMotorDC;
-<<<<<<< HEAD
     cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;*/   
    }
    else if(cvs->time > 200){
@@ -134,21 +133,12 @@ void controller_loop(CtrlStruct *cvs){
      //  Calibration(cvs);
 
     //   ReachPointPotential(cvs, 0.8, 0.8, 0.03);
-        DynaTestFunction(cvs);
-     // MyStrategy(cvs);
+      //  DynaTestFunction(cvs);
+      MyStrategy(cvs);
        
    }
     //PinceCalibration(cvs);
 
-=======
-    cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;
-    
-
-    SpeedRefToDC(cvs,cvs->MotorR, 3*M_PI);
-    SpeedRefToDC(cvs,cvs->MotorL, 3*M_PI);*/
-    SpeedRefToDC(cvs, cvs->MotorTower, TourelleDC);
-    
->>>>>>> master
 	AlwaysEndController(cvs);
 }
 

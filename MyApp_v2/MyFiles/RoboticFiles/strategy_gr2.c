@@ -15,7 +15,7 @@ void MyStrategy(CtrlStruct *cvs)
         case(GoCalibration) :{ 
                 bool succeed =  Calibration(cvs);
                 if(succeed){
-                    cvs->stateStrategy = GoAction3;
+                    cvs->stateStrategy = GoAction1;
                 }
                 break;
         }
@@ -35,6 +35,13 @@ void MyStrategy(CtrlStruct *cvs)
         }
         case(GoAction3) :{
                 bool succeed = Action3(cvs);
+                if(succeed){
+                    cvs->stateStrategy = GoAction4;
+                }
+                break;
+        }
+         case(GoAction4) :{
+                bool succeed = Action4(cvs);
                 if(succeed){
                     cvs->stateStrategy = GoBase;
                 }

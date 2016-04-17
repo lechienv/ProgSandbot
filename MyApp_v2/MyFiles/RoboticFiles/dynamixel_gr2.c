@@ -51,7 +51,7 @@ void SendMessageDyna(int id, int size, int address, double value){
     // A_IO_dynDataWrite_3 = CYCLONE_IO_C_Data [31:16]
     // A_IO_dynDataWrite_4 = CYCLONE_IO_D_Data [15:0]
     //
-
+/*
     MyCyclone_Write(CYCLONE_IO_N_Data,0x0000); // Mise à 0 des commandes d'écritures      A_IO_dynDrive
     MyCyclone_Write(CYCLONE_IO_N_Data, 0x0000); // Mise à 0 de TXD_Enable
     MyCyclone_Write(CYCLONE_IO_N_Data,0x0014);
@@ -73,7 +73,7 @@ void SendMessageDyna(int id, int size, int address, double value){
     MyCyclone_Write(CYCLONE_IO_N_Data, (0x01<<8)&0xFF00);
     MyCyclone_Write(CYCLONE_IO_N_Data, ((0x01<<8)&0xFF00) + (0x14 & 0x00FF));
     MyCyclone_Write(CYCLONE_IO_N_Data,0x0000); // Mise à 0 des commandes d'écritures
-    MyCyclone_Write(CYCLONE_IO_N_Data,0x0c);
+    MyCyclone_Write(CYCLONE_IO_N_Data,0x0c);*/
     i = i+1;
 }
 
@@ -107,12 +107,12 @@ void  ReadDyna(){
     //MyCyclone_Write(CYCLONE_IO_B_Data,0x14);
     //MyCyclone_Write(CYCLONE_IO_B_Data,0x0c);
 
-    int ID1 = MyCyclone_Read(CYCLONE_IO_Q_Data)&0x00FF;
+/*    int ID1 = MyCyclone_Read(CYCLONE_IO_Q_Data)&0x00FF;
     int ID3 = MyCyclone_Read(CYCLONE_IO_R_Data);
     //int ID2 = MyCyclone_Read(CYCLONE_IO_F_Data)&0xFF00;
     char s[64];
     sprintf(s, "ERROR = %d, Para1 = %d, Para2 = %d\n", ID1, ID3, ID3);
-    MyConsole_SendMsg(s);
+    MyConsole_SendMsg(s);*/
 }
 void StopTurn(int id, int i){
     if(i == 1){
@@ -129,12 +129,12 @@ void SetAngle(int id, int angle){
 }
 void WhichPosition(int id){
     SendMessageDyna(id, 0x0005, 0x25, 0x02);
-    int ID1 = MyCyclone_Read(CYCLONE_IO_Q_Data)&0x00FF;
+    /*int ID1 = MyCyclone_Read(CYCLONE_IO_Q_Data)&0x00FF;
     int ID3 = MyCyclone_Read(CYCLONE_IO_R_Data);
     //int ID2 = MyCyclone_Read(CYCLONE_IO_F_Data)&0xFF00;
     char s[64];
     sprintf(s, "ERROR = %d, Para1 = %d, Para2 = %d\n", ID1, ID3, ID3);
-    MyConsole_SendMsg(s);
+    MyConsole_SendMsg(s);*/
 }
 
 

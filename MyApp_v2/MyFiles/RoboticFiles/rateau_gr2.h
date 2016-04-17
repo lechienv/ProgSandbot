@@ -3,7 +3,7 @@
 #define _RATEAU_GR2_H_
 
 #include "CtrlStruct_gr2.h"
-
+#include "strategy_gr2.h"
 #ifndef REALBOT
 #include "namespace_ctrl.h"
 #include <stdlib.h>

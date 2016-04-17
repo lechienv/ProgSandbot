@@ -238,7 +238,21 @@ void MyConsole_Task(void)
         else if((char) dutyCycle[0] == '+'){
             PinceDC = (dutyCycle[1]*10+dutyCycle[2]);
         }  
-    } else {
+    } else if (strcmp(theCmd, "HAND") == 0) {
+        MyConsole_SendMsg("Choose to command motor: +00 yes -00 no \n");
+        while(!MyConsole_GetCmd()){}
+        int dutyCycle[3];
+        dutyCycle[0] = theCmd[0];
+        dutyCycle[1] = theCmd[1]-'0';
+        dutyCycle[2] = theCmd[2]-'0';
+        if((char) dutyCycle[0] == '-'){      
+           CommandMotorByHand = false;
+        }
+        else if((char) dutyCycle[0] == '+'){
+            CommandMotorByHand = true;
+        }  
+    } 
+    else {
         MyConsole_SendMsg("Unknown Command\n>");
     }
 }

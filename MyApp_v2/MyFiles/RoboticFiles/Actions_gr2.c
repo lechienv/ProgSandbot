@@ -284,7 +284,7 @@ bool Action4(CtrlStruct *cvs)
    int color = cvs->robotID;
    switch(cvs->stateAction4){
     case(GoToFish) :{
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0.8 , 0.8, 0.02) : ReachPointPotential(cvs, 0.8 , -0.8 , 0.02) ;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0.8 , 0.9, 0.02) : ReachPointPotential(cvs, 0.8 , -0.9 , 0.02) ;
             if(reached){
                 cvs->stateAction4 = AlignForCalibFishes;
             }
@@ -300,7 +300,7 @@ bool Action4(CtrlStruct *cvs)
             break;
      }
      case(CalibFishes) :{
-         bool isCalibrate = XCalibration(cvs, -1+1322, 180) ;
+         bool isCalibrate = XCalibration(cvs, 1-0.1322, 180) ;
          if(isCalibrate){
              cvs->stateAction4 = DecaleBordFishes;
          }
@@ -308,30 +308,53 @@ bool Action4(CtrlStruct *cvs)
             break;
      }
        case(DecaleBordFishes) :{
-         if(cvs->Odo->bufferTime < 0)
-                cvs->Odo->bufferTime = cvs->time;
-
-            if(cvs->Odo->bufferTime > cvs->time - 1){
-                cvs->MotorL->dutyCycle = 10;
-                cvs->MotorR->dutyCycle = 10;
-                cvs->Odo->flagBufferPosition = 1;
-            }
-             else{
-                cvs->MotorL->dutyCycle = 0;
-                cvs->MotorR->dutyCycle = 0;
-                cvs->Odo->flagBufferPosition = 0;
-                cvs->stateAction4 = AlignedWithFishes;
-                
-            }
+           cvs->MotorL->dutyCycle = 5;
+            cvs->MotorR->dutyCycle = 5;
+         if(cvs->Odo->x <(0.96-0.1322) )
+         {
+            cvs->stateAction4 = AlignedWithFishes; 
+         }
          return false;
          break;
        }
      case(AlignedWithFishes) :{
          bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, -90, 1) : IsAlignedWithTheta(cvs, 90, 1);
          if(isAligned){
-             cvs->stateAction4 = AlignedWithFishes;
+             cvs->stateAction4 = RatGoTopStartFish;
+         }
+            return false;
+            break;
+     }
+          case(RatGoTopStartFish) :{
+         bool isTop = (color == GREEN) ? RatGoTop(cvs, cvs->MotorRatL) : RatGoTop(cvs, cvs->MotorRatR) ;
+         if(isTop){
+             cvs->stateAction4 = DyntakeFish;
          }
             return true;
+            break;
+     }
+     case(DyntakeFish) :{
+           bool AreTaken = true;//(color == GREEN) ? RatGoTop(cvs, cvs->MotorRatL) : RatGoTop(cvs, cvs->MotorRatR) ;
+         if(AreTaken){
+             cvs->stateAction4 = MoveWithFish;
+         }
+         return false;
+            break;
+     }
+        case(MoveWithFish) :{
+            cvs->MotorL->dutyCycle = 5;
+            cvs->MotorR->dutyCycle = 5;
+            bool my_positionY = (color == GREEN) ? cvs->Odo->y < 0.4 : cvs->Odo->y > -0.4 ;
+         if(my_positionY)
+         {
+            cvs->stateAction4 = ReleaseFish; 
+         }
+         return false;
+            break;
+     }
+     case(ReleaseFish) :{
+
+         return true;
             break;
      }
     default: break;

@@ -14,7 +14,7 @@ void OpponentDetection(CtrlStruct *cvs)
 #ifndef REALBOT
     cvs->MotorTower->dutyCycle = 15;
 #else
-	cvs->MotorTower->dutyCycle = -80;
+	cvs->MotorTower->dutyCycle = -99;
 #endif
 	UpdateDetectedBotPosition(cvs);
 }
@@ -29,8 +29,12 @@ void UpdateDetectedBotPosition(CtrlStruct *cvs) {
 		cvs->Tower->tower_prevPos = cvs->Tower->tower_pos;
 	}
 #endif
-	
-	if (cvs->Tower->newTurn) {
+	if(cvs->Tower->newTurn) {
+            char theStr[512];
+            sprintf(theStr,"x1 = %f \t y1 = %f \t x2 = %f \t y2 = %f \t \t \n\n",	cvs->Obstacles->CircleList[0].x,cvs->Obstacles->CircleList[0].y,
+                    cvs->Obstacles->CircleList[1].x,cvs->Obstacles->CircleList[1].y);
+            
+            MyConsole_SendMsg(theStr);
 		int j;
 		for (j = 0; j < cvs->AllFiltersTower->numberOfEnnemy; j++) {
 			cvs->Obstacles->CircleList[j].hasBeenUpdated = false;

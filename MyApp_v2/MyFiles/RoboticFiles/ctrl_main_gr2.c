@@ -54,7 +54,16 @@ void controller_init(CtrlStruct *cvs){
  */
 void controller_loop(CtrlStruct *cvs){
 	AlwaysInController(cvs);
-    
+  /*  
+    cvs->MotorL->dutyCycle = LeftMotorDC;//RightMotorDC;
+    cvs->MotorR->dutyCycle = RightMotorDC;// RightMotorDC;int        LeftMotorDC;
+    cvs->MotorPince->dutyCycle = PinceDC;
+    cvs->MotorRatL->dutyCycle = RateauLDC; //RightMotorDC;//RightMotorDC;
+    cvs->MotorRatR->dutyCycle = RateauRDC; //RightMotorDC;//RightMotorDC;
+    cvs->MotorTower->dutyCycle = TourelleDC;
+
+   */
+        StrategyTest(cvs);
 	AlwaysEndController(cvs);
 }
 

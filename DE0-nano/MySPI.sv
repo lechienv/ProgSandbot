@@ -114,7 +114,7 @@ assign SPI_counter_inc   = ((SPI_state == S_Addr_01) | (SPI_state == S_Data_01))
 assign SPI_address_shift = (SPI_state == S_Addr_01);
 assign SPI_data_shift	 = (SPI_state == S_Data_01);
 assign SPI_data_load		 = (SPI_state == S_Data);
-assign SPI_data_update   = ((SPI_state == S_End) & SPI_address[7]);
+assign SPI_data_update   = ((SPI_state == S_End) & SPI_address[15]);
 
 //--- On the positive edge of the clock -----------------
 

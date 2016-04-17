@@ -52,8 +52,8 @@ NAMESPACE_INIT(ctrlGr2);
 #define KIFLUSHLIMIT 1000
 #define MaxGoals 15
 
-#define TOWER_AVERAGING_NUMBER 4
-#define TOWER_OUTLIERS_COMPARE 4
+#define TOWER_AVERAGING_NUMBER 2
+#define TOWER_OUTLIERS_COMPARE 2
 #define BEACON_POSITION_TOLERANCE 0.1
 #define MAXSPEED_ENNEMYBOT 2
 //enum StateCalib {Cal_y_arr, Cal_y_arr2, Cal_y_av, Cal_y_av1, Cal_rot_neg, Cal_x_arr, Cal_x_av, Cal_rot_pos, Action1 };

@@ -60,6 +60,7 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
     int newTurn = extractBits(A,15,15);
     if(newTurn != previousTurn){        
         previousTurn = newTurn;
+        cvs->Tower->newTurn = true;
         cvs->Tower->nb_rising = nb_rising;
         cvs->Tower->nb_falling = nb_falling;
         cvs->Tower->nb_opponents = nb_opponents;

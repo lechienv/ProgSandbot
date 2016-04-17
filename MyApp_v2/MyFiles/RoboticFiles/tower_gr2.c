@@ -11,6 +11,7 @@ NAMESPACE_INIT(ctrlGr2);
 **********************/
 void OpponentDetection(CtrlStruct *cvs)
 {
+    cvs->MotorTower->dutyCycle = -80;
 	UpdateDetectedBotPosition(cvs);
 }
 
@@ -37,15 +38,16 @@ void UpdateDetectedBotPosition(CtrlStruct *cvs) {
         cvs->Tower->angle = angle;
         double x = cvs->Odo->x + distance*cos(DEGtoRAD * (cvs->Odo->theta + angle));
 		double y = cvs->Odo->y + distance*sin(DEGtoRAD * (cvs->Odo->theta + angle));
-		if (IsBot(x, y)) { //TODECOMMENT
-			if (currentBot <= NumberOfCircles_INIT) { //If glitch or too much bots
-                MyConsole_SendMsg("here");
+  
+		//if (IsBot(x, y)) { //TODECOMMENT
+			if (currentBot < NumberOfCircles_INIT) { //If glitch or too much bots
 				cvs->Obstacles->CircleList[currentBot].x = x;
 				cvs->Obstacles->CircleList[currentBot].y = y;
 				cvs->Obstacles->CircleList[currentBot].isActive = true;
+                
 				currentBot++;
 			}
-		}
+		//}
 	}
 	for (i = currentBot; i < NumberOfCircles_INIT; i++) { //Deactivate the bots that have not been detected
 		cvs->Obstacles->CircleList[i].isActive = false;
@@ -87,7 +89,8 @@ bool IsBot(double x, double y) {
 double ComputeAngle(CtrlStruct *cvs, int risingIndex, int fallingIndex) {
 	double firstAngle = cvs->Tower->last_rising[risingIndex];
 	double lastAngle = cvs->Tower->last_falling[fallingIndex];
-
+    double offset = 18.0;
+    
 	bool changeFlag = false;
 	if (firstAngle > M_PI / 2 && lastAngle < -M_PI / 2) {
 		lastAngle = lastAngle + 2 * M_PI;
@@ -99,17 +102,27 @@ double ComputeAngle(CtrlStruct *cvs, int risingIndex, int fallingIndex) {
 	}
 	double angleFromTower = (firstAngle + lastAngle) / 2;
 	if (changeFlag) angleFromTower = angleFromTower - 2 * M_PI;
-	return RADtoDEG*angleFromTower;
+	return  RADtoDEG*angleFromTower - offset;
 }
 
 double ComputeDistance(CtrlStruct *cvs, int risingIndex, int fallingIndex) {
 	double firstAngle = cvs->Tower->last_rising[risingIndex];
 	double lastAngle = cvs->Tower->last_falling[fallingIndex];
+    double offset = 0.15;// rayonbeacon + distance entre la tourelle et le bord du robot?
 	if (firstAngle > 0 && lastAngle < 0)
 		lastAngle = lastAngle + 2 * M_PI;
 	else if (firstAngle < 0 && lastAngle > 0)
 		firstAngle = firstAngle + 2 * M_PI;
 	double distanceFromTower = cvs->Param->rayonBeacon / sin(fabs(lastAngle - firstAngle) / 2);
+              /*    
+        char theStr[1024];
+        sprintf(theStr,"distanceFromTower = %f \t \n", distanceFromTower);
+        MyConsole_SendMsg(theStr);
+        */
+    if(distanceFromTower > 3)
+        distanceFromTower = 3;
+    else if(distanceFromTower < 0)
+        distanceFromTower = EPSILON;
 	return distanceFromTower;
 }
 

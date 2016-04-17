@@ -266,7 +266,7 @@ void MyCAN_Acknowledge(void){
             }
         }
     }
-    MyConsole_SendMsg("Can acknowledge timeout !! \n");
+    //MyConsole_SendMsg("Can acknowledge timeout !! \n");
 }
 
 /******************************************************************************/

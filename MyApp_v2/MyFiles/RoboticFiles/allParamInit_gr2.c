@@ -132,7 +132,7 @@ void InitMotor(CtrlStruct *cvs)
 	cvs->MotorPince->Kphi				= KphiPince_INIT;
 	cvs->MotorPince->R					= RPince_INIT;
 	cvs->MotorPince->speed				= speedPince_INIT;
-	cvs->MotorPince->speed				= positionPince_INIT;
+	cvs->MotorPince->position           = positionPince_INIT;
 	cvs->MotorPince->reverseRotation    = reverseRotationPince_INIT;
 	cvs->MotorPince->totalError			= totalErrorPince_INIT;
 	cvs->MotorPince->dutyCycle			= dutyCyclePince_INIT;
@@ -155,12 +155,18 @@ void InitParam(CtrlStruct *cvs) {
 	cvs->Param->width				= width_INIT;
 	cvs->Param->lengthTower			= lengthTower_INIT;
 	cvs->Param->rayonBeacon			= rayonBeacon_INIT;
+    cvs->Param->wheelLRadius        = wheelLRadius_INIT;
+    cvs->Param->wheelRRadius        = wheelRRadius_INIT;
 	cvs->Param->wheelRadius			= wheelRadius_INIT;
 	cvs->Param->KpRot				= KpRot_INIT;
 	cvs->Param->KiRot				= KiRot_INIT;
 	cvs->Param->totalErrorRot		= totalErrorRot_INIT;
 	cvs->Param->speedDifThreshold	= speedDifThreshold_INIT; //Max speed difference before considering the robot "at rest"
 	cvs->Param->KiAngleThreshold	= KiAngleThreshold_INIT; //Angle control: threshold to activate Ki
+    cvs->Param->maxAcceleration     = maxAcceleration_INIT;
+    cvs->Param->MotorCommandByHand = false;
+    cvs->Param->PasFiletVisPince = PasFiletVisPince_INIT;
+    cvs->Param->PasFiletVisRat = PasFiletVisRat_INIT;
 }
 
 void InitSensors(CtrlStruct *cvs) {
@@ -168,8 +174,9 @@ void InitSensors(CtrlStruct *cvs) {
 	cvs->Sensors->uSwitchLeft		= false;
 	cvs->Sensors->uSwitchRight		= false;
 #ifdef REALBOT
-    cvs->Sensors->uSwitchPinceIn    = false;
-    cvs->Sensors->uSwitchPinceOut   = false;
+    cvs->Sensors->uSwitchPinceOut    = false;
+    cvs->Sensors->uSwitchRatR = false;
+    cvs->Sensors->uSwitchRatL = false;
 #endif // REALBOT
 }
 void InitTower(CtrlStruct * cvs)
@@ -205,6 +212,7 @@ void InitPotential(CtrlStruct *cvs) {
 	cvs->Poto->FYRob				= FyRob_INIT;
 	cvs->Poto->kw					= kw_INIT;
 	cvs->Poto->minDistance			= minDistance_INIT;
+    cvs->Poto->thresholdAligned     = thresholdAligned_INIT;
 }
 
 
@@ -214,11 +222,34 @@ void InitOdometry(CtrlStruct *cvs) {
 	cvs->Odo->timeDelay = 0.0;
     cvs->Odo->speedL = 0;
     cvs->Odo->speedR = 0;
+    cvs->Odo->bufferTime = -100000;
+    cvs->Odo->flagBufferPosition = 0;
 	int color = cvs->robotID;
 #ifdef REALBOT
     cvs->Odo->clicNumber = clicNumberOdo_INIT;
-#endif // REALBOT
-
+    if(color == GREEN){
+        cvs->Odo->x		= -0.1425;
+        cvs->Odo->y		= 1.3678;
+        cvs->Odo->theta	= -90.0;
+    }
+    else if(color == PINK){
+        cvs->Odo->x		= -0.1425;
+        cvs->Odo->y		= -1.3678;
+        cvs->Odo->theta	= 90.0;
+    }
+    else {
+		cvs->Odo->x		= 0;
+		cvs->Odo->y		= 0;
+		cvs->Odo->theta = 0;
+    }
+    /*cvs->Odo->x		= -0.1425;
+    cvs->Odo->y		= 1.3678;
+    cvs->Odo->theta	= -90.0;*/
+    
+    
+     
+#else
+    
 	if (color == RED) {
 		cvs->Odo->x		= -0.075;
 		cvs->Odo->y		= -1.4;
@@ -244,6 +275,7 @@ void InitOdometry(CtrlStruct *cvs) {
 		cvs->Odo->y		= 0;
 		cvs->Odo->theta = 0;
 	}
+#endif // REALBOT
 }
 
 void InitGoals(CtrlStruct *cvs) {
@@ -311,17 +343,17 @@ void InitObstacles(CtrlStruct *cvs) {
 	cvs->Obstacles->QuarterOfCircleList = (QuarterOfCircle*)malloc(sizeof(QuarterOfCircle)*NumberOfQuarterOfCircle_INIT);
 	//EnnemyBot
 	cvs->Obstacles->CircleList[0].isActive = true;
-	cvs->Obstacles->CircleList[0].radius = 0.2;
+	cvs->Obstacles->CircleList[0].radius = 0.3;
 	cvs->Obstacles->CircleList[0].x = -2;
 	cvs->Obstacles->CircleList[0].y = -2;
 
 	cvs->Obstacles->CircleList[1].isActive = true;
-	cvs->Obstacles->CircleList[1].radius = 0.2;
+	cvs->Obstacles->CircleList[1].radius = 0.3;
 	cvs->Obstacles->CircleList[1].x = -2;
 	cvs->Obstacles->CircleList[1].y = -2;
 
 	cvs->Obstacles->CircleList[2].isActive = true;
-	cvs->Obstacles->CircleList[2].radius = 0.2;
+	cvs->Obstacles->CircleList[2].radius = 0.3;
 	cvs->Obstacles->CircleList[2].x = -2;
 	cvs->Obstacles->CircleList[2].y = -2;
 

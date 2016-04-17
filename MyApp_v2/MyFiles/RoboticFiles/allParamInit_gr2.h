@@ -17,14 +17,21 @@ NAMESPACE_INIT(ctrlGr2);
     #define clicNumberR_DEFAULT 20100*0.9*30/26 //1.1
     #define clicNumberL_DEFAULT 11500*0.9*30/26 //1.1
     #define clicNumberTower_DEFAULT 1800
+    #define wheelRRadius_DEFAULT 0.03
+    #define wheelLRadius_DEFAULT 0.03
 #else
     #define clicNumberR_DEFAULT     10000
     #define clicNumberL_DEFAULT     10000
-    #define clicNumberTower_DEFAULT 1000
+    #define clicNumberTower_DEFAULT 930
+    #define wheelRRadius_DEFAULT 0.022749
+    #define wheelLRadius_DEFAULT 0.022725
 #endif // MINIBOT
     #define clicNumberRatL_DEFAULT  10000
     #define clicNumberRatR_DEFAULT  10000
     #define clicNumberPince_DEFAULT 10000
+#else
+    #define wheelRRadius_DEFAULT 0.03
+    #define wheelLRadius_DEFAULT 0.03
 #endif //REALBOT
 
 #define Kp_DEFAULT 0.3
@@ -132,7 +139,7 @@ NAMESPACE_INIT(ctrlGr2);
 
     //MotorPince
     #define KpPince_INIT				0.3//0.5
-    #define KiPince_INIT				5//7
+    #define KiPince_INIT				1//7
 	#define KpPosPince_INIT				1
     #define KphiPince_INIT				0.3177
 	#define RPince_INIT					10
@@ -152,31 +159,38 @@ NAMESPACE_INIT(ctrlGr2);
 /************************************
  * PARAMS ***************************
  ***********************************/
-#define radiusBot_INIT			0.015
-#define width_INIT				0.225
+#define radiusBot_INIT			0.15//0.2 //0.015 ?
+#define width_INIT				0.2625
 #define lengthTower_INIT		0.0833
+#define wheelLRadius_INIT		wheelLRadius_DEFAULT
+#define wheelRRadius_INIT		wheelRRadius_DEFAULT
 #define wheelRadius_INIT		0.03
-#define KpRot_INIT				0.1
-#define KiRot_INIT				0.2
+#define KpRot_INIT				0.06//0.1
+#define KiRot_INIT				0.03//0.2
 #define totalErrorRot_INIT		0
 #define speedDifThreshold_INIT	1
-#define KiAngleThreshold_INIT	50
+#define KiAngleThreshold_INIT	10
 #define distanceRef_default_tower 3
+# define PasFiletVisRat_INIT       3.0
+# define PasFiletVisPince_INIT       2.0
+
 #ifdef MINIBOT
 #define rayonBeacon_INIT		0.04
 #else
-#define rayonBeacon_INIT		0.04
+#define rayonBeacon_INIT		0.03
 #endif
+#define maxAcceleration_INIT    1
 /************************************
  * POTO *****************************
  ***********************************/
-#define katt_INIT				1.0
-#define krep_INIT				0.01
+#define katt_INIT				10//1.0
+#define krep_INIT				0.001//0.001
 #define kFV_INIT				30
 #define FXRob_INIT				0
 #define FyRob_INIT				0
-#define kw_INIT					1000
+#define kw_INIT					100
 #define minDistance_INIT		0.3
+#define thresholdAligned_INIT   0.5//10
 
 /************************************
  * ODOMETRY  ************************
@@ -218,6 +232,10 @@ NAMESPACE_INIT(ctrlGr2);
 #define angle_INIT 0
 #define distance_INIT 3
 
+/************************************
+ * Dyna ***************************
+ ***********************************/
+// Id rateau gauche = 5, Id rateau droit = 6, Id parasol = 3
 /******************
 **** PROTOTYPES ***
 ******************/

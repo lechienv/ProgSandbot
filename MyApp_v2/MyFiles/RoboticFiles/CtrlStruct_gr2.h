@@ -21,7 +21,7 @@ NAMESPACE_INIT(ctrlGr2);
 
 #include <stdbool.h>
 
-
+#define LIMITACCELERATION 1
 #define DEGtoRAD M_PI/180
 #define RADtoDEG 180/M_PI
 #define VOLTtoDC 100/24
@@ -40,6 +40,8 @@ NAMESPACE_INIT(ctrlGr2);
 #define RED 1
 #define YELLOW 2
 #define WHITE  3
+#define GREEN 4
+#define PINK 5
 
 #define EPSILON 0.000001
 
@@ -49,11 +51,19 @@ NAMESPACE_INIT(ctrlGr2);
 #define KIFLUSHLIMIT 1000
 #define MaxGoals 15
 
-enum StateCalib {Cal_y_arr, Cal_y_arr2, Cal_y_av, Cal_y_av1, Cal_rot_neg, Cal_x_arr, Cal_x_av, Cal_rot_pos, Action1 };
+//enum StateCalib {Cal_y_arr, Cal_y_arr2, Cal_y_av, Cal_y_av1, Cal_rot_neg, Cal_x_arr, Cal_x_av, Cal_rot_pos, Action1 };
+enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, ReturnToBase, AlignForBaseAndReturnInIt, Wait}; // GoToBlocOne, AlignBlocOne, TakeBlocOne, BringBlocOne, ReleaseBlockOne, AlignForBlockOne};
 enum StateReCalib {ReCal_y_arr, ReCal_y_av, ReCal_rot1, ReCal_x_arr, ReCal_x_av, ReCal_rot2, ReCal_nextStrat };
 enum StateStrat {reachPointA, reachPointB, reachPointC, reachPointD};
 enum StateDyna {grap, release};
 enum StateVia {backHomeViaBase, backHomeStraight, normalPoint, viaPoint};
+enum StateHomologation {PinceCalib, reachViaPoint, AlignWithTheta, ReachBlocs, ClosingPince, GoViaZone, AlignZone, GoInZone, OpeningPince};
+enum StateAction1{GoToHouses, AlignedWithHouses, PushHouses, FreeHouses};
+enum StateAction2{GoToBlocOne, AlignForBlocOne, TakeBlocOne, BringBlockOne, ReleaseBlockOne, AlignForBlockOne,AlignForCalibAction2, Calib_y};
+enum StateAction3{GoToBlocTwoCalib, AlignForCalibAction3, Calib_x, GoToBlocTwo, AlignForBlocTwo, AvanceForBlockTwo, ReculeForBlockTwo, BringBlockTwoViaPoint, TakeBlocTwo, BringBlockTwo, ReleaseBlockTwo, AlignForBlockTwo};
+enum StateAction4{GoToFish, AlignForCalibFishes, CalibFishes, DecaleBordFishes, AlignedWithFishes};
+enum StateStrategy{GoCalibration, GoAction1, GoAction2, GoAction3,GoBase};
+
 
 typedef struct Potential {
 	double katt;
@@ -63,6 +73,7 @@ typedef struct Potential {
 	double FYRob;
 	double kw;
 	double minDistance;
+    double thresholdAligned;
 } Potential;
 
 typedef struct Odometry {
@@ -73,6 +84,8 @@ typedef struct Odometry {
 	double theta;
     double speedL;
     double speedR;
+    double bufferTime;
+    double flagBufferPosition;
 #ifdef REALBOT
     double clicNumber;
 #endif // REALBOT
@@ -82,6 +95,8 @@ typedef struct Parametres {
 	double radiusBot;
 	double width;
 	double lengthTower;
+    double wheelRRadius;
+    double wheelLRadius;
 	double wheelRadius;
 	double KpRot;
 	double KiRot;
@@ -89,14 +104,19 @@ typedef struct Parametres {
 	double speedDifThreshold;
 	double KiAngleThreshold;
 	double rayonBeacon;
+    double maxAcceleration;
+    bool MotorCommandByHand;
+    double PasFiletVisRat;
+    double PasFiletVisPince;
 } Parametres;
 
 typedef struct Sensors {
 	bool uSwitchLeft;
 	bool uSwitchRight;
 #ifdef REALBOT
-    bool uSwitchPinceIn;
     bool uSwitchPinceOut;
+    bool uSwitchRatL;
+    bool uSwitchRatR; 
 #endif // REALBOT
 } Sensors;
 
@@ -224,6 +244,12 @@ typedef struct CtrlStruct
 	enum StateReCalib stateReCalib;
 	enum StateStrat stateStrat;
 	enum StateVia stateVia;
+        enum StateHomologation stateHomologation;
+        enum StateAction1 stateAction1;
+        enum StateAction2 stateAction2;
+        enum StateAction3 stateAction3;
+        enum StateAction4 stateAction4;
+        enum StateStrategy stateStrategy;
 	Parametres *Param;
 	Potential *Poto;
 	Odometry *Odo;

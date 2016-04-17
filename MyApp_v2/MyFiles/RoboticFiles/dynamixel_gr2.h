@@ -17,10 +17,13 @@ NAMESPACE_INIT(ctrlGr2);
 
 #ifdef REALBOT
 void SendMessageDyna(int id, int size, int address, double value);
-void TurnCCW(int value);
-void TurnCW(int value);
+void TurnCCW(int id, int value);
+void TurnCW(int id, int value);
 void ReadDyna();
-void StopTurn(int i);
+void StopTurn(int id, int i);
+void AllumeLed(int id);
+void WhichPosition(int id);
+//void InitDyna();
 
 #endif
 

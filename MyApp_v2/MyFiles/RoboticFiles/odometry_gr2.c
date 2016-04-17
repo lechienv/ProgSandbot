@@ -11,11 +11,10 @@ NAMESPACE_INIT(ctrlGr2);
 
 void OdometryLoop(CtrlStruct *cvs) {
 	double dbaseline = cvs->Param->width;
-	double R = cvs->Param->wheelRadius;
 	double timeStep = cvs->timeStep;
     
-	double dl = cvs->Odo->speedL*R*timeStep;
-	double dr = cvs->Odo->speedR*R*timeStep;
+	double dl = cvs->Odo->speedL*cvs->Param->wheelLRadius*timeStep;
+	double dr = cvs->Odo->speedR*cvs->Param->wheelRRadius*timeStep;
 	double dc = (dl + dr) / 2;
 	double phi = (dr - dl) / dbaseline;
 

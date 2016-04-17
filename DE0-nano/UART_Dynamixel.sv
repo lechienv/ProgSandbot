@@ -1,3 +1,4 @@
+
 //----------------------------------------------------------------------
 // Module making the interface between the NIOS and the module UART_TXT
 // It reads and writes in registers exported from the NIOS

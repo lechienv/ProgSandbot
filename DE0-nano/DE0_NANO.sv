@@ -1,3 +1,4 @@
+
 `timescale 1ns/1ps
 
 //=======================================================
@@ -257,6 +258,8 @@ logic [15:0] IO_M_Data_In, IO_M_Data_Out, IO_M_Enable_Out;
 logic [15:0] IO_N_Data_In, IO_N_Data_Out, IO_N_Enable_Out;
 logic [15:0] IO_O_Data_In, IO_O_Data_Out, IO_O_Enable_Out;
 logic [15:0] IO_P_Data_In, IO_P_Data_Out, IO_P_Enable_Out;
+logic [15:0] IO_Q_Data_In, IO_Q_Data_Out, IO_Q_Enable_Out;
+logic [15:0] IO_R_Data_In, IO_R_Data_Out, IO_R_Enable_Out;
 
 
 genvar i;
@@ -352,12 +355,10 @@ assign ID						= SW[0];
 assign LaserSign = GPIO_0[8];
 assign LaserCodeurA = GPIO_0[4];
 assign LaserCodeurB = GPIO_0[5];
-
 assign PropLeftCodeurA = GPIO_0[1];
 assign PropLeftCodeurB = GPIO_0[2];
 assign PropRightCodeurA = GPIO_0_IN[0];
 assign PropRightCodeurB = GPIO_0_IN[1];
-
 assign UartTx = GPIO_0[26];
 assign UartRx = GPIO_0[24];
 assign UartDir = GPIO_0[22];*/
@@ -373,12 +374,11 @@ assign LED = {~LaserSign, LaserSync, LaserCodeurA, LaserCodeurB, PropLeftCodeurA
 
 logic [15:0] CompteurLaser;
 reg   [15:0] DebutReception, FinReception;
-logic somethingDetected;
 logic NewTowerTurn;
 
 counter #(16) CompteurTourelle(LaserCodeurA, LaserSync, CompteurLaser);
 
-GlitchHandler GlitchSignLaser(CLOCK_50, PIC32_RESET,  ~LaserSign, LaserSync, CompteurLaser, DebutReception, FinReception, somethingDetected, LaserCodeurA);
+GlitchHandler GlitchSignLaser(CLOCK_50, PIC32_RESET,  LaserSign, LaserSync, CompteurLaser, DebutReception, FinReception, LaserCodeurA);
 
 always_ff@(posedge LaserSync, posedge PIC32_RESET) begin
 	if(PIC32_RESET || NewTowerTurn === 'x) NewTowerTurn <= 1'b0;
@@ -469,9 +469,9 @@ begin
 	else
 		positiveSpeedRateauL <= 'b0;
 end
-always_ff@(posedge RateauLeftCodeurB)
+always_ff@(posedge RateauRightCodeurA)
 begin 
-	if(RateauLeftCodeurB)
+	if(RateauRightCodeurB)
 		positiveSpeedRateauR <= 'b1;
 	else
 		positiveSpeedRateauR <= 'b0;
@@ -503,7 +503,7 @@ assign GPIO_0[22] = UARTDIR;
 
 always @(posedge CLOCK_50)
 begin 
-	IO_A_Data_In <= {	NewTowerTurn,somethingDetected, Start,
+	IO_A_Data_In <= {	NewTowerTurn,1'b0, Start,
 							uSwitchRateauRight, uSwitchRateauLeft, uSwitchPince, uSwitchRight, uSwitchLeft,
 							positiveSpeedOdoR, positiveSpeedOdoL,
 							positiveSpeedPince,
@@ -533,10 +533,8 @@ begin
 	dynDataWrite[23:16]	<= IO_O_Data_Out[15:8];
 	dynDataWrite[31:24]	<= IO_P_Data_Out[7:0];
 	
-	//IO_E_Data_In <= dynDataRead[7:0];
-	//IO_F_Data_In <= dynDataRead[15:8];
-	//IO_G_Data_In <= dynDataRead[23:16];
-	//IO_H_Data_In <= dynDataRead[31:24];
+	IO_Q_Data_In <= dynDataRead[15:0];
+	IO_R_Data_In <= dynDataRead[31:16];
 	
 	/*IO_F_Data_In <=(NoSign)? 8'b00000000:FinReception[7:0]; 
 	IO_G_Data_In <= VitesseRight[15:8]; 
@@ -567,9 +565,9 @@ MySPI MySPI_instance (
 	.Config(Config),
 	.Status(Status),
 	.Led70(Led70),
-	.IO_A_Data_In(IO_A_Data_In), 			.IO_B_Data_In(IO_B_Data_In), 			.IO_C_Data_In(IO_C_Data_In), 			.IO_D_Data_In(IO_D_Data_In),			.IO_E_Data_In(IO_E_Data_In),			.IO_F_Data_In(IO_F_Data_In),			.IO_G_Data_In(IO_G_Data_In),			.IO_H_Data_In(IO_H_Data_In),			.IO_I_Data_In(IO_I_Data_In),			.IO_J_Data_In(IO_J_Data_In),			.IO_K_Data_In(IO_K_Data_In),			.IO_L_Data_In(IO_L_Data_In),			.IO_M_Data_In(IO_M_Data_In), 				.IO_N_Data_In(IO_N_Data_In),				.IO_O_Data_In(IO_O_Data_In),				.IO_P_Data_In(IO_P_Data_In),
-	.IO_A_Data_Out(IO_A_Data_Out), 		.IO_B_Data_Out(IO_B_Data_Out), 		.IO_C_Data_Out(IO_C_Data_Out), 		.IO_D_Data_Out(IO_D_Data_Out),		.IO_E_Data_Out(IO_E_Data_Out),		.IO_F_Data_Out(IO_F_Data_Out),		.IO_G_Data_Out(IO_G_Data_Out),		.IO_H_Data_Out(IO_H_Data_Out),		.IO_I_Data_Out(IO_I_Data_Out),		.IO_J_Data_Out(IO_J_Data_Out),		.IO_K_Data_Out(IO_K_Data_Out),		.IO_L_Data_Out(IO_L_Data_Out),		.IO_M_Data_Out(IO_M_Data_Out),			.IO_N_Data_Out(IO_N_Data_Out),			.IO_O_Data_Out(IO_O_Data_Out),			.IO_P_Data_Out(IO_P_Data_Out),
-	.IO_A_Enable_Out(IO_A_Enable_Out), 	.IO_B_Enable_Out(IO_B_Enable_Out), 	.IO_C_Enable_Out(IO_C_Enable_Out), 	.IO_D_Enable_Out(IO_D_Enable_Out), 	.IO_E_Enable_Out(IO_E_Enable_Out), 	.IO_F_Enable_Out(IO_F_Enable_Out), 	.IO_G_Enable_Out(IO_G_Enable_Out), 	.IO_H_Enable_Out(IO_H_Enable_Out), 	.IO_I_Enable_Out(IO_I_Enable_Out), 	.IO_J_Enable_Out(IO_J_Enable_Out), 	.IO_K_Enable_Out(IO_K_Enable_Out), 	.IO_L_Enable_Out(IO_L_Enable_Out), 	.IO_M_Enable_Out(IO_M_Enable_Out),		.IO_N_Enable_Out(IO_N_Enable_Out),		.IO_O_Enable_Out(IO_N_Enable_Out),		.IO_P_Enable_Out(IO_P_Enable_Out));
+	.IO_A_Data_In(IO_A_Data_In), 			.IO_B_Data_In(IO_B_Data_In), 			.IO_C_Data_In(IO_C_Data_In), 			.IO_D_Data_In(IO_D_Data_In),			.IO_E_Data_In(IO_E_Data_In),			.IO_F_Data_In(IO_F_Data_In),			.IO_G_Data_In(IO_G_Data_In),			.IO_H_Data_In(IO_H_Data_In),			.IO_I_Data_In(IO_I_Data_In),			.IO_J_Data_In(IO_J_Data_In),			.IO_K_Data_In(IO_K_Data_In),			.IO_L_Data_In(IO_L_Data_In),			.IO_M_Data_In(IO_M_Data_In), 				.IO_N_Data_In(IO_N_Data_In),				.IO_O_Data_In(IO_O_Data_In),				.IO_P_Data_In(IO_P_Data_In),				.IO_Q_Data_In(IO_Q_Data_In),				.IO_R_Data_In(IO_R_Data_In),
+	.IO_A_Data_Out(IO_A_Data_Out), 		.IO_B_Data_Out(IO_B_Data_Out), 		.IO_C_Data_Out(IO_C_Data_Out), 		.IO_D_Data_Out(IO_D_Data_Out),		.IO_E_Data_Out(IO_E_Data_Out),		.IO_F_Data_Out(IO_F_Data_Out),		.IO_G_Data_Out(IO_G_Data_Out),		.IO_H_Data_Out(IO_H_Data_Out),		.IO_I_Data_Out(IO_I_Data_Out),		.IO_J_Data_Out(IO_J_Data_Out),		.IO_K_Data_Out(IO_K_Data_Out),		.IO_L_Data_Out(IO_L_Data_Out),		.IO_M_Data_Out(IO_M_Data_Out),			.IO_N_Data_Out(IO_N_Data_Out),			.IO_O_Data_Out(IO_O_Data_Out),			.IO_P_Data_Out(IO_P_Data_Out),			.IO_Q_Data_Out(IO_Q_Data_Out),			.IO_R_Data_Out(IO_R_Data_Out),
+	.IO_A_Enable_Out(IO_A_Enable_Out), 	.IO_B_Enable_Out(IO_B_Enable_Out), 	.IO_C_Enable_Out(IO_C_Enable_Out), 	.IO_D_Enable_Out(IO_D_Enable_Out), 	.IO_E_Enable_Out(IO_E_Enable_Out), 	.IO_F_Enable_Out(IO_F_Enable_Out), 	.IO_G_Enable_Out(IO_G_Enable_Out), 	.IO_H_Enable_Out(IO_H_Enable_Out), 	.IO_I_Enable_Out(IO_I_Enable_Out), 	.IO_J_Enable_Out(IO_J_Enable_Out), 	.IO_K_Enable_Out(IO_K_Enable_Out), 	.IO_L_Enable_Out(IO_L_Enable_Out), 	.IO_M_Enable_Out(IO_M_Enable_Out),		.IO_N_Enable_Out(IO_N_Enable_Out),		.IO_O_Enable_Out(IO_N_Enable_Out),		.IO_P_Enable_Out(IO_P_Enable_Out),		.IO_Q_Enable_Out(IO_Q_Enable_Out),		.IO_R_Enable_Out(IO_R_Enable_Out));
 
 
 	
@@ -642,52 +640,55 @@ module GlitchHandler(input logic clk,
 							input logic [15:0] NbrCodeur,
 							output reg [15:0] DebutReception,
 							output reg [15:0] FinReception,
-							output logic somethingDetected,
-							input logic LaserCodeurA);
+							input logic LaserCodeurA); 
+//							output logic [15:0] BeauSignal);
 
 logic [15:0] Buffer;
+logic [15:0] DebutReceptionBuffer;
 logic Flag, resetCount;
-logic somethingDetectedValue1;
-logic somethingDetectedValue2;
+//reg [15:0] SignalSansGlitch;
 typedef enum logic [1:0] {Wait, Reception, Glitch} statetype;
 statetype state, nextstate;
 
 always_ff @(posedge clk, posedge reset)
-	if (reset) begin state <= Wait; somethingDetectedValue1 = 1'b0; end
-	else state <= nextstate;
+	if (reset) begin state <= Wait; end
+	else begin  state <= nextstate; end
 	
 always
 	begin
 		case(state)
 			Wait: begin 
-						if(Sign) begin 
-							somethingDetectedValue2 = ~somethingDetected;
-							nextstate = Reception; 
-						end
-						else nextstate = Wait;
-						resetCount <= 1'b0;
+						if(Sign == 1'b1) begin nextstate = Reception; end
+						else begin nextstate = Wait; end
+						resetCount <= 1'b1;
+						if(~Flag & ~Sign) nextstate = Wait;
 			      end
 					
 			Reception: begin
-								if(Sign == 1'b0) begin resetCount <= 1'b1; nextstate <= Glitch; end
+								if(Sign == 1'b0) begin resetCount = 1'b1; nextstate = Glitch; end
+								//if (Sign == 1'b0 && Flag == 1'b0) nextstate = Wait;
 								else nextstate = Reception;
+								if(~Flag & ~Sign) nextstate = Wait;
 						   end 
 						  
 			Glitch: begin
 						if(Flag == 1'b0) begin nextstate = Wait; end
-						else if (Sign == 1'b1) nextstate = Reception;
-						else nextstate = Glitch;
-						resetCount <= 1'b0;
+						else if (Sign == 1'b1) begin nextstate = Reception; end
+						else begin nextstate = Glitch; end
+						resetCount = 1'b0;
+						if(~Flag & ~Sign) nextstate = Wait;
 					  end
 		endcase
 	end
 
 always//_ff @(posedge clk, posedge Sign)
 begin
-	if((Sign == 1'b1) & (state == Wait)) DebutReception <= NbrCodeur;
+	if((nextstate == Reception) & (state == Wait)) DebutReceptionBuffer <= NbrCodeur;
 	else if((Sign == 1'b0) & (state == Reception)) Buffer <= NbrCodeur;
-	else if((Flag == 1'b0) & (state == Glitch)) FinReception <= Buffer;
+	if ((nextstate == Wait) & ( (state == Glitch)))begin DebutReception <= DebutReceptionBuffer; FinReception <= Buffer; end//(state == Reception) |
+	//else if((Flag == 1'b0) & (state == Glitch)) FinReception <= Buffer;
 end
-assign somethingDetected = (reset) ? somethingDetectedValue1:somethingDetectedValue2;
+
 counter20Clk Compteur(LaserCodeurA, resetCount, Flag);
+
 endmodule

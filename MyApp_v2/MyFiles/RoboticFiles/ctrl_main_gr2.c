@@ -127,16 +127,25 @@ void controller_loop(CtrlStruct *cvs){
 
           //   StartMyRat(cvs);
 
-                   /*char s[659];
-       sprintf(s,"time = %f \t speedL = %f \t speedR = %f \t x = %f  \t y = %f \theta = %f \n", cvs->time, cvs->MotorL->speed, cvs->MotorR->speed, cvs->Odo->x, cvs->Odo->y, cvs->Odo->theta);
-        MyConsole_SendMsg(s);*/
+                  char s[659];
+       sprintf(s,"time = %f \t cvs->MotorRatR= %f  \t cvs->MotorRatR->speed = %f cvs->MotorRatL->speed L = %f \n", cvs->time, cvs->MotorRatR->position, cvs->MotorRatR->speed,cvs->MotorRatL->speed);
+        MyConsole_SendMsg(s);
      //  Calibration(cvs);
 
     //   ReachPointPotential(cvs, 0.8, 0.8, 0.03);
       //  DynaTestFunction(cvs);
-      MyStrategy(cvs);
+      if(cvs->time<10)
+      {
+          RatGoBottom(cvs, cvs->MotorRatL);
+          //MyStrategy(cvs);
+      }
+      else
+      {
+         // MyStrategy(cvs);
+      }
+    }
        
-   }
+   
     //PinceCalibration(cvs);
 
 	AlwaysEndController(cvs);

@@ -7,6 +7,8 @@
 #include "controller_gr2.h"
 #include "ctrl_main_gr2.h"
 #include "dynamixel_gr2.h"
+#include "Actions_gr2.h"
+#include "rateau_gr2.h"
 
 #ifndef REALBOT
 #include "namespace_ctrl.h"

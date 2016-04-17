@@ -310,7 +310,7 @@ bool Action4(CtrlStruct *cvs)
        case(DecaleBordFishes) :{
            cvs->MotorL->dutyCycle = 5;
             cvs->MotorR->dutyCycle = 5;
-         if(cvs->Odo->x <(0.96-0.1322) )
+         if(cvs->Odo->x <(1-0.22) )
          {
             cvs->stateAction4 = AlignedWithFishes; 
          }
@@ -330,7 +330,7 @@ bool Action4(CtrlStruct *cvs)
          if(isTop){
              cvs->stateAction4 = DyntakeFish;
          }
-            return true;
+            return false;
             break;
      }
      case(DyntakeFish) :{
@@ -354,7 +354,7 @@ bool Action4(CtrlStruct *cvs)
      }
      case(ReleaseFish) :{
 
-         return true;
+         return  RatGoBottom(cvs, cvs->MotorRatL);;
             break;
      }
     default: break;

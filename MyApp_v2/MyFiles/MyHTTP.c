@@ -367,6 +367,45 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
             }
         }
      }
+    else if(!memcmppgm2ram(filename, "tower.htm", 9))
+	{       
+        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var30");
+		if(ptr){
+            if(*ptr != '\0'){
+                var30 = atof(ptr);
+            }
+        }
+        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var31");
+		if(ptr){
+            if(*ptr != '\0'){
+                var31 = atof(ptr);
+            }
+        }
+        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var32");
+		if(ptr){
+            if(*ptr != '\0'){
+                var32 = atof(ptr);
+            }
+        }
+        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var33");
+		if(ptr){
+            if(*ptr != '\0'){
+                var33 = atof(ptr);
+            }
+        }
+        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var34");
+		if(ptr){
+            if(*ptr != '\0'){
+                var34 = atof(ptr);
+            }
+        }
+        ptr = HTTPGetROMArg(curHTTP.data, (ROM BYTE *)"var35");
+		if(ptr){
+            if(*ptr != '\0'){
+                var35 = atof(ptr);
+            }
+        }
+     }
 	return HTTP_IO_DONE;
 }
 

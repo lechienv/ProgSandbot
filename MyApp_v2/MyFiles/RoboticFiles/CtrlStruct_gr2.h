@@ -53,9 +53,10 @@ NAMESPACE_INIT(ctrlGr2);
 #define MaxGoals 15
 
 #define TOWER_AVERAGING_NUMBER 2
-#define TOWER_OUTLIERS_COMPARE 2
+#define TOWER_OUTLIERS_COMPARE 1
 #define BEACON_POSITION_TOLERANCE 0.1
-#define MAXSPEED_ENNEMYBOT 2
+#define MAXSPEED_ENNEMYBOT 3
+#define NUMBER_WITHOUT_DETECTION_MAX 3
 //enum StateCalib {Cal_y_arr, Cal_y_arr2, Cal_y_av, Cal_y_av1, Cal_rot_neg, Cal_x_arr, Cal_x_av, Cal_rot_pos, Action1 };
 enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, ReturnToBase, AlignForBaseAndReturnInIt, Wait}; // GoToBlocOne, AlignBlocOne, TakeBlocOne, BringBlocOne, ReleaseBlockOne, AlignForBlockOne};
 enum StateDyna {grap, release};
@@ -228,9 +229,11 @@ typedef struct Tower {
 typedef struct FilterTower {
 	int currentIndex;
 	int currentCountOutliers;
+    int numberWithoutDetection;
 	double xList[TOWER_AVERAGING_NUMBER];
 	double yList[TOWER_AVERAGING_NUMBER];
 	bool detectedVeryClose;
+    bool firstInit;
 } FilterTower;
 
 typedef struct AllFiltersTower {

@@ -26,15 +26,19 @@ bool ReachPointPotential(CtrlStruct *cvs, double xGoal, double yGoal, double pre
 		RepulsiveForce(cvs);
 
 		// Taking into account non-holonmy
-		double angle = atan2(cvs->Poto->FYRob, cvs->Poto->FXRob);
-		if (RADtoDEG*angle > 140 || RADtoDEG*angle < -140) {
+		double angle = atan2(cvs->Poto->FYRob, cvs->Poto->FXRob);        
+		if (RADtoDEG*angle > 150 || RADtoDEG*angle < -150) {
+            if(angle > 0)
+                angle = angle - M_PI;
+            else
+                angle = angle + M_PI;
 			double speedRefW = cvs->Poto->kw * angle;
 			double speedRefX = cvs->Poto->kFV*cvs->Poto->FXRob;
 			speedRefX = limitSpeed(speedRefX, MAXSPEED);
 			if (LIMITACCELERATION) {
 				speedRefX = limitXAcceleration(cvs, speedRefX);
 			}
-			speedRefW = -limitSpeed(speedRefW, MAXSPEEDROT);
+			speedRefW = limitSpeed(speedRefW, MAXSPEEDROT);
 			speedRefL = speedRefX - cvs->Param->wheelRadius*speedRefW;
 			speedRefR = speedRefX + cvs->Param->wheelRadius*speedRefW;
 			SpeedRefToDC(cvs, cvs->MotorL, speedRefL);

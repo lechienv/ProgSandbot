@@ -22,6 +22,20 @@ kw = <span id="var20Status" style="font-weight:normal">?</span>
 minDistance <input type="text" name="var21">
 <br>
 minDistance = <span id="var21Status" style="font-weight:normal">?</span>
+<br>
+thresholdAligned <input type="text" name="var26">
+<br>
+thresholdAligned = <span id="var26Status" style="font-weight:normal">?</span>
+<br>
+radiusBot <input type="text" name="var27">
+<br>
+radiusBot = <span id="var27Status" style="font-weight:normal">?</span>
+<br>ActivateLimitAcce <input type="text" name="var28">
+<br>
+ActivateLimitAcce = <span id="var28Status" style="font-weight:normal">?</span>
+<br>maxAcce <input type="text" name="var29">
+<br>
+maxAcce = <span id="var29Status" style="font-weight:normal">?</span>
 <input type="submit" value="Submit" class="btn">
 </form>
 
@@ -41,6 +55,11 @@ function updateStatus(xmlData) {
 	document.getElementById('var19Status').innerHTML = getXMLValue(xmlData, 'var19Status');
 	document.getElementById('var20Status').innerHTML = getXMLValue(xmlData, 'var20Status');
 	document.getElementById('var21Status').innerHTML = getXMLValue(xmlData, 'var21Status');
+		document.getElementById('var26Status').innerHTML = getXMLValue(xmlData, 'var26Status');
+	document.getElementById('var27Status').innerHTML = getXMLValue(xmlData, 'var27Status');
+		document.getElementById('var28Status').innerHTML = getXMLValue(xmlData, 'var28Status');
+	document.getElementById('var29Status').innerHTML = getXMLValue(xmlData, 'var29Status');
+	
 }
 setTimeout("newAJAXCommand('status.xml', updateStatus, true)",500);
 //-->

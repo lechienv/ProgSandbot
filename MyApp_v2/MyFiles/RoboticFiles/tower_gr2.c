@@ -14,7 +14,7 @@ void OpponentDetection(CtrlStruct *cvs)
 #ifndef REALBOT
     cvs->MotorTower->dutyCycle = 15;
 #else
-	cvs->MotorTower->dutyCycle = -99;
+	cvs->MotorTower->dutyCycle = -90;
 #endif
 	UpdateDetectedBotPosition(cvs);
 }
@@ -30,16 +30,10 @@ void UpdateDetectedBotPosition(CtrlStruct *cvs) {
 	}
 #endif
 	if(cvs->Tower->newTurn) {
-            char theStr[512];
-            sprintf(theStr,"x1 = %f \t y1 = %f \t x2 = %f \t y2 = %f \t \t \n\n",	cvs->Obstacles->CircleList[0].x,cvs->Obstacles->CircleList[0].y,
-                    cvs->Obstacles->CircleList[1].x,cvs->Obstacles->CircleList[1].y);
-            
-            MyConsole_SendMsg(theStr);
 		int j;
 		for (j = 0; j < cvs->AllFiltersTower->numberOfEnnemy; j++) {
 			cvs->Obstacles->CircleList[j].hasBeenUpdated = false;
 		}
-		
 		cvs->Tower->newTurn = false;
 		int numberDetected = cvs->Tower->nb_rising;
 		int i;
@@ -59,16 +53,24 @@ void UpdateDetectedBotPosition(CtrlStruct *cvs) {
 			double angle = angleFromTower;
 			double x = cvs->Odo->x + distance*cos(DEGtoRAD * (cvs->Odo->theta + angle));
 			double y = cvs->Odo->y + distance*sin(DEGtoRAD * (cvs->Odo->theta + angle));
-			if(IsBot(x, y)) {
+			//if(IsBot(x, y)) { //!!! TO UNCOMMENT
 				if (numberUpdated < NumberOfCircles_INIT) { //If all bots have not been updated
 					FilterTowerBot(cvs, x, y);
 					numberUpdated++;
 				}
-			}
+			//}
 		}
 		for (i = 0; i < NumberOfCircles_INIT; i++) { //Deactivate the bots that have not been detected
-			if(!cvs->Obstacles->CircleList[i].hasBeenUpdated)
-				cvs->Obstacles->CircleList[i].isActive = false;
+			if(!cvs->Obstacles->CircleList[i].hasBeenUpdated){
+				if(cvs->AllFiltersTower->FilterTowerList[i].numberWithoutDetection >= NUMBER_WITHOUT_DETECTION_MAX){
+                    cvs->Obstacles->CircleList[i].isActive = false;
+                    cvs->AllFiltersTower->FilterTowerList[i].firstInit = true;
+                    cvs->AllFiltersTower->FilterTowerList[i].numberWithoutDetection = 0;
+                } //Deactivate the beacon
+                else {
+                    cvs->AllFiltersTower->FilterTowerList[i].numberWithoutDetection++;
+                } //Do other turn before deactivating the beacon
+            }
 		}
 	}
 }
@@ -79,7 +81,15 @@ void FilterTowerBot(CtrlStruct *cvs, double x, double y) {
 		if (currentIndex >= TOWER_AVERAGING_NUMBER) {
 			AverageAndAddPosition(cvs, botNumber);
 			currentIndex = 0;
-		}
+		} //Update bot position
+        
+        if(cvs->AllFiltersTower->FilterTowerList[botNumber].firstInit){
+            cvs->AllFiltersTower->FilterTowerList[botNumber].firstInit = false;
+            cvs->Obstacles->CircleList[botNumber].x = x;
+            cvs->Obstacles->CircleList[botNumber].y = y;
+            cvs->Obstacles->CircleList[botNumber].isActive = true;
+        } //Update bot position for first detection
+        
 		if (!IsPositionOutliers(cvs, botNumber, x, y)) {
 			cvs->AllFiltersTower->FilterTowerList[botNumber].xList[currentIndex] = x;
 			cvs->AllFiltersTower->FilterTowerList[botNumber].yList[currentIndex] = y;
@@ -91,7 +101,7 @@ void FilterTowerBot(CtrlStruct *cvs, double x, double y) {
 
 int FindCorrespondingBot(CtrlStruct *cvs, double x, double y) {
 	int index = 0;
-	double previousMinError = 1000;
+	double previousMinError = 100000;
 	double error;
 	int i;
 	for (i = 0; i < cvs->AllFiltersTower->numberOfEnnemy; i++) {

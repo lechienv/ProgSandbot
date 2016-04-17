@@ -628,11 +628,11 @@ always_ff @ (posedge clk, posedge reset)
 	begin
 		if(reset | (count === 'x)) begin
 			if(~hasReset) count	<=	'b0;
-			hasReset <= 1'b1;
+			hasReset = 1'b1;
 			end
 		else begin
 			count <= count + 'b1;
-			hasReset <= 1'b0;
+			hasReset = 1'b0;
 		end
 	end	    
 	

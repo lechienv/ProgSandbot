@@ -15,6 +15,8 @@
 
 # OS generated files #
 ######################
+_dep.inc
+_DS_Store
 .DS_Store
 .DS_Store?
 ._*
@@ -26,5 +28,6 @@ Thumbs.db
 MyApp_v2/debug/
 MyApp_v2/build/
 MyApp_v2/dist/
+MyApp_v2/nbproject/
 DE0-nano/db/
 DE0-nano/incremental_db/

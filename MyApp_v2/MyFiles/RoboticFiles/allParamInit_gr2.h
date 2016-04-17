@@ -28,7 +28,7 @@ NAMESPACE_INIT(ctrlGr2);
     #define wheelRRadius_DEFAULT    0.022749
     #define wheelLRadius_DEFAULT    0.022725
 	#define width_DEFAULT           0.2625
-	#define MaxAcceleration_DEFAULT	1
+	#define MaxAcceleration_DEFAULT	2
 #endif // MINIBOT
     #define clicNumberRatL_DEFAULT  10000
     #define clicNumberRatR_DEFAULT  10000
@@ -195,7 +195,7 @@ NAMESPACE_INIT(ctrlGr2);
 #define FXRob_INIT				0
 #define FyRob_INIT				0
 #define kw_INIT					100
-#define minDistance_INIT		0.3
+#define minDistance_INIT		0.5 
 #define thresholdAligned_INIT   0.5//10
 
 /************************************
@@ -211,7 +211,7 @@ NAMESPACE_INIT(ctrlGr2);
 #define NumberOfQuarterOfCircle_INIT 4
 #define NumberOfRectangles_INIT 10
 #define NumberOfCircles_INIT	2 //2Bots + 1 
-#define radiusEnnemyBot			0.15
+#define radiusEnnemyBot			0.35
  /************************************
  * GOALS ************************
  ***********************************/

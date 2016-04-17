@@ -4,15 +4,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Christophe/Documents/EPL/MQ1+MQ2%20Project%20Mechatronic/GitMecatro/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/tower_gr2.c</file>
-            <file>file:/C:/Users/Christophe/Documents/EPL/MQ1+MQ2%20Project%20Mechatronic/GitMecatro/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/strategy_gr2.c</file>
-            <file>file:/C:/Users/Christophe/Documents/EPL/MQ1+MQ2%20Project%20Mechatronic/GitMecatro/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/allParamInit_gr2.h</file>
-            <file>file:/C:/Users/Christophe/Documents/EPL/MQ1+MQ2%20Project%20Mechatronic/GitMecatro/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/tower_gr2.h</file>
-            <file>file:/C:/Users/Christophe/Documents/EPL/MQ1+MQ2%20Project%20Mechatronic/GitMecatro/ProgSandbot/MyApp_v2/MyFiles/interfaceFPGA.c</file>
-            <file>file:/C:/Users/Christophe/Documents/EPL/MQ1+MQ2%20Project%20Mechatronic/GitMecatro/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/strategy_gr2.h</file>
-            <file>file:/C:/Users/Christophe/Documents/EPL/MQ1+MQ2%20Project%20Mechatronic/GitMecatro/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/CtrlStruct_gr2.h</file>
-            <file>file:/C:/Users/Christophe/Documents/EPL/MQ1+MQ2%20Project%20Mechatronic/GitMecatro/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/allParamInit_gr2.c</file>
-            <file>file:/C:/Users/Christophe/Documents/EPL/MQ1+MQ2%20Project%20Mechatronic/GitMecatro/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/ctrl_main_gr2.c</file>
+            <file>file:/Z:/ProgSandbot/MyApp_v2/MyFiles/MyConsole.c</file>
+            <file>file:/Z:/ProgSandbot/MyApp_v2/MyFiles/interfaceFPGA.c</file>
+            <file>file:/Z:/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/testBot_gr2.c</file>
+            <file>file:/Z:/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/allParamInit_gr2.h</file>
+            <file>file:/Z:/ProgSandbot/MyApp_v2/MyIncludes/MyApp.h</file>
+            <file>file:/Z:/ProgSandbot/MyApp_v2/MyFiles/MyHTTP.c</file>
+            <file>file:/Z:/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/tower_gr2.c</file>
+            <file>file:/Z:/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/pathplanning_gr2.c</file>
+            <file>file:/Z:/ProgSandbot/MyApp_v2/MyFiles/MyMiniProjet.c</file>
+            <file>file:/Z:/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/CtrlStruct_gr2.h</file>
+            <file>file:/Z:/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/allParamInit_gr2.c</file>
+            <file>file:/Z:/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/controller_gr2.c</file>
+            <file>file:/Z:/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/ctrl_main_gr2.c</file>
         </group>
     </open-files>
 </project-private>

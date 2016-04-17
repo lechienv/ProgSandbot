@@ -11,7 +11,7 @@
    <SOPCModuleParameter>
     <C>2</C>
     <Name>DESIGN_HASH</Name>
-    <Value>74e70073c47c9bf52a30</Value>
+    <Value>98d4b89ff6a045b2b54a</Value>
    </SOPCModuleParameter>
    <SOPCModuleParameter>
     <C>3</C>
@@ -55,21 +55,26 @@
    </SOPCModuleParameter>
    <SOPCModuleParameter>
     <C>11</C>
+    <Name>COMPOSED_SETTINGS</Name>
+    <Value>{fabric sld dir agent mfr_code 110 type_code 128 version 1 instance 0 ir_width 1 prefer_host {} } {fabric sld dir agent mfr_code 70 type_code 34 version 3 instance 0 ir_width 2 prefer_host {} } {fabric sld dir agent mfr_code 110 type_code 1 version 0 instance 0 ir_width 2 prefer_host {} } {fabric sld dir agent mfr_code 110 type_code 0 version 6 instance 0 ir_width 10 prefer_host {} } </Value>
+   </SOPCModuleParameter>
+   <SOPCModuleParameter>
+    <C>12</C>
     <Name>DEVICE_FAMILY</Name>
     <Value>Cyclone IV E</Value>
    </SOPCModuleParameter>
    <SOPCModuleParameter>
-    <C>12</C>
+    <C>13</C>
     <Name>AUTO_DEVICE</Name>
     <Value>Unknown</Value>
    </SOPCModuleParameter>
    <SOPCModuleParameter>
-    <C>13</C>
+    <C>14</C>
     <Name>AUTO_DEVICE_SPEEDGRADE</Name>
     <Value>Unknown</Value>
    </SOPCModuleParameter>
   </SOPCModule>
-  <SystemID>422120510</SystemID>
+  <SystemID>614054300</SystemID>
  </SOPCSystem>
  <SchemaVersion>schema_2013-01-18</SchemaVersion>
 </ProgramExecution>

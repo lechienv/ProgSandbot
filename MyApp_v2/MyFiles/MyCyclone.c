@@ -67,7 +67,7 @@ void MyCyclone_Write(unsigned int theAddress, unsigned int theData)
 
     intStatus = INTDisableInterrupts();
     mPORTEClearBits(CS_FPGA);
-    MySPI_PutC(theAddress | 0x80); // Bit 7 = R/W = 1
+    MySPI_PutC(theAddress | 0x8000); // Bit 7 = R/W = 1
     MySPI_PutC(theData);
     mPORTESetBits(CS_FPGA);
     INTRestoreInterrupts(intStatus);
@@ -82,7 +82,7 @@ unsigned int MyCyclone_Read(unsigned int theAddress)
 
     intStatus = INTDisableInterrupts();
     mPORTEClearBits(CS_FPGA);
-    MySPI_PutC(theAddress & 0x7F);   // Bit 7 = R/W = 0
+    MySPI_PutC(theAddress & 0x7FFF);   // Bit 7 = R/W = 0
     theData = MySPI_GetC();
     mPORTESetBits(CS_FPGA);
     INTRestoreInterrupts(intStatus);

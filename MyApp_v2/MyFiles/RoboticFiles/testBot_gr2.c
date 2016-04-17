@@ -67,14 +67,14 @@ void Action11Test(CtrlStruct *cvs){
                 cvs->DynaLeft->enable = true;
             }
             else if(cvs->time - cvs->DynaLeft->timer < 4){
-                TurnCCW(20);
+                TurnCCW(0xFE, 20);
                 sprintf(s,"GoTurn\n");
                 MyConsole_SendMsg(s);
             }
             else{
                 sprintf(s,"StopTurn\n");
                 MyConsole_SendMsg(s);
-                StopTurn(1);
+                StopTurn(0xFE, 1);
                 cvs->DynaLeft->stateDyna = release;
                 cvs->DynaLeft->enable = false;
             }
@@ -85,14 +85,14 @@ void Action11Test(CtrlStruct *cvs){
                 cvs->DynaLeft->enable = true;
             }
             else if(cvs->time - cvs->DynaLeft->timer < 4){
-                TurnCW(20);
+                TurnCW(0xFE, 20);
                 sprintf(s,"GoTurn\n");
                 MyConsole_SendMsg(s);
             }
             else{
                 sprintf(s,"StopTurn\n");
                 MyConsole_SendMsg(s);
-                StopTurn(0);
+                StopTurn(0xFE, 0);
                 cvs->DynaLeft->stateDyna = grap;
             }
     }

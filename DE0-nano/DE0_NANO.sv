@@ -257,6 +257,8 @@ logic [15:0] IO_M_Data_In, IO_M_Data_Out, IO_M_Enable_Out;
 logic [15:0] IO_N_Data_In, IO_N_Data_Out, IO_N_Enable_Out;
 logic [15:0] IO_O_Data_In, IO_O_Data_Out, IO_O_Enable_Out;
 logic [15:0] IO_P_Data_In, IO_P_Data_Out, IO_P_Enable_Out;
+logic [15:0] IO_Q_Data_In, IO_Q_Data_Out, IO_Q_Enable_Out;
+logic [15:0] IO_R_Data_In, IO_R_Data_Out, IO_R_Enable_Out;
 
 
 genvar i;
@@ -532,10 +534,8 @@ begin
 	dynDataWrite[23:16]	<= IO_O_Data_Out[15:8];
 	dynDataWrite[31:24]	<= IO_P_Data_Out[7:0];
 	
-	//IO_E_Data_In <= dynDataRead[7:0];
-	//IO_F_Data_In <= dynDataRead[15:8];
-	//IO_G_Data_In <= dynDataRead[23:16];
-	//IO_H_Data_In <= dynDataRead[31:24];
+	IO_Q_Data_In <= dynDataRead[15:0];
+	IO_R_Data_In <= dynDataRead[31:16];
 	
 	/*IO_F_Data_In <=(NoSign)? 8'b00000000:FinReception[7:0]; 
 	IO_G_Data_In <= VitesseRight[15:8]; 
@@ -566,9 +566,9 @@ MySPI MySPI_instance (
 	.Config(Config),
 	.Status(Status),
 	.Led70(Led70),
-	.IO_A_Data_In(IO_A_Data_In), 			.IO_B_Data_In(IO_B_Data_In), 			.IO_C_Data_In(IO_C_Data_In), 			.IO_D_Data_In(IO_D_Data_In),			.IO_E_Data_In(IO_E_Data_In),			.IO_F_Data_In(IO_F_Data_In),			.IO_G_Data_In(IO_G_Data_In),			.IO_H_Data_In(IO_H_Data_In),			.IO_I_Data_In(IO_I_Data_In),			.IO_J_Data_In(IO_J_Data_In),			.IO_K_Data_In(IO_K_Data_In),			.IO_L_Data_In(IO_L_Data_In),			.IO_M_Data_In(IO_M_Data_In), 				.IO_N_Data_In(IO_N_Data_In),				.IO_O_Data_In(IO_O_Data_In),				.IO_P_Data_In(IO_P_Data_In),
-	.IO_A_Data_Out(IO_A_Data_Out), 		.IO_B_Data_Out(IO_B_Data_Out), 		.IO_C_Data_Out(IO_C_Data_Out), 		.IO_D_Data_Out(IO_D_Data_Out),		.IO_E_Data_Out(IO_E_Data_Out),		.IO_F_Data_Out(IO_F_Data_Out),		.IO_G_Data_Out(IO_G_Data_Out),		.IO_H_Data_Out(IO_H_Data_Out),		.IO_I_Data_Out(IO_I_Data_Out),		.IO_J_Data_Out(IO_J_Data_Out),		.IO_K_Data_Out(IO_K_Data_Out),		.IO_L_Data_Out(IO_L_Data_Out),		.IO_M_Data_Out(IO_M_Data_Out),			.IO_N_Data_Out(IO_N_Data_Out),			.IO_O_Data_Out(IO_O_Data_Out),			.IO_P_Data_Out(IO_P_Data_Out),
-	.IO_A_Enable_Out(IO_A_Enable_Out), 	.IO_B_Enable_Out(IO_B_Enable_Out), 	.IO_C_Enable_Out(IO_C_Enable_Out), 	.IO_D_Enable_Out(IO_D_Enable_Out), 	.IO_E_Enable_Out(IO_E_Enable_Out), 	.IO_F_Enable_Out(IO_F_Enable_Out), 	.IO_G_Enable_Out(IO_G_Enable_Out), 	.IO_H_Enable_Out(IO_H_Enable_Out), 	.IO_I_Enable_Out(IO_I_Enable_Out), 	.IO_J_Enable_Out(IO_J_Enable_Out), 	.IO_K_Enable_Out(IO_K_Enable_Out), 	.IO_L_Enable_Out(IO_L_Enable_Out), 	.IO_M_Enable_Out(IO_M_Enable_Out),		.IO_N_Enable_Out(IO_N_Enable_Out),		.IO_O_Enable_Out(IO_N_Enable_Out),		.IO_P_Enable_Out(IO_P_Enable_Out));
+	.IO_A_Data_In(IO_A_Data_In), 			.IO_B_Data_In(IO_B_Data_In), 			.IO_C_Data_In(IO_C_Data_In), 			.IO_D_Data_In(IO_D_Data_In),			.IO_E_Data_In(IO_E_Data_In),			.IO_F_Data_In(IO_F_Data_In),			.IO_G_Data_In(IO_G_Data_In),			.IO_H_Data_In(IO_H_Data_In),			.IO_I_Data_In(IO_I_Data_In),			.IO_J_Data_In(IO_J_Data_In),			.IO_K_Data_In(IO_K_Data_In),			.IO_L_Data_In(IO_L_Data_In),			.IO_M_Data_In(IO_M_Data_In), 				.IO_N_Data_In(IO_N_Data_In),				.IO_O_Data_In(IO_O_Data_In),				.IO_P_Data_In(IO_P_Data_In),				.IO_Q_Data_In(IO_Q_Data_In),				.IO_R_Data_In(IO_R_Data_In),
+	.IO_A_Data_Out(IO_A_Data_Out), 		.IO_B_Data_Out(IO_B_Data_Out), 		.IO_C_Data_Out(IO_C_Data_Out), 		.IO_D_Data_Out(IO_D_Data_Out),		.IO_E_Data_Out(IO_E_Data_Out),		.IO_F_Data_Out(IO_F_Data_Out),		.IO_G_Data_Out(IO_G_Data_Out),		.IO_H_Data_Out(IO_H_Data_Out),		.IO_I_Data_Out(IO_I_Data_Out),		.IO_J_Data_Out(IO_J_Data_Out),		.IO_K_Data_Out(IO_K_Data_Out),		.IO_L_Data_Out(IO_L_Data_Out),		.IO_M_Data_Out(IO_M_Data_Out),			.IO_N_Data_Out(IO_N_Data_Out),			.IO_O_Data_Out(IO_O_Data_Out),			.IO_P_Data_Out(IO_P_Data_Out),			.IO_Q_Data_Out(IO_Q_Data_Out),			.IO_R_Data_Out(IO_R_Data_Out),
+	.IO_A_Enable_Out(IO_A_Enable_Out), 	.IO_B_Enable_Out(IO_B_Enable_Out), 	.IO_C_Enable_Out(IO_C_Enable_Out), 	.IO_D_Enable_Out(IO_D_Enable_Out), 	.IO_E_Enable_Out(IO_E_Enable_Out), 	.IO_F_Enable_Out(IO_F_Enable_Out), 	.IO_G_Enable_Out(IO_G_Enable_Out), 	.IO_H_Enable_Out(IO_H_Enable_Out), 	.IO_I_Enable_Out(IO_I_Enable_Out), 	.IO_J_Enable_Out(IO_J_Enable_Out), 	.IO_K_Enable_Out(IO_K_Enable_Out), 	.IO_L_Enable_Out(IO_L_Enable_Out), 	.IO_M_Enable_Out(IO_M_Enable_Out),		.IO_N_Enable_Out(IO_N_Enable_Out),		.IO_O_Enable_Out(IO_N_Enable_Out),		.IO_P_Enable_Out(IO_P_Enable_Out),		.IO_Q_Enable_Out(IO_Q_Enable_Out),		.IO_R_Enable_Out(IO_R_Enable_Out));
 
 
 	

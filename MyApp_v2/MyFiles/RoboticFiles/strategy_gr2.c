@@ -161,7 +161,19 @@ switch (cvs->stateCalib) {
 }
 
 void DynaTestFunction(CtrlStruct *cvs){
-    AllumeLed();
+    //AllumeLed();
+    if(cvs->time < 3)
+        SetAngle(0x06, 10);
+    else if(cvs->time < 5)
+        SetAngle(0x03, 90);
+    else if(cvs->time < 7)
+        SetAngle(0x03, 200);
+    else if(cvs->time < 9)
+        SetAngle(0x06, 200);
+    ReadDyna();
+    //ReadDyna();
+    //WhichPosition(0x03);
+    //WhichPosition(0x06);
 }
 	
 //////////////////////////////////////////////////////////// homologation ///////////////////////////////////////////////////////////

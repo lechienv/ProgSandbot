@@ -1,5 +1,5 @@
 --sign_div_unsign DEN_REPRESENTATION="UNSIGNED" DEN_WIDTH=6 LPM_PIPELINE=0 MAXIMIZE_SPEED=5 NUM_REPRESENTATION="UNSIGNED" NUM_WIDTH=11 SKIP_BITS=0 denominator numerator quotient remainder
---VERSION_BEGIN 15.0 cbx_cycloneii 2015:04:22:18:04:07:SJ cbx_lpm_abs 2015:04:22:18:04:07:SJ cbx_lpm_add_sub 2015:04:22:18:04:07:SJ cbx_lpm_divide 2015:04:22:18:04:08:SJ cbx_mgl 2015:04:22:18:06:50:SJ cbx_stratix 2015:04:22:18:04:08:SJ cbx_stratixii 2015:04:22:18:04:08:SJ cbx_util_mgl 2015:04:22:18:04:08:SJ  VERSION_END
+--VERSION_BEGIN 15.1 cbx_cycloneii 2015:10:21:18:09:23:SJ cbx_lpm_abs 2015:10:21:18:09:23:SJ cbx_lpm_add_sub 2015:10:21:18:09:23:SJ cbx_lpm_divide 2015:10:21:18:09:23:SJ cbx_mgl 2015:10:21:18:12:49:SJ cbx_nadder 2015:10:21:18:09:23:SJ cbx_stratix 2015:10:21:18:09:23:SJ cbx_stratixii 2015:10:21:18:09:23:SJ cbx_util_mgl 2015:10:21:18:09:23:SJ  VERSION_END
 
 
 -- Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
@@ -9,7 +9,7 @@
 --  (including device programming or simulation files), and any 
 --  associated documentation or information are expressly subject 
 --  to the terms and conditions of the Altera Program License 
---  Subscription Agreement, the Altera Quartus II License Agreement,
+--  Subscription Agreement, the Altera Quartus Prime License Agreement,
 --  the Altera MegaCore Function License Agreement, or other 
 --  applicable license agreement, including, without limitation, 
 --  that your use is for the sole purpose of programming logic 

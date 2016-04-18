@@ -13,10 +13,11 @@ void MyStrategy(CtrlStruct *cvs)
    int color = cvs->robotID;
    switch(cvs->stateStrategy){
         case(GoCalibration) :{ 
-                bool succeed =  Calibration(cvs);
-                if(succeed){
-                    cvs->stateStrategy = GoAction1;
-                }
+                //bool succeed =  Calibration(cvs);
+            ClosePince(cvs);
+                //if(succeed){
+                    //cvs->stateStrategy = GoAction1;
+                //}
                 break;
         }
        case(GoAction1) :{ 

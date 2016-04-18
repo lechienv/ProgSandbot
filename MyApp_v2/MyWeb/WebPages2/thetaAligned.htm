@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Microchip TCP/IP Stack Demo App</title>
+<script src="mchp.js" type="text/javascript"></script>
+</head>
+
+<h1>Others</h1>
+<form method="get">
+KpRot <input type="text" name="var15">
+<br>
+KpRot = <span id="var15Status" style="font-weight:normal">?</span>
+<br>
+KiRot <input type="text" name="var16">
+<br>
+KiRot = <span id="var16Status" style="font-weight:normal">?</span>
+<br>
+KiThreshold <input type="text" name="var17">
+<br>
+KiThreshold = <span id="var17Status" style="font-weight:normal">?</span>
+<input type="submit" value="Submit" class="btn">
+</form>
+
+
+
+
+<script type="text/javascript">
+<!--
+// Parses the xmlResponse from status.xml and updates the status box
+function updateStatus(xmlData) {
+	// Check if a timeout occurred
+	if(!xmlData)
+	{
+		return;
+	}
+	document.getElementById('var15Status').innerHTML = getXMLValue(xmlData, 'var15Status');
+	document.getElementById('var16Status').innerHTML = getXMLValue(xmlData, 'var16Status');
+	document.getElementById('var17Status').innerHTML = getXMLValue(xmlData, 'var17Status');
+
+}
+setTimeout("newAJAXCommand('status.xml', updateStatus, true)",500);
+//-->
+</script>
+
+</html>
+

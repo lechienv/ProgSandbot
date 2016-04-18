@@ -33,7 +33,7 @@ NAMESPACE_INIT(ctrlGr2);
   
   bool RatGoTop(CtrlStruct *cvs, Motor *Motor){
 
-               if( Motor->position >50 && Motor->position <150) //150
+               if( Motor->position >50 && Motor->position <100) //150
                {   
                  Motor->dutyCycle = +35;
                  return false;

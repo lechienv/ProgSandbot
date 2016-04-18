@@ -284,7 +284,7 @@ bool Action4(CtrlStruct *cvs)
    int color = cvs->robotID;
    switch(cvs->stateAction4){
     case(GoToFish) :{
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0.8 , 0.9, 0.02) : ReachPointPotential(cvs, 0.8 , -0.9 , 0.02) ;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0.75 , 1.0, 0.02) : ReachPointPotential(cvs, 0.75 , -1.0 , 0.02) ;
             if(reached){
                 cvs->stateAction4 = AlignForCalibFishes;
             }
@@ -310,7 +310,7 @@ bool Action4(CtrlStruct *cvs)
        case(DecaleBordFishes) :{
            cvs->MotorL->dutyCycle = 5;
             cvs->MotorR->dutyCycle = 5;
-         if(cvs->Odo->x <(1-0.22) )
+         if(cvs->Odo->x <(1-0.22-0.1322) )
          {
             cvs->stateAction4 = AlignedWithFishes; 
          }

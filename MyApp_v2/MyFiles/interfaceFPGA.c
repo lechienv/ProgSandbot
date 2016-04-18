@@ -42,12 +42,15 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
     cvs->MotorPince->speed = ComputeSpeed(cvs->MotorPince->clicNumber,F,!extractBits(A,5,5));
     cvs->MotorRatL->speed = ComputeSpeed(cvs->MotorRatL->clicNumber,H,extractBits(A,4,4));
     cvs->MotorRatR->speed = ComputeSpeed(cvs->MotorRatR->clicNumber,G,extractBits(A,3,3));
+     /* char mStr[64];
+    sprintf(mStr,"speedL = %f \t speedR = %f \t  uswitchR = %d \n",extractBits(A,4,4),extractBits(A,3,3),  cvs->Sensors->uSwitchRight);
+    MyConsole_SendMsg(mStr);*/
     
 #ifdef MINIBOT
-   /* MyCAN_USwitch(&(cvs->Sensors->uSwitchLeft), &(cvs->Sensors->uSwitchRight));
+   // MyCAN_USwitch(&(cvs->Sensors->uSwitchLeft), &(cvs->Sensors->uSwitchRight));
     char theStr[64];
-    sprintf(theStr,"uSL = %d \t uSR = %d \t \n", cvs->Sensors->uSwitchLeft, cvs->Sensors->uSwitchRight);
-    MyConsole_SendMsg(theStr);*/
+    sprintf(theStr,"speedL = %f \t uSR = %d \t \n", cvs->Sensors->uSwitchLeft, cvs->Sensors->uSwitchRight);
+    MyConsole_SendMsg(theStr);
 #else
     cvs->Sensors->uSwitchLeft = (bool) extractBits(A,8,8);
     cvs->Sensors->uSwitchRight = (bool) extractBits(A,9,9);

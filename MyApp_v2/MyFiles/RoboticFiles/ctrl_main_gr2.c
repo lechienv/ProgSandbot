@@ -42,7 +42,7 @@ void controller_init(CtrlStruct *cvs){
     cvs->stateAction2 = GoToBlocOne;
     cvs->stateAction3 = GoToBlocTwoCalib;
     cvs->stateAction4 = GoToFish;
-    cvs->stateStrategy =  GoAction4;//GoCalibration;
+    cvs->stateStrategy =  GoAction2;// GoCalibration;//GoAction4;//
 #ifdef REALBOT
     InitRegMotor(cvs->MotorL);
     InitRegMotor(cvs->MotorR);
@@ -127,21 +127,22 @@ void controller_loop(CtrlStruct *cvs){
 
           //   StartMyRat(cvs);
 
-                  char s[659];
-       sprintf(s,"time = %f \t cvs->MotorRatR= %f  \t cvs->MotorRatR->speed = %f cvs->MotorRatL->speed L = %f \n", cvs->time, cvs->MotorRatR->position, cvs->MotorRatR->speed,cvs->MotorRatL->speed);
-        MyConsole_SendMsg(s);
+              /*    char s[659];
+       sprintf(s,"time = %f \t cvs->MotorRatL= %f  \t cvs->MotorRatL->speed = %f cvs->MotorRatR->speed R = %f \n", cvs->time, cvs->MotorRatL->position, cvs->MotorRatL->speed,cvs->MotorRatR->speed);
+        MyConsole_SendMsg(s);*/
      //  Calibration(cvs);
 
     //   ReachPointPotential(cvs, 0.8, 0.8, 0.03);
       //  DynaTestFunction(cvs);
-      if(cvs->time<10)
+      if(cvs->time<5)
       {
           RatGoBottom(cvs, cvs->MotorRatL);
           //MyStrategy(cvs);
       }
       else
       {
-         // MyStrategy(cvs);
+            cvs->MotorTower->dutyCycle = 0;
+         MyStrategy(cvs);
       }
     }
        

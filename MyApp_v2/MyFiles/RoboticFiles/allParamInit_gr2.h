@@ -19,12 +19,16 @@ NAMESPACE_INIT(ctrlGr2);
     #define clicNumberTower_DEFAULT 1800
     #define wheelRRadius_DEFAULT 0.03
     #define wheelLRadius_DEFAULT 0.03
+	#define width_DEFAULT 0.225
+	#define MaxAcceleration_DEFAULT	10
 #else
     #define clicNumberR_DEFAULT     10000
     #define clicNumberL_DEFAULT     10000
     #define clicNumberTower_DEFAULT 930
-    #define wheelRRadius_DEFAULT 0.022749
-    #define wheelLRadius_DEFAULT 0.022725
+    #define wheelRRadius_DEFAULT    0.022749
+    #define wheelLRadius_DEFAULT    0.022725
+	#define width_DEFAULT           0.2625
+	#define MaxAcceleration_DEFAULT	2
 #endif // MINIBOT
     #define clicNumberRatL_DEFAULT  10000
     #define clicNumberRatR_DEFAULT  10000
@@ -32,6 +36,8 @@ NAMESPACE_INIT(ctrlGr2);
 #else
     #define wheelRRadius_DEFAULT 0.03
     #define wheelLRadius_DEFAULT 0.03
+	#define width_DEFAULT 0.225
+	#define MaxAcceleration_DEFAULT	100
 #endif //REALBOT
 
 #define Kp_DEFAULT 0.3
@@ -159,8 +165,8 @@ NAMESPACE_INIT(ctrlGr2);
 /************************************
  * PARAMS ***************************
  ***********************************/
-#define radiusBot_INIT			0.15//0.2 //0.015 ?
-#define width_INIT				0.2625
+#define radiusBot_INIT			0.16//0.2 //0.015 ?
+#define width_INIT				width_DEFAULT //0.2625
 #define lengthTower_INIT		0.0833
 #define wheelLRadius_INIT		wheelLRadius_DEFAULT
 #define wheelRRadius_INIT		wheelRRadius_DEFAULT
@@ -179,7 +185,7 @@ NAMESPACE_INIT(ctrlGr2);
 #else
 #define rayonBeacon_INIT		0.03
 #endif
-#define maxAcceleration_INIT    1
+#define maxAcceleration_INIT    MaxAcceleration_DEFAULT
 /************************************
  * POTO *****************************
  ***********************************/
@@ -189,7 +195,7 @@ NAMESPACE_INIT(ctrlGr2);
 #define FXRob_INIT				0
 #define FyRob_INIT				0
 #define kw_INIT					100
-#define minDistance_INIT		0.3
+#define minDistance_INIT		0.5
 #define thresholdAligned_INIT   0.5//10
 
 /************************************
@@ -202,9 +208,10 @@ NAMESPACE_INIT(ctrlGr2);
 /************************************
  * OBSTACLES ************************
  ***********************************/
-#define NumberOfQuarterOfCircle_INIT 2
+#define NumberOfQuarterOfCircle_INIT 4
 #define NumberOfRectangles_INIT 10
-#define NumberOfCircles_INIT	3 //3Bots + 1 
+#define NumberOfCircles_INIT	2 //2Bots + 1 
+#define radiusEnnemyBot			0.35
  /************************************
  * GOALS ************************
  ***********************************/
@@ -245,7 +252,6 @@ void InitSensors(CtrlStruct *cvs);
 void InitTower(CtrlStruct *cvs);
 void InitPotential(CtrlStruct *cvs);
 void InitOdometry(CtrlStruct *cvs);
-void InitGoals(CtrlStruct *cvs);
 void InitObstacles(CtrlStruct *cvs);
 void InitDyna(CtrlStruct *cvs);
 

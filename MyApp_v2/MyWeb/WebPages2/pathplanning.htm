@@ -7,25 +7,35 @@
 
 <h1>PATHPLANNING</h1>
 <form method="get">
-katt <input type="text" name="var9">
+katt <input type="text" name="var18">
 <br>
-katt = <span id="var9Status" style="font-weight:normal">?</span>
+katt = <span id="var18Status" style="font-weight:normal">?</span>
 <br>
-krep <input type="text" name="var10">
+krep <input type="text" name="var19">
 <br>
-krep = <span id="var10Status" style="font-weight:normal">?</span>
+krep = <span id="var19Status" style="font-weight:normal">?</span>
 <br>
-minDistance <input type="text" name="var11">
+kw <input type="text" name="var20">
 <br>
-minDistance = <span id="var11Status" style="font-weight:normal">?</span>
+kw = <span id="var20Status" style="font-weight:normal">?</span>
 <br>
-kw <input type="text" name="var12">
+minDistance <input type="text" name="var21">
 <br>
-kw = <span id="var12Status" style="font-weight:normal">?</span>
+minDistance = <span id="var21Status" style="font-weight:normal">?</span>
 <br>
-kFV: <input type="text" name="var13">
+thresholdAligned <input type="text" name="var26">
 <br>
-kFV = <span id="var13Status" style="font-weight:normal">?</span>
+thresholdAligned = <span id="var26Status" style="font-weight:normal">?</span>
+<br>
+radiusBot <input type="text" name="var27">
+<br>
+radiusBot = <span id="var27Status" style="font-weight:normal">?</span>
+<br>ActivateLimitAcce <input type="text" name="var28">
+<br>
+ActivateLimitAcce = <span id="var28Status" style="font-weight:normal">?</span>
+<br>maxAcce <input type="text" name="var29">
+<br>
+maxAcce = <span id="var29Status" style="font-weight:normal">?</span>
 <input type="submit" value="Submit" class="btn">
 </form>
 
@@ -41,11 +51,15 @@ function updateStatus(xmlData) {
 	{
 		return;
 	}
-	document.getElementById('var9Status').innerHTML = getXMLValue(xmlData, 'var9Status');
-	document.getElementById('var10Status').innerHTML = getXMLValue(xmlData, 'var10Status');
-	document.getElementById('var11Status').innerHTML = getXMLValue(xmlData, 'var11Status');
-	document.getElementById('var12Status').innerHTML = getXMLValue(xmlData, 'var12Status');
-	document.getElementById('var13Status').innerHTML = getXMLValue(xmlData, 'var13Status');
+	document.getElementById('var18Status').innerHTML = getXMLValue(xmlData, 'var18Status');
+	document.getElementById('var19Status').innerHTML = getXMLValue(xmlData, 'var19Status');
+	document.getElementById('var20Status').innerHTML = getXMLValue(xmlData, 'var20Status');
+	document.getElementById('var21Status').innerHTML = getXMLValue(xmlData, 'var21Status');
+		document.getElementById('var26Status').innerHTML = getXMLValue(xmlData, 'var26Status');
+	document.getElementById('var27Status').innerHTML = getXMLValue(xmlData, 'var27Status');
+		document.getElementById('var28Status').innerHTML = getXMLValue(xmlData, 'var28Status');
+	document.getElementById('var29Status').innerHTML = getXMLValue(xmlData, 'var29Status');
+	
 }
 setTimeout("newAJAXCommand('status.xml', updateStatus, true)",500);
 //-->

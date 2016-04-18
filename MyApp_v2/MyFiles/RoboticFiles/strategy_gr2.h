@@ -19,9 +19,6 @@ NAMESPACE_INIT(ctrlGr2);
 #endif // ! REALBOT
 
 void    MyStrategy(CtrlStruct *cvs);
-void	TheGoals(CtrlStruct *cvs);
-void	goto_nextstate(CtrlStruct *cvs, bool my_bool);
-void	UpdateTarget(CtrlStruct *cvs);
 void	ActivateBase(CtrlStruct *cvs);
 void	DisactivateBase(CtrlStruct *cvs);
 bool	Calibration(CtrlStruct *cvs);

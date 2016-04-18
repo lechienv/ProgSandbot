@@ -19,7 +19,7 @@ bool	ReachPointPotential(CtrlStruct *cvs, double xGoal, double yGoal, double pre
 double	limitSpeed(double speed, double limit);
 void	AttractiveForce(CtrlStruct *cvs, double xGoal, double yGoal);
 void	RepulsiveForce(CtrlStruct *cvs);
-void	FromClosestPointToRepForces(CtrlStruct *cvs, double x0, double y0, double xp, double yp, double *FXInertial, double *FYInertial);
+void    FromClosestPointToRepForces(CtrlStruct *cvs, double x0, double y0, double xp, double yp, double *FXInertial, double *FYInertial, bool isInside);
 void	ComputeFrepCircle(CtrlStruct *cvs, Circle *circle, double *FXInertial, double *FYInertial);
 void	ComputeFrepRectangle(CtrlStruct *cvs, Rectangle *Rectangle, double *FXInertial, double *FYInertial);
 int		DetermineRectangleZone(Rectangle *Rectangle, double x0, double y0);

@@ -7,29 +7,31 @@
 
 <h1>ODOMETRY</h1>
 <form method="get">
-x <input type="text" name="var6">
-<br>
 x = <span id="var6Status" style="font-weight:normal">?</span>
-<br>
-y <input type="text" name="var7">
 <br>
 y = <span id="var7Status" style="font-weight:normal">?</span>
 <br>
-theta <input type="text" name="var8">
-<br>
 theta = <span id="var8Status" style="font-weight:normal">?</span>
 <br>
-speedL <input type="text" name="var24">
+speedL = <span id="var12Status" style="font-weight:normal">?</span>
 <br>
-speedL = <span id="var24Status" style="font-weight:normal">?</span>
+speedR = <span id="var13Status" style="font-weight:normal">?</span>
 <br>
-speedR <input type="text" name="var25">
+RR <input type="text" name="var9">
 <br>
-speedR = <span id="var25Status" style="font-weight:normal">?</span>
+RR = <span id="var9Status" style="font-weight:normal">?</span>
 <br>
-clicNumber <input type="text" name="var26">
+RL <input type="text" name="var10">
 <br>
-clicNumber = <span id="var26Status" style="font-weight:normal">?</span>
+RL = <span id="var10Status" style="font-weight:normal">?</span>
+<br>
+Width <input type="text" name="var11">
+<br>
+Width = <span id="var11Status" style="font-weight:normal">?</span>
+<br>
+clicNumber <input type="text" name="var14">
+<br>
+clicNumber = <span id="var14Status" style="font-weight:normal">?</span>
 <input type="submit" value="Submit" class="btn">
 </form>
 
@@ -48,9 +50,12 @@ function updateStatus(xmlData) {
 	document.getElementById('var6Status').innerHTML = getXMLValue(xmlData, 'var6Status');
 	document.getElementById('var7Status').innerHTML = getXMLValue(xmlData, 'var7Status');
 	document.getElementById('var8Status').innerHTML = getXMLValue(xmlData, 'var8Status');
-	document.getElementById('var24Status').innerHTML = getXMLValue(xmlData, 'var24Status');
-	document.getElementById('var25Status').innerHTML = getXMLValue(xmlData, 'var25Status');
-	document.getElementById('var26Status').innerHTML = getXMLValue(xmlData, 'var26Status');
+	document.getElementById('var9Status').innerHTML = getXMLValue(xmlData, 'var9Status');
+	document.getElementById('var10Status').innerHTML = getXMLValue(xmlData, 'var10Status');
+	document.getElementById('var11Status').innerHTML = getXMLValue(xmlData, 'var11Status');
+	document.getElementById('var12Status').innerHTML = getXMLValue(xmlData, 'var12Status');
+	document.getElementById('var13Status').innerHTML = getXMLValue(xmlData, 'var13Status');
+	document.getElementById('var14Status').innerHTML = getXMLValue(xmlData, 'var14Status');
 }
 setTimeout("newAJAXCommand('status.xml', updateStatus, true)",500);
 //-->

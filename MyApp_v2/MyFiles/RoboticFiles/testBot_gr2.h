@@ -36,6 +36,7 @@ bool ClosePince(CtrlStruct *cvs);
 bool DeposeBlock(CtrlStruct *cvs);
 bool YCalibration(CtrlStruct *cvs, double Y, double Theta);
 bool XCalibration(CtrlStruct *cvs, double X, double Theta);
+bool Creneau(CtrlStruct *cvs);
 #endif //REALBOT
 
 

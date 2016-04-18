@@ -178,7 +178,7 @@ bool ClosePince(CtrlStruct *cvs){
         return true;
     }
     else
-        cvs->MotorPince->dutyCycle = -40;
+        cvs->MotorPince->dutyCycle = -50;
 
     if((cvs->MotorPince->speed == 0) && (!cvs->Sensors->uSwitchPinceOut) && (cvs->MotorPince->position < -100)){
         return true;
@@ -253,6 +253,28 @@ bool XCalibration(CtrlStruct *cvs, double X, double Theta){
                 return true;
 			}
 		}
+    return false;
+}
+bool Creneau(CtrlStruct *cvs){
+    int color = cvs->robotID;
+    if(color == GREEN){
+        cvs->MotorL->dutyCycle = -10;
+        cvs->MotorR->dutyCycle = -5;
+        if(cvs->Odo->theta > -90){
+            cvs->MotorL->dutyCycle = 0;
+            cvs->MotorR->dutyCycle = 0;
+            return true;
+        }
+    }
+    else{
+        cvs->MotorL->dutyCycle = -5;
+        cvs->MotorR->dutyCycle = -10;
+        if(cvs->Odo->theta < 90){
+            cvs->MotorL->dutyCycle = 0;
+            cvs->MotorR->dutyCycle = 0;
+            return true;
+        }
+    }
     return false;
 }
 

@@ -295,7 +295,7 @@ bool Action3(CtrlStruct *cvs){
             reached = (color == GREEN) ? ReachPointPotential(cvs, 0 , 1, 0.03) : ReachPointPotential(cvs, 0 , -1, 0.03);
         }
         if(reached){
-            cvs->stateStrategy = Action4;
+            //cvs->stateStrategy = Action4;
         }
         return reached;
         break;
@@ -336,6 +336,15 @@ bool Action4(CtrlStruct *cvs)
            cvs->MotorL->dutyCycle = 15;
             cvs->MotorR->dutyCycle = 15;
          if(cvs->Odo->x <(1-0.22-0.1322+0.05) )
+         {
+            cvs->stateAction4 = DoTheCreneau; 
+         }
+         return false;
+         break;
+       }
+       case(DoTheCreneau) :{
+           bool creneauDone = Creneau(cvs);
+         if(creneauDone)
          {
             cvs->stateAction4 = AlignedWithFishes; 
          }

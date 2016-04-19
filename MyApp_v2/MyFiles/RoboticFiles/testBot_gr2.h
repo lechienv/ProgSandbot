@@ -3,6 +3,7 @@
 
 #include "CtrlStruct_gr2.h"
 #include "strategy_gr2.h"
+#include "controller_gr2.h"
 #ifndef REALBOT
 #include "namespace_ctrl.h"
 #include <stdlib.h>

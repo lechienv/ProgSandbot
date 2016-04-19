@@ -254,6 +254,7 @@ void InitPotential(CtrlStruct *cvs);
 void InitOdometry(CtrlStruct *cvs);
 void InitObstacles(CtrlStruct *cvs);
 void InitDyna(CtrlStruct *cvs);
+void InitTowerFilters(CtrlStruct *cvs);
 
 #ifndef REALBOT
 NAMESPACE_CLOSE();

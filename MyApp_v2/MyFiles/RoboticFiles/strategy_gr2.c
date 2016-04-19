@@ -13,11 +13,11 @@ void MyStrategy(CtrlStruct *cvs)
    int color = cvs->robotID;
    switch(cvs->stateStrategy){
         case(GoCalibration) :{ 
-                bool succeed =  Calibration(cvs);
+                bool succeed = Calibration(cvs);
                 if(succeed){
-                    cvs->stateStrategy = GoAction4;
+                   cvs->stateStrategy = GoAction1;
                 }
-            Creneau(cvs);
+               //ReachPointPotential(cvs, 0.7, 0.85, 0.03);
                 break;
         }
        case(GoAction1) :{ 
@@ -89,16 +89,18 @@ switch (cvs->stateCalib) {
         bool isCalibrate = YCalibration(cvs, (color == GREEN) ? (1.5-0.1322) : -(1.5-0.1322), (color == GREEN) ? -90 : 90);
        if(isCalibrate){
            cvs->stateCalib = GoToPoint;
-       } 
+       }
         return false;
        break;
     }
 	case(GoToPoint) :{
-        PinceCalibration(cvs);
-        bool reached =  (color == GREEN) ? ReachPointPotential(cvs, 0.7, 0.85, 0.03) : ReachPointPotential(cvs, 0.7, -0.85, 0.03);
+        //PinceCalibration(cvs);
+        //bool reached =  (color == GREEN) ? ReachPointPotential(cvs, 0.7, 0.85, 0.03) : ReachPointPotential(cvs, 0.7, -0.85, 0.03);
+        bool reached =  (color == GREEN) ? ReachPointPotential(cvs, cvs->Odo->x, 0.85, 0.03) : ReachPointPotential(cvs, 0.7, -0.85, 0.03);
         if(reached){
             cvs->stateCalib = AlignAngle;
         }
+        //ReachPointPotential(cvs, 0.7, 0.85, 0.03);
         return false;
         break;
     }

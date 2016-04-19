@@ -12,7 +12,7 @@
 #include "ctrl_main_gr2.h"
 #include "dynamixel_gr2.h"
 #include "testBot_gr2.h"
-
+#include "Actions_gr2.h"
 #ifndef REALBOT
 #include "namespace_ctrl.h"
 #include <stdlib.h>
@@ -27,6 +27,15 @@ bool	Calibration(CtrlStruct *cvs);
 void	ReCalibration(CtrlStruct *cvs);
 void    PointHomologation(CtrlStruct *cvs);
 void    DynaTestFunction(CtrlStruct *cvs);
+void    SetTimer(CtrlStruct *cvs, MyTimer *Timer, double time);
+void    ResetTimer(MyTimer *Timer);
+bool    IsTimerTimout(CtrlStruct *cvs, MyTimer *Timer);
+bool    PinceCalibration(CtrlStruct *cvs);
+bool    ClosePince(CtrlStruct *cvs);
+bool    DeposeBlock(CtrlStruct *cvs);
+bool    YCalibration(CtrlStruct *cvs, double Y, double Theta);
+bool    XCalibration(CtrlStruct *cvs, double X, double Theta);
+bool    Creneau(CtrlStruct *cvs);
 #ifndef REALBOT
 NAMESPACE_CLOSE();
 #endif // ! REALBOT

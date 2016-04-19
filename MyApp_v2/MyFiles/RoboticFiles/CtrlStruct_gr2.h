@@ -57,7 +57,7 @@ NAMESPACE_INIT(ctrlGr2);
 #define MAXSPEED_ENNEMYBOT 3
 #define NUMBER_WITHOUT_DETECTION_MAX 3
 
-enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, ReturnToBase, AlignForBaseAndReturnInIt, Wait}; // GoToBlocOne, AlignBlocOne, TakeBlocOne, BringBlocOne, ReleaseBlockOne, AlignForBlockOne};
+enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, ReturnToBase, AlignForBase, ReturnInIt, Wait}; // GoToBlocOne, AlignBlocOne, TakeBlocOne, BringBlocOne, ReleaseBlockOne, AlignForBlockOne};
 enum StateDyna {grap, release};
 enum StateVia {backHomeViaBase, backHomeStraight, normalPoint, viaPoint};
 enum StateHomologation {PinceCalib, reachViaPoint, AlignWithTheta, ReachBlocs, ClosingPince, GoViaZone, AlignZone, GoInZone, OpeningPince,HomologationAction1};
@@ -80,15 +80,11 @@ typedef struct Potential {
 } Potential;
 
 typedef struct Odometry {
-	double timein;
-	int timeDelay;
 	double x;
 	double y;
 	double theta;
     double speedL;
     double speedR;
-    double bufferTime;
-    double flagBufferPosition;
 #ifdef REALBOT
     double clicNumber;
 #endif // REALBOT
@@ -245,6 +241,12 @@ typedef struct AllFiltersTower {
 	FilterTower *FilterTowerList;
 } AllFiltersTower;
 
+typedef struct MyTimer{
+    double beginTime;
+    double endTime;
+    bool isSet;
+} MyTimer;
+
 /// Main controller structure
 typedef struct CtrlStruct
 {
@@ -284,6 +286,8 @@ typedef struct CtrlStruct
 	Tower *Tower;
 	Goals *Goals;
 	AllFiltersTower *AllFiltersTower;
+    MyTimer *TimerAction;
+    MyTimer *TimerCalibration;
 } CtrlStruct;
 
 

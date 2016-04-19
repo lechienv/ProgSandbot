@@ -219,12 +219,8 @@ void InitPotential(CtrlStruct *cvs) {
 
 void InitOdometry(CtrlStruct *cvs) {
 	cvs->Odo = (Odometry*)malloc(sizeof(Odometry));
-	cvs->Odo->timein = 0;
-	cvs->Odo->timeDelay = 0.0;
     cvs->Odo->speedL = 0;
     cvs->Odo->speedR = 0;
-    cvs->Odo->bufferTime = -100000;
-    cvs->Odo->flagBufferPosition = 0;
 	int color = cvs->robotID;
 #ifdef REALBOT
     cvs->Odo->clicNumber = clicNumberOdo_INIT;
@@ -303,13 +299,13 @@ void InitObstacles(CtrlStruct *cvs) {
 
 	int color = cvs->robotID;
 	//MidAreaGreenSide
-	cvs->Obstacles->QuarterOfCircleList[0].isActive = ((color == WHITE) || (color == YELLOW)) ? false : true;
+	cvs->Obstacles->QuarterOfCircleList[0].isActive = ((color == GREEN)) ? false : true;
 	cvs->Obstacles->QuarterOfCircleList[0].quadrant = 1;
 	cvs->Obstacles->QuarterOfCircleList[0].radius = 0.6;
 	cvs->Obstacles->QuarterOfCircleList[0].x = -0.25;
 	cvs->Obstacles->QuarterOfCircleList[0].y = 0;
 	//MidAreaBlueSide
-	cvs->Obstacles->QuarterOfCircleList[1].isActive = ((color == BLUE) || (color == RED)) ? false : true;
+	cvs->Obstacles->QuarterOfCircleList[1].isActive = ((color == PINK)) ? false : true;
 	cvs->Obstacles->QuarterOfCircleList[1].quadrant = 4;
 	cvs->Obstacles->QuarterOfCircleList[1].radius = 0.6;
 	cvs->Obstacles->QuarterOfCircleList[1].x = -0.25;
@@ -428,6 +424,17 @@ void InitTowerFilters(CtrlStruct *cvs) {
 	}
 }
 
+void InitTimer(CtrlStruct *cvs){
+    cvs->TimerAction = (MyTimer*)malloc(sizeof(MyTimer));
+    cvs->TimerAction->beginTime = 0;
+    cvs->TimerAction->endTime = 0;
+    cvs->TimerAction->isSet = false;
+    
+    cvs->TimerCalibration = (MyTimer*)malloc(sizeof(MyTimer));
+    cvs->TimerCalibration->beginTime = 0;
+    cvs->TimerCalibration->endTime = 0;
+    cvs->TimerCalibration->isSet = false;
+}
 #ifndef REALBOT
 NAMESPACE_CLOSE();
 #endif // ! REALBOT

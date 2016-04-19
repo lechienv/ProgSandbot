@@ -18,7 +18,7 @@ void controller_init(CtrlStruct *cvs){
     cvs->previousTimeCAN = 0;
     cvs->timeOffset = 0;
 #ifdef REALBOT
-    cvs->robotID = GREEN;//PINK; //getRobotID();
+    cvs->robotID = PINK; //getRobotID();
     cvs->timeStep = TIMESTEP_REALBOT;
 #else
     cvs->robotID = cvs->inputs->robot_id;
@@ -33,6 +33,7 @@ void controller_init(CtrlStruct *cvs){
 	InitTower(cvs);
     InitDyna(cvs);
     InitTowerFilters(cvs);
+    InitTimer(cvs);
 
 	int color = cvs->robotID;
 	cvs->stateCalib = Cal_y_arr;
@@ -63,25 +64,25 @@ void controller_loop(CtrlStruct *cvs){
 //#define WEBSITETEST
 #ifndef WEBSITETEST
     
-   cvs->Param->MotorCommandByHand = CommandMotorByHand;
-   if(cvs->Param->MotorCommandByHand)
-   {
-    cvs->MotorL->dutyCycle = LeftMotorDC;//RightMotorDC;
-    cvs->MotorR->dutyCycle = RightMotorDC;// RightMotorDC;
-    cvs->MotorTower->dutyCycle = TourelleDC;
-    cvs->MotorRatL->dutyCycle = RateauLDC; //RightMotorDC;//RightMotorDC;
-    cvs->MotorRatR->dutyCycle = RateauRDC; //RightMotorDC;//RightMotorDC;
-    cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;*/   
-   }
-   else if(cvs->time > 200){
-       cvs->MotorL->dutyCycle = 0;//RightMotorDC;
+    cvs->Param->MotorCommandByHand = CommandMotorByHand;
+    if(cvs->Param->MotorCommandByHand)
+    {
+     cvs->MotorL->dutyCycle = LeftMotorDC;//RightMotorDC;
+     cvs->MotorR->dutyCycle = RightMotorDC;// RightMotorDC;
+     cvs->MotorTower->dutyCycle = TourelleDC;
+     cvs->MotorRatL->dutyCycle = RateauLDC; //RightMotorDC;//RightMotorDC;
+     cvs->MotorRatR->dutyCycle = RateauRDC; //RightMotorDC;//RightMotorDC;
+     cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;*/   
+    }
+    else if(cvs->time > 200){
+        cvs->MotorL->dutyCycle = 0;//RightMotorDC;
         cvs->MotorR->dutyCycle = 0;// RightMotorDC;
         cvs->MotorTower->dutyCycle = 0;
         cvs->MotorRatL->dutyCycle = 0; //RightMotorDC;//RightMotorDC;
         cvs->MotorRatR->dutyCycle = 0; //RightMotorDC;//RightMotorDC;
         cvs->MotorPince->dutyCycle = 0;//RightMotorDC;*/
-   }
-   else{
+    }
+    else{
 
           //   StartMyRat(cvs);
 
@@ -104,7 +105,9 @@ void controller_loop(CtrlStruct *cvs){
         // PointHomologation(cvs);
           
       }*/
-       Calibration(cvs);
+     //Calibration(cvs);
+      Action1(cvs);
+      // MyStrategy(cvs);
     }
        
 #else
@@ -139,6 +142,8 @@ void controller_finish(CtrlStruct *cvs)
 	free(cvs->Goals);
     free(cvs->AllFiltersTower->FilterTowerList);
 	free(cvs->AllFiltersTower);
+    free(cvs->TimerAction);
+    free(cvs->TimerCalibration);
 #ifdef REALBOT
     free(cvs->MotorRatL);
     free(cvs->MotorRatR);
@@ -146,7 +151,6 @@ void controller_finish(CtrlStruct *cvs)
 	free(cvs->DynaLeft);
 	free(cvs->DynaRight);
 #endif
-
 }
 
 void UpdateFromFPGA(CtrlStruct *cvs) {

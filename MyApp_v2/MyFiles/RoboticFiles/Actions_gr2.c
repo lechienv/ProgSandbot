@@ -14,7 +14,7 @@ bool Action1(CtrlStruct *cvs){
 //enum StateAction1{GoToHouses, AlignedWithHouses, PushHouses, FreeHouses};
    switch(cvs->stateAction1){
     case(GoToHouses) :{
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.7 , 1.1, 0.02) : ReachPointPotential(cvs, -0.7 , -1.1 , 0.02) ;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , 1.17, 0.02) : ReachPointPotential(cvs, -0.6 , -1.17 , 0.02) ;
             if(reached){
                 cvs->stateAction1 = AlignedWithHouses;
             }
@@ -22,7 +22,7 @@ bool Action1(CtrlStruct *cvs){
             break;
         }
        case(AlignedWithHouses) :{
-            bool aligned =   IsAlignedWithTheta(cvs, 0, 5);
+            bool aligned =  (color == GREEN) ? IsAlignedWithTheta(cvs, 10, 5) : IsAlignedWithTheta(cvs, -10, 5);
             if(aligned){
                 cvs->stateAction1 = PushHouses;
             }
@@ -32,10 +32,19 @@ bool Action1(CtrlStruct *cvs){
          case(PushHouses) :{
             //SpeedRefToDC(cvs,cvs->MotorL,-5);
             //SpeedRefToDC(cvs,cvs->MotorR,-5);
-             cvs->MotorL->dutyCycle = -20;
-             cvs->MotorR->dutyCycle = -20;
+             cvs->MotorL->dutyCycle = -40;
+             cvs->MotorR->dutyCycle = -40;
             if(cvs->Sensors->uSwitchLeft && cvs->Sensors->uSwitchRight){
-                cvs->stateAction1 = FreeHouses;
+                    if(!cvs->TimerCalibration->isSet)
+                    {
+                    SetTimer(cvs, cvs->TimerCalibration, 2);
+                    }
+                    if(IsTimerTimout(cvs,cvs->TimerCalibration))
+                    {
+                    ResetTimer(cvs->TimerCalibration);
+                     cvs->stateAction1 = FreeHouses;
+                    return true;
+                    }
             }
             return false;
             break;
@@ -105,8 +114,6 @@ bool Action2(CtrlStruct *cvs){
     }
     case(ReleaseBlockOne):{
         bool reached = false;
-        if(cvs->Odo->bufferTime == -100000)
-            cvs->Odo->bufferTime = cvs->time;
         bool isDeposed = DeposeBlock(cvs);
         if(isDeposed){
             reached = (color == GREEN) ? ReachPointPotential(cvs, 0 , 1.2, 0.03) : ReachPointPotential(cvs, 0 , -1.2, 0.03);
@@ -199,67 +206,22 @@ bool Action3(CtrlStruct *cvs){
                     cvs->stateAction3 = ReculeForBlockTwo;
                 }
      }
-        /*  bool isClosed;
-        //bool isAlign;
-            if((cvs->Odo->bufferTime < 0))
-                cvs->Odo->bufferTime = cvs->time;
-
-            if(cvs->Odo->bufferTime > cvs->time - 4){
-                cvs->MotorL->dutyCycle = 25;
-                cvs->MotorR->dutyCycle = 25;
-                cvs->Odo->flagBufferPosition = 1;
-            }
-             else{
-                //isClosed = ClosePince(cvs);
-                isClosed = ClosePince(cvs);
-                //isAlign = IsAlignedWithTheta(cvs,180,1);
-                if(isClosed){
-                    SpeedRefToDC(cvs, cvs->MotorL, 0);
-                    SpeedRefToDC(cvs, cvs->MotorR, 0);
-                    cvs->Odo->bufferTime = -100000;
-                    cvs->stateAction3 = ReculeForBlockTwo;
-                }
-              else{
-                    cvs->MotorL->dutyCycle = 0;
-                    cvs->MotorR->dutyCycle = 0;
-                    cvs->Odo->flagBufferPosition = 0;
-                }
-             }*/
          return false;
          break;
     }
     case(ReculeForBlockTwo):{
         bool isClosed = false;
         cvs->MotorL->dutyCycle = -15;
-     cvs->MotorR->dutyCycle = -15;
-     if(cvs->Odo->x > -0.5)
-     {
-         isClosed = ClosePince(cvs);
-          if(isClosed){
-                    SpeedRefToDC(cvs, cvs->MotorL, 0);
-                    SpeedRefToDC(cvs, cvs->MotorR, 0);
-                    cvs->stateAction3 = BringBlockTwoViaPoint;
-                }
-     }
-        /*
-            if((cvs->Odo->bufferTime < 0))
-                cvs->Odo->bufferTime = cvs->time;
-
-            if(cvs->Odo->bufferTime > cvs->time - 1){
-                cvs->MotorL->dutyCycle = -25;
-                cvs->MotorR->dutyCycle = -25;
-                cvs->Odo->flagBufferPosition = 1;
+        cvs->MotorR->dutyCycle = -15;
+        if(cvs->Odo->x > -0.5)
+        {
+            isClosed = ClosePince(cvs);
+            if(isClosed){
+                SpeedRefToDC(cvs, cvs->MotorL, 0);
+                SpeedRefToDC(cvs, cvs->MotorR, 0);
+                cvs->stateAction3 = BringBlockTwoViaPoint;
             }
-             else{
-                cvs->MotorL->dutyCycle = 0;
-                cvs->MotorR->dutyCycle = 0;
-                cvs->Odo->flagBufferPosition = 0;
-                isClosed = ClosePince(cvs);
-                if(isClosed){
-                    cvs->Odo->bufferTime = -100000;
-                    cvs->stateAction3 = BringBlockTwoViaPoint;
-                }
-             }*/
+        }
          return false;
          break;
     }
@@ -281,21 +243,16 @@ bool Action3(CtrlStruct *cvs){
     }
     case(AlignForBlockTwo):{
         bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs,-90,5) : IsAlignedWithTheta(cvs,90,5);
-            if(isAligned)
-                cvs->stateAction3 = ReleaseBlockTwo;
-            return false;
-            break;
+        if(isAligned)
+            cvs->stateAction3 = ReleaseBlockTwo;
+        return false;
+        break;
     }
     case(ReleaseBlockTwo):{
-        bool reached;
-        if(cvs->Odo->bufferTime == -100000)
-            cvs->Odo->bufferTime = cvs->time;
+        bool reached = false;
         bool isDeposed = DeposeBlock(cvs);
         if(isDeposed){
             reached = (color == GREEN) ? ReachPointPotential(cvs, 0 , 1, 0.03) : ReachPointPotential(cvs, 0 , -1, 0.03);
-        }
-        if(reached){
-            //cvs->stateStrategy = Action4;
         }
         return reached;
         break;

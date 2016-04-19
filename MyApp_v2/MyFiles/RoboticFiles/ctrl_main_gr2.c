@@ -92,17 +92,19 @@ void controller_loop(CtrlStruct *cvs){
 
     //   ReachPointPotential(cvs, 0.8, 0.8, 0.03);
       //  DynaTestFunction(cvs);
-      if(cvs->time<5)
+     /* if(cvs->time<5)
       {
           RatGoBottom(cvs, cvs->MotorRatL);
           //MyStrategy(cvs);
       }
       else
       {
-         cvs->MotorTower->dutyCycle = 0;
-         MyStrategy(cvs);
-         
-      }
+        // cvs->MotorTower->dutyCycle = 0;
+         //MyStrategy(cvs);
+        // PointHomologation(cvs);
+          
+      }*/
+       Calibration(cvs);
     }
        
 #else

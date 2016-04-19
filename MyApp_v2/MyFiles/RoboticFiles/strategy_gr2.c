@@ -86,21 +86,19 @@ enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, GoToBlocOne, Align
     
 switch (cvs->stateCalib) {
 	case(Cal_y_arr) : {
-        bool isCalibrate = YCalibration(cvs, (color == GREEN) ? (1.5-0.1322) : -(1.5-0.1322), (color == GREEN) ? -90 : 90);
+       bool isCalibrate = YCalibration(cvs, (color == GREEN) ? (1.5-0.1322) : -(1.5-0.1322), (color == GREEN) ? -90 : 90);
        if(isCalibrate){
            cvs->stateCalib = GoToPoint;
        }
-        return false;
+       return false;
        break;
     }
 	case(GoToPoint) :{
-        //PinceCalibration(cvs);
-        //bool reached =  (color == GREEN) ? ReachPointPotential(cvs, 0.7, 0.85, 0.03) : ReachPointPotential(cvs, 0.7, -0.85, 0.03);
-        bool reached =  (color == GREEN) ? ReachPointPotential(cvs, cvs->Odo->x, 0.85, 0.03) : ReachPointPotential(cvs, 0.7, -0.85, 0.03);
+        PinceCalibration(cvs);
+        bool reached =  (color == GREEN) ? ReachPointPotential(cvs, 0.7, 0.85, 0.03) : ReachPointPotential(cvs, 0.7, -0.85, 0.03);
         if(reached){
             cvs->stateCalib = AlignAngle;
         }
-        //ReachPointPotential(cvs, 0.7, 0.85, 0.03);
         return false;
         break;
     }
@@ -110,7 +108,7 @@ switch (cvs->stateCalib) {
             bool isAligned = IsAlignedWithTheta(cvs,180,3);
             if(isAligned)
                 cvs->stateCalib = Cal_x_arr;
-           return false;
+            return false;
             break;
         }
 
@@ -120,7 +118,6 @@ switch (cvs->stateCalib) {
             if(isCalibrate){
                 cvs->stateCalib = ReturnToBase;
             }
-
             return false;
             break;
     }
@@ -138,12 +135,16 @@ switch (cvs->stateCalib) {
         
          bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs,-90,1) : IsAlignedWithTheta(cvs,90,1);
          if(isAligned){
-             if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
+            if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
 			SpeedRefToDC(cvs, cvs->MotorL, -5);
 			SpeedRefToDC(cvs, cvs->MotorR, -5);
-		}
-		else {
-			cvs->Odo->timein = (cvs->Odo->timeDelay == 0) ? cvs->time : cvs->Odo->timein;
+            }
+            else {
+                 bool isCalibrate = YCalibration(cvs, (color == GREEN) ? (1.5-0.1322) : -(1.5-0.1322), (color == GREEN) ? -90 : 90);
+                 if(isCalibrate){
+                   cvs->stateCalib = Wait;
+                 }
+			/*cvs->Odo->timein = (cvs->Odo->timeDelay == 0) ? cvs->time : cvs->Odo->timein;
 			cvs->Odo->timeDelay += 1;
 			if (fabs(cvs->Odo->timein - cvs->time) < 0.5) {
 				SpeedRefToDC(cvs, cvs->MotorL, -1);
@@ -156,7 +157,7 @@ switch (cvs->stateCalib) {
                         cvs->Odo->timeDelay = 0;
                         cvs->stateCalib = Wait;
                                 
-                }
+                }*/
             }
          }
          return false;
@@ -198,7 +199,7 @@ void PointHomologation(CtrlStruct *cvs){
             break;
         }
         case reachViaPoint:{
-            bool isReached;
+            bool isReached=false;
             if(color == GREEN){
                 isReached = ReachPointPotential(cvs, -0.1, 1.2, 0.03);
             }
@@ -214,7 +215,7 @@ void PointHomologation(CtrlStruct *cvs){
             break;
         }
         case AlignWithTheta:{
-            bool isAligned;
+            bool isAligned=false;
             if(color == GREEN){
                 isAligned = IsAlignedWithTheta(cvs,-90,1);
             }
@@ -240,7 +241,7 @@ void PointHomologation(CtrlStruct *cvs){
             break;
         }
         case GoViaZone:{
-            bool isReached;
+            bool isReached=false;
             if(color == GREEN){
                 isReached = ReachPointPotential(cvs, 0.1, 0.575, 0.05);
             }
@@ -252,7 +253,7 @@ void PointHomologation(CtrlStruct *cvs){
             break;
         }
         case AlignZone:{
-            bool isAligned;
+            bool isAligned=false;
             if(color == GREEN){
                 isAligned = IsAlignedWithTheta(cvs,-95,1);
             }
@@ -272,9 +273,18 @@ void PointHomologation(CtrlStruct *cvs){
                 cvs->stateHomologation = OpeningPince;
             break;
         case OpeningPince:{
-            bool calibred = PinceCalibration(cvs);               
+            bool calibred = PinceCalibration(cvs); 
+            if(calibred)
+            {
+                cvs->stateHomologation = HomologationAction1;
+            }
             break;
         }
+         case(HomologationAction1):{
+            bool HousesOk = Action1(cvs);              
+            break;
+        }
+        
     }
 }
 

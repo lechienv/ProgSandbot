@@ -51,7 +51,7 @@ NAMESPACE_INIT(ctrlGr2);
 #define KIFLUSHLIMIT 1000
 
 
-#define TOWER_AVERAGING_NUMBER 2
+#define TOWER_AVERAGING_NUMBER 1
 #define TOWER_OUTLIERS_COMPARE 1
 #define BEACON_POSITION_TOLERANCE 0.1
 #define MAXSPEED_ENNEMYBOT 3
@@ -288,6 +288,8 @@ typedef struct CtrlStruct
 	AllFiltersTower *AllFiltersTower;
     MyTimer *TimerAction;
     MyTimer *TimerCalibration;
+    MyTimer *TimerReleaseBlocksAvance;
+    MyTimer *TimerReleaseBlocksRecule;
 } CtrlStruct;
 
 

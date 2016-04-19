@@ -14,7 +14,7 @@ bool Action1(CtrlStruct *cvs){
 //enum StateAction1{GoToHouses, AlignedWithHouses, PushHouses, FreeHouses};
    switch(cvs->stateAction1){
     case(GoToHouses) :{
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , 1.17, 0.02) : ReachPointPotential(cvs, -0.6 , -1.17 , 0.02) ;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , 1.15, 0.02) : ReachPointPotential(cvs, -0.6 , -1.15 , 0.02) ;
             if(reached){
                 cvs->stateAction1 = AlignedWithHouses;
             }
@@ -32,12 +32,13 @@ bool Action1(CtrlStruct *cvs){
          case(PushHouses) :{
             //SpeedRefToDC(cvs,cvs->MotorL,-5);
             //SpeedRefToDC(cvs,cvs->MotorR,-5);
+             PinceCalibration(cvs);
              cvs->MotorL->dutyCycle = -40;
              cvs->MotorR->dutyCycle = -40;
             if(cvs->Sensors->uSwitchLeft && cvs->Sensors->uSwitchRight){
                     if(!cvs->TimerCalibration->isSet)
                     {
-                    SetTimer(cvs, cvs->TimerCalibration, 2);
+                    SetTimer(cvs, cvs->TimerCalibration, 0.5);
                     }
                     if(IsTimerTimout(cvs,cvs->TimerCalibration))
                     {
@@ -50,7 +51,8 @@ bool Action1(CtrlStruct *cvs){
             break;
         }
          case(FreeHouses) :{
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.14, 1.2, 0.03) : ReachPointPotential(cvs, -0.14, -1.2, 0.03);
+            PinceCalibration(cvs);
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.14, 1.3, 0.03) : ReachPointPotential(cvs, -0.14, -1.3, 0.03);
             if(reached){
                 cvs->stateStrategy = GoAction2;
             }

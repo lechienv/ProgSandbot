@@ -65,6 +65,8 @@ void UpdateDetectedBotPosition(CtrlStruct *cvs) {
 				if(cvs->AllFiltersTower->FilterTowerList[i].numberWithoutDetection >= NUMBER_WITHOUT_DETECTION_MAX){
                     cvs->Obstacles->CircleList[i].isActive = false;
                     cvs->AllFiltersTower->FilterTowerList[i].firstInit = true;
+                    cvs->AllFiltersTower->FilterTowerList[i].currentCountOutliers = 0;
+                    cvs->AllFiltersTower->FilterTowerList[i].currentIndex = 0;
                     cvs->AllFiltersTower->FilterTowerList[i].numberWithoutDetection = 0;
                     int j;
                     for(j = 0; j < TOWER_AVERAGING_NUMBER; j++){

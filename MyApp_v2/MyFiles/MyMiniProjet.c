@@ -14,8 +14,10 @@
 /*****************************************************************************
  * MAIN
  *****************************************************************************/
-
+//#define SD_CARD
 #define WEB
+
+
 void MyMiniProjet_Task(void)
 {
 
@@ -37,24 +39,18 @@ void MyMiniProjet_Task(void)
     /*********************************
      * SD Memory *********************
      ********************************/
-    unsigned int size = 8192;
-    char timeSD[size];
-    CreateBuffer(timeSD);
-    
-    char xSD[size];
-    CreateBuffer(xSD);
+    unsigned int size = 8192;    
+    char X1[size];
+    CreateBuffer(X1);
         
-    char ySD[size];
-    CreateBuffer(ySD);
+    char Y1[size];
+    CreateBuffer(Y1);
     
-    char thetaSD[size];
-    CreateBuffer(thetaSD);
+    char X2[size];
+    CreateBuffer(X2);
     
-    char speedLSD[size];
-    CreateBuffer(speedLSD);
-    
-    char speedRSD[size];
-    CreateBuffer(speedRSD);
+    char Y2[size];
+    CreateBuffer(Y2);
     
     bool hasSaved = false;
     /*********************************
@@ -82,48 +78,37 @@ void MyMiniProjet_Task(void)
                     previousTime = currentTime;
                     controller_loop(cvs);    
                     
-                   
-                    
-                    
-                    
-        //#define TESTS
-
-        #ifndef TESTS
                     if((double)(currentTime - previousTimeData) > TIME_DATAREFRESH*(SYS_FREQ/2000)*1000){//
                         previousTimeData = currentTime;                     
 #ifdef WEB
                         /* Refresh Web Variables */
                         RefreshWebVariables(cvs);
+#endif
+                        
+#ifdef SD_CARD
                         /* Save on SD */
-#else
                         if(!hasSaved){
-                            AddElement(cvs->MotorL->speed, speedLSD);
+                            AddElement(cvs->Obstacles->CircleList[0].x, X1);
                             MyDelayMs(1);
-                            AddElement(cvs->MotorR->speed, speedRSD);
+                            AddElement(cvs->Obstacles->CircleList[0].y, Y1);
                             MyDelayMs(1);
-                            AddElement(cvs->timeStep,timeSD);
+                            AddElement(cvs->Obstacles->CircleList[1].x, X2);
                             MyDelayMs(1);
+                            AddElement(cvs->Obstacles->CircleList[1].y, Y2);
                         }
 #endif
                     }
-#ifndef WEB
+#ifdef SD_CARD
                     /* Stopping condition*/
                     //unsigned int A = MyCyclone_Read(CYCLONE_IO_A_Data);
                     //int newTurn = extractBits(A,15,15);
-                    if(cvs->time > 20 && !hasSaved){
-                    //if((newTurn != previousTurn) && !hasSaved){
-                        //MyConsole_SendMsg("Here2 \n");
-                        /* Save data on SD */
-                        WriteSDMemory(timeSD, "time.txt", size);     
-                        WriteSDMemory(speedLSD, "speedL.txt", size);  
-                        WriteSDMemory(speedRSD, "speedR.txt", size);  
-                        //WriteSDMemory(xSD, "odox.txt", size);
-                        //WriteSDMemory(ySD, "odoy.txt",size);
-                        //WriteSDMemory(thetaSD, "theta.txt",size);
-                       
+                    if(cvs->time > 30 && !hasSaved){  
+                        WriteSDMemory(X1, "X1.txt", size);  
+                        WriteSDMemory(Y1, "Y1.txt", size);  
+                        WriteSDMemory(X2, "X2.txt", size);
+                        WriteSDMemory(Y2, "Y2.txt",size);                      
                         hasSaved = true;
                     }
-        #endif
 #endif
                 }    
             }

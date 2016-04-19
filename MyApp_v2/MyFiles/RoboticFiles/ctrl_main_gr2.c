@@ -42,7 +42,7 @@ void controller_init(CtrlStruct *cvs){
     cvs->stateAction2 = GoToBlocOne;
     cvs->stateAction3 = GoToBlocTwoCalib;
     cvs->stateAction4 = GoToFish;
-    cvs->stateStrategy =  GoCalibration;//GoAction4;//
+    cvs->stateStrategy =  GoAction1; //GoCalibration;//GoAction4;//
 #ifdef REALBOT
     InitRegMotor(cvs->MotorL);
     InitRegMotor(cvs->MotorR);
@@ -61,7 +61,7 @@ void controller_init(CtrlStruct *cvs){
 void controller_loop(CtrlStruct *cvs){
 	AlwaysInController(cvs);
     
-//#define WEBSITETEST
+#define WEBSITETEST
 #ifndef WEBSITETEST
     
     cvs->Param->MotorCommandByHand = CommandMotorByHand;
@@ -106,8 +106,9 @@ void controller_loop(CtrlStruct *cvs){
           
       }*/
      //Calibration(cvs);
-      Action1(cvs);
-      // MyStrategy(cvs);
+      //Action1(cvs);
+      //MyStrategy(cvs);
+        PinceCalibration(cvs);
     }
        
 #else

@@ -434,6 +434,16 @@ void InitTimer(CtrlStruct *cvs){
     cvs->TimerCalibration->beginTime = 0;
     cvs->TimerCalibration->endTime = 0;
     cvs->TimerCalibration->isSet = false;
+
+    cvs->TimerReleaseBlocksAvance = (MyTimer*)malloc(sizeof(MyTimer));
+    cvs->TimerReleaseBlocksAvance->beginTime = 0;
+    cvs->TimerReleaseBlocksAvance->endTime = 0;
+    cvs->TimerReleaseBlocksAvance->isSet = false;
+
+    cvs->TimerReleaseBlocksRecule = (MyTimer*)malloc(sizeof(MyTimer));
+    cvs->TimerReleaseBlocksRecule->beginTime = 0;
+    cvs->TimerReleaseBlocksRecule->endTime = 0;
+    cvs->TimerReleaseBlocksRecule->isSet = false;
 }
 #ifndef REALBOT
 NAMESPACE_CLOSE();

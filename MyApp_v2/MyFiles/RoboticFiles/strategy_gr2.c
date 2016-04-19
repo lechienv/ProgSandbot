@@ -338,7 +338,29 @@ bool ClosePince(CtrlStruct *cvs){
 }
 
 bool DeposeBlock(CtrlStruct *cvs){
-    
+        if(!cvs->TimerCalibration->isSet)
+        {
+            SetTimer(cvs, cvs->TimerReleaseBlocksAvance, 5);
+        }
+        if(IsTimerTimout(cvs,cvs->TimerReleaseBlocksAvance))
+        {
+            SetTimer(cvs, cvs->TimerReleaseBlocksRecule, 5);
+            if(IsTimerTimout(cvs,cvs->TimerCalibration)){
+                 ResetTimer(cvs->TimerReleaseBlocksRecule);
+                 ResetTimer(cvs->TimerReleaseBlocksAvance);
+                 return true;
+            }
+            else{
+                SpeedRefToDC(cvs, cvs->MotorL, -4);
+                SpeedRefToDC(cvs, cvs->MotorR, -4);
+            }
+        }
+        else{
+            PinceCalibration(cvs);
+            SpeedRefToDC(cvs, cvs->MotorL, 4);
+            SpeedRefToDC(cvs, cvs->MotorR, 4);
+        }
+        return false;
 }
 bool YCalibration(CtrlStruct *cvs, double Y, double Theta){
     int color = cvs->robotID;

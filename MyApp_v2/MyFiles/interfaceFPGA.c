@@ -27,6 +27,8 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
     unsigned int K = MyCyclone_Read(CYCLONE_IO_K_Data);
     unsigned int L = MyCyclone_Read(CYCLONE_IO_L_Data);
     
+     unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
+    
 #ifdef MINIBOT
     cvs->MotorR->speed = ComputeSpeed(cvs->MotorL->clicNumber,C,extractBits(A,1,1));
     cvs->MotorL->speed = ComputeSpeed(cvs->MotorR->clicNumber,B,extractBits(A,2,2));
@@ -102,7 +104,11 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
     }
     
     cvs->time = getTime() - cvs->timeOffset;
+/////////////////////////////////////////LT 24 /////////////////////////////////////////
 
+    MyUpdateEcran(cvs,M);
+         
+         
     /*
     char theStr[512];
     sprintf(theStr,"SpeedL = %f \t SpeedR = %f \t SpeedOdoL = %f \t SpeedOdoR = %f \t \n", cvs->MotorL->speed, cvs->MotorR->speed, cvs->Odo->speedL, cvs->Odo->speedR);

@@ -18,7 +18,7 @@ void controller_init(CtrlStruct *cvs){
     cvs->previousTimeCAN = 0;
     cvs->timeOffset = 0;
 #ifdef REALBOT
-    cvs->robotID = PINK; //getRobotID();
+    //cvs->robotID = PINK; //getRobotID();
     cvs->timeStep = TIMESTEP_REALBOT;
 #else
     cvs->robotID = cvs->inputs->robot_id;
@@ -61,7 +61,7 @@ void controller_init(CtrlStruct *cvs){
 void controller_loop(CtrlStruct *cvs){
 	AlwaysInController(cvs);
     
-#define WEBSITETEST
+//#define WEBSITETEST
 #ifndef WEBSITETEST
     
     cvs->Param->MotorCommandByHand = CommandMotorByHand;
@@ -106,9 +106,9 @@ void controller_loop(CtrlStruct *cvs){
           
       }*/
      //Calibration(cvs);
-      //Action1(cvs);
+      Action1(cvs);
       //MyStrategy(cvs);
-        PinceCalibration(cvs);
+       // PinceCalibration(cvs);
     }
        
 #else

@@ -155,6 +155,8 @@
           <itemPath>MyFiles/RoboticFiles/rateau_gr2.h</itemPath>
           <itemPath>MyFiles/RoboticFiles/Actions_gr2.c</itemPath>
           <itemPath>MyFiles/RoboticFiles/Actions_gr2.h</itemPath>
+          <itemPath>MyFiles/RoboticFiles/UpdateEcran.c</itemPath>
+          <itemPath>MyFiles/RoboticFiles/UpdateEcran.h</itemPath>
         </logicalFolder>
         <itemPath>MyFiles/MyCAN.c</itemPath>
         <itemPath>MyFiles/MyConsole.c</itemPath>

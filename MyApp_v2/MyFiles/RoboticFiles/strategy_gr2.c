@@ -353,6 +353,7 @@ bool PinceCalibration(CtrlStruct *cvs){
         return false;
     }
     else{
+        cvs->MotorPince->dutyCycle=  0;
         cvs->MotorPince->position = 0;
         return true;
     }

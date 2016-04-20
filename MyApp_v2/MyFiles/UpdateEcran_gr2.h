@@ -12,7 +12,8 @@
 *************************/
 void getRobotID(CtrlStruct *cvs);
 void getActions(CtrlStruct *cvs);
-
+void TestRoues(CtrlStruct *cvs, bool Direction);
+void getTests(CtrlStruct *cvs);
 
 
 #endif

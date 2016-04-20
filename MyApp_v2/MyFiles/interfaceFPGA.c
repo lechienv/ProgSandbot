@@ -106,7 +106,7 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
     cvs->time = getTime() - cvs->timeOffset;
 /////////////////////////////////////////LT 24 /////////////////////////////////////////
 
-    MyUpdateEcran(cvs,M);
+    //MyUpdateEcran(cvs,M);
          
          
     /*

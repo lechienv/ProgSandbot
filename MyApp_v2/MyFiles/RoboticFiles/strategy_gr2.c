@@ -21,11 +21,11 @@ void MyStrategy(CtrlStruct *cvs)
                     if(IsTimerTimout(cvs,cvs->TimerAction))
                     {
                     ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = GoAction1;
+                    cvs->stateStrategy = GoAction2;
                     }
                     if(succeed){
                     ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = GoAction1;
+                    cvs->stateStrategy = GoAction2;
                     }
                 break;
         }
@@ -33,38 +33,68 @@ void MyStrategy(CtrlStruct *cvs)
                 bool succeed = Action1(cvs);
                     if(!cvs->TimerAction->isSet)
                     {
-                    SetTimer(cvs, cvs->TimerAction, 20);
+                    SetTimer(cvs, cvs->TimerAction, 30);
                     }
                     if(IsTimerTimout(cvs,cvs->TimerAction))
                     {
                     ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = GoAction2;
+                    cvs->stateStrategy = GoAction3;
                     }
                     if(succeed){
                     ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = GoAction2;
+                    cvs->stateStrategy = GoAction3;
                      }
                 break;
         }
         case(GoAction2) :{
-                bool succeed = Action2(cvs);
-                if(succeed){
-                    cvs->stateStrategy = GoAction3;
-                }
+               bool succeed = Action2(cvs);
+                    if(!cvs->TimerAction->isSet)
+                    {
+                    SetTimer(cvs, cvs->TimerAction, 30);
+                    }
+                    if(IsTimerTimout(cvs,cvs->TimerAction))
+                    {
+                    ResetTimer(cvs->TimerAction);
+                    cvs->stateStrategy = GoAction1;
+                    }
+                    if(succeed){
+                    ResetTimer(cvs->TimerAction);
+                    cvs->stateStrategy = GoAction1;
+                     }
                 break;
         }
         case(GoAction3) :{
-                bool succeed = Action3(cvs);
-                if(succeed){
+                      bool succeed = Action3(cvs);
+                    if(!cvs->TimerAction->isSet)
+                    {
+                    SetTimer(cvs, cvs->TimerAction, 45);
+                    }
+                    if(IsTimerTimout(cvs,cvs->TimerAction))
+                    {
+                    ResetTimer(cvs->TimerAction);
                     cvs->stateStrategy = GoAction4;
-                }
+                    }
+                    if(succeed){
+                    ResetTimer(cvs->TimerAction);
+                    cvs->stateStrategy = GoAction4;
+                     }
                 break;
         }
          case(GoAction4) :{
-                bool succeed = Action4(cvs);
-                if(succeed){
+                    bool succeed = Action4(cvs);
+                    if(!cvs->TimerAction->isSet)
+                    {
+                    SetTimer(cvs, cvs->TimerAction, 60);
+                    }
+                    if(IsTimerTimout(cvs,cvs->TimerAction))
+                    {
+                    ResetTimer(cvs->TimerAction);
                     cvs->stateStrategy = GoBase;
-                }
+                    }
+                    if(succeed){
+                    ResetTimer(cvs->TimerAction);
+                    cvs->stateStrategy = GoBase;
+                     }
                 break;
         }
         case(GoBase) :{
@@ -338,27 +368,34 @@ bool ClosePince(CtrlStruct *cvs){
 }
 
 bool DeposeBlock(CtrlStruct *cvs){
-        if(!cvs->TimerCalibration->isSet)
+        if(!cvs->TimerReleaseBlocksAvance->isSet)
         {
-            SetTimer(cvs, cvs->TimerReleaseBlocksAvance, 5);
+            SetTimer(cvs, cvs->TimerReleaseBlocksAvance, 1);
         }
         if(IsTimerTimout(cvs,cvs->TimerReleaseBlocksAvance))
         {
-            SetTimer(cvs, cvs->TimerReleaseBlocksRecule, 5);
-            if(IsTimerTimout(cvs,cvs->TimerCalibration)){
+                if(!cvs->TimerReleaseBlocksRecule->isSet)
+                    {
+                        SetTimer(cvs, cvs->TimerReleaseBlocksRecule, 1);
+                    }            
+                 if(IsTimerTimout(cvs,cvs->TimerReleaseBlocksRecule)){
                  ResetTimer(cvs->TimerReleaseBlocksRecule);
                  ResetTimer(cvs->TimerReleaseBlocksAvance);
+                 SpeedRefToDC(cvs, cvs->MotorL, 0);
+                 SpeedRefToDC(cvs, cvs->MotorR, 0);
                  return true;
             }
             else{
                 SpeedRefToDC(cvs, cvs->MotorL, -4);
                 SpeedRefToDC(cvs, cvs->MotorR, -4);
+                return false;
             }
         }
         else{
             PinceCalibration(cvs);
             SpeedRefToDC(cvs, cvs->MotorL, 4);
             SpeedRefToDC(cvs, cvs->MotorR, 4);
+            return false;
         }
         return false;
 }

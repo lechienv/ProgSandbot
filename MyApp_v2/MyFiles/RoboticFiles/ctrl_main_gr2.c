@@ -18,7 +18,7 @@ void controller_init(CtrlStruct *cvs){
     cvs->previousTimeCAN = 0;
     cvs->timeOffset = 0;
 #ifdef REALBOT
-    //cvs->robotID = PINK; //getRobotID();
+    cvs->robotID = GREEN;// PINK; //getRobotID();
     cvs->timeStep = TIMESTEP_REALBOT;
 #else
     cvs->robotID = cvs->inputs->robot_id;
@@ -42,7 +42,7 @@ void controller_init(CtrlStruct *cvs){
     cvs->stateAction2 = GoToBlocOne;
     cvs->stateAction3 = GoToBlocTwoCalib;
     cvs->stateAction4 = GoToFish;
-    cvs->stateStrategy =  GoAction1; //GoCalibration;//GoAction4;//
+    cvs->stateStrategy =  GoAction2; //GoCalibration;//GoAction4;//
 #ifdef REALBOT
     InitRegMotor(cvs->MotorL);
     InitRegMotor(cvs->MotorR);
@@ -105,9 +105,10 @@ void controller_loop(CtrlStruct *cvs){
         // PointHomologation(cvs);
           
       }*/
+       // ReachPointPotential(cvs, 0.8, 0.8, 0.03);
      //Calibration(cvs);
-      Action1(cvs);
-      //MyStrategy(cvs);
+      //Action2(cvs);
+      MyStrategy(cvs);
        // PinceCalibration(cvs);
     }
        

@@ -62,7 +62,7 @@ enum StateDyna {grap, release};
 enum StateVia {backHomeViaBase, backHomeStraight, normalPoint, viaPoint};
 enum StateHomologation {PinceCalib, reachViaPoint, AlignWithTheta, ReachBlocs, ClosingPince, GoViaZone, AlignZone, GoInZone, OpeningPince,HomologationAction1};
 enum StateAction1{GoToHouses, AlignedWithHouses, PushHouses, FreeHouses};
-enum StateAction2{GoToBlocOne, AlignForBlocOne, TakeBlocOne, BringBlockOne, ReleaseBlockOne, AlignForBlockOne,AlignForCalibAction2, Calib_y};
+enum StateAction2{GoToBlocOne, AlignForBlocOne, TakeBlocOne, BringBlockOne, ReleaseBlockOne, AlignForBlockOne, ReachBaseAction1, AlignForCalibAction2, Calib_y};
 enum StateAction3{GoToBlocTwoCalib, AlignForCalibAction3, Calib_x, GoToBlocTwo, AlignForBlocTwo, AvanceForBlockTwo, ReculeForBlockTwo, BringBlockTwoViaPoint, TakeBlocTwo, BringBlockTwo, ReleaseBlockTwo, AlignForBlockTwo};
 enum StateAction4{GoToFish, AlignForCalibFishes, CalibFishes, DecaleBordFishes, DoTheCreneau, AlignedWithFishes,RatGoTopStartFish, DyntakeFish, MoveWithFish, ReleaseFish};
 enum StateStrategy{GoCalibration, GoAction1, GoAction2, GoAction3,GoAction4, GoBase};

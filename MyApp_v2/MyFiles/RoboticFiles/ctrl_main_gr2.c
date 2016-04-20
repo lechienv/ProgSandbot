@@ -42,7 +42,7 @@ void controller_init(CtrlStruct *cvs){
     cvs->stateAction2 = GoToBlocOne;
     cvs->stateAction3 = GoToBlocTwoCalib;
     cvs->stateAction4 = GoToFish;
-    cvs->stateStrategy =  GoAction2; //GoCalibration;//GoAction4;//
+    cvs->stateStrategy =  GoAction2;//GoCalibration;//GoAction4;//
 #ifdef REALBOT
     InitRegMotor(cvs->MotorL);
     InitRegMotor(cvs->MotorR);

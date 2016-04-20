@@ -2,6 +2,7 @@
 #define _allParamInit_GR2_H_
 
 #include "CtrlStruct_gr2.h"
+#include "dynamixel_gr2.h"
 
 #ifndef REALBOT
 #include "namespace_ctrl.h"
@@ -190,13 +191,13 @@ NAMESPACE_INIT(ctrlGr2);
  * POTO *****************************
  ***********************************/
 #define katt_INIT				10//1.0
-#define krep_INIT				0.0015//0.001
+#define krep_INIT				0.001//0.0015//0.001
 #define kFV_INIT				30
 #define FXRob_INIT				0
 #define FyRob_INIT				0
-#define kw_INIT					200//100
+#define kw_INIT					100//200//100
 #define minDistance_INIT		0.3//0.5
-#define thresholdAligned_INIT   0.75//10
+#define thresholdAligned_INIT   2//0.75//10
 
 /************************************
  * ODOMETRY  ************************
@@ -243,6 +244,12 @@ NAMESPACE_INIT(ctrlGr2);
  * Dyna ***************************
  ***********************************/
 // Id rateau gauche = 5, Id rateau droit = 6, Id parasol = 3
+
+#define DynaRatL    0x05
+#define DynaRatR    0x06
+#define DynaPara    0x03
+#define DynaAll     0xFE
+
 /******************
 **** PROTOTYPES ***
 ******************/
@@ -253,7 +260,7 @@ void InitTower(CtrlStruct *cvs);
 void InitPotential(CtrlStruct *cvs);
 void InitOdometry(CtrlStruct *cvs);
 void InitObstacles(CtrlStruct *cvs);
-void InitDyna(CtrlStruct *cvs);
+//void InitDyna(CtrlStruct *cvs);
 void InitTowerFilters(CtrlStruct *cvs);
 void InitTimer(CtrlStruct *cvs);
 

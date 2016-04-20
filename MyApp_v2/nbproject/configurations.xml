@@ -155,8 +155,6 @@
           <itemPath>MyFiles/RoboticFiles/rateau_gr2.h</itemPath>
           <itemPath>MyFiles/RoboticFiles/Actions_gr2.c</itemPath>
           <itemPath>MyFiles/RoboticFiles/Actions_gr2.h</itemPath>
-          <itemPath>MyFiles/RoboticFiles/UpdateEcran.c</itemPath>
-          <itemPath>MyFiles/RoboticFiles/UpdateEcran.h</itemPath>
         </logicalFolder>
         <itemPath>MyFiles/MyCAN.c</itemPath>
         <itemPath>MyFiles/MyConsole.c</itemPath>
@@ -177,6 +175,8 @@
         <itemPath>MyFiles/interfaceFPGA.h</itemPath>
         <itemPath>MyFiles/SDInterface.c</itemPath>
         <itemPath>MyFiles/SDInterface.h</itemPath>
+        <itemPath>MyFiles/UpdateEcran.c</itemPath>
+        <itemPath>MyFiles/UpdateEcran.h</itemPath>
       </logicalFolder>
       <itemPath>MyFiles/MyApp.c</itemPath>
     </logicalFolder>
@@ -378,6 +378,7 @@
         <property key="UART4" value="true"/>
         <property key="UART5" value="true"/>
         <property key="UART6" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

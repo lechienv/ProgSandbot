@@ -1,4 +1,5 @@
 #include "interfaceFPGA.h"
+#include "UpdateEcran.h"
 #include "RoboticFiles/CtrlStruct_gr2.h"
 int previousTurn = 0;
 int previousSomethingDetected = 0;
@@ -27,7 +28,7 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
     unsigned int K = MyCyclone_Read(CYCLONE_IO_K_Data);
     unsigned int L = MyCyclone_Read(CYCLONE_IO_L_Data);
     
-     unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
+    unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
     
 #ifdef MINIBOT
     cvs->MotorR->speed = ComputeSpeed(cvs->MotorL->clicNumber,C,extractBits(A,1,1));
@@ -42,7 +43,7 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
 #endif
 
     cvs->MotorPince->speed = ComputeSpeed(cvs->MotorPince->clicNumber,F,!extractBits(A,5,5));
-    cvs->MotorRatL->speed = ComputeSpeed(cvs->MotorRatL->clicNumber,H,extractBits(A,4,4));
+    cvs->MotorRatL->speed = ComputeSpeed(cvs->MotorRatL->clicNumber,H,!extractBits(A,4,4));
     cvs->MotorRatR->speed = ComputeSpeed(cvs->MotorRatR->clicNumber,G,extractBits(A,3,3));
     cvs->MotorTower->speed = ComputeSpeed(cvs->MotorTower->clicNumber,I,1);
  
@@ -106,7 +107,6 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
     cvs->time = getTime() - cvs->timeOffset;
 /////////////////////////////////////////LT 24 /////////////////////////////////////////
 
-    //MyUpdateEcran(cvs,M);
          
          
     /*
@@ -134,11 +134,6 @@ double getTime(){
     }
     time = time + timeGlitch;
     return time;
-}
-
-int getRobotID(){
-    unsigned int A = MyCyclone_Read(CYCLONE_IO_A_Data);
-    return extractBits(A,0,0);
 }
 
 double ComputeSpeed(double clicNumber, unsigned int numberOfClic, int positiveSpeed){

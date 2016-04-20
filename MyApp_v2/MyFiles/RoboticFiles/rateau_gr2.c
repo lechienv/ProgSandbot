@@ -33,7 +33,7 @@ NAMESPACE_INIT(ctrlGr2);
   
   bool RatGoTop(CtrlStruct *cvs, Motor *Motor){
 
-               if( Motor->position >50 && Motor->position <100) //150
+               if( Motor->position >50 && Motor->position <200) //150
                {   
                  Motor->dutyCycle = +35;
                  return false;
@@ -73,6 +73,21 @@ NAMESPACE_INIT(ctrlGr2);
      }
     
   }
+ 
+ bool RateauReachPoint(CtrlStruct *cvs, double pos){
+     int color = cvs->robotID;
+     int erreur = 10;
+     Motor *motor = (color == GREEN) ? cvs->MotorRatL : cvs->MotorRatR;
+     if(motor->position <= pos- erreur){
+         SpeedRefToDC(cvs, motor, 10);
+     }
+     else if(motor->position >= pos + erreur){
+         SpeedRefToDC(cvs, motor, -10);
+     }
+     else{
+         SpeedRefToDC(cvs, motor, 0);
+     }
+}
 
  
 

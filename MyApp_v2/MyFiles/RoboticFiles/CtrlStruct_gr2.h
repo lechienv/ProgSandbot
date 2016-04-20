@@ -61,11 +61,11 @@ enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, ReturnToBase, Alig
 enum StateDyna {grap, release};
 enum StateVia {backHomeViaBase, backHomeStraight, normalPoint, viaPoint};
 enum StateHomologation {PinceCalib, reachViaPoint, AlignWithTheta, ReachBlocs, ClosingPince, GoViaZone, AlignZone, GoInZone, OpeningPince,HomologationAction1};
-enum StateAction1{GoToHouses, AlignedWithHouses, PushHouses, FreeHouses};
-enum StateAction2{GoToBlocOne, AlignForBlocOne, TakeBlocOne, BringBlockOne, ReleaseBlockOne, AlignForBlockOne, ReachBaseAction1, AlignForCalibAction2, Calib_y};
+enum StateAction1{GoToHouse1, AlignedWithHouse1, PushHouse1, FreeHouse1, AlignedWithHouse2, PushHouse2, FreeHouse2,ReachBaseHouse, AlignForCalibActionHouse,Calib_yHouse};
+enum StateAction2{GoToBlocOne, AlignForBlocOne, TakeBlocOne, BringBlockOne, ReleaseBlockOne, AlignForBlockOne};
 enum StateAction3{GoToBlocTwoCalib, AlignForCalibAction3, Calib_x, GoToBlocTwo, AlignForBlocTwo, AvanceForBlockTwo, ReculeForBlockTwo, BringBlockTwoViaPoint, TakeBlocTwo, BringBlockTwo, ReleaseBlockTwo, AlignForBlockTwo};
-enum StateAction4{GoToFish, AlignForCalibFishes, CalibFishes, DecaleBordFishes, DoTheCreneau, AlignedWithFishes,RatGoTopStartFish, DyntakeFish, MoveWithFish, ReleaseFish};
-enum StateStrategy{GoCalibration, GoAction1, GoAction2, GoAction3,GoAction4, GoBase};
+enum StateAction4{GoToFish, AlignForCalibFishes, CalibFishes, DecaleBordFishes, DoTheCreneau, AlignedWithFishes,RatGoTopStartFish, DyntakeFish, AlignRateau1, MoveWithFish, ReleaseFish};
+enum StateStrategy{GoCalibration, GoAction1, GoAction2, GoAction3,GoAction4, GoActionParasol, GoBase};
 
 
 typedef struct Potential {
@@ -250,6 +250,7 @@ typedef struct MyTimer{
 /// Main controller structure
 typedef struct CtrlStruct
 {
+    bool colorIsSet;
     double previousTimeCAN;
     int robotID;
     double previousTime;

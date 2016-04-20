@@ -97,6 +97,11 @@ void MyStrategy(CtrlStruct *cvs)
                      }
                 break;
         }
+         case(GoActionParasol) :{
+                    bool succeed = ActionParasol(cvs);
+                    cvs->stateStrategy = GoBase;
+                break;
+        }
         case(GoBase) :{
             ActionBase(cvs);
                 break;
@@ -132,7 +137,6 @@ enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, GoToBlocOne, Align
 	double y = cvs->Odo->y;
 	double theta = (cvs->Odo->theta);
 	int color = cvs->robotID;
-    
 switch (cvs->stateCalib) {
 	case(Cal_y_arr) : {
        bool isCalibrate = YCalibration(cvs, (color == GREEN) ? (1.5-0.1322) : -(1.5-0.1322), (color == GREEN) ? -90 : 90);
@@ -211,16 +215,17 @@ void DynaTestFunction(CtrlStruct *cvs){
     if(cvs->time < 3)
         SetAngle(0x06, 10);
     else if(cvs->time < 5)
-        SetAngle(0x03, 90);
+        SetAngle(0x06, 90);
     else if(cvs->time < 7)
-        SetAngle(0x03, 200);
+        SetAngle(0x05, 200);
     else if(cvs->time < 9)
-        SetAngle(0x06, 200);
-    ReadDyna();
+        SetAngle(0x05, 200);
+    //ReadDyna();
     //ReadDyna();
     //WhichPosition(0x03);
     //WhichPosition(0x06);
 }
+
 	
 //////////////////////////////////////////////////////////// homologation ///////////////////////////////////////////////////////////
 void PointHomologation(CtrlStruct *cvs){

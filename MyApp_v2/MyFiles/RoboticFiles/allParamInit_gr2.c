@@ -388,7 +388,7 @@ void InitObstacles(CtrlStruct *cvs) {
 	cvs->Obstacles->RectangleList[9].height = 0.01;
 }
 
-void InitDyna(CtrlStruct *cvs){
+/*void InitDyna(CtrlStruct *cvs){
 #ifdef REALBOT
     cvs->DynaLeft = (Dyna*)malloc(sizeof(Dyna));
     cvs->DynaLeft->timer = 0;
@@ -403,7 +403,7 @@ void InitDyna(CtrlStruct *cvs){
     SendMessageDyna(0x06,0x0005,0x0008,0x0000);
     SendMessageDyna(0x06,0x0005,0x0019,0x1);
 #endif
-}
+}*/
 
 void InitTowerFilters(CtrlStruct *cvs) {
 	cvs->AllFiltersTower = (AllFiltersTower*)malloc(sizeof(AllFiltersTower));

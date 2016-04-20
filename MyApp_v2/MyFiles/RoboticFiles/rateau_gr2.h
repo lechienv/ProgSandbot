@@ -17,6 +17,7 @@ NAMESPACE_INIT(ctrlGr2);
 void StartMyRat(CtrlStruct *cvs);
 bool RatGoBottom(CtrlStruct *cvs, Motor *Motor);
 bool RatGoTop(CtrlStruct *cvs, Motor *Motor);
+bool RateauReachPoint(CtrlStruct *cvs, double pos);
 
 #ifndef REALBOT
 NAMESPACE_CLOSE();

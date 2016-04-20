@@ -25,6 +25,7 @@ bool Action2(CtrlStruct *cvs); // prendre bloc milieu
 bool Action3(CtrlStruct *cvs); // prendre bloc cote
 bool Action4(CtrlStruct *cvs); // aller pres des poissons
 void ActionBase(CtrlStruct *cvs); // go to Base
+bool ActionParasol(CtrlStruct *cvs); //Open the parasol
 #ifndef REALBOT
 NAMESPACE_CLOSE();
 #endif // ! REALBOT

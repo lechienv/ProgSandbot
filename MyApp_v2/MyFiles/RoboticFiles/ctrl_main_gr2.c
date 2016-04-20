@@ -18,7 +18,6 @@ void controller_init(CtrlStruct *cvs){
     cvs->previousTimeCAN = 0;
     cvs->timeOffset = 0;
 #ifdef REALBOT
-    cvs->robotID = GREEN;// PINK; //getRobotID();
     cvs->timeStep = TIMESTEP_REALBOT;
 #else
     cvs->robotID = cvs->inputs->robot_id;
@@ -31,18 +30,18 @@ void controller_init(CtrlStruct *cvs){
 	InitSensors(cvs);
 	InitObstacles(cvs);
 	InitTower(cvs);
-    InitDyna(cvs);
+    InitDyna();
     InitTowerFilters(cvs);
     InitTimer(cvs);
 
 	int color = cvs->robotID;
 	cvs->stateCalib = Cal_y_arr;
     cvs->stateHomologation = PinceCalib;
-    cvs->stateAction1 = GoToHouses;
+    cvs->stateAction1 = GoToHouse1;
     cvs->stateAction2 = GoToBlocOne;
     cvs->stateAction3 = GoToBlocTwoCalib;
     cvs->stateAction4 = GoToFish;
-    cvs->stateStrategy =  GoAction2;//GoCalibration;//GoAction4;//
+    cvs->stateStrategy =  GoAction2; //GoCalibration;//GoAction4;//
 #ifdef REALBOT
     InitRegMotor(cvs->MotorL);
     InitRegMotor(cvs->MotorR);
@@ -74,15 +73,17 @@ void controller_loop(CtrlStruct *cvs){
      cvs->MotorRatR->dutyCycle = RateauRDC; //RightMotorDC;//RightMotorDC;
      cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;*/   
     }
-    else if(cvs->time > 200){
+    else if(cvs->time >= 90){
         cvs->MotorL->dutyCycle = 0;//RightMotorDC;
         cvs->MotorR->dutyCycle = 0;// RightMotorDC;
         cvs->MotorTower->dutyCycle = 0;
         cvs->MotorRatL->dutyCycle = 0; //RightMotorDC;//RightMotorDC;
         cvs->MotorRatR->dutyCycle = 0; //RightMotorDC;//RightMotorDC;
         cvs->MotorPince->dutyCycle = 0;//RightMotorDC;*/
+        ActionParasol(cvs);
+        MyDelayMs(1000000000000);
     }
-    else{
+       else{
 
           //   StartMyRat(cvs);
 
@@ -108,8 +109,26 @@ void controller_loop(CtrlStruct *cvs){
        // ReachPointPotential(cvs, 0.8, 0.8, 0.03);
      //Calibration(cvs);
       //Action2(cvs);
-      MyStrategy(cvs);
+      /*  if(cvs->time < 5){
+            RatGoBottom(cvs, cvs->MotorRatL);
+        }
+        else{
+            RatGoTop(cvs, cvs->MotorRatL);
+            char s[128];
+            sprintf(s,"rateau position = %f \t vitesse rateau = %f\n", cvs->MotorRatL->position, cvs->MotorRatL->speed);
+            MyConsole_SendMsg(s);
+        }*/
+        
+        RatGoBottom(cvs, cvs->MotorRatL);
+        
+        //Action4(cvs);
+        
+      //MyStrategy(cvs);
+        //WhichPosition(DynaRatR);
+      //SetAngle(DynaRatL, 500);
+        //ReadDyna(DynaPara);
        // PinceCalibration(cvs);
+        //DynaTestFunction(cvs);
     }
        
 #else

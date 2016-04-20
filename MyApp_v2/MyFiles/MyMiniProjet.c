@@ -8,6 +8,7 @@
 *******************************************************************************/
 #include "MyApp.h"
 #include "interfaceFPGA.h"
+#include "UpdateEcran.h"
 /*****************************************************************************
  * STRUCTURES
  *****************************************************************************/
@@ -29,13 +30,22 @@ void MyMiniProjet_Task(void)
      ********************************/
     InitSPIChannel();
     CtrlStruct *cvs;
+    
 	cvs = (CtrlStruct*) malloc(sizeof(CtrlStruct));
     unsigned long long currentTime = 0;
     unsigned long long previousTime = 0;
     unsigned long long previousTimeData = 0;
+    
+    cvs->colorIsSet = false;
+    while(!cvs->colorIsSet){
+       // getRobotID(cvs);
+        cvs->robotID = PINK ; 
+        cvs->colorIsSet = true;
+        //MyConsole_SendMsg("robotID not set\n");
+    }
+    
     controller_init(cvs);
     InitWebVariables(cvs);
-    
     /*********************************
      * SD Memory *********************
      ********************************/

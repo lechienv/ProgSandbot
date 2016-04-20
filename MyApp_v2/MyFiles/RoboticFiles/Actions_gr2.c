@@ -14,52 +14,112 @@ bool Action1(CtrlStruct *cvs){
    int color = cvs->robotID;
 //enum StateAction1{GoToHouses, AlignedWithHouses, PushHouses, FreeHouses};
    switch(cvs->stateAction1){
-    case(GoToHouses) :{
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , 1.15, 0.02) : ReachPointPotential(cvs, -0.6 , -1.15 , 0.02) ;
+    case(GoToHouse1) :{
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , 1.10, 0.03) : ReachPointPotential(cvs, -0.6 , -1.10 , 0.03) ;
             if(reached){
-                cvs->stateAction1 = AlignedWithHouses;
+                cvs->stateAction1 = AlignedWithHouse1;
             }
             return false;
             break;
         }
-       case(AlignedWithHouses) :{
+       case(AlignedWithHouse1) :{
             bool aligned =  (color == GREEN) ? IsAlignedWithTheta(cvs, 10, 5) : IsAlignedWithTheta(cvs, -10, 5);
             if(aligned){
-                cvs->stateAction1 = PushHouses;
+                cvs->stateAction1 = PushHouse1;
             }
             return false;
             break;
         }
-         case(PushHouses) :{
+         case(PushHouse1) :{
             //SpeedRefToDC(cvs,cvs->MotorL,-5);
             //SpeedRefToDC(cvs,cvs->MotorR,-5);
              PinceCalibration(cvs);
-             cvs->MotorL->dutyCycle = -40;
-             cvs->MotorR->dutyCycle = -40;
-            if(cvs->Sensors->uSwitchLeft && cvs->Sensors->uSwitchRight){
+             cvs->MotorL->dutyCycle = -30;
+             cvs->MotorR->dutyCycle = -30;
+            if(cvs->Sensors->uSwitchLeft || cvs->Sensors->uSwitchRight || cvs->Odo->speedL == 0 || cvs->Odo->speedR == 0){
                     if(!cvs->TimerCalibration->isSet)
                     {
-                    SetTimer(cvs, cvs->TimerCalibration, 0.5);
+                        SetTimer(cvs, cvs->TimerCalibration, 0.5);
                     }
                     if(IsTimerTimout(cvs,cvs->TimerCalibration))
                     {
-                    ResetTimer(cvs->TimerCalibration);
-                     cvs->stateAction1 = FreeHouses;
+                        ResetTimer(cvs->TimerCalibration);
+                        cvs->stateAction1 = FreeHouse1;
                     return true;
                     }
             }
             return false;
             break;
         }
-         case(FreeHouses) :{
+         case(FreeHouse1) :{
             PinceCalibration(cvs);
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.14, 1.3, 0.03) : ReachPointPotential(cvs, -0.14, -1.3, 0.03);
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6, 1.1, 0.03) : ReachPointPotential(cvs, -0.6, 1.1, 0.03);
             if(reached){
-                cvs->stateStrategy = GoAction2;
+                cvs->stateStrategy = AlignedWithHouse2;
             }
             return reached;
             break;
         }
+       case(AlignedWithHouse2) :{
+            bool aligned =  (color == GREEN) ? IsAlignedWithTheta(cvs, 10, 5) : IsAlignedWithTheta(cvs, -10, 5);
+            if(aligned){
+                cvs->stateAction1 = PushHouse2;
+            }
+            return false;
+            break;
+        }
+         case(PushHouse2) :{
+            //SpeedRefToDC(cvs,cvs->MotorL,-5);
+            //SpeedRefToDC(cvs,cvs->MotorR,-5);
+             PinceCalibration(cvs);
+             cvs->MotorL->dutyCycle = -30;
+             cvs->MotorR->dutyCycle = -30;
+            if(cvs->Sensors->uSwitchLeft || cvs->Sensors->uSwitchRight || cvs->Odo->speedL == 0 || cvs->Odo->speedR == 0){
+                    if(!cvs->TimerCalibration->isSet)
+                    {
+                     SetTimer(cvs, cvs->TimerCalibration, 0.5);
+                    }
+                    if(IsTimerTimout(cvs,cvs->TimerCalibration))
+                    {
+                    ResetTimer(cvs->TimerCalibration);
+                     cvs->stateAction1 = FreeHouse2;
+                    return true;
+                    }
+            }
+            return false;
+            break;
+        }
+         case(FreeHouse2) :{
+            PinceCalibration(cvs);
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.14, 1.3, 0.03) : ReachPointPotential(cvs, -0.14, -1.3, 0.03);
+            if(reached){
+                cvs->stateAction1 = ReachBaseHouse;
+            }
+            return false;
+            break;
+        }
+        case(ReachBaseHouse):{
+        bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.4 , 1.2, 0.03) : ReachPointPotential(cvs, -0.4 , -1.2, 0.03);
+        if(reached){
+           cvs->stateAction1 = AlignForCalibActionHouse;
+        }
+        return false; 
+        break;
+        }
+        case(AlignForCalibActionHouse):{
+            bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, -90, 1) : IsAlignedWithTheta(cvs, 90, 1);
+            if(isAligned){
+                cvs->stateAction1 = Calib_yHouse;
+            }
+            return false; 
+            break;
+        }
+        case(Calib_yHouse):{
+            bool isCalibrate = YCalibration(cvs, (color == GREEN) ? (1.5-0.1322) : -(1.5-0.1322), (color == GREEN) ? -90 : 90);
+            return isCalibrate; 
+            break;
+        }
+
     default: break;
     }
 }
@@ -122,35 +182,10 @@ bool Action2(CtrlStruct *cvs){
     }
     case(ReleaseBlockOne):{
         bool isDeposed = DeposeBlock(cvs);
-        if(isDeposed){
-            //reached = (color == GREEN) ? ReachPointPotential(cvs, 0 , 1.2, 0.03) : ReachPointPotential(cvs, 0 , -1.2, 0.03);
-            cvs->stateAction2 = ReachBaseAction1;
-        }
-        return false; 
+        return isDeposed; 
         break;
     }
-    case(ReachBaseAction1):{
-        bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0 , 1.2, 0.03) : ReachPointPotential(cvs, 0 , -1.2, 0.03);;
-        if(reached){
-           cvs->stateAction2 = AlignForCalibAction2;
-        }
-        return false; 
-        break;
-    }
-    case(AlignForCalibAction2):{
-        bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, -90, 1) : IsAlignedWithTheta(cvs, 90, 1);
-        if(isAligned){
-            cvs->stateAction2 = Calib_y;
-        }
-        return false; 
-        break;
-    }
-    case(Calib_y):{
-        bool isCalibrate = YCalibration(cvs, (color == GREEN) ? (1.5-0.1322) : -(1.5-0.1322), (color == GREEN) ? -90 : 90);
-        return isCalibrate; 
-        break;
-    }
-
+   
     default: break;
     }
 }
@@ -214,12 +249,17 @@ bool Action3(CtrlStruct *cvs){
      bool isClosed=false;
      cvs->MotorL->dutyCycle = 25;
      cvs->MotorR->dutyCycle = 25;
-     if(cvs->Odo->x < -0.8)
-     {
+    if(!cvs->TimerCalibration->isSet)
+    {
+        SetTimer(cvs, cvs->TimerCalibration, 2);
+    }
+     if(cvs->Odo->x < -0.8 || IsTimerTimout(cvs,cvs->TimerCalibration) )
+    {
          isClosed = ClosePince(cvs);
           if(isClosed){
                     SpeedRefToDC(cvs, cvs->MotorL, 0);
                     SpeedRefToDC(cvs, cvs->MotorR, 0);
+                    ResetTimer(cvs->TimerCalibration);
                     cvs->stateAction3 = ReculeForBlockTwo;
                 }
      }
@@ -251,7 +291,7 @@ bool Action3(CtrlStruct *cvs){
         break;
     }
     case(BringBlockTwo):{
-        bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0 , 0.55, 0.05): ReachPointPotential(cvs, 0 , -0.55, 0.05);
+        bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0 , 0.55, 0.06): ReachPointPotential(cvs, 0 , -0.55, 0.06);
         if(reached){
             cvs->stateAction3 = AlignForBlockTwo;
         }
@@ -344,8 +384,18 @@ bool Action4(CtrlStruct *cvs)
             break;
      }
      case(DyntakeFish) :{
-           bool AreTaken = true;//(color == GREEN) ? RatGoTop(cvs, cvs->MotorRatL) : RatGoTop(cvs, cvs->MotorRatR) ;
-         if(AreTaken){
+         (color == GREEN) ? SetAngle(DynaRatL, 30) : SetAngle(DynaRatR, 30);
+         bool reachedPoint = 0; //RateauReachPoint(cvs, 300);
+         if(reachedPoint){
+             cvs->stateAction4 = AlignRateau1;
+         }
+         return false;
+            break;
+     }
+     case(AlignRateau1) :{
+         (color == GREEN) ? SetAngle(DynaRatL, 110) : SetAngle(DynaRatR, 110);
+         bool reachedPoint = RateauReachPoint(cvs, 200);
+         if(reachedPoint){
              cvs->stateAction4 = MoveWithFish;
          }
          return false;
@@ -382,6 +432,12 @@ void ActionBase(CtrlStruct *cvs)
              reached=  ReachPointPotential(cvs, 0.1, -0.575, 0.05);
             }
      
+}
+bool ActionParasol(CtrlStruct *cvs){
+     MyDelayMs(2000);
+    SetAngle(DynaPara, 100);
+    MyDelayMs(1000);
+    SetAngle(DynaPara, 170);
 }
 #ifndef REALBOT
 NAMESPACE_CLOSE();

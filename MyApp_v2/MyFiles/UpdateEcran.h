@@ -2,10 +2,7 @@
 #ifndef _UPDATEECRAN_GR2_H_
 #define _UPDATEECRAN_GR2_H_
 
-#include "CtrlStruct_gr2.h"
-#include <math.h>
-#include "controller_gr2.h"
-#include "ctrl_main_gr2.h"
+#include "RoboticFiles/CtrlStruct_gr2.h"
 
 #ifndef REALBOT
 #include "namespace_ctrl.h"
@@ -17,7 +14,7 @@ NAMESPACE_INIT(ctrlGr2);
 /************************
 * FUNCTIONS PROTOYPE ****
 *************************/
-void MyUpdateEcran(CtrlStruct *cvs, unsigned int M);
+void getRobotID(CtrlStruct *cvs);
 
 #ifndef REALBOT
 NAMESPACE_CLOSE();

@@ -13,7 +13,6 @@
 #define REFRESH_TIME_SPEED  0.01
 double ComputeSpeed(double clicNumber, unsigned int numberOfClic, int positiveSpeed);
 void UpdateFromFPGARealBot(CtrlStruct *cvs);
-int getRobotID();
 unsigned int extractBits(unsigned int number, unsigned int b, unsigned int a);
 char DutyCycle_RealBot(int dutyCyclePercent);
 void MyDelayUs(unsigned int usec);

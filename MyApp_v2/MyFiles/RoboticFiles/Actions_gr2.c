@@ -39,7 +39,7 @@ bool Action1(CtrlStruct *cvs){
             if(cvs->Sensors->uSwitchLeft || cvs->Sensors->uSwitchRight || cvs->Odo->speedL == 0 || cvs->Odo->speedR == 0){
                     if(!cvs->TimerCalibration->isSet)
                     {
-                        SetTimer(cvs, cvs->TimerCalibration, 0.5);
+                        SetTimer(cvs, cvs->TimerCalibration, 1);
                     }
                     if(IsTimerTimout(cvs,cvs->TimerCalibration))
                     {
@@ -182,7 +182,16 @@ bool Action2(CtrlStruct *cvs){
     }
     case(ReleaseBlockOne):{
         bool isDeposed = DeposeBlock(cvs);
-        return isDeposed; 
+        if(isDeposed)
+        {
+            cvs->stateAction2 = EndBlocOneViaPoint;
+        }
+        return false;
+        break;
+    }
+     case(EndBlocOneViaPoint):{
+        bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0 , 1, 0.1) : ReachPointPotential(cvs, 0 , -1, 0.1);
+        return reached;
         break;
     }
    

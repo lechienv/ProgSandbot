@@ -175,8 +175,8 @@
         <itemPath>MyFiles/interfaceFPGA.h</itemPath>
         <itemPath>MyFiles/SDInterface.c</itemPath>
         <itemPath>MyFiles/SDInterface.h</itemPath>
-        <itemPath>MyFiles/UpdateEcran.c</itemPath>
-        <itemPath>MyFiles/UpdateEcran.h</itemPath>
+        <itemPath>MyFiles/UpdateEcran_gr2.c</itemPath>
+        <itemPath>MyFiles/UpdateEcran_gr2.h</itemPath>
       </logicalFolder>
       <itemPath>MyFiles/MyApp.c</itemPath>
     </logicalFolder>

@@ -8,7 +8,7 @@
 *******************************************************************************/
 #include "MyApp.h"
 #include "interfaceFPGA.h"
-#include "UpdateEcran.h"
+#include "UpdateEcran_gr2.h"
 /*****************************************************************************
  * STRUCTURES
  *****************************************************************************/
@@ -38,9 +38,9 @@ void MyMiniProjet_Task(void)
     
     cvs->colorIsSet = false;
     while(!cvs->colorIsSet){
-       // getRobotID(cvs);
-        cvs->robotID = PINK ; 
-        cvs->colorIsSet = true;
+       getRobotID(cvs);
+       // cvs->robotID = GREEN ; 
+      //  cvs->colorIsSet = true;
         //MyConsole_SendMsg("robotID not set\n");
     }
     
@@ -86,8 +86,15 @@ void MyMiniProjet_Task(void)
                 if((double)(currentTime - previousTime) > TIMESTEP_REALBOT*(SYS_FREQ/2000)*1000){//
                    
                     previousTime = currentTime;
-                    controller_loop(cvs);    
+                    //controller_loop(cvs);    
                     
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    
+                    getActions(cvs);
+                    SendMotorCommand(cvs);
+                             
+                             
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     if((double)(currentTime - previousTimeData) > TIME_DATAREFRESH*(SYS_FREQ/2000)*1000){//
                         previousTimeData = currentTime;                     
 #ifdef WEB

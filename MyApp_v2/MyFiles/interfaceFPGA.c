@@ -1,5 +1,5 @@
 #include "interfaceFPGA.h"
-#include "UpdateEcran.h"
+#include "UpdateEcran_gr2.h"
 #include "RoboticFiles/CtrlStruct_gr2.h"
 int previousTurn = 0;
 int previousSomethingDetected = 0;

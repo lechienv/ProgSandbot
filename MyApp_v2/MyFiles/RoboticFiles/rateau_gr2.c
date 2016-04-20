@@ -52,6 +52,7 @@ NAMESPACE_INIT(ctrlGr2);
   }
  bool RatGoBottom(CtrlStruct *cvs, Motor *Motor){
      // UpdateRatPosition(cvs);
+     MyConsole_SendMsg("rateau descend \n");
      bool my_bool = (Motor->ID==RATLMOTOR ) ? !cvs->Sensors->uSwitchRatL : !cvs->Sensors->uSwitchRatR ;
      if(my_bool)
      {

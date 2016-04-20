@@ -84,7 +84,7 @@ void controller_loop(CtrlStruct *cvs){
         MyDelayMs(1000000000000);
     }
        else{
-
+         
           //   StartMyRat(cvs);
 
               /*    char s[659];
@@ -119,11 +119,12 @@ void controller_loop(CtrlStruct *cvs){
             MyConsole_SendMsg(s);
         }*/
         
-        RatGoBottom(cvs, cvs->MotorRatL);
+       // RatGoBottom(cvs, cvs->MotorRatL);1
+      
+        getActions(cvs);
+       //Action4(cvs);
         
-        //Action4(cvs);
-        
-      //MyStrategy(cvs);
+     // MyStrategy(cvs);
         //WhichPosition(DynaRatR);
       //SetAngle(DynaRatL, 500);
         //ReadDyna(DynaPara);

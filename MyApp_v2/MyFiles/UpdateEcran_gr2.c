@@ -1,9 +1,7 @@
-#include "UpdateEcran.h"
-#include "MyApp.h"
+#include "UpdateEcran_gr2.h"
+#include "RoboticFiles/CtrlStruct_gr2.h"
 
-#ifndef REALBOT
-NAMESPACE_INIT(ctrlGr2);
-#endif // ! REALBOT
+
 
 /*********************
 *** FUNCTIONS ********
@@ -14,6 +12,7 @@ void getRobotID(CtrlStruct *cvs)
     switch(M){
         case(4) :
         {
+             MyConsole_SendMsg("GREEN");
                 cvs->robotID = GREEN;
                 cvs->colorIsSet = true;
                 break;
@@ -28,7 +27,21 @@ void getRobotID(CtrlStruct *cvs)
     }
 }
 
+void getActions(CtrlStruct *cvs)
+{
+    unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
+    switch(M){
+        case(6) :
+        {
+            RatGoTop(cvs, cvs->MotorRatL);
+            break;
+        }
+        case(7) :
+        {
+            RatGoBottom(cvs, cvs->MotorRatL);
+            break;
+        }
+        default: break;
+    }
+}
 
-#ifndef REALBOT
-NAMESPACE_CLOSE();
-#endif // ! REALBOT

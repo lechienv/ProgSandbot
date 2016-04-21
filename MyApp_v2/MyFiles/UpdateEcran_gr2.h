@@ -15,5 +15,6 @@ void getActions(CtrlStruct *cvs);
 void TestRoues(CtrlStruct *cvs, bool Direction);
 void getTests(CtrlStruct *cvs);
 void getStrategy(CtrlStruct *cvs);
+bool ChooseBetweenMatchOrTest(CtrlStruct *cvs);
 
 #endif

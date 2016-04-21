@@ -44,6 +44,7 @@ void MyMiniProjet_Task(void)
         //MyConsole_SendMsg("robotID not set\n");
     }
     
+
     controller_init(cvs);
     InitWebVariables(cvs);
     /*********************************

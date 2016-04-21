@@ -93,28 +93,35 @@ void controller_loop(CtrlStruct *cvs){
     else{
 
 
-         /*   char s[128];
-            sprintf(s,"rateau position = %f \t vitesse rateau = %f\n", cvs->MotorRatL->position, cvs->MotorRatL->speed);
-            MyConsole_SendMsg(s);
-        */
-
+           /* char s[256];
+            sprintf(s,"rateau position = %f \t vitesse rateau = %f \t uswitch =%d \t rateau position D= %f \t vitesse rateau D= %f \t uswitchD =%d  \n", cvs->MotorRatL->position, cvs->MotorRatL->speed, cvs->Sensors->uSwitchRatL, cvs->MotorRatR->position, cvs->MotorRatR->speed, cvs->Sensors->uSwitchRatR);
+            MyConsole_SendMsg(s);*/
+        
+        
+       // getTests(cvs);
+       
         if(cvs->robotID == PINK){
-        cvs->MotorL->dutyCycle = 0;
-        cvs->MotorR->dutyCycle = 0;
         cvs->MotorTower->dutyCycle = 0;
-        cvs->MotorRatR->dutyCycle = 0; 
-        cvs->MotorPince->dutyCycle = 0;
-        RatGoBottom(cvs, cvs->MotorRatL);
+        cvs->MotorRatL->dutyCycle = 0; 
+        cvs->MotorPince->dutyCycle = 0;    
+        MyStrategy(cvs);
         }
         else{
-       cvs->MotorTower->dutyCycle = 0;
+        cvs->MotorTower->dutyCycle = 0;
         cvs->MotorRatR->dutyCycle = 0; 
         cvs->MotorPince->dutyCycle = 0;    
-                    MyStrategy(cvs);
+        MyStrategy(cvs);
         }
-        //ActionParasol(cvs);
-       // MyConsole_SendMsg("1\n");
-        //DynaTestFunction(cvs);
+        
+        bool match = ChooseBetweenMatchOrTest(cvs);
+
+        if(!match){
+            getTests(cvs);
+            cvs->timeOffset = getTime();
+            cvs->previousTime = 0;
+            cvs->time = 0;
+        }  
+
     }
        
 #else

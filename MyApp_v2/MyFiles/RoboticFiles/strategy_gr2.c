@@ -100,7 +100,12 @@ void MyStrategy(CtrlStruct *cvs)
                 break;
         }
         case(GoBase) :{
-            ActionBase(cvs);
+        cvs->MotorL->dutyCycle = 0;
+        cvs->MotorR->dutyCycle = 0;
+        cvs->MotorRatR->dutyCycle = 0; 
+        cvs->MotorRatL->dutyCycle = 0;
+        cvs->MotorPince->dutyCycle = 0;
+            //ActionBase(cvs);
                 break;
         }
     default: break;

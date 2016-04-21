@@ -425,7 +425,7 @@ bool Action4(CtrlStruct *cvs)
          break;
     }
     case(AlignedWithFishes) :{
-        bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, -90, 1) : IsAlignedWithTheta(cvs, 90, 1);
+        bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, -89, 1) : IsAlignedWithTheta(cvs, 89, 1);
         if(isAligned){
             cvs->stateAction4 = RatGoTopStartFish;
         }
@@ -500,7 +500,7 @@ bool Action4(CtrlStruct *cvs)
         break;
     }
     case(MoveWithFish) :{
-         bool decale = (color == GREEN) ? ReachPointPotential(cvs, 0.84 , 0.3, 0.05) : ReachPointPotential(cvs, 0.84 , -0.3, 0.05);
+         bool decale = (color == GREEN) ? ReachPointPotential(cvs, 0.88 , 0.3, 0.05) : ReachPointPotential(cvs, 0.88 , -0.3, 0.05);
          if(decale)
          {
             cvs->stateAction4 = AlignedWithNet;
@@ -509,7 +509,7 @@ bool Action4(CtrlStruct *cvs)
          break;
      }
      case(AlignedWithNet) :{
-        bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, -90, 3) : IsAlignedWithTheta(cvs, 90, 3);
+        bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, -91, 1) : IsAlignedWithTheta(cvs, 91, 1);
         if(isAligned){
             cvs->stateAction4 = ReleaseFish;
         }

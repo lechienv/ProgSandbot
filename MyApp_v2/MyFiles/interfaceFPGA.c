@@ -44,7 +44,7 @@ void UpdateFromFPGARealBot(CtrlStruct *cvs){
 
     cvs->MotorPince->speed = ComputeSpeed(cvs->MotorPince->clicNumber,F,!extractBits(A,5,5));
     cvs->MotorRatL->speed = ComputeSpeed(cvs->MotorRatL->clicNumber,H,!extractBits(A,4,4));
-    cvs->MotorRatR->speed = ComputeSpeed(cvs->MotorRatR->clicNumber,G,extractBits(A,3,3));
+    cvs->MotorRatR->speed = ComputeSpeed(cvs->MotorRatR->clicNumber,G,!extractBits(A,3,3));
     cvs->MotorTower->speed = ComputeSpeed(cvs->MotorTower->clicNumber,I,1);
  
     /* char mStr[64];

@@ -28,36 +28,63 @@ void getRobotID(CtrlStruct *cvs)
 
 void getTests(CtrlStruct *cvs)
 {
+    int color = cvs->robotID;
     unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
     switch(M){
         case(6) :
         {
-            RatGoTop(cvs, cvs->MotorRatL);
+        cvs->MotorTower->dutyCycle = 0;
+        cvs->MotorPince->dutyCycle = 0;    
+        cvs->MotorL->dutyCycle = 0;
+        cvs->MotorR->dutyCycle = 0;  
+            (color == GREEN) ? RatGoTop(cvs, cvs->MotorRatL):RatGoTop(cvs, cvs->MotorRatR);
             break;
         }
         case(7) :
         {
-            RatGoBottom(cvs, cvs->MotorRatL);
+        cvs->MotorTower->dutyCycle = 0;
+        cvs->MotorPince->dutyCycle = 0;    
+        cvs->MotorL->dutyCycle = 0;
+        cvs->MotorR->dutyCycle = 0;  
+            (color == GREEN) ?  RatGoBottom(cvs, cvs->MotorRatL):RatGoTop(cvs, cvs->MotorRatR);
             break;
         }
         case(8) :
         {
+        cvs->MotorTower->dutyCycle = 0;    
+        cvs->MotorL->dutyCycle = 0;
+        cvs->MotorR->dutyCycle = 0; 
+        cvs->MotorRatL->dutyCycle = 0;
+        cvs->MotorRatR->dutyCycle = 0;  
             PinceCalibration(cvs);
             break;
         }
         case(9) :
         {
+        cvs->MotorTower->dutyCycle = 0;  
+        cvs->MotorL->dutyCycle = 0;
+        cvs->MotorR->dutyCycle = 0;  
+        cvs->MotorRatL->dutyCycle = 0;
+        cvs->MotorRatR->dutyCycle = 0;  
             ClosePince(cvs, 40);
             break;
         }
         case(10) :
         {
+        cvs->MotorTower->dutyCycle = 0;
+        cvs->MotorPince->dutyCycle = 0; 
+        cvs->MotorRatL->dutyCycle = 0;
+        cvs->MotorRatR->dutyCycle = 0;  
             bool Direction = true;
             TestRoues(cvs, Direction);
             break;
         }
         case(11) :
         {
+        cvs->MotorTower->dutyCycle = 0;
+        cvs->MotorPince->dutyCycle = 0; 
+        cvs->MotorRatL->dutyCycle = 0;
+        cvs->MotorRatR->dutyCycle = 0;  
             bool Direction = false;
             TestRoues(cvs, Direction);
             break;
@@ -81,6 +108,25 @@ void getStrategy(CtrlStruct *cvs)
             MyStrategy(cvs);
             break;
         }
+        default: break;
+    }
+    
+}
+bool ChooseBetweenMatchOrTest(CtrlStruct *cvs)
+{
+    unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
+    switch(M){
+        case(14) :
+        {
+            return true;
+            break;
+        }
+        case(15) :
+        {
+            return true;
+            break;
+        }
+        return false;
         default: break;
     }
     

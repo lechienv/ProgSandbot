@@ -203,6 +203,7 @@ void InitTower(CtrlStruct * cvs)
 	cvs->Tower->tower_prevPos		= cvs->Tower->tower_pos;
     cvs->Tower->distance            = distance_INIT;
     cvs->Tower->angle               = angle_INIT;
+    cvs->Tower->TooClose            = false;
 }
 
 

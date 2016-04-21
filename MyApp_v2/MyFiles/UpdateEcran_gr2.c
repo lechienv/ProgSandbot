@@ -47,7 +47,7 @@ void getTests(CtrlStruct *cvs)
         }
         case(9) :
         {
-            ClosePince(cvs);
+            ClosePince(cvs, 40);
             break;
         }
         case(10) :
@@ -72,7 +72,7 @@ void getStrategy(CtrlStruct *cvs)
     switch(M){
         case(14) :
         {
-            MyConsole_SendMsg("Homologation \n");
+           // MyConsole_SendMsg("Homologation \n");
             PointHomologation(cvs);
             break;
         }

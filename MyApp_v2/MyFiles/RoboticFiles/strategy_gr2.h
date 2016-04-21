@@ -31,7 +31,7 @@ void    SetTimer(CtrlStruct *cvs, MyTimer *Timer, double time);
 void    ResetTimer(MyTimer *Timer);
 bool    IsTimerTimout(CtrlStruct *cvs, MyTimer *Timer);
 bool    PinceCalibration(CtrlStruct *cvs);
-bool    ClosePince(CtrlStruct *cvs);
+bool    ClosePince(CtrlStruct *cvs, int duty);
 bool    DeposeBlock(CtrlStruct *cvs);
 bool    YCalibration(CtrlStruct *cvs, double Y, double Theta);
 bool    XCalibration(CtrlStruct *cvs, double X, double Theta);

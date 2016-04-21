@@ -40,7 +40,7 @@ void Action5Test(CtrlStruct *cvs){
     PointHomologation(cvs);
 }
 void Action6Test(CtrlStruct *cvs){
-    ClosePince(cvs);
+    ClosePince(cvs, 40);
 } 
 void Action7Test(CtrlStruct *cvs){
     cvs->MotorPince->dutyCycle = var39;

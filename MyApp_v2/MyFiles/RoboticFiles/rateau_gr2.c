@@ -57,11 +57,11 @@ NAMESPACE_INIT(ctrlGr2);
      {
         if( Motor->position <50)
         {
-           Motor->dutyCycle = -10;
+           Motor->dutyCycle = -20;
         }
         else
         {
-           Motor->dutyCycle = -20;
+           Motor->dutyCycle = -40;
         }
          return false;
      }

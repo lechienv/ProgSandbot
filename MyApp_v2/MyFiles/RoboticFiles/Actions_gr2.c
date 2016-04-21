@@ -435,7 +435,7 @@ bool Action4(CtrlStruct *cvs)
          break;
        }
      case(AlignedWithFishes) :{
-         bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, -89, 1) : IsAlignedWithTheta(cvs, 89, 1);
+         bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, -85, 1) : IsAlignedWithTheta(cvs, 85, 1);
          if(isAligned){
              cvs->stateAction4 = RatGoTopStartFish;
          }
@@ -452,10 +452,10 @@ bool Action4(CtrlStruct *cvs)
      }
      case(DyntakeFish1) :{
           bool reachedPoint = 0; //RateauReachPoint(cvs, 300);
-         (color == GREEN) ? SetAngle(DynaRatL, 70) : SetAngle(DynaRatL, 70);
+         (color == GREEN) ? SetAngle(DynaRatL, 60) : SetAngle(DynaRatL, 60);
          //SendMessageDyna(DynaRatL,0x0005,0x0020,0x300);
          if(reachedPoint){
-             //cvs->stateAction4 = AlignRateau1;
+             cvs->stateAction4 = Avance;
          }
          return false;
             break;

@@ -201,6 +201,8 @@ void InitTower(CtrlStruct * cvs)
 	cvs->Tower->rising_index_fixed	= rising_index_fixed_INIT;
 	cvs->Tower->tower_pos			= tower_pos_INIT;
 	cvs->Tower->tower_prevPos		= cvs->Tower->tower_pos;
+    cvs->Tower->distance            = distance_INIT;
+    cvs->Tower->angle               = angle_INIT;
 }
 
 

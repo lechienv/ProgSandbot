@@ -40,7 +40,7 @@ void controller_init(CtrlStruct *cvs){
     cvs->stateAction1 = GoToHouse1;
     cvs->stateAction2 = GoToBlocOne;
     cvs->stateAction3 = GoToBlocTwoCalib;
-    cvs->stateAction4 = GoToFish;
+    cvs->stateAction4 = RatGoTopStartFish;//GoToFish;
     cvs->stateStrategy =  GoAction2; //GoCalibration;//GoAction4;//
 #ifdef REALBOT
     InitRegMotor(cvs->MotorL);
@@ -121,15 +121,29 @@ void controller_loop(CtrlStruct *cvs){
         
        // RatGoBottom(cvs, cvs->MotorRatL);1
       
-        getActions(cvs);
+        //getActions(cvs);
        //Action4(cvs);
         
      // MyStrategy(cvs);
         //WhichPosition(DynaRatR);
       //SetAngle(DynaRatL, 500);
         //ReadDyna(DynaPara);
-       // PinceCalibration(cvs);
+       //PinceCalibration(cvs);
+      /*  if(cvs->robotID == PINK){
+            getTests(cvs);
+            //InitDyna();
+            SetAngle(DynaRatL, 0);
+            //Action4(cvs);
+            WhichPosition(DynaRatL);
+        }
+        else{
+            //Action4(cvs);
+            RatGoBottom(cvs, cvs->MotorRatL);
+        }*/
+        //PointHomologation(cvs);
+       getStrategy(cvs);
         //DynaTestFunction(cvs);
+
     }
        
 #else
@@ -240,7 +254,18 @@ void AlwaysInController(CtrlStruct *cvs) {
 }
 
 void AlwaysEndController(CtrlStruct *cvs) {
-	SendMotorCommand(cvs);
+	if(cvs->time >= 90){
+        cvs->MotorL->dutyCycle = 0;//RightMotorDC;
+        cvs->MotorR->dutyCycle = 0;// RightMotorDC;
+        cvs->MotorTower->dutyCycle = 0;
+        cvs->MotorRatL->dutyCycle = 0; //RightMotorDC;//RightMotorDC;
+        cvs->MotorRatR->dutyCycle = 0; //RightMotorDC;//RightMotorDC;
+        cvs->MotorPince->dutyCycle = 0;//RightMotorDC;
+    }
+     /*if(cvs->Sensors->uSwitchPinceOut){
+        cvs->MotorPince->dutyCycle = 0;
+    }*/
+    SendMotorCommand(cvs);
 }
 
 #ifndef REALBOT

@@ -86,13 +86,13 @@ void MyMiniProjet_Task(void)
                 if((double)(currentTime - previousTime) > TIMESTEP_REALBOT*(SYS_FREQ/2000)*1000){//
                    
                     previousTime = currentTime;
-                    //controller_loop(cvs);    
+                    controller_loop(cvs);    
                     
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     
-                    getActions(cvs);
-                    getTests(cvs);
-                    SendMotorCommand(cvs);
+                    //getActions(cvs);
+                    //getTests(cvs);
+                    //SendMotorCommand(cvs);
                              
                              
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

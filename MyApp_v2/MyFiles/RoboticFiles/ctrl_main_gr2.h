@@ -24,6 +24,7 @@
 #include "controller_gr2.h"
 #include "tower_gr2.h"
 #include <math.h>
+#include "../UpdateEcran_gr2.h"
 
 #ifndef REALBOT
 NAMESPACE_INIT(ctrlGr2);

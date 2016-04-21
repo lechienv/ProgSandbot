@@ -86,13 +86,13 @@ void InitDyna(){
     MyDelayMs(100);
     SetAngle(DynaPara, 170);
     MyDelayMs(100);
-    SetAngle(DynaRatL, 145);
+    SetAngle(DynaRatL, 140);
     MyDelayMs(100);
-    SetAngle(DynaRatR, 145);
+    SetAngle(DynaRatR, 140);
     MyDelayMs(100);
-    SendMessageDyna(DynaRatL,0x0005,0x0020,0x1ff);
+    SendMessageDyna(DynaRatL,0x0005,0x0020,0x1F4);
     MyDelayMs(100);
-    SendMessageDyna(DynaRatR,0x0005,0x0020,0x1ff);
+    SendMessageDyna(DynaRatR,0x0005,0x0020,0x1F4);
     //SendMessageDyna(0xFE,0x0005,0x0004,0x34);
 }
 void AllumeLed(int id, int value){
@@ -137,7 +137,7 @@ void SetAngle(int id, int angle){
     SendMessageDyna(id, 0x0005, 0x001E, angle);
 }
 void WhichPosition(int id){
-    SendMessageDyna2(id, 0x0005, 0x0024, 0x02);
+    SendMessageDyna2(id, 0x0004, 0x0024, 0x2);
     int ID = MyCyclone_Read(CYCLONE_IO_Q_Data)&0x00FF;
     int Error = MyCyclone_Read(CYCLONE_IO_Q_Data) & 0xFF00;
     int P1 = MyCyclone_Read(CYCLONE_IO_R_Data)&0x00FF;

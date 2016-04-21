@@ -66,6 +66,26 @@ void getTests(CtrlStruct *cvs)
     }
 }
 
+void getStrategy(CtrlStruct *cvs)
+{
+    unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
+    switch(M){
+        case(14) :
+        {
+            MyConsole_SendMsg("Homologation \n");
+            PointHomologation(cvs);
+            break;
+        }
+        case(15) :
+        {
+            MyStrategy(cvs);
+            break;
+        }
+        default: break;
+    }
+    
+}
+
 void getActions(CtrlStruct *cvs)
 {
     unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
@@ -92,7 +112,7 @@ void getActions(CtrlStruct *cvs)
         }
         case(20) :
         {
-            Action4(cvs);
+            ActionParasol(cvs);
             break;
         }
    default: break;

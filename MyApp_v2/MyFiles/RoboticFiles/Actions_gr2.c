@@ -373,145 +373,172 @@ bool Action4(CtrlStruct *cvs)
    int color = cvs->robotID;
    switch(cvs->stateAction4){
     case(GoToFish) :{
-            RatGoBottom(cvs, (color == GREEN) ? cvs->MotorRatL : cvs->MotorRatR);
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0.75 , 1.0, 0.02) : ReachPointPotential(cvs, 0.75 , -1.0 , 0.02) ;
-            if(reached){
-                cvs->stateAction4 = AlignForCalibFishes;
-            }
-            return false;
-            break;
-        }
-     case(AlignForCalibFishes) :{
-         RatGoBottom(cvs, (color == GREEN) ? cvs->MotorRatL : cvs->MotorRatR);
-         bool isAligned = IsAlignedWithTheta(cvs, 180, 1);
-         if(isAligned){
-             cvs->stateAction4 = CalibFishes;
-         }
-            return false;
-            break;
-     }
-     case(CalibFishes) :{
-         //RatGoBottom(cvs, (color == GREEN) ? cvs->MotorRatL : cvs->MotorRatR);
-         bool isCalibrate = XCalibration(cvs, 1-0.1322, 180) ;
-         if(isCalibrate){
-             cvs->stateAction4 = DecaleBordFishes;
-         }
-            return false;
-            break;
-     }
-       case(DecaleBordFishes) :{
-           /*cvs->MotorL->dutyCycle = 15;
-            cvs->MotorR->dutyCycle = 15;
-         if(cvs->Odo->x <(1-0.22-0.1322+0.05) )
-         {
-            cvs->stateAction4 = DoTheCreneau; 
-         }
-            */
-       //bool isCalibrate = RatGoBottom(cvs, (color == GREEN) ? cvs->MotorRatL : cvs->MotorRatR);
-       bool isReached = (color == GREEN) ? ReachPointPotential(cvs, 0.85 , 0.5, 0.1) : ReachPointPotential(cvs, 0.85 , -0.5 , 0.1);
-       if(isReached){// && isCalibrate){
-           cvs->stateAction4 = AlignForCreneau;
-       }
-         return false;
-         break;
-       }
-       case(AlignForCreneau) :{
-         bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, -90, 1) : IsAlignedWithTheta(cvs, 90, 1);
-         if(isAligned){
-             cvs->stateAction4 = DoTheCreneau;
-         }
-            return false;
-            break;
-     }
-       case(DoTheCreneau) :{
-           //bool creneauDone = Creneau(cvs);
-           cvs->Obstacles->RectangleList[7].isActive = false;
-         bool creneauDone = (color == GREEN) ? ReachPointPotential(cvs, 0.84 , 0.95, 0.03) : ReachPointPotential(cvs, 0.84 , -0.95, 0.03);
-         if(creneauDone || (cvs->Odo->speedL == 0 && cvs->Odo->speedR == 0))
-         {
-            cvs->stateAction4 = AlignedWithFishes;
-         }
-         return false;
-         break;
-       }
-     case(AlignedWithFishes) :{
-         bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, -85, 1) : IsAlignedWithTheta(cvs, 85, 1);
-         if(isAligned){
-             cvs->stateAction4 = RatGoTopStartFish;
-         }
-            return false;
-            break;
-     }
-      case(RatGoTopStartFish) :{
-         bool isTop = (color == GREEN) ? RatGoTop(cvs, cvs->MotorRatL) : RatGoTop(cvs, cvs->MotorRatR) ;
-         if(isTop){
-             cvs->stateAction4 = DyntakeFish1;
-         }
-            return false;
-            break;
-     }
-     case(DyntakeFish1) :{
-          bool reachedPoint = 0; //RateauReachPoint(cvs, 300);
-         (color == GREEN) ? SetAngle(DynaRatL, 60) : SetAngle(DynaRatL, 60);
-         //SendMessageDyna(DynaRatL,0x0005,0x0020,0x300);
-         if(reachedPoint){
-             cvs->stateAction4 = Avance;
-         }
-         return false;
-            break;
-     }
-     case(Avance) :{
-         bool creneauDone = (color == GREEN) ? ReachPointPotential(cvs, 0.83 , 0.7, 0.03) : ReachPointPotential(cvs, 0.83 , -0.7, 0.03);
-         if(creneauDone || (cvs->Odo->speedL == 0 && cvs->Odo->speedR == 0))
-         {
-            cvs->stateAction4 = AlignedWithFishes;
-         }
-         return false;
-         break;
-     }
-     case(AlignRateau1) :{
-         (color == GREEN) ? SetAngle(DynaRatL, 110) : SetAngle(DynaRatR, 110);
-         bool reachedPoint = RateauReachPoint(cvs, 200);
-         if(reachedPoint){
-             cvs->stateAction4 = MoveWithFish;
-         }
-         return false;
-         break;
-     }
-    case(MoveWithFish) :{
-        cvs->MotorL->dutyCycle = 5;
-        cvs->MotorR->dutyCycle = 5;
-        bool my_positionY = (color == GREEN) ? cvs->Odo->y < 0.4 : cvs->Odo->y > -0.4 ;
-        if(my_positionY)
-        {
-           cvs->stateAction4 = ReleaseFish; 
+        RatGoBottom(cvs, (color == GREEN) ? cvs->MotorRatL : cvs->MotorRatR);
+        bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0.75 , 1.0, 0.02) : ReachPointPotential(cvs, 0.75 , -1.0 , 0.02) ;
+        if(reached){
+            cvs->stateAction4 = AlignForCalibFishes;
         }
         return false;
         break;
+    }
+    case(AlignForCalibFishes) :{
+        RatGoBottom(cvs, (color == GREEN) ? cvs->MotorRatL : cvs->MotorRatR);
+        bool isAligned = IsAlignedWithTheta(cvs, 180, 1);
+        if(isAligned){
+            cvs->stateAction4 = CalibFishes;
+        }
+        return false;
+        break;
+    }
+    case(CalibFishes) :{
+        bool isCalibrate = XCalibration(cvs, 1-0.1322, 180) ;
+        if(isCalibrate){
+            cvs->stateAction4 = DecaleBordFishes;
+        }
+           return false;
+           break;
+    }
+    case(DecaleBordFishes) :{
+        bool isReached = (color == GREEN) ? ReachPointPotential(cvs, 0.85 , 0.6, 0.1) : ReachPointPotential(cvs, 0.85 , -0.6 , 0.1); // y 0.5
+        if(isReached){
+            cvs->stateAction4 = AlignForCreneau;
+        }
+        return false;
+        break;
+    }
+    case(AlignForCreneau) :{
+        bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, -90, 1) : IsAlignedWithTheta(cvs, 90, 1);
+        if(isAligned){
+            cvs->stateAction4 = DoTheCreneau;
+        }
+        return false;
+        break;
+    }
+    case(DoTheCreneau) :{
+         cvs->Obstacles->RectangleList[7].isActive = false;
+         bool creneauDone = (color == GREEN) ? ReachPointPotential(cvs, 0.84 , 0.85, 0.03) : ReachPointPotential(cvs, 0.84 , -0.85, 0.03);
+         if(creneauDone)//|| (cvs->Odo->speedL == 0 && cvs->Odo->speedR == 0))
+         {
+            cvs->stateAction4 = AlignedWithFishes;
+         }
+         return false;
+         break;
+    }
+    case(AlignedWithFishes) :{
+        bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, -90, 1) : IsAlignedWithTheta(cvs, 90, 1);
+        if(isAligned){
+            cvs->stateAction4 = RatGoTopStartFish;
+        }
+        return false;
+        break;
+    }
+    case(RatGoTopStartFish) :{
+        bool isTop = (color == GREEN) ? RatGoTop(cvs, cvs->MotorRatL) : RatGoTop(cvs, cvs->MotorRatR) ;
+        if(isTop){
+         cvs->stateAction4 = DyntakeFish1;
+        }
+        return false;
+        break;
+    }
+    case(DyntakeFish1) :{
+        (color == GREEN) ? SetAngle(DynaRatL, 60) : SetAngle(DynaRatL, 60);
+        MyDelayMs(500);
+        cvs->stateAction4 = RatDescend;
+        return false;
+        break;
+    }
+    case(RatDescend) :{
+        bool descendu = RateauReachPoint(cvs, 130);
+        if(descendu){
+            cvs->stateAction4 = DyntakeFish2;
+        }
+        return false;
+        break;
+    }
+    case(DyntakeFish2) :{
+        (color == GREEN) ? SetAngle(DynaRatL, 80) : SetAngle(DynaRatL, 80);
+        cvs->stateAction4 = Avance;
+        MyDelayMs(500);
+        return false;
+        break;
+    } 
+    case(Avance) :{
+        SpeedRefToDC(cvs,cvs->MotorL,5);
+        SpeedRefToDC(cvs,cvs->MotorR,5);
+        bool goodY = (color == GREEN) ? cvs->Odo->y < 0.75 :  cvs->Odo->y > -0.75;
+        if(goodY)
+        {
+            SpeedRefToDC(cvs,cvs->MotorL,0);
+            SpeedRefToDC(cvs,cvs->MotorR,0);
+            cvs->stateAction4 = DyntakeFish3;
+        }
+        return false;
+        break;
+    }
+    case(DyntakeFish3) :{
+        (color == GREEN) ? SetAngle(DynaRatL, 160) : SetAngle(DynaRatL, 160);
+        MyDelayMs(500);
+        cvs->stateAction4 = RatGoUp;
+        return false;
+        break;
+    } 
+    case(RatGoUp) :{
+        bool reachedPoint = (color == GREEN) ? RateauReachPoint(cvs, 150) : RateauReachPoint(cvs, 150) ;
+        if(reachedPoint){
+            cvs->stateAction4 = DecaleWithFishes;
+        }
+        return false;
+        break;
+    }
+    case(DecaleWithFishes) :{
+        bool decale = (color == GREEN) ? ReachPointPotential(cvs, 0.85 , 0.5, 0.03) : ReachPointPotential(cvs, 0.85, -0.5, 0.03);
+        if(decale)
+        {
+           cvs->stateAction4 = MoveWithFish;
+        }
+        return false;
+        break;
+    }
+    case(MoveWithFish) :{
+         bool decale = (color == GREEN) ? ReachPointPotential(cvs, 0.84 , 0.3, 0.05) : ReachPointPotential(cvs, 0.84 , -0.3, 0.05);
+         if(decale)
+         {
+            cvs->stateAction4 = AlignedWithNet;
+         }
+         return false;
+         break;
      }
-     case(ReleaseFish) :{
-       // ActionParasol(cvs);
-            return  RatGoBottom(cvs, cvs->MotorRatL);;
-            break;
-     }
+     case(AlignedWithNet) :{
+        bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, -90, 3) : IsAlignedWithTheta(cvs, 90, 3);
+        if(isAligned){
+            cvs->stateAction4 = ReleaseFish;
+        }
+        return false;
+        break;
+    }
+    case(ReleaseFish) :{
+        (color == GREEN) ? SetAngle(DynaRatL, 0) : SetAngle(DynaRatL, 0);
+        MyDelayMs(500);
+        return true;
+        break;
+    }
     default: break;
     }
 }
 
 
 void ActionBase(CtrlStruct *cvs)
-{     int color = cvs->robotID;
-            bool reached;
-            if(color == GREEN){
-             reached = ReachPointPotential(cvs, 0.1, 0.575, 0.05);
-            }
-            else{
-             reached=  ReachPointPotential(cvs, 0.1, -0.575, 0.05);
-            }
-     
+{   int color = cvs->robotID;
+    bool reached;
+    if(color == GREEN){
+        reached = ReachPointPotential(cvs, 0.1, 0.575, 0.05);
+    }
+    else{
+         reached=  ReachPointPotential(cvs, 0.1, -0.575, 0.05);
+    }
 }
 bool ActionParasol(CtrlStruct *cvs){
-     MyDelayMs(2000);
+    MyDelayMs(2000);
     SetAngle(DynaPara, 100);
     MyDelayMs(1000);
     SetAngle(DynaPara, 170);

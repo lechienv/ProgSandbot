@@ -64,8 +64,8 @@ enum StateHomologation {PinceCalib, reachViaPoint, AlignWithTheta, ReachBlocs, C
 enum StateAction1{GoToHouse1, AlignedWithHouse1, PushHouse1, FreeHouse1, AlignedWithHouse2, PushHouse2, FreeHouse2};
 enum StateAction2{GoToBlocOne, AlignForBlocOne, TakeBlocOne, BringBlockOne, ReleaseBlockOne, AlignForBlockOne,EndBlocOneViaPoint};
 enum StateAction3{CalibY, AlignForCalibYblocTwo, Calib_yBlocTwo, GoToBlocTwoCalib, AlignForCalibAction3, Calib_x, GoToBlocTwo, AlignForBlocTwo, AvanceForBlockTwo, ReculeForBlockTwo, BringBlockTwoViaPoint, TakeBlocTwo, BringBlockTwo, ReleaseBlockTwo, AlignForBlockTwo};
-enum StateAction4{GoToFish, AlignForCalibFishes, CalibFishes, DecaleBordFishes, AlignForCreneau, DoTheCreneau, AlignedWithFishes,RatGoTopStartFish, DyntakeFish1, DyntakeFish2, Avance, AlignRateau1, MoveWithFish, ReleaseFish};
-enum StateStrategy{GoCalibration, GoAction1, GoAction2, GoAction3,GoAction4, GoActionParasol, GoBase};
+enum StateAction4{GoToFish, AlignForCalibFishes, CalibFishes, DecaleBordFishes, AlignForCreneau, DoTheCreneau, AlignedWithFishes,RatGoTopStartFish, DyntakeFish1, RatDescend, DyntakeFish2, Avance, DyntakeFish3, RatGoUp, DecaleWithFishes, MoveWithFish, AlignedWithNet, ReleaseFish};
+enum StateStrategy{GoCalibration, GoAction1, GoAction2, GoAction3,GoAction4, GoBase};
 
 
 typedef struct Potential {

@@ -66,103 +66,60 @@ void controller_loop(CtrlStruct *cvs){
     cvs->Param->MotorCommandByHand = CommandMotorByHand;
     if(cvs->Param->MotorCommandByHand)
     {
-     cvs->MotorL->dutyCycle = LeftMotorDC;//RightMotorDC;
-     cvs->MotorR->dutyCycle = RightMotorDC;// RightMotorDC;
+     cvs->MotorL->dutyCycle = LeftMotorDC;
+     cvs->MotorR->dutyCycle = RightMotorDC;
      cvs->MotorTower->dutyCycle = TourelleDC;
-     cvs->MotorRatL->dutyCycle = RateauLDC; //RightMotorDC;//RightMotorDC;
-     cvs->MotorRatR->dutyCycle = RateauRDC; //RightMotorDC;//RightMotorDC;
-     cvs->MotorPince->dutyCycle = PinceDC;//RightMotorDC;*/   
+     cvs->MotorRatL->dutyCycle = RateauLDC; 
+     cvs->MotorRatR->dutyCycle = RateauRDC; 
+     cvs->MotorPince->dutyCycle = PinceDC;
     }
     else if(cvs->time >= 91 && cvs->time < 92){
-        cvs->MotorL->dutyCycle = 0;//RightMotorDC;
-        cvs->MotorR->dutyCycle = 0;// RightMotorDC;
+        cvs->MotorL->dutyCycle = 0;
+        cvs->MotorR->dutyCycle = 0;
         cvs->MotorTower->dutyCycle = 0;
-        cvs->MotorRatL->dutyCycle = 0; //RightMotorDC;//RightMotorDC;
-        cvs->MotorRatR->dutyCycle = 0; //RightMotorDC;//RightMotorDC;
-        cvs->MotorPince->dutyCycle = 0;//RightMotorDC;*/
-        //ActionParasol(cvs);
-          ActionParasol(cvs);   
-       // MyDelayMs(1000000000000);
+        cvs->MotorRatL->dutyCycle = 0; 
+        cvs->MotorRatR->dutyCycle = 0; 
+        cvs->MotorPince->dutyCycle = 0;
+        ActionParasol(cvs);   
     }
     else if(cvs->time >= 90){
-        cvs->MotorL->dutyCycle = 0;//RightMotorDC;
-        cvs->MotorR->dutyCycle = 0;// RightMotorDC;
+        cvs->MotorL->dutyCycle = 0;
+        cvs->MotorR->dutyCycle = 0;
         cvs->MotorTower->dutyCycle = 0;
-        cvs->MotorRatL->dutyCycle = 0; //RightMotorDC;//RightMotorDC;
-        cvs->MotorRatR->dutyCycle = 0; //RightMotorDC;//RightMotorDC;
-        cvs->MotorPince->dutyCycle = 0;//RightMotorDC;*/
-  
-       // MyDelayMs(1000000000000);
+        cvs->MotorRatL->dutyCycle = 0; 
+        cvs->MotorRatR->dutyCycle = 0; 
+        cvs->MotorPince->dutyCycle = 0;
     }
-       else{
-              /*    char s[659];
-       sprintf(s,"time = %f \t cvs->MotorRatL= %f  \t cvs->MotorRatL->speed = %f cvs->MotorRatR->speed R = %f \n", cvs->time, cvs->MotorRatL->position, cvs->MotorRatL->speed,cvs->MotorRatR->speed);
-        MyConsole_SendMsg(s);*/
-     //  Calibration(cvs);
+    else{
 
-    //   ReachPointPotential(cvs, 0.8, 0.8, 0.03);
-      //  DynaTestFunction(cvs);
-     /* if(cvs->time<5)
-      {
-          RatGoBottom(cvs, cvs->MotorRatL);
-          //MyStrategy(cvs);
-      }
-      else
-      {
-        // cvs->MotorTower->dutyCycle = 0;
-         //MyStrategy(cvs);
-        // PointHomologation(cvs);
-          
-      }*/
-       // ReachPointPotential(cvs, 0.8, 0.8, 0.03);
-     //Calibration(cvs);
-      //Action2(cvs);
-      /*  if(cvs->time < 5){
-            RatGoBottom(cvs, cvs->MotorRatL);
-        }
-        else{
-            RatGoTop(cvs, cvs->MotorRatL);
-            char s[128];
+
+         /*   char s[128];
             sprintf(s,"rateau position = %f \t vitesse rateau = %f\n", cvs->MotorRatL->position, cvs->MotorRatL->speed);
             MyConsole_SendMsg(s);
-        }*/
+        */
 
-        //WhichPosition(DynaRatR);
-      //SetAngle(DynaRatL, 500);
-        //ReadDyna(DynaPara);
-
-      /*  if(cvs->robotID == PINK){
-            getTests(cvs);
-            //InitDyna();
-            SetAngle(DynaRatL, 0);
-            //Action4(cvs);
-            WhichPosition(DynaRatL);
-        }
-        else{
-            //Action4(cvs);
-            RatGoBottom(cvs, cvs->MotorRatL);
-        }*/
-
-      //  getActions(cvs);
-          //getStrategy(cvs);
-        //getTests(cvs);
         if(cvs->robotID == PINK){
-            RatGoBottom(cvs, cvs->MotorRatL);
+        cvs->MotorL->dutyCycle = 0;
+        cvs->MotorR->dutyCycle = 0;
+        cvs->MotorTower->dutyCycle = 0;
+        cvs->MotorRatR->dutyCycle = 0; 
+        cvs->MotorPince->dutyCycle = 0;
+        RatGoBottom(cvs, cvs->MotorRatL);
         }
         else{
-            MyStrategy(cvs);
+       cvs->MotorTower->dutyCycle = 0;
+        cvs->MotorRatR->dutyCycle = 0; 
+        cvs->MotorPince->dutyCycle = 0;    
+                    MyStrategy(cvs);
         }
         //ActionParasol(cvs);
        // MyConsole_SendMsg("1\n");
         //DynaTestFunction(cvs);
-
     }
        
 #else
       StrategyTest(cvs);
 #endif
-
-    //PinceCalibration(cvs);
 
 	AlwaysEndController(cvs);
 }

@@ -99,11 +99,6 @@ void MyStrategy(CtrlStruct *cvs)
                      }
                 break;
         }
-         case(GoActionParasol) :{
-                    bool succeed = ActionParasol(cvs);
-                    cvs->stateStrategy = GoBase;
-                break;
-        }
         case(GoBase) :{
             ActionBase(cvs);
                 break;

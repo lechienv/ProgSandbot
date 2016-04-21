@@ -288,7 +288,7 @@ bool ClosePince(CtrlStruct *cvs, int duty){
         duty = 20;
     }
     cvs->MotorPince->dutyCycle = -duty;
-    if((cvs->MotorPince->speed == 0.0) && (!cvs->Sensors->uSwitchPinceOut) && (cvs->MotorPince->position < -100)){
+    if((cvs->MotorPince->speed == 0) && (!cvs->Sensors->uSwitchPinceOut) && (cvs->MotorPince->position < -100)){
         return true;
     }
     return false;

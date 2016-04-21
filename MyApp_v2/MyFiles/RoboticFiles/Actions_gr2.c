@@ -15,7 +15,7 @@ bool Action1(CtrlStruct *cvs){
 //enum StateAction1{GoToHouses, AlignedWithHouses, PushHouses, FreeHouses};
    switch(cvs->stateAction1){
     case(GoToHouse1) :{
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.5 , 1.3, 0.03) : ReachPointPotential(cvs, -0.5 , -1.3 , 0.03) ;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.7 , 1.2, 0.03) : ReachPointPotential(cvs, -0.7 , -1.2 , 0.03) ;
             if(reached){
                 cvs->stateAction1 = AlignedWithHouse1;
             }
@@ -54,7 +54,7 @@ bool Action1(CtrlStruct *cvs){
         }
          case(FreeHouse1) :{
             PinceCalibration(cvs);
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.5, 1.1, 0.03) : ReachPointPotential(cvs, -0.5, 1.1, 0.03);
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.7, 1.1, 0.03) : ReachPointPotential(cvs, -0.7, -1.1, 0.03);
             if(reached){
                 cvs->stateAction1 = AlignedWithHouse2;
             }
@@ -143,7 +143,7 @@ bool Action2(CtrlStruct *cvs){
         break;
     }
     case(BringBlockOne):{
-        bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0.1 , 0.6, 0.06) : ReachPointPotential(cvs, 0.1 , -0.6, 0.06);
+        bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0.1 , 0.6, 0.08) : ReachPointPotential(cvs, 0.1 , -0.6, 0.08);
         if(reached){
                 cvs->stateAction2 = AlignForBlockOne;
         }
@@ -416,7 +416,7 @@ bool Action4(CtrlStruct *cvs)
     }
     case(DoTheCreneau) :{
          cvs->Obstacles->RectangleList[7].isActive = false;
-         bool creneauDone = (color == GREEN) ? ReachPointPotential(cvs, 0.84 , 0.85, 0.03) : ReachPointPotential(cvs, 0.84 , -0.85, 0.03);
+         bool creneauDone = (color == GREEN) ? ReachPointPotential(cvs, 0.84 , 0.86, 0.03) : ReachPointPotential(cvs, 0.84 , -0.86, 0.03);
          if(creneauDone)//|| (cvs->Odo->speedL == 0 && cvs->Odo->speedR == 0))
          {
             cvs->stateAction4 = AlignedWithFishes;
@@ -465,7 +465,7 @@ bool Action4(CtrlStruct *cvs)
     case(Avance) :{
         SpeedRefToDC(cvs,cvs->MotorL,5);
         SpeedRefToDC(cvs,cvs->MotorR,5);
-        bool goodY = (color == GREEN) ? cvs->Odo->y < 0.75 :  cvs->Odo->y > -0.75;
+        bool goodY = (color == GREEN) ? cvs->Odo->y < 0.73 :  cvs->Odo->y > -0.73;
         if(goodY)
         {
             SpeedRefToDC(cvs,cvs->MotorL,0);
@@ -500,7 +500,7 @@ bool Action4(CtrlStruct *cvs)
         break;
     }
     case(MoveWithFish) :{
-         bool decale = (color == GREEN) ? ReachPointPotential(cvs, 0.88 , 0.3, 0.05) : ReachPointPotential(cvs, 0.88 , -0.3, 0.05);
+         bool decale = (color == GREEN) ? ReachPointPotential(cvs, 0.9 , 0.3, 0.03) : ReachPointPotential(cvs, 0.9 , -0.3, 0.03);
          if(decale)
          {
             cvs->stateAction4 = AlignedWithNet;

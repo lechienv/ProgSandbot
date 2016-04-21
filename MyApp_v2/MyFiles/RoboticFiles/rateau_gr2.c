@@ -60,7 +60,7 @@ if(my_bool)
    }
    else
    {
-      Motor->dutyCycle = -40;
+      Motor->dutyCycle = -20;
    }
     return false;
 }

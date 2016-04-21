@@ -41,7 +41,7 @@ void controller_init(CtrlStruct *cvs){
     cvs->stateAction2 = GoToBlocOne;
     cvs->stateAction3 = CalibY;
     cvs->stateAction4 = GoToFish;
-    cvs->stateStrategy =  GoAction4; 
+    cvs->stateStrategy =  GoAction2; 
 #ifdef REALBOT
     InitRegMotor(cvs->MotorL);
     InitRegMotor(cvs->MotorR);
@@ -73,7 +73,7 @@ void controller_loop(CtrlStruct *cvs){
      cvs->MotorRatR->dutyCycle = RateauRDC; 
      cvs->MotorPince->dutyCycle = PinceDC;
     }
-    else if(cvs->time >= 91 && cvs->time < 92){
+    else if(cvs->time >= 191 && cvs->time < 192){
         cvs->MotorL->dutyCycle = 0;
         cvs->MotorR->dutyCycle = 0;
         cvs->MotorTower->dutyCycle = 0;
@@ -82,7 +82,7 @@ void controller_loop(CtrlStruct *cvs){
         cvs->MotorPince->dutyCycle = 0;
         ActionParasol(cvs);   
     }
-    else if(cvs->time >= 90){
+    else if(cvs->time >= 190){
         cvs->MotorL->dutyCycle = 0;
         cvs->MotorR->dutyCycle = 0;
         cvs->MotorTower->dutyCycle = 0;
@@ -230,7 +230,7 @@ void AlwaysInController(CtrlStruct *cvs) {
 }
 
 void AlwaysEndController(CtrlStruct *cvs) {
-	if(cvs->time >= 90){
+	if(cvs->time >= 190){
         cvs->MotorL->dutyCycle = 0;//RightMotorDC;
         cvs->MotorR->dutyCycle = 0;// RightMotorDC;
         cvs->MotorTower->dutyCycle = 0;

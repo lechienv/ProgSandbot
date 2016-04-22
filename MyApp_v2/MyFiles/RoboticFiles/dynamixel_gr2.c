@@ -119,9 +119,9 @@ void  ReadDyna(){
    int ID1 = MyCyclone_Read(CYCLONE_IO_Q_Data)&0x00FF;
     int ID3 = MyCyclone_Read(CYCLONE_IO_R_Data);
     //int ID2 = MyCyclone_Read(CYCLONE_IO_F_Data)&0xFF00;
-    char s[64];
+   /* char s[64];
     sprintf(s, "ERROR = %d, Para1 = %d, Para2 = %d\n", ID1, ID3, ID3);
-    MyConsole_SendMsg(s);
+    MyConsole_SendMsg(s);*/
 }
 void StopTurn(int id, int i){
     if(i == 1){
@@ -145,9 +145,9 @@ void WhichPosition(int id){
     double allQ = MyCyclone_Read(CYCLONE_IO_Q_Data);
     double allR= MyCyclone_Read(CYCLONE_IO_R_Data);
     //int ID2 = MyCyclone_Read(CYCLONE_IO_F_Data)&0xFF00;
-    char s[128];
+   /* char s[128];
     sprintf(s, "Id = %d, Error = %d, P1 = %d, P2 = %d, allQ = %f, allR = %f\n", ID, Error, P1, P2, allQ, allR);
-    MyConsole_SendMsg(s);
+    MyConsole_SendMsg(s);*/
 }
 void SendMessageDyna2(int id, int size, int address, double value){
     unsigned int Data1;

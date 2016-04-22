@@ -51,7 +51,7 @@ void UpdateDetectedBotPosition(CtrlStruct *cvs) {
 			double distanceFromTower = ComputeDistance(cvs, risingIndex, fallingIndex);
 			double distance = distanceFromTower;
 			double angle = angleFromTower;
-            cvs->Tower->TooClose = (distance < 0.60);
+            cvs->Tower->TooClose = (distance < 0.75);
             cvs->Tower->distance = distance ;
             cvs->Tower->angle    = angle;
             

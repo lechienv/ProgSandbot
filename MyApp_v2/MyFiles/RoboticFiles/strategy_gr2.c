@@ -50,7 +50,7 @@ void MyStrategy(CtrlStruct *cvs)
                bool succeed = Action2(cvs);
                     if(!cvs->TimerAction->isSet)
                     {
-                    SetTimer(cvs, cvs->TimerAction, 20);
+                    SetTimer(cvs, cvs->TimerAction, 23);
                     }
                     if(IsTimerTimout(cvs,cvs->TimerAction))
                     {
@@ -69,7 +69,7 @@ void MyStrategy(CtrlStruct *cvs)
                       bool succeed = Action3(cvs);
                     if(!cvs->TimerAction->isSet)
                     {
-                    SetTimer(cvs, cvs->TimerAction, 45); // 35 on prend pas bien les blocs
+                    SetTimer(cvs, cvs->TimerAction, 60); // 35 on prend pas bien les blocs
                     }
                     if(IsTimerTimout(cvs,cvs->TimerAction))
                     {
@@ -87,6 +87,23 @@ void MyStrategy(CtrlStruct *cvs)
                     if(!cvs->TimerAction->isSet)
                     {
                     SetTimer(cvs, cvs->TimerAction, 60); // ??
+                    }
+                    if(IsTimerTimout(cvs,cvs->TimerAction))
+                    {
+                    ResetTimer(cvs->TimerAction);
+                    cvs->stateStrategy = GoBase;
+                    }
+                    if(succeed){
+                    ResetTimer(cvs->TimerAction);
+                    cvs->stateStrategy = GoAction5;
+                     }
+                break;
+        }
+          case(GoAction5) :{
+                    bool succeed = Action5(cvs);
+                    if(!cvs->TimerAction->isSet)
+                    {
+                    SetTimer(cvs, cvs->TimerAction, 30); // ??
                     }
                     if(IsTimerTimout(cvs,cvs->TimerAction))
                     {
@@ -231,19 +248,47 @@ void DynaTestFunction(CtrlStruct *cvs){
 	
 //////////////////////////////////////////////////////////// homologation ///////////////////////////////////////////////////////////
 void PointHomologation(CtrlStruct *cvs){     
-    /*double distanceX = (cvs->Odo->x - cvs->Obstacles->CircleList[0].x )*(cvs->Odo->x - cvs->Obstacles->CircleList[0].x );
-    double distanceY = (cvs->Odo->y - cvs->Obstacles->CircleList[0].y )*(cvs->Odo->y - cvs->Obstacles->CircleList[0].y );
-    double distance = sqrt(distanceX+distanceY);*/
-    
-    MyStrategy(cvs);
-   /* char s[128];
-    sprintf(s,"distance= %f \t angle = %f \t\n", cvs->Tower->distance, cvs->Tower->angle);
-    MyConsole_SendMsg(s);*/
-
+   int color = cvs->robotID;
+   switch(cvs->stateStrategy){
+       case(GoAction2) :{ 
+                    bool succeed = Action2(cvs);
+                    if(!cvs->TimerAction->isSet)
+                    {
+                    SetTimer(cvs, cvs->TimerAction, 40); //20 pour une porte
+                    }
+                    if(IsTimerTimout(cvs,cvs->TimerAction))
+                    {
+                    ResetTimer(cvs->TimerAction);
+                    cvs->stateStrategy = GoAction1;
+                    }
+                    if(succeed){
+                    ResetTimer(cvs->TimerAction);
+                    cvs->stateStrategy = GoAction1;
+                     }
+                    break;
+        }
+        case(GoAction1) :{ 
+                    bool succeed = Action1(cvs);
+                    if(!cvs->TimerAction->isSet)
+                    {
+                    SetTimer(cvs, cvs->TimerAction, 40); //20 pour une porte
+                    }
+                    if(IsTimerTimout(cvs,cvs->TimerAction))
+                    {
+                    ResetTimer(cvs->TimerAction);
+                    cvs->stateStrategy = GoBase;
+                    }
+                    if(succeed){
+                    ResetTimer(cvs->TimerAction);
+                    cvs->stateStrategy = GoBase;
+                     }
+                    break;
+        }
+   }
     if(cvs->Tower->TooClose)
     {
-        cvs->MotorL->dutyCycle = 0;//RightMotorDC;
-        cvs->MotorR->dutyCycle = 0;// RightMotorDC;
+        cvs->MotorL->dutyCycle = 0;
+        cvs->MotorR->dutyCycle = 0;
         cvs->MotorL->totalError = 0;
         cvs->MotorR->totalError = 0;
     }
@@ -288,8 +333,32 @@ bool ClosePince(CtrlStruct *cvs, int duty){
         duty = 20;
     }
     cvs->MotorPince->dutyCycle = -duty;
-    if((cvs->MotorPince->speed == 0) && (!cvs->Sensors->uSwitchPinceOut) && (cvs->MotorPince->position < -100)){
+    if(((cvs->MotorPince->speed >= -3) && (!cvs->Sensors->uSwitchPinceOut)) && (cvs->MotorPince->position < -100)){
         return true;
+    }
+    if(cvs->MotorPince->position < -345){
+        return true;
+    }
+    return false;
+}
+bool PinceReachPosition(CtrlStruct *cvs, int pos){
+    int erreur = 20;
+    pos = abs(pos);
+    if(cvs->MotorPince->position <= pos){
+        SpeedRefToDC(cvs, cvs->MotorPince, 10);
+        if(cvs->MotorPince->position >= pos + erreur){
+            SpeedRefToDC(cvs, cvs->MotorPince, 0);
+            return true;
+        }
+        return false;
+    }
+    else{
+        SpeedRefToDC(cvs, cvs->MotorPince, -10);
+        if(cvs->MotorPince->position <= pos + erreur){
+            SpeedRefToDC(cvs, cvs->MotorPince, 0);
+            return true;
+        }
+        return false;
     }
     return false;
 }
@@ -329,8 +398,8 @@ bool DeposeBlock(CtrlStruct *cvs){
 bool YCalibration(CtrlStruct *cvs, double Y, double Theta){
     int color = cvs->robotID;
     if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
-            SpeedRefToDC(cvs, cvs->MotorL, -5);
-            SpeedRefToDC(cvs, cvs->MotorR, -5);
+            SpeedRefToDC(cvs, cvs->MotorL, -7);
+            SpeedRefToDC(cvs, cvs->MotorR, -7);
         if(!cvs->TimerCalibration->isSet)
         {
             SetTimer(cvs, cvs->TimerCalibration, 4);
@@ -354,8 +423,8 @@ bool YCalibration(CtrlStruct *cvs, double Y, double Theta){
 bool XCalibration(CtrlStruct *cvs, double X, double Theta){
     int color = cvs->robotID;
     if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
-            SpeedRefToDC(cvs, cvs->MotorL, -5);
-            SpeedRefToDC(cvs, cvs->MotorR, -5);
+            SpeedRefToDC(cvs, cvs->MotorL, -7);
+            SpeedRefToDC(cvs, cvs->MotorR, -7);
         if(!cvs->TimerCalibration->isSet)
         {
             SetTimer(cvs, cvs->TimerCalibration,4);

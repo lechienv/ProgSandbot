@@ -36,7 +36,7 @@ void	controller_finish(CtrlStruct *cvs);
 
 void	UpdateFromFPGA(CtrlStruct *cvs);
 void	AlwaysInController(CtrlStruct *cvs);
-void	AlwaysEndController(CtrlStruct *cvs);
+void	AlwaysEndController(CtrlStruct *cvs, double endtime);
 
 
 #ifndef REALBOT

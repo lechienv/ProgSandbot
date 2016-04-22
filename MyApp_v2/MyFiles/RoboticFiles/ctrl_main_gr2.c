@@ -41,6 +41,7 @@ void controller_init(CtrlStruct *cvs){
     cvs->stateAction2 = GoToBlocOne;
     cvs->stateAction3 = CalibY;
     cvs->stateAction4 = GoToFish;
+    cvs->stateAction5 = GotoDune;
     cvs->stateStrategy =  GoAction2; 
 #ifdef REALBOT
     InitRegMotor(cvs->MotorL);
@@ -62,7 +63,7 @@ void controller_loop(CtrlStruct *cvs){
     
 //#define WEBSITETEST
 #ifndef WEBSITETEST
-    
+    int endtime = 90;
     cvs->Param->MotorCommandByHand = CommandMotorByHand;
     if(cvs->Param->MotorCommandByHand)
     {
@@ -73,7 +74,7 @@ void controller_loop(CtrlStruct *cvs){
      cvs->MotorRatR->dutyCycle = RateauRDC; 
      cvs->MotorPince->dutyCycle = PinceDC;
     }
-    else if(cvs->time >= 191 && cvs->time < 192){
+    else if(cvs->time >= endtime +0.5 && cvs->time < endtime + 1.5){
         cvs->MotorL->dutyCycle = 0;
         cvs->MotorR->dutyCycle = 0;
         cvs->MotorTower->dutyCycle = 0;
@@ -82,7 +83,7 @@ void controller_loop(CtrlStruct *cvs){
         cvs->MotorPince->dutyCycle = 0;
         ActionParasol(cvs);   
     }
-    else if(cvs->time >= 190){
+    else if(cvs->time >= endtime){
         cvs->MotorL->dutyCycle = 0;
         cvs->MotorR->dutyCycle = 0;
         cvs->MotorTower->dutyCycle = 0;
@@ -93,27 +94,22 @@ void controller_loop(CtrlStruct *cvs){
     else{
 
 
-           /* char s[256];
+          /*  char s[256];
             sprintf(s,"rateau position = %f \t vitesse rateau = %f \t uswitch =%d \t rateau position D= %f \t vitesse rateau D= %f \t uswitchD =%d  \n", cvs->MotorRatL->position, cvs->MotorRatL->speed, cvs->Sensors->uSwitchRatL, cvs->MotorRatR->position, cvs->MotorRatR->speed, cvs->Sensors->uSwitchRatR);
-            MyConsole_SendMsg(s);*/
+            MyConsole_SendMsg(s);
         
-        
-       // getTests(cvs);
+        */
        
-        if(cvs->robotID == PINK){
-        cvs->MotorTower->dutyCycle = 0;
-        cvs->MotorRatL->dutyCycle = 0; 
-        cvs->MotorPince->dutyCycle = 0;    
-        MyStrategy(cvs);
+       if(cvs->robotID == PINK){
+        getStrategy(cvs);
+        cvs->MotorRatL->dutyCycle = 0;  
         }
         else{
-        cvs->MotorTower->dutyCycle = 0;
+        getStrategy(cvs);
         cvs->MotorRatR->dutyCycle = 0; 
-        cvs->MotorPince->dutyCycle = 0;    
-        MyStrategy(cvs);
         }
         
-        bool match = ChooseBetweenMatchOrTest(cvs);
+     /*   bool match = ChooseBetweenMatchOrTest(cvs);
 
         if(!match){
             getTests(cvs);
@@ -121,14 +117,14 @@ void controller_loop(CtrlStruct *cvs){
             cvs->previousTime = 0;
             cvs->time = 0;
         }  
-
+*/
     }
        
 #else
       StrategyTest(cvs);
 #endif
 
-	AlwaysEndController(cvs);
+	AlwaysEndController(cvs, endtime);
 }
 
 
@@ -229,8 +225,8 @@ void AlwaysInController(CtrlStruct *cvs) {
 	OpponentDetection(cvs);
 }
 
-void AlwaysEndController(CtrlStruct *cvs) {
-	if(cvs->time >= 190){
+void AlwaysEndController(CtrlStruct *cvs, double endtime) {
+	if(cvs->time >= endtime){
         cvs->MotorL->dutyCycle = 0;//RightMotorDC;
         cvs->MotorR->dutyCycle = 0;// RightMotorDC;
         cvs->MotorTower->dutyCycle = 0;

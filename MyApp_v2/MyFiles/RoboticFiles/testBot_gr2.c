@@ -68,11 +68,11 @@ void Action11Test(CtrlStruct *cvs){
             }
             else if(cvs->time - cvs->DynaLeft->timer < 4){
                 TurnCCW(0xFE, 20);
-                sprintf(s,"GoTurn\n");
+              //  sprintf(s,"GoTurn\n");
                 MyConsole_SendMsg(s);
             }
             else{
-                sprintf(s,"StopTurn\n");
+              //  sprintf(s,"StopTurn\n");
                 MyConsole_SendMsg(s);
                 StopTurn(0xFE, 1);
                 cvs->DynaLeft->stateDyna = release;
@@ -86,11 +86,11 @@ void Action11Test(CtrlStruct *cvs){
             }
             else if(cvs->time - cvs->DynaLeft->timer < 4){
                 TurnCW(0xFE, 20);
-                sprintf(s,"GoTurn\n");
+               // sprintf(s,"GoTurn\n");
                 MyConsole_SendMsg(s);
             }
             else{
-                sprintf(s,"StopTurn\n");
+                //sprintf(s,"StopTurn\n");
                 MyConsole_SendMsg(s);
                 StopTurn(0xFE, 0);
                 cvs->DynaLeft->stateDyna = grap;

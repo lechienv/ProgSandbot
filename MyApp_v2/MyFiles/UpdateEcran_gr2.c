@@ -99,13 +99,15 @@ void getStrategy(CtrlStruct *cvs)
     switch(M){
         case(14) :
         {
-            #define MAXSPEED M_PI;
-            #define MAXSPEEDROT 30*MAXSPEED
+            cvs->Param->maxSpeed = M_PI;
+            cvs->Param->maxSpeedRot = 30*cvs->Param->maxSpeed;
             PointHomologation(cvs);
             break;
         }
         case(15) :
         {
+            cvs->Param->maxSpeed = 2*M_PI * 1.5;
+            cvs->Param->maxSpeedRot = 30*cvs->Param->maxSpeed;
             MyStrategy(cvs);
             break;
         }

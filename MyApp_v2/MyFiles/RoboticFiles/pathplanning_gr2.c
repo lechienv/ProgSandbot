@@ -15,10 +15,10 @@ bool ReachPointPotential(CtrlStruct *cvs, double xGoal, double yGoal, double pre
 	double speedRefR;
 	double hasReached = false;
 	if ((cvs->Odo->x - xGoal)*(cvs->Odo->x - xGoal) + (cvs->Odo->y - yGoal)*(cvs->Odo->y - yGoal) < precisionRadius*precisionRadius) {
-		speedRefL = 0;
+		/*speedRefL = 0;
 		speedRefR = 0;
 		SpeedRefToDC(cvs, cvs->MotorL, speedRefL);
-		SpeedRefToDC(cvs, cvs->MotorR, speedRefR);
+		SpeedRefToDC(cvs, cvs->MotorR, speedRefR);*/
 		return true;
 	} //Objective is reached
 	else {
@@ -34,11 +34,11 @@ bool ReachPointPotential(CtrlStruct *cvs, double xGoal, double yGoal, double pre
                 angle = angle + M_PI;
 			double speedRefW = cvs->Poto->kw * angle;
 			double speedRefX = cvs->Poto->kFV*cvs->Poto->FXRob;
-			speedRefX = limitSpeed(speedRefX, MAXSPEED);
+			speedRefX = limitSpeed(speedRefX, cvs->Param->maxSpeed);
 			if (LIMITACCELERATION) {
 				speedRefX = limitXAcceleration(cvs, speedRefX);
 			}
-			speedRefW = limitSpeed(speedRefW, MAXSPEEDROT);
+			speedRefW = limitSpeed(speedRefW, cvs->Param->maxSpeedRot);
 			speedRefL = speedRefX - cvs->Param->wheelRadius*speedRefW;
 			speedRefR = speedRefX + cvs->Param->wheelRadius*speedRefW;
 			SpeedRefToDC(cvs, cvs->MotorL, speedRefL);
@@ -50,11 +50,11 @@ bool ReachPointPotential(CtrlStruct *cvs, double xGoal, double yGoal, double pre
 		else {
 			double speedRefW = cvs->Poto->kw * angle;
 			double speedRefX = cvs->Poto->kFV*cvs->Poto->FXRob;
-			speedRefX = limitSpeed(speedRefX, MAXSPEED);
+			speedRefX = limitSpeed(speedRefX, cvs->Param->maxSpeed);
             if(LIMITACCELERATION){
                 speedRefX = limitXAcceleration(cvs,speedRefX);
             }
-			speedRefW = limitSpeed(speedRefW, MAXSPEEDROT);
+			speedRefW = limitSpeed(speedRefW, cvs->Param->maxSpeedRot);
 			speedRefL = speedRefX - cvs->Param->wheelRadius*speedRefW;
 			speedRefR = speedRefX + cvs->Param->wheelRadius*speedRefW;
 			SpeedRefToDC(cvs, cvs->MotorL, speedRefL);
@@ -86,10 +86,11 @@ void RepulsiveForce(CtrlStruct *cvs) {
 	double FXInertial = 0;
 	double FYInertial = 0;
 	int i;
+    /*
 	for (i = 0; i < cvs->Obstacles->NumberOfCircles; i++) {
 		if (cvs->Obstacles->CircleList[i].isActive) 
 			ComputeFrepCircle(cvs, &(cvs->Obstacles->CircleList[i]), &FXInertial, &FYInertial);
-	}
+	}*/
 	for (i = 0; i < cvs->Obstacles->NumberOfRectangles; i++) {
 		if(cvs->Obstacles->RectangleList[i].isActive)
 			ComputeFrepRectangle(cvs, &(cvs->Obstacles->RectangleList[i]), &FXInertial, &FYInertial);

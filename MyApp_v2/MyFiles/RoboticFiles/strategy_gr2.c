@@ -30,7 +30,9 @@ void MyStrategy(CtrlStruct *cvs)
                 break;
         }
        case(GoAction1) :{ 
-                bool succeed = Action1(cvs);
+                    cvs->Param->maxSpeed = 2*M_PI *2.0;
+                    bool succeed = Action1(cvs);
+                    cvs->Param->maxSpeed = 2*M_PI *1.5;
                     if(!cvs->TimerAction->isSet)
                     {
                     SetTimer(cvs, cvs->TimerAction, 25); //20 pour une porte
@@ -50,7 +52,7 @@ void MyStrategy(CtrlStruct *cvs)
                bool succeed = Action2(cvs);
                     if(!cvs->TimerAction->isSet)
                     {
-                    SetTimer(cvs, cvs->TimerAction, 23);
+                    SetTimer(cvs, cvs->TimerAction, 25);
                     }
                     if(IsTimerTimout(cvs,cvs->TimerAction))
                     {
@@ -69,16 +71,16 @@ void MyStrategy(CtrlStruct *cvs)
                       bool succeed = Action3(cvs);
                     if(!cvs->TimerAction->isSet)
                     {
-                    SetTimer(cvs, cvs->TimerAction, 60); // 35 on prend pas bien les blocs
+                        SetTimer(cvs, cvs->TimerAction, 50); // 35 on prend pas bien les blocs
                     }
                     if(IsTimerTimout(cvs,cvs->TimerAction))
                     {
-                    ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = GoAction4;
+                        ResetTimer(cvs->TimerAction);
+                        cvs->stateStrategy = GoAction4;
                     }
                     if(succeed){
-                    ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = GoAction4;
+                        ResetTimer(cvs->TimerAction);
+                        cvs->stateStrategy = GoAction5;
                      }
                 break;
         }
@@ -227,6 +229,15 @@ switch (cvs->stateCalib) {
         break;
     }
   }
+    int i;
+        for(i = 0; i < cvs->AllFiltersTower->numberOfEnnemy; i++){
+            if(cvs->AllFiltersTower->FilterTowerList[i].detectedVeryClose){
+                cvs->MotorL->dutyCycle = 0;
+                cvs->MotorR->dutyCycle = 0;
+                cvs->MotorL->totalError = 0;
+                cvs->MotorR->totalError = 0;
+            }
+        }
 }
 
 void DynaTestFunction(CtrlStruct *cvs){
@@ -251,27 +262,31 @@ void PointHomologation(CtrlStruct *cvs){
    int color = cvs->robotID;
    switch(cvs->stateStrategy){
        case(GoAction2) :{ 
-                    bool succeed = Action2(cvs);
-                    if(!cvs->TimerAction->isSet)
-                    {
-                    SetTimer(cvs, cvs->TimerAction, 40); //20 pour une porte
-                    }
-                    if(IsTimerTimout(cvs,cvs->TimerAction))
-                    {
-                    ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = GoAction1;
-                    }
-                    if(succeed){
-                    ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = GoAction1;
-                     }
-                    break;
+            bool succeed = Action2(cvs);
+            if(!cvs->TimerAction->isSet)
+            {
+            SetTimer(cvs, cvs->TimerAction,45 ); //
+            }
+            if(IsTimerTimout(cvs,cvs->TimerAction))
+            {
+            ResetTimer(cvs->TimerAction);
+            cvs->stateStrategy = GoAction1;
+            }
+            if(succeed){
+            ResetTimer(cvs->TimerAction);
+            cvs->stateStrategy = GoAction1;
+             }
+            break;
         }
-        case(GoAction1) :{ 
+        case(GoBase) :{ 
+            ActionBase(cvs);
+            break;
+        }
+     case(GoAction1) :{ 
                     bool succeed = Action1(cvs);
                     if(!cvs->TimerAction->isSet)
                     {
-                    SetTimer(cvs, cvs->TimerAction, 40); //20 pour une porte
+                    SetTimer(cvs, cvs->TimerAction, 45); //20 pour une porte
                     }
                     if(IsTimerTimout(cvs,cvs->TimerAction))
                     {
@@ -284,15 +299,16 @@ void PointHomologation(CtrlStruct *cvs){
                      }
                     break;
         }
-   }
-    if(cvs->Tower->TooClose)
-    {
-        cvs->MotorL->dutyCycle = 0;
-        cvs->MotorR->dutyCycle = 0;
-        cvs->MotorL->totalError = 0;
-        cvs->MotorR->totalError = 0;
     }
-  
+    int i;
+    for(i = 0; i < cvs->AllFiltersTower->numberOfEnnemy; i++){
+        if(cvs->AllFiltersTower->FilterTowerList[i].detectedVeryClose){
+            cvs->MotorL->dutyCycle = 0;
+            cvs->MotorR->dutyCycle = 0;
+            cvs->MotorL->totalError = 0;
+            cvs->MotorR->totalError = 0;
+        }
+    }
 }
 
 void SetTimer(CtrlStruct *cvs, MyTimer *Timer, double time){
@@ -330,10 +346,10 @@ bool ClosePince(CtrlStruct *cvs, int duty){
         duty = -duty;
     }
     if(cvs->MotorPince->position <= -250){
-        duty = 20;
+        duty = 30;
     }
     cvs->MotorPince->dutyCycle = -duty;
-    if(((cvs->MotorPince->speed >= -3) && (!cvs->Sensors->uSwitchPinceOut)) && (cvs->MotorPince->position < -100)){
+    if(((cvs->MotorPince->speed >= -10) && (!cvs->Sensors->uSwitchPinceOut)) && (cvs->MotorPince->position < -100)){
         return true;
     }
     if(cvs->MotorPince->position < -345){

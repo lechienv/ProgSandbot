@@ -24,8 +24,7 @@ double	ComputeDistance(CtrlStruct *cvs, int risingIndex, int fallingIndex);
 int     FindCorrespondingBot(CtrlStruct *cvs, double x, double y);
 void    AverageAndAddPosition(CtrlStruct *cvs, int botNumber);
 bool    IsPositionOutliers(CtrlStruct *cvs, int botNumber, double x, double y);
-void    FilterTowerBot(CtrlStruct *cvs, double x, double y);
-
+void    FilterTowerBot(CtrlStruct *cvs, double x, double y, bool tooClose);
 #ifndef REALBOT
 NAMESPACE_CLOSE();
 #endif // ! REALBOT

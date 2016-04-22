@@ -51,7 +51,8 @@ void UpdateDetectedBotPosition(CtrlStruct *cvs) {
 			double distanceFromTower = ComputeDistance(cvs, risingIndex, fallingIndex);
 			double distance = distanceFromTower;
 			double angle = angleFromTower;
-            cvs->Tower->TooClose = (distance < 0.75);
+            bool tooClose = (distance < MINDISTANCE_TOWER);
+            
             cvs->Tower->distance = distance ;
             cvs->Tower->angle    = angle;
             
@@ -59,7 +60,7 @@ void UpdateDetectedBotPosition(CtrlStruct *cvs) {
 			double y = cvs->Odo->y + distance*sin(DEGtoRAD * (cvs->Odo->theta + angle));
 			if(IsBot(x, y)) { //!!! TO UNCOMMENT
 				if (numberUpdated < NumberOfCircles_INIT) { //If all bots have not been updated
-					FilterTowerBot(cvs, x, y);
+					FilterTowerBot(cvs, x, y, tooClose);
 					numberUpdated++;
 				}
 			}
@@ -69,6 +70,7 @@ void UpdateDetectedBotPosition(CtrlStruct *cvs) {
 				if(cvs->AllFiltersTower->FilterTowerList[i].numberWithoutDetection >= NUMBER_WITHOUT_DETECTION_MAX){
                     cvs->Obstacles->CircleList[i].isActive = false;
                     cvs->AllFiltersTower->FilterTowerList[i].firstInit = true;
+                    cvs->AllFiltersTower->FilterTowerList[i].detectedVeryClose = false;
                     cvs->AllFiltersTower->FilterTowerList[i].currentCountOutliers = 0;
                     cvs->AllFiltersTower->FilterTowerList[i].currentIndex = 0;
                     cvs->AllFiltersTower->FilterTowerList[i].numberWithoutDetection = 0;
@@ -86,8 +88,9 @@ void UpdateDetectedBotPosition(CtrlStruct *cvs) {
 	}
 }
 
-void FilterTowerBot(CtrlStruct *cvs, double x, double y) {
+void FilterTowerBot(CtrlStruct *cvs, double x, double y, bool tooClose) {
 		int botNumber = FindCorrespondingBot(cvs,x,y);
+        cvs->AllFiltersTower->FilterTowerList[botNumber].detectedVeryClose = tooClose;
 		int currentIndex = cvs->AllFiltersTower->FilterTowerList[botNumber].currentIndex;
 		if (currentIndex >= TOWER_AVERAGING_NUMBER) {
 			AverageAndAddPosition(cvs, botNumber);

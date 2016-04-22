@@ -162,7 +162,9 @@ void InitParam(CtrlStruct *cvs) {
 	cvs->Param->KiRot				= KiRot_INIT;
 	cvs->Param->totalErrorRot		= totalErrorRot_INIT;
 	cvs->Param->speedDifThreshold	= speedDifThreshold_INIT; //Max speed difference before considering the robot "at rest"
-	cvs->Param->KiAngleThreshold	= KiAngleThreshold_INIT; //Angle control: threshold to activate Ki
+	cvs->Param->KiAngleThreshold	= KiAngleThreshold_INIT; //Angle control: threshold to activate Ki1
+    cvs->Param->maxSpeed            = M_PI;
+    cvs->Param->maxSpeedRot         = 30*cvs->Param->maxSpeed;
     cvs->Param->maxAcceleration     = maxAcceleration_INIT;
     cvs->Param->MotorCommandByHand = false;
     cvs->Param->PasFiletVisPince = PasFiletVisPince_INIT;

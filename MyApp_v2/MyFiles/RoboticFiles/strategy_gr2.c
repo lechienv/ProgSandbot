@@ -59,11 +59,11 @@ void MyStrategy(CtrlStruct *cvs)
                     ResetTimer(cvs->TimerReleaseBlocksRecule);
                     ResetTimer(cvs->TimerReleaseBlocksAvance);
                     ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = GoAction1;
+                    cvs->stateStrategy = GoAction5;
                     }
                     if(succeed){
                     ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = GoAction1;
+                    cvs->stateStrategy = GoAction5;
                      }
                 break;
         }
@@ -80,7 +80,7 @@ void MyStrategy(CtrlStruct *cvs)
                     }
                     if(succeed){
                         ResetTimer(cvs->TimerAction);
-                        cvs->stateStrategy = GoAction5;
+                        cvs->stateStrategy = GoAction4;
                      }
                 break;
         }
@@ -97,7 +97,7 @@ void MyStrategy(CtrlStruct *cvs)
                     }
                     if(succeed){
                     ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = GoAction5;
+                    cvs->stateStrategy = GoBase;
                      }
                 break;
         }
@@ -105,30 +105,39 @@ void MyStrategy(CtrlStruct *cvs)
                     bool succeed = Action5(cvs);
                     if(!cvs->TimerAction->isSet)
                     {
-                    SetTimer(cvs, cvs->TimerAction, 30); // ??
+                    SetTimer(cvs, cvs->TimerAction, 45); // ??
                     }
                     if(IsTimerTimout(cvs,cvs->TimerAction))
                     {
                     ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = GoBase;
+                    cvs->stateStrategy = GoAction1;
                     }
                     if(succeed){
                     ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = GoBase;
+                    cvs->stateStrategy = GoAction1;
                      }
                 break;
         }
-        case(GoBase) :{
-        cvs->MotorL->dutyCycle = 0;
-        cvs->MotorR->dutyCycle = 0;
-        cvs->MotorRatR->dutyCycle = 0; 
-        cvs->MotorRatL->dutyCycle = 0;
-        cvs->MotorPince->dutyCycle = 0;
-            //ActionBase(cvs);
-                break;
-        }
+            case(GoBase) :{
+                cvs->MotorL->dutyCycle = 0;
+                cvs->MotorR->dutyCycle = 0;
+                cvs->MotorRatR->dutyCycle = 0; 
+                cvs->MotorRatL->dutyCycle = 0;
+                cvs->MotorPince->dutyCycle = 0;
+                //ActionBase(cvs);
+                    break;
+            }
     default: break;
     }
+   int i;
+        for(i = 0; i < cvs->AllFiltersTower->numberOfEnnemy; i++){
+            if(cvs->AllFiltersTower->FilterTowerList[i].detectedVeryClose){
+                cvs->MotorL->dutyCycle = 0;
+                cvs->MotorR->dutyCycle = 0;
+                cvs->MotorL->totalError = 0;
+                cvs->MotorR->totalError = 0;
+            }
+        }
 }
 
 void ActivateBase(CtrlStruct *cvs) {
@@ -229,15 +238,7 @@ switch (cvs->stateCalib) {
         break;
     }
   }
-    int i;
-        for(i = 0; i < cvs->AllFiltersTower->numberOfEnnemy; i++){
-            if(cvs->AllFiltersTower->FilterTowerList[i].detectedVeryClose){
-                cvs->MotorL->dutyCycle = 0;
-                cvs->MotorR->dutyCycle = 0;
-                cvs->MotorL->totalError = 0;
-                cvs->MotorR->totalError = 0;
-            }
-        }
+    
 }
 
 void DynaTestFunction(CtrlStruct *cvs){
@@ -349,7 +350,7 @@ bool ClosePince(CtrlStruct *cvs, int duty){
         duty = 30;
     }
     cvs->MotorPince->dutyCycle = -duty;
-    if(((cvs->MotorPince->speed >= -10) && (!cvs->Sensors->uSwitchPinceOut)) && (cvs->MotorPince->position < -100)){
+    if(((cvs->MotorPince->speed >= -20) && (!cvs->Sensors->uSwitchPinceOut)) && (cvs->MotorPince->position < -100)){
         return true;
     }
     if(cvs->MotorPince->position < -345){
@@ -398,15 +399,15 @@ bool DeposeBlock(CtrlStruct *cvs){
                  return true;
             }
             else{
-                SpeedRefToDC(cvs, cvs->MotorL, -4);
-                SpeedRefToDC(cvs, cvs->MotorR, -4);
+                SpeedRefToDC(cvs, cvs->MotorL, -7);
+                SpeedRefToDC(cvs, cvs->MotorR, -7);
                 return false;
             }
         }
         else{
             PinceCalibration(cvs);
-            SpeedRefToDC(cvs, cvs->MotorL, 4);
-            SpeedRefToDC(cvs, cvs->MotorR, 4);
+            SpeedRefToDC(cvs, cvs->MotorL, 7);
+            SpeedRefToDC(cvs, cvs->MotorR, 7);
             return false;
         }
         return false;
@@ -414,8 +415,8 @@ bool DeposeBlock(CtrlStruct *cvs){
 bool YCalibration(CtrlStruct *cvs, double Y, double Theta){
     int color = cvs->robotID;
     if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
-            SpeedRefToDC(cvs, cvs->MotorL, -7);
-            SpeedRefToDC(cvs, cvs->MotorR, -7);
+            SpeedRefToDC(cvs, cvs->MotorL, -8);
+            SpeedRefToDC(cvs, cvs->MotorR, -8);
         if(!cvs->TimerCalibration->isSet)
         {
             SetTimer(cvs, cvs->TimerCalibration, 4);
@@ -439,8 +440,8 @@ bool YCalibration(CtrlStruct *cvs, double Y, double Theta){
 bool XCalibration(CtrlStruct *cvs, double X, double Theta){
     int color = cvs->robotID;
     if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
-            SpeedRefToDC(cvs, cvs->MotorL, -7);
-            SpeedRefToDC(cvs, cvs->MotorR, -7);
+            SpeedRefToDC(cvs, cvs->MotorL, -8);
+            SpeedRefToDC(cvs, cvs->MotorR, -8);
         if(!cvs->TimerCalibration->isSet)
         {
             SetTimer(cvs, cvs->TimerCalibration,4);

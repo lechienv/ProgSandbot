@@ -14,7 +14,7 @@ void OpponentDetection(CtrlStruct *cvs)
 #ifndef REALBOT
     cvs->MotorTower->dutyCycle = 15;
 #else
-	cvs->MotorTower->dutyCycle = -90;
+	cvs->MotorTower->dutyCycle = -100;
 #endif
 	UpdateDetectedBotPosition(cvs);
 }

@@ -64,7 +64,7 @@ enum StateAction1{GoToHouse1, AlignedWithHouse1, PushHouse1, FreeHouse1, Aligned
 enum StateAction2{GoToBlocOne, AlignForBlocOne, TakeBlocOne, BringBlockOne, ReleaseBlockOne, AlignForBlockOne,EndBlocOneViaPoint};
 enum StateAction3{CalibY, AlignForCalibYblocTwo, Calib_yBlocTwo, GoToBlocTwoCalib, AlignForCalibAction3, Calib_x, GoToBlocTwo, GoToBlocTwoPrecision, AlignForBlocTwo, AvanceForBlockTwo, ReculeForBlockTwo, BringBlockTwoViaPoint, TakeBlocTwo, BringBlockTwo, ReleaseBlockTwo, AlignForBlockTwo};
 enum StateAction4{GoToFish, AlignForCalibFishes, CalibFishes, DecaleBordFishes, AlignForCreneau, DoTheCreneau, AlignedWithFishes,RatGoTopStartFish, DyntakeFish1, RatDescend, DyntakeFish2, Avance, DyntakeFish3, RatGoUp, DecaleWithFishes, Recule, MoveWithFish, AlignedWithNet, ReleaseFish};
-enum StateAction5{GotoDuneViaPoint, GotoDune, AlignedForDune, AvanceForBlocs, DesAlignedForDune, GoToViaPoint, GoToViaPoint2, DeposeDune};
+enum StateAction5{GotoDuneViaPoint, GotoDune,GotoDunePrecision, AlignedForDune, AvanceForBlocs, CloseForDune,DesAlignedForDune, GoToViaPoint, GoToViaPoint2,AlignForDune, DeposeDune};
 enum StateStrategy{GoCalibration, GoAction1, GoAction2, GoAction3,GoAction4, GoAction5, GoBase};
 
 

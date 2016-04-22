@@ -99,6 +99,9 @@ void controller_loop(CtrlStruct *cvs){
             getStrategy(cvs);
             cvs->MotorRatR->dutyCycle = 0; 
         }
+    /* char theStr[256];
+    sprintf(theStr, "speedG = %f \t speedDroite = %f \t \n", cvs->MotorL->speed, cvs->MotorR->speed);
+    MyConsole_SendMsg(theStr);*/
     }
        
 #else

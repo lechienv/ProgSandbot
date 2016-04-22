@@ -84,13 +84,13 @@ void SendMotorCommand(CtrlStruct *cvs) {
     else{
         DisableBrakes(cvs->MotorPince);
         if((cvs->MotorPince->previousDutyCycle != cvs->MotorPince->dutyCycle)){
-            if(cvs->MotorPince->dutyCycle > 50 )
+            if(cvs->MotorPince->dutyCycle > 60 )
             {
-                cvs->MotorPince->dutyCycle = 50;
+                cvs->MotorPince->dutyCycle = 60;
             }
-            if(cvs->MotorPince->dutyCycle < -50 )
+            if(cvs->MotorPince->dutyCycle < -60 )
             {
-                cvs->MotorPince->dutyCycle = -50;
+                cvs->MotorPince->dutyCycle = -60;
             }
             cvs->MotorPince->previousDutyCycle = cvs->MotorPince->dutyCycle;       
             ActivateMotor_RealBot(cvs->MotorPince);

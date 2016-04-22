@@ -23,7 +23,7 @@ bool Action1(CtrlStruct *cvs){
             break;
         }
        case(AlignedWithHouse1) :{
-            bool aligned =  (color == GREEN) ? IsAlignedWithTheta(cvs, 10, 3) : IsAlignedWithTheta(cvs, -10, 3);
+            bool aligned =  (color == GREEN) ? IsAlignedWithTheta(cvs, 10, 4) : IsAlignedWithTheta(cvs, -10, 4);
             if(aligned){
                 cvs->stateAction1 = PushHouse1;
             }
@@ -34,8 +34,14 @@ bool Action1(CtrlStruct *cvs){
             //SpeedRefToDC(cvs,cvs->MotorL,-5);
             //SpeedRefToDC(cvs,cvs->MotorR,-5);
              PinceCalibration(cvs);
-             cvs->MotorL->dutyCycle = -35;
-             cvs->MotorR->dutyCycle = -35;
+             if(cvs->Odo->x <= -0.8){
+                cvs->MotorL->dutyCycle = -30;
+                cvs->MotorR->dutyCycle = -30;
+             }
+             else{
+                cvs->MotorL->dutyCycle = -45;
+                cvs->MotorR->dutyCycle = -45;
+             }
             if(cvs->Sensors->uSwitchLeft || cvs->Sensors->uSwitchRight || cvs->Odo->speedL == 0 || cvs->Odo->speedR == 0){
                     if(!cvs->TimerCalibration->isSet)
                     {
@@ -53,10 +59,16 @@ bool Action1(CtrlStruct *cvs){
             break;
         }
          case(FreeHouse1) :{
+            cvs->Obstacles->RectangleList[5].isActive = false;
+            cvs->Obstacles->RectangleList[4].isActive = false;
+            cvs->Obstacles->RectangleList[6].isActive = false;
             PinceCalibration(cvs);
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6, 1.0, 0.05) : ReachPointPotential(cvs, -0.6, -1.0, 0.05);
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6, 1, 0.06) : ReachPointPotential(cvs, -0.6, -1, 0.06);
             if(reached){
                 cvs->stateAction1 = AlignedWithHouse2;
+                cvs->Obstacles->RectangleList[5].isActive = true;
+                cvs->Obstacles->RectangleList[4].isActive = true;
+                cvs->Obstacles->RectangleList[6].isActive = true;
             }
             return false;
             break;
@@ -73,8 +85,14 @@ bool Action1(CtrlStruct *cvs){
             //SpeedRefToDC(cvs,cvs->MotorL,-5);
             //SpeedRefToDC(cvs,cvs->MotorR,-5);
              PinceCalibration(cvs);
-             cvs->MotorL->dutyCycle = -35;
-             cvs->MotorR->dutyCycle = -35;
+             if(cvs->Odo->x <= -0.8){
+                cvs->MotorL->dutyCycle = -30;
+                cvs->MotorR->dutyCycle = -30;
+             }
+             else{
+                cvs->MotorL->dutyCycle = -45;
+                cvs->MotorR->dutyCycle = -45;
+             }
             if(cvs->Sensors->uSwitchLeft || cvs->Sensors->uSwitchRight || cvs->Odo->speedL == 0 || cvs->Odo->speedR == 0){
                     if(!cvs->TimerCalibration->isSet)
                     {
@@ -92,7 +110,7 @@ bool Action1(CtrlStruct *cvs){
         }
          case(FreeHouse2) :{
             PinceCalibration(cvs);
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.4, 1.3, 0.04) : ReachPointPotential(cvs, -0.4, -1.3, 0.04);
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.4, 1.3, 0.05) : ReachPointPotential(cvs, -0.4, -1.3, 0.05);
             return reached;
             break;
         }
@@ -132,18 +150,19 @@ bool Action2(CtrlStruct *cvs){
         }
     case(TakeBlocOne):{
             bool close = false;
-            close = ClosePince(cvs, 50);
-            SpeedRefToDC(cvs,cvs->MotorL,1);
-            SpeedRefToDC(cvs,cvs->MotorR,1);
-            if(close){
-                cvs->stateAction2 = BringBlockOne;
-            }
+            close = ClosePince(cvs, 60);
+            //SpeedRefToDC(cvs,cvs->MotorL,1);
+            //SpeedRefToDC(cvs,cvs->MotorR,1);
+            //if(close){
+               cvs->stateAction2 = BringBlockOne;
+            //}
         return false;
         break;
     }
     case(BringBlockOne):{
+        ClosePince(cvs, 60);
         cvs->Obstacles->RectangleList[0].isActive = false;
-        bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0 , 0.6, 0.08) : ReachPointPotential(cvs, 0 , -0.6, 0.08);
+        bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0.1 , 0.6, 0.08) : ReachPointPotential(cvs, 0.1 , -0.6, 0.08);
         if(reached){
                 cvs->stateAction2 = AlignForBlockOne;
                 cvs->Obstacles->RectangleList[0].isActive = true;
@@ -152,7 +171,8 @@ bool Action2(CtrlStruct *cvs){
         break;
     }
     case(AlignForBlockOne):{
-        bool isAligned = (color == GREEN)? IsAlignedWithTheta(cvs,-100,5) : IsAlignedWithTheta(cvs,100,5);
+        ClosePince(cvs, 60);
+        bool isAligned = (color == GREEN)? IsAlignedWithTheta(cvs,-100,10) : IsAlignedWithTheta(cvs,100,10);
             if(isAligned)
             {
                 cvs->stateAction2 = ReleaseBlockOne;
@@ -258,7 +278,7 @@ bool Action3(CtrlStruct *cvs){
                 cvs->Obstacles->RectangleList[0].isActive = false;
             }
             bool isOpen = PinceCalibration(cvs);
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , (0.7 - 0.1375 - 0.022 ), 0.04) : ReachPointPotential(cvs, -0.6 , -(0.7 - 0.1375 - 0.022), 0.04); // 0.7 - 0.1375 - 0.02
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.5 , (0.7), 0.04) : ReachPointPotential(cvs, -0.5 , -(0.7), 0.04); // 0.7 - 0.1375 - 0.02
             if(reached){
                 cvs->stateAction3 = GoToBlocTwoPrecision;
             } 
@@ -268,10 +288,10 @@ bool Action3(CtrlStruct *cvs){
         case(GoToBlocTwoPrecision) :{
             cvs->Param->maxSpeed = M_PI;
             bool isOpen = PinceCalibration(cvs);
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , (0.7 - 0.1375 - 0.022 ), 0.01) : ReachPointPotential(cvs, -0.6 , -(0.7 - 0.1375 - 0.022), 0.01); // 0.7 - 0.1375 - 0.02
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , (0.7 - 0.1375 - 0.022 -0.03 ), 0.01) : ReachPointPotential(cvs, -0.6 , -(0.7 - 0.1375 - 0.022-0.03), 0.01); // 0.7 - 0.1375 - 0.02
             if(reached){
                 cvs->stateAction3 = AlignForBlocTwo;
-                cvs->Param->maxSpeed = 3*M_PI;
+                cvs->Param->maxSpeed = 2*M_PI*1.5;
             } 
             return false; 
             break;
@@ -279,7 +299,7 @@ bool Action3(CtrlStruct *cvs){
         
     case(AlignForBlocTwo):{
             bool isOpen = PinceCalibration(cvs);
-            bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs,-178,0.5) : IsAlignedWithTheta(cvs,-182, 0.5);
+            bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs,-178,1) : IsAlignedWithTheta(cvs,-182, 1);
             if(isAligned && isOpen)
             {
                 cvs->stateAction3 = AvanceForBlockTwo;
@@ -307,7 +327,7 @@ bool Action3(CtrlStruct *cvs){
            }
             if(cvs->Odo->x < -0.8 || IsTimerTimout(cvs,cvs->TimerCalibration) )
            {
-           isClosed = ClosePince(cvs, 30);
+           isClosed = ClosePince(cvs,30);
             if(isClosed){
                       SpeedRefToDC(cvs, cvs->MotorL, 0);
                       SpeedRefToDC(cvs, cvs->MotorR, 0);
@@ -344,6 +364,7 @@ bool Action3(CtrlStruct *cvs){
          break;
     }
     case(BringBlockTwoViaPoint):{
+         ClosePince(cvs, 15);
         cvs->Param->maxSpeed = 2*M_PI * 1.8;
         bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0 , 1, 0.08) : ReachPointPotential(cvs, 0 , -1, 0.08);
         if(reached){
@@ -353,6 +374,7 @@ bool Action3(CtrlStruct *cvs){
         break;
     }
     case(BringBlockTwo):{
+        ClosePince(cvs, 15);
         bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0.1 , 0.6, 0.08): ReachPointPotential(cvs, 0.1 , -0.6, 0.08);
         if(reached){
             cvs->stateAction3 = AlignForBlockTwo;
@@ -361,6 +383,7 @@ bool Action3(CtrlStruct *cvs){
         break;
     }
     case(AlignForBlockTwo):{
+        ClosePince(cvs, 15);
         bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs,-90,8) : IsAlignedWithTheta(cvs,90,8);
         if(isAligned){ 
             cvs->stateAction3 = ReleaseBlockTwo;
@@ -374,6 +397,7 @@ bool Action3(CtrlStruct *cvs){
         /*if(isDeposed){
             reached = (color == GREEN) ? ReachPointPotential(cvs, 0 , 1, 0.03) : ReachPointPotential(cvs, 0 , -1, 0.03);
         }*/
+        cvs->Param->maxSpeed = 2*M_PI * 1.5;
         return isDeposed;
         break;
     }
@@ -572,10 +596,19 @@ bool Action4(CtrlStruct *cvs)
 ////////////////////////////////////////////////////////////ACTION 5 /////////////////////////////////////////////////////////////////////:
 bool Action5(CtrlStruct *cvs){ // Dune
    int color = cvs->robotID;
+   cvs->Param->maxSpeed = 2 * M_PI * 1.5;
    switch(cvs->stateAction5){
     case(GotoDuneViaPoint) :{
+        cvs->Obstacles->RectangleList[0].isActive = false;
+        if(color == GREEN){
+            cvs->Obstacles->RectangleList[5].isActive = false;
+        }
+        else{
+            cvs->Obstacles->RectangleList[4].isActive = false;
+        }
             PinceCalibration(cvs);
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0.1 , 1, 0.05) : ReachPointPotential(cvs, 0.1 , -1 , 0.05) ;
+            cvs->Param->maxSpeed = 2 * M_PI * 1.5;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.5 , 0.7, 0.04) : ReachPointPotential(cvs, -0.5 , -0.7 , 0.04) ;
             if(reached){
                 cvs->stateAction5 = GotoDune;
             }
@@ -583,18 +616,57 @@ bool Action5(CtrlStruct *cvs){ // Dune
             break;
         }
     case(GotoDune) :{
+        
+            if(!cvs->TimerCalibration->isSet)
+               {
+                   SetTimer(cvs, cvs->TimerCalibration, 5);
+               }
+                if(IsTimerTimout(cvs,cvs->TimerCalibration) )
+               {
+                    ResetTimer(cvs->TimerCalibration);
+                    return true;
+             }
             PinceCalibration(cvs);
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.7 , -0.3, 0.05) : ReachPointPotential(cvs, -0.7 , 0.3 , 0.05) ;
+            cvs->Param->maxSpeed = 2 * M_PI * 1.6;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.55 , 0.05, 0.05) : ReachPointPotential(cvs, -0.55 , -0.05 , 0.05) ;
             if(reached){
+                ResetTimer(cvs->TimerCalibration);
+                cvs->stateAction5 = GotoDunePrecision;
+            }
+            return false;
+            break;
+        }
+        case(GotoDunePrecision) :{
+            if(!cvs->TimerCalibration->isSet)
+               {
+                   SetTimer(cvs, cvs->TimerCalibration, 5);
+               }
+                if(IsTimerTimout(cvs,cvs->TimerCalibration) )
+               {
+                    ResetTimer(cvs->TimerCalibration);
+                    return true;
+             }
+            PinceCalibration(cvs);
+            cvs->Param->maxSpeed = 2 * M_PI ;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , 0.0, 0.01) : ReachPointPotential(cvs, -0.6 , 0.0 , 0.02) ;
+            if(reached){
+                ResetTimer(cvs->TimerCalibration);
                 cvs->stateAction5 = AlignedForDune;
             }
             return false;
             break;
         }
     case(AlignedForDune) :{
-            bool isClosed = PinceCalibration(cvs);
-            bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, 135, 2) : IsAlignedWithTheta(cvs, -135, 2);
-            if(isAligned && isClosed){
+        cvs->Obstacles->RectangleList[0].isActive = true;
+        if(color == GREEN){
+            cvs->Obstacles->RectangleList[5].isActive = true;
+        }
+        else{
+            cvs->Obstacles->RectangleList[4].isActive = true;
+        }
+            bool isOpen = PinceCalibration(cvs);
+            bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, 180, 5) : IsAlignedWithTheta(cvs, -180, 5);
+            if(isAligned && isOpen){
                 cvs->stateAction5 = AvanceForBlocs;
             }
             return false;
@@ -607,40 +679,86 @@ bool Action5(CtrlStruct *cvs){ // Dune
            {
                SetTimer(cvs, cvs->TimerCalibration, 2);
            }
-            if(cvs->Odo->x < -0.8 || IsTimerTimout(cvs,cvs->TimerCalibration) )
+            if(cvs->Odo->x < -0.9 || IsTimerTimout(cvs,cvs->TimerCalibration) )
            {
                   SpeedRefToDC(cvs, cvs->MotorL, 0);
                   SpeedRefToDC(cvs, cvs->MotorR, 0);
                   ResetTimer(cvs->TimerCalibration);
-                  cvs->stateAction5 = DesAlignedForDune;
+                  cvs->stateAction5 = CloseForDune;
             return false;
             break;
             }
         }
+    case(CloseForDune):{
+        bool closed = ClosePince(cvs, 30);
+        if(closed){
+            cvs->stateAction5 = DesAlignedForDune;
+        }
+        return false;
+        break;
+    }
     case(DesAlignedForDune) :{
-            bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, 90, 2) : IsAlignedWithTheta(cvs, -90, 2);
+           /* bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, 90, 2) : IsAlignedWithTheta(cvs, -90, 2);
             if(isAligned){
                 cvs->stateAction5 = GoToViaPoint;
             }
             return false;
+            break;*/
+        ClosePince(cvs, 15);
+           cvs->MotorL->dutyCycle = -25;
+           cvs->MotorR->dutyCycle = -25;
+            if(cvs->Odo->x < -0.6 )
+           {
+                  SpeedRefToDC(cvs, cvs->MotorL, 0);
+                  SpeedRefToDC(cvs, cvs->MotorR, 0);
+                  cvs->stateAction5 = GoToViaPoint;
+            return false;
             break;
             }
+      }
     case(GoToViaPoint) :{
-            bool isReached = (color == GREEN) ? ReachPointPotential(cvs, -0.5, 1 , 2) : ReachPointPotential(cvs, -0.5, -1 , 2);
+        cvs->Param->maxSpeed = 2 * M_PI * 1.5;
+        ClosePince(cvs, 15);
+        cvs->Obstacles->RectangleList[0].isActive = false;
+        if(color == GREEN){
+            cvs->Obstacles->RectangleList[5].isActive = false;
+        }
+        else{
+            cvs->Obstacles->RectangleList[4].isActive = false;
+        }
+            bool isReached = (color == GREEN) ? ReachPointPotential(cvs, -0.55, 0.8 , 0.1) : ReachPointPotential(cvs, -0.55, -0.8 , 0.1);
             if(isReached){
                 cvs->stateAction5 = GoToViaPoint2;
+                cvs->Param->maxSpeed = 2 * M_PI * 2.0;
             }
             return false;
             break;
             }
     case(GoToViaPoint2) :{
-            bool isReached = (color == GREEN) ? ReachPointPotential(cvs, 0.1, 0.55 , 2) : ReachPointPotential(cvs, 0.1, -0.55 , 2);
+        ClosePince(cvs, 15);
+        cvs->Obstacles->RectangleList[0].isActive = true;
+        if(color == GREEN){
+            cvs->Obstacles->RectangleList[5].isActive = true;
+        }
+        else{
+            cvs->Obstacles->RectangleList[4].isActive = true;
+        }
+            bool isReached = (color == GREEN) ? ReachPointPotential(cvs, 0.1, 0.5 , 0.05) : ReachPointPotential(cvs, 0.1, -0.5 , 0.05);
             if(isReached){
-                cvs->stateAction5 = DeposeDune;
+                cvs->stateAction5 = AlignForDune;
             }
             return false;
             break;
             }
+    case(AlignForDune):{
+        bool isAligned = (color == GREEN)? IsAlignedWithTheta(cvs,-100,5) : IsAlignedWithTheta(cvs,100,5);
+            if(isAligned)
+            {
+                cvs->stateAction5 = DeposeDune;
+            }
+           return false;
+           break;
+    }
     case(DeposeDune) :{
             bool isDeposed = DeposeBlock(cvs);
             return isDeposed;

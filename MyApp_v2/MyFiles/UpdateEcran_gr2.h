@@ -14,7 +14,9 @@ void getRobotID(CtrlStruct *cvs);
 void getActions(CtrlStruct *cvs);
 void TestRoues(CtrlStruct *cvs, bool Direction);
 void getTests(CtrlStruct *cvs);
+void ChooseStratDuneOrNot(CtrlStruct *cvs);
 void getStrategy(CtrlStruct *cvs);
-bool ChooseBetweenMatchOrTest(CtrlStruct *cvs);
+void ChooseBetweenMatchOrTest(CtrlStruct *cvs);
+
 
 #endif

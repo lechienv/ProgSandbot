@@ -169,6 +169,7 @@ void InitParam(CtrlStruct *cvs) {
     cvs->Param->MotorCommandByHand = false;
     cvs->Param->PasFiletVisPince = PasFiletVisPince_INIT;
     cvs->Param->PasFiletVisRat = PasFiletVisRat_INIT;
+    cvs->Param->ChooseToMatch           = false;
 }
 
 void InitSensors(CtrlStruct *cvs) {
@@ -206,6 +207,9 @@ void InitTower(CtrlStruct * cvs)
     cvs->Tower->distance            = distance_INIT;
     cvs->Tower->angle               = angle_INIT;
     cvs->Tower->TooClose            = false;
+    cvs->Tower->ActivateTooClose    = true;
+    cvs->Tower->StrategyWithRushDunes   = false;
+    cvs->Tower->StrategyWithFish        = false;
 }
 
 

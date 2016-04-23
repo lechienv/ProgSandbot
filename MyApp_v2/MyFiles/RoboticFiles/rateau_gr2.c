@@ -35,18 +35,18 @@ NAMESPACE_INIT(ctrlGr2);
 
                if( Motor->position >50 && Motor->position <200) //150
                {   
-                 Motor->dutyCycle = +40;
+                 SpeedRefToDC(cvs,Motor,7); // Motor->dutyCycle = +45;
                  return false;
                }
                else if( Motor->position <50)
                {
                   
-                 Motor->dutyCycle = +25;
+                 SpeedRefToDC(cvs,Motor,5); //Motor->dutyCycle = +40;
                  return false;
                }
                else
                { 
-                   Motor->dutyCycle = 0;
+                   SpeedRefToDC(cvs,Motor,0);
                    return  true;
                }
   }
@@ -56,11 +56,11 @@ if(my_bool)
 {
    if( Motor->position <50)
    {
-      Motor->dutyCycle = -15;
+      SpeedRefToDC(cvs,Motor,-5);
    }
    else
    {
-      Motor->dutyCycle = -25;
+      SpeedRefToDC(cvs,Motor,-7);
    }
     return false;
 }
@@ -78,7 +78,7 @@ bool RateauReachPoint(CtrlStruct *cvs, double pos){
     int erreur = 10;
     Motor *motor = (color == GREEN) ? cvs->MotorRatL : cvs->MotorRatR;
     if(motor->position <= pos - erreur){
-         motor->dutyCycle = 30;//SpeedRefToDC(cvs, motor, 10);
+         motor->dutyCycle = 40;//SpeedRefToDC(cvs, motor, 10);
        return false;
     }
     else if(motor->position >= pos + erreur){

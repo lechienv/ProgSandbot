@@ -42,7 +42,7 @@ void controller_init(CtrlStruct *cvs){
     cvs->stateAction3 = CalibY;
     cvs->stateAction4 = GoToFish;
     cvs->stateAction5 = GotoDuneViaPoint;
-    cvs->stateStrategy =  GoAction2; 
+    cvs->stateStrategy =  (cvs->Tower->StrategyWithRushDunes) ? GoAction5 : GoAction2; //GoAction4;// 
 #ifdef REALBOT
     InitRegMotor(cvs->MotorL);
     InitRegMotor(cvs->MotorR);
@@ -91,13 +91,26 @@ void controller_loop(CtrlStruct *cvs){
         cvs->MotorPince->dutyCycle = 0;
     }
     else{ //During match
-        if(cvs->robotID == PINK){
-            getStrategy(cvs);
-            cvs->MotorRatL->dutyCycle = 0;  
+        ChooseStratDuneOrNot(cvs);
+        ChooseBetweenMatchOrTest(cvs);
+        if(!cvs->Param->ChooseToMatch)
+        {
+            
+            getTests(cvs);
+            cvs->timeOffset = getTime();
+            cvs->previousTime = 0;
+            cvs->time = 0;
         }
-        else{
-            getStrategy(cvs);
-            cvs->MotorRatR->dutyCycle = 0; 
+        else
+        {          
+            if(cvs->robotID == PINK){
+                getStrategy(cvs);
+                cvs->MotorRatL->dutyCycle = 0;  
+            }
+            else{
+                getStrategy(cvs);
+                cvs->MotorRatR->dutyCycle = 0; 
+            }
         }
     /* char theStr[256];
     sprintf(theStr, "speedG = %f \t speedDroite = %f \t \n", cvs->MotorL->speed, cvs->MotorR->speed);

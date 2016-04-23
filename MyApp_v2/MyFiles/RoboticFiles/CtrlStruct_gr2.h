@@ -60,9 +60,9 @@ enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, ReturnToBase, Alig
 enum StateDyna {grap, release};
 enum StateVia {backHomeViaBase, backHomeStraight, normalPoint, viaPoint};
 enum StateHomologation {PinceCalib, reachViaPoint, AlignWithTheta, ReachBlocs, ClosingPince, GoViaZone, AlignZone, GoInZone, OpeningPince};
-enum StateAction1{GoToHouse1, AlignedWithHouse1, PushHouse1, FreeHouse1, AlignedWithHouse2, PushHouse2, FreeHouse2};
+enum StateAction1{GoToHouse1, GoToHouse1Precision, AlignedWithHouse1, PushHouse1, FreeHouse1, GoToHouse2Precision, AlignedWithHouse2, PushHouse2, FreeHouse2};
 enum StateAction2{GoToBlocOne, AlignForBlocOne, TakeBlocOne, BringBlockOne, ReleaseBlockOne, AlignForBlockOne,EndBlocOneViaPoint};
-enum StateAction3{CalibY, AlignForCalibYblocTwo, Calib_yBlocTwo, GoToBlocTwoCalib, AlignForCalibAction3, Calib_x, GoToBlocTwo, GoToBlocTwoPrecision, AlignForBlocTwo, AvanceForBlockTwo, ReculeForBlockTwo, BringBlockTwoViaPoint, TakeBlocTwo, BringBlockTwo, ReleaseBlockTwo, AlignForBlockTwo};
+enum StateAction3{CalibY, AlignForCalibYblocTwo, Calib_yBlocTwo, GoToBlocTwoCalib, AlignForCalibAction3, Calib_x, GoToBlocTwo, GoToBlocTwoPrecision, AlignForBlocTwo,AlignForBlocTwoPrecision, AvanceForBlockTwo, ReculeForBlockTwo, BringBlockTwoViaPoint, TakeBlocTwo, BringBlockTwo, ReleaseBlockTwo, AlignForBlockTwo};
 enum StateAction4{GoToFish, AlignForCalibFishes, CalibFishes, DecaleBordFishes, AlignForCreneau, DoTheCreneau, AlignedWithFishes,RatGoTopStartFish, DyntakeFish1, RatDescend, DyntakeFish2, Avance, DyntakeFish3, RatGoUp, DecaleWithFishes, Recule, MoveWithFish, AlignedWithNet, ReleaseFish};
 enum StateAction5{GotoDuneViaPoint, GotoDune,GotoDunePrecision, AlignedForDune, AvanceForBlocs, CloseForDune,DesAlignedForDune, GoToViaPoint, GoToViaPoint2,AlignForDune, DeposeDune};
 enum StateStrategy{GoCalibration, GoAction1, GoAction2, GoAction3,GoAction4, GoAction5, GoBase};
@@ -109,6 +109,7 @@ typedef struct Parametres {
     bool MotorCommandByHand;
     double PasFiletVisRat;
     double PasFiletVisPince;
+    bool ChooseToMatch;
 } Parametres;
 
 typedef struct Sensors {
@@ -229,6 +230,9 @@ typedef struct Tower {
     double distance;
     double angle;
     bool TooClose;
+    bool ActivateTooClose;
+    bool StrategyWithRushDunes;
+    bool StrategyWithFish;
 } Tower;
 
 typedef struct FilterTower {

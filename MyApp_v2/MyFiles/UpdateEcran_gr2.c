@@ -26,6 +26,65 @@ void getRobotID(CtrlStruct *cvs)
     }
 }
 
+void ChooseStratDuneOrNot(CtrlStruct *cvs)
+{
+    int color = cvs->robotID;
+    unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
+    switch(M){
+        case(2) :
+        {
+            cvs->Tower->StrategyWithRushDunes   = true;
+            break;
+        }
+        case(3) :
+        {
+            cvs->Tower->StrategyWithFish        = true;
+            break;
+        }
+        default: break;
+    }
+}
+
+void getStrategy(CtrlStruct *cvs)
+{
+    unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
+    switch(M){
+        case(14) :
+        {   cvs->Param->ChooseToMatch = true;
+            cvs->Param->maxSpeed = M_PI;
+            cvs->Param->maxSpeedRot = 30*cvs->Param->maxSpeed;
+            PointHomologation(cvs);
+            break;
+        }
+        case(15) :
+        {   cvs->Param->ChooseToMatch = true;
+            cvs->Param->maxSpeed = 2*M_PI * 1.5;
+            cvs->Param->maxSpeedRot = 30*cvs->Param->maxSpeed;
+            MyStrategy(cvs);
+            break;
+        }
+        default: break;
+    }
+    
+}
+void ChooseBetweenMatchOrTest(CtrlStruct *cvs)
+{
+    unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
+    switch(M){
+        case(14) :
+        {
+            cvs->Param->ChooseToMatch = true;
+            break;
+        }
+        case(15) :
+        {
+            cvs->Param->ChooseToMatch = true;
+            break;
+        }
+        default: break;
+    }
+    
+}
 void getTests(CtrlStruct *cvs)
 {
     int color = cvs->robotID;
@@ -56,7 +115,7 @@ void getTests(CtrlStruct *cvs)
         cvs->MotorR->dutyCycle = 0; 
         cvs->MotorRatL->dutyCycle = 0;
         cvs->MotorRatR->dutyCycle = 0;  
-            PinceCalibration(cvs);
+        PinceCalibration(cvs);
             break;
         }
         case(9) :
@@ -91,48 +150,6 @@ void getTests(CtrlStruct *cvs)
         }
         default: break;
     }
-}
-
-void getStrategy(CtrlStruct *cvs)
-{
-    unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
-    switch(M){
-        case(14) :
-        {
-            cvs->Param->maxSpeed = M_PI;
-            cvs->Param->maxSpeedRot = 30*cvs->Param->maxSpeed;
-            PointHomologation(cvs);
-            break;
-        }
-        case(15) :
-        {
-            cvs->Param->maxSpeed = 2*M_PI * 1.5;
-            cvs->Param->maxSpeedRot = 30*cvs->Param->maxSpeed;
-            MyStrategy(cvs);
-            break;
-        }
-        default: break;
-    }
-    
-}
-bool ChooseBetweenMatchOrTest(CtrlStruct *cvs)
-{
-    unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
-    switch(M){
-        case(14) :
-        {
-            return true;
-            break;
-        }
-        case(15) :
-        {
-            return true;
-            break;
-        }
-        return false;
-        default: break;
-    }
-    
 }
 
 void getActions(CtrlStruct *cvs)

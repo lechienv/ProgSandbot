@@ -54,7 +54,7 @@ NAMESPACE_INIT(ctrlGr2);
 #define BEACON_POSITION_TOLERANCE 0.1
 #define MAXSPEED_ENNEMYBOT 3
 #define NUMBER_WITHOUT_DETECTION_MAX 3
-#define MINDISTANCE_TOWER 0.75
+#define MINDISTANCE_TOWER 0.30
 
 enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, ReturnToBase, AlignForBase, ReturnInIt, Wait}; // GoToBlocOne, AlignBlocOne, TakeBlocOne, BringBlocOne, ReleaseBlockOne, AlignForBlockOne};
 enum StateDyna {grap, release};
@@ -62,7 +62,7 @@ enum StateVia {backHomeViaBase, backHomeStraight, normalPoint, viaPoint};
 enum StateHomologation {PinceCalib, reachViaPoint, AlignWithTheta, ReachBlocs, ClosingPince, GoViaZone, AlignZone, GoInZone, OpeningPince};
 enum StateAction1{GoToHouse1, GoToHouse1Precision, AlignedWithHouse1, PushHouse1, FreeHouse1, GoToHouse2Precision, AlignedWithHouse2, PushHouse2, FreeHouse2};
 enum StateAction2{GoToBlocOne, AlignForBlocOne, TakeBlocOne, BringBlockOne, ReleaseBlockOne, AlignForBlockOne,EndBlocOneViaPoint};
-enum StateAction3{CalibY, AlignForCalibYblocTwo, Calib_yBlocTwo, GoToBlocTwoCalib, AlignForCalibAction3, Calib_x, GoToBlocTwo, GoToBlocTwoPrecision, AlignForBlocTwo,AlignForBlocTwoPrecision, AvanceForBlockTwo, ReculeForBlockTwo, BringBlockTwoViaPoint, TakeBlocTwo, BringBlockTwo, ReleaseBlockTwo, AlignForBlockTwo};
+enum StateAction3{CalibY, AlignForCalibYblocTwo, Calib_yBlocTwo, GoToBlocTwoCalib, AlignForCalibAction3, Calib_x, GoToBlocTwo, GoToBlocTwoPrecision, AlignForBlocTwo,AlignForBlocTwoPrecision, AvanceForBlockTwo, ReculeForBlockTwo, TestIfBlockAction3, BringBlockTwoViaPoint, TakeBlocTwo, BringBlockTwo, ReleaseBlockTwo, AlignForBlockTwo};
 enum StateAction4{GoToFish, AlignForCalibFishes, CalibFishes, DecaleBordFishes, AlignForCreneau, DoTheCreneau, AlignedWithFishes,RatGoTopStartFish, DyntakeFish1, RatDescend, DyntakeFish2, Avance, DyntakeFish3, RatGoUp, DecaleWithFishes, Recule, MoveWithFish, AlignedWithNet, ReleaseFish};
 enum StateAction5{GotoDuneViaPoint, GotoDune,GotoDunePrecision, AlignedForDune, AvanceForBlocs, CloseForDune,DesAlignedForDune, GoToViaPoint, GoToViaPoint2,AlignForDune, DeposeDune};
 enum StateStrategy{GoCalibration, GoAction1, GoAction2, GoAction3,GoAction4, GoAction5, GoBase};

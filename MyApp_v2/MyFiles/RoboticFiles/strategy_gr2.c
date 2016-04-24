@@ -21,7 +21,7 @@ void MyStrategy(CtrlStruct *cvs, int dune)
                     if(IsTimerTimout(cvs,cvs->TimerAction))
                     {
                     ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = GoAction2;
+                    cvs->stateStrategy =   GoAction2;
                     }
                     if(succeed){
                     ResetTimer(cvs->TimerAction);
@@ -35,16 +35,16 @@ void MyStrategy(CtrlStruct *cvs, int dune)
                     cvs->Param->maxSpeed = 2*M_PI *1.5;
                     if(!cvs->TimerAction->isSet)
                     {
-                    SetTimer(cvs, cvs->TimerAction, 25); //20 pour une porte
+                    SetTimer(cvs, cvs->TimerAction, 35); //20 pour une porte
                     }
                     if(IsTimerTimout(cvs,cvs->TimerAction))
                     {
                     ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = GoAction3;
+                    cvs->stateStrategy = (dune==0) ? GoAction3 : GoAction5;
                     }
                     if(succeed){
                     ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = GoAction3;
+                    cvs->stateStrategy = (dune==0) ? GoAction3 : GoAction5;
                      }
                 break;
         }
@@ -107,20 +107,20 @@ void MyStrategy(CtrlStruct *cvs, int dune)
                     ResetTimer(cvs->TimerAction);
                     //cvs->stateStrategy = (cvs->Tower->StrategyWithFish ) ? GoAction5 : GoBase;
                         if(dune == 1){
-                            cvs->stateStrategy = GoAction1;
+                            cvs->stateStrategy = GoAction3;
                         }
                         else{
-                            cvs->stateStrategy = GoAction5;
+                            cvs->stateStrategy = GoAction3;
                         }
                     }
                     if(succeed){
                     ResetTimer(cvs->TimerAction);
                     //cvs->stateStrategy = (cvs->Tower->StrategyWithFish ) ? GoAction5 : GoBase;
                     if(dune == 1){
-                            cvs->stateStrategy = GoAction1;
+                            cvs->stateStrategy = GoAction3;
                         }
                         else{
-                            cvs->stateStrategy = GoAction5;
+                            cvs->stateStrategy = GoAction3;
                         }
                      }
                 break;
@@ -147,7 +147,7 @@ void MyStrategy(CtrlStruct *cvs, int dune)
                         {
                             cvs->stateStrategy = GoAction3;
                         }*/
-                    cvs->stateStrategy = GoAction4;
+                    cvs->stateStrategy = GoAction3;
                     }
                             
                    
@@ -165,7 +165,7 @@ void MyStrategy(CtrlStruct *cvs, int dune)
                           {
                               cvs->stateStrategy = GoAction1;
                           }*/
-                        cvs->stateStrategy = GoBase;
+                        cvs->stateStrategy = GoAction3;
                      }
                 break;
         }
@@ -418,10 +418,10 @@ bool ClosePince(CtrlStruct *cvs, int duty){
         duty = -duty;
     }
     if(cvs->MotorPince->position <= -250){
-        duty = 30;
+        duty = 50;
     }
     cvs->MotorPince->dutyCycle = -duty;
-    if(((cvs->MotorPince->speed >= -20) && (!cvs->Sensors->uSwitchPinceOut)) ){//&& (cvs->MotorPince->position < -100)){
+    if(((fabs(cvs->MotorPince->speed) <= 10) && (!cvs->Sensors->uSwitchPinceOut)) ){//&& (cvs->MotorPince->position < -100)){
         return true;
     }
     if(cvs->MotorPince->position < -345){
@@ -433,7 +433,7 @@ bool PinceReachPosition(CtrlStruct *cvs, int pos){
     int erreur = 20;
     pos = abs(pos);
     if(cvs->MotorPince->position <= pos){
-        SpeedRefToDC(cvs, cvs->MotorPince, 10);
+        SpeedRefToDC(cvs, cvs->MotorPince, 13);
         if(cvs->MotorPince->position >= pos + erreur){
             SpeedRefToDC(cvs, cvs->MotorPince, 0);
             return true;
@@ -441,7 +441,7 @@ bool PinceReachPosition(CtrlStruct *cvs, int pos){
         return false;
     }
     else{
-        SpeedRefToDC(cvs, cvs->MotorPince, -10);
+        SpeedRefToDC(cvs, cvs->MotorPince, -13);
         if(cvs->MotorPince->position <= pos + erreur){
             SpeedRefToDC(cvs, cvs->MotorPince, 0);
             return true;

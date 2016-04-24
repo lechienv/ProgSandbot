@@ -77,13 +77,13 @@ void MyMiniProjet_Task(void)
             cvs->timeOffset = getTime();
             cvs->previousTime = 0;
             cvs->time = 0;
-            char s1[128];
+            /*char s1[128];
             sprintf(s1, "Avant = %f\n", extractBits(A,13,13));
             MyConsole_SendMsg(s1);
-            while((bool) extractBits(A,13,13)){
-                char s2[128];
+            */while((bool) extractBits(A,13,13)){
+                /*char s2[128];
                 sprintf(s2, "Après = %f\n", extractBits(A,13,13));
-                MyConsole_SendMsg(s2);
+                MyConsole_SendMsg(s2);*/
                 MyConsole_Task();
                 //MyCAN_Task();
 #ifdef WEB

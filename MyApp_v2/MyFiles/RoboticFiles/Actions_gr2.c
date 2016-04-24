@@ -15,10 +15,11 @@ bool Action1(CtrlStruct *cvs){
 //enum StateAction1{GoToHouses, AlignedWithHouses, PushHouses, FreeHouses};
    switch(cvs->stateAction1){
     case(GoToHouse1) :{
+        cvs->Param->maxSpeed = 2*M_PI*2.0;
         cvs->Obstacles->RectangleList[6].isActive = false;
         cvs->Obstacles->RectangleList[8].isActive = false;
         cvs->Obstacles->RectangleList[9].isActive = false;
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , 1.2, 0.1) : ReachPointPotential(cvs, -0.6 , -1.2 , 0.1) ;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , 1.18, 0.1) : ReachPointPotential(cvs, -0.6 , -1.18 , 0.1) ;
             if(reached){
                 cvs->stateAction1 = GoToHouse1Precision;
             }
@@ -30,7 +31,7 @@ bool Action1(CtrlStruct *cvs){
         cvs->Obstacles->RectangleList[6].isActive = false;
         cvs->Obstacles->RectangleList[8].isActive = false;
         cvs->Obstacles->RectangleList[9].isActive = false;
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , 1.2, 0.05) : ReachPointPotential(cvs, -0.6 , -1.2 , 0.05) ;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , 1.18, 0.05) : ReachPointPotential(cvs, -0.6 , -1.18 , 0.05) ;
             if(reached){
                 cvs->stateAction1 = AlignedWithHouse1;
                 cvs->Param->maxSpeed = 2*M_PI*1.5;
@@ -82,7 +83,8 @@ bool Action1(CtrlStruct *cvs){
             cvs->Obstacles->RectangleList[4].isActive = false;
             cvs->Obstacles->RectangleList[6].isActive = false;
             PinceCalibration(cvs);
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6, 1, 0.06) : ReachPointPotential(cvs, -0.6, -1, 0.06);
+            cvs->Param->maxSpeed = 2*M_PI*2.0;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.55, 1.08, 0.06) : ReachPointPotential(cvs, -0.55, -1.08, 0.06);
             if(reached){
                 cvs->stateAction1 = GoToHouse2Precision;
             }
@@ -95,7 +97,8 @@ bool Action1(CtrlStruct *cvs){
             cvs->Obstacles->RectangleList[4].isActive = false;
             cvs->Obstacles->RectangleList[6].isActive = false;
             PinceCalibration(cvs);
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6, 1, 0.06) : ReachPointPotential(cvs, -0.6, -1, 0.06);
+            cvs->Param->maxSpeed = 2*M_PI*1.5;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.55, 1.08, 0.06) : ReachPointPotential(cvs, -0.55, -1.08, 0.06);
             if(reached){
                 cvs->stateAction1 = AlignedWithHouse2;
                 cvs->Param->maxSpeed = 2*M_PI*1.5;
@@ -143,6 +146,7 @@ bool Action1(CtrlStruct *cvs){
         }
          case(FreeHouse2) :{
             PinceCalibration(cvs);
+            cvs->Param->maxSpeed = 2*M_PI*2.0;
             bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.4, 1.3, 0.05) : ReachPointPotential(cvs, -0.4, -1.3, 0.05);
             return reached;
             break;
@@ -245,7 +249,7 @@ bool Action3(CtrlStruct *cvs){
    switch(cvs->stateAction3){
         case(CalibY):{
             PinceCalibration(cvs);
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.5 , 1.2, 0.07) : ReachPointPotential(cvs, -0.5 , -1.2, 0.07);
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.55 , 1.2, 0.07) : ReachPointPotential(cvs, -0.55 , -1.2, 0.07);
             if(reached){
              cvs->stateAction3 = AlignForCalibYblocTwo;
             }
@@ -313,7 +317,7 @@ bool Action3(CtrlStruct *cvs){
                 cvs->Obstacles->RectangleList[0].isActive = false;
             }
             bool isOpen = PinceCalibration(cvs);
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.52 , (0.7), 0.04) : ReachPointPotential(cvs, -0.52 , -(0.75), 0.04); // 0.7 - 0.1375 - 0.02
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.52 , (0.7), 0.04) : ReachPointPotential(cvs, -0.52 , -(0.7), 0.04); // 0.7 - 0.1375 - 0.02
             if(reached){
                 cvs->stateAction3 = GoToBlocTwoPrecision;
             } 
@@ -323,7 +327,7 @@ bool Action3(CtrlStruct *cvs){
         case(GoToBlocTwoPrecision) :{
             cvs->Param->maxSpeed = M_PI;
             bool isOpen = PinceCalibration(cvs);
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , (0.7 - 0.1375 - 0.022 -0.02 ), 0.01) : ReachPointPotential(cvs, -0.6 , -(0.7 - 0.1375 - 0.022-0.02), 0.01); // 0.7 - 0.1375 - 0.02
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , (0.7 - 0.1375 - 0.022 -0.015 ), 0.01) : ReachPointPotential(cvs, -0.6 , -(0.7 - 0.1375 - 0.022-0.015), 0.01); // 0.7 - 0.1375 - 0.02
             if(reached){
                 cvs->stateAction3 = AlignForBlocTwo;
                 cvs->Param->maxSpeed = 2*M_PI*1.5;
@@ -334,7 +338,7 @@ bool Action3(CtrlStruct *cvs){
         
     case(AlignForBlocTwo):{
             bool isOpen = PinceCalibration(cvs);
-            bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs,-178,5) : IsAlignedWithTheta(cvs,-182, 5);
+            bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs,-178,4) : IsAlignedWithTheta(cvs,-182, 4);
             if(isAligned && isOpen)
             {
                 cvs->stateAction3 = AlignForBlocTwoPrecision;
@@ -364,13 +368,13 @@ bool Action3(CtrlStruct *cvs){
                 cvs->Obstacles->RectangleList[0].isActive = true;
             }
             bool isClosed=false;
-            cvs->MotorL->dutyCycle = 25;
-            cvs->MotorR->dutyCycle = 25;
+            cvs->MotorL->dutyCycle = 40;
+            cvs->MotorR->dutyCycle = 40;
            if(!cvs->TimerCalibration->isSet)
            {
                SetTimer(cvs, cvs->TimerCalibration, 2);
            }
-            if(cvs->Odo->x < -0.8 || IsTimerTimout(cvs,cvs->TimerCalibration) )
+            if(cvs->Odo->x < -0.85 || IsTimerTimout(cvs,cvs->TimerCalibration) )
            {
            isClosed = ClosePince(cvs,35);
             if(isClosed){
@@ -379,47 +383,46 @@ bool Action3(CtrlStruct *cvs){
                       ResetTimer(cvs->TimerCalibration);
                       cvs->stateAction3 = ReculeForBlockTwo;
                   }
-     }
+            }
          return false;
          break;
     }
     case(ReculeForBlockTwo):{
         bool isClosed = false;
-        ClosePince(cvs, 30);
+        isClosed = ClosePince(cvs, 35);
         cvs->MotorL->dutyCycle = -15;
         cvs->MotorR->dutyCycle = -15;
         if(cvs->Odo->x > -0.6)
         {
-            isClosed = ClosePince(cvs, 35);
-            if(isClosed){
-                if(cvs->MotorPince->position <= -340){
-                    SpeedRefToDC(cvs, cvs->MotorL, 0);
-                    SpeedRefToDC(cvs, cvs->MotorR, 0);
-                    //cvs->stateAction3 = BringBlockTwoViaPoint;
+                if(isClosed && cvs->MotorPince->position <= -342){
                     return true;
+                    break;
                 }
                 else{
-                    SpeedRefToDC(cvs, cvs->MotorL, 0);
-                    SpeedRefToDC(cvs, cvs->MotorR, 0);
                     cvs->stateAction3 = BringBlockTwoViaPoint;
                 }
-            }
         }
+
          return false;
          break;
     }
     case(BringBlockTwoViaPoint):{
-         ClosePince(cvs, 25);
+         bool isClosed = ClosePince(cvs, 35);
+         if(isClosed && cvs->MotorPince->position <= -342)
+         {
+                    return true;
+                    break;
+         }
         cvs->Param->maxSpeed = 2*M_PI * 1.8;
         bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0 , 1, 0.08) : ReachPointPotential(cvs, 0 , -1, 0.08);
         if(reached){
-            cvs->stateAction3 = BringBlockTwo;
+                    cvs->stateAction3 = BringBlockTwo;
         }
         return false;
         break;
     }
     case(BringBlockTwo):{
-        ClosePince(cvs, 25);
+        ClosePince(cvs, 35);
         cvs->Tower->ActivateTooClose = false;
         bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0.1 , 0.6, 0.08): ReachPointPotential(cvs, 0.1 , -0.6, 0.08);
         if(reached){
@@ -429,7 +432,7 @@ bool Action3(CtrlStruct *cvs){
         break;
     }
     case(AlignForBlockTwo):{
-        ClosePince(cvs, 25);
+        ClosePince(cvs, 35);
         bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs,-90,8) : IsAlignedWithTheta(cvs,90,8);
         if(isAligned){ 
             cvs->stateAction3 = ReleaseBlockTwo;
@@ -461,8 +464,9 @@ bool Action4(CtrlStruct *cvs)
    switch(cvs->stateAction4){
     case(GoToFish) :{
         PinceCalibration(cvs);
+        cvs->Param->maxSpeed = 2*M_PI*2.0;
         RatGoBottom(cvs, (color == GREEN) ? cvs->MotorRatL : cvs->MotorRatR);
-        bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0.75 , 0.9, 0.02) : ReachPointPotential(cvs, 0.75 , -0.9 , 0.02) ;
+        bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0.7 , 0.9, 0.03) : ReachPointPotential(cvs, 0.7 , -0.9 , 0.03) ;
         if(reached){
             cvs->stateAction4 = AlignForCalibFishes;
         }
@@ -540,7 +544,7 @@ bool Action4(CtrlStruct *cvs)
         break;
     }
     case(DyntakeFish1) :{
-        (color == GREEN) ? SetAngle(DynaRatL, 60) : SetAngle(DynaRatR, 260);
+        (color == GREEN) ? SetAngle(DynaRatL, 60) : SetAngle(DynaRatR, 250);
         MyDelayMs(500);
         cvs->stateAction4 = RatDescend;
         return false;
@@ -555,7 +559,7 @@ bool Action4(CtrlStruct *cvs)
         break;
     }
     case(DyntakeFish2) :{
-        (color == GREEN) ? SetAngle(DynaRatL, 80) : SetAngle(DynaRatR, 240);
+        (color == GREEN) ? SetAngle(DynaRatL, 80) : SetAngle(DynaRatR, 230);
         cvs->stateAction4 = Avance;
         MyDelayMs(500);
         return false;
@@ -576,15 +580,15 @@ bool Action4(CtrlStruct *cvs)
     }
     case(DyntakeFish3) :{
         cvs->Obstacles->RectangleList[7].isActive = true;
-        (color == GREEN) ? SetAngle(DynaRatL, 160) : SetAngle(DynaRatR, 150);
+        (color == GREEN) ? SetAngle(DynaRatL, 160) : SetAngle(DynaRatR, 180);
         MyDelayMs(500);
         cvs->stateAction4 = RatGoUp;
         return false;
         break;
     } 
     case(RatGoUp) :{
-        (color == GREEN) ? SetAngle(DynaRatL, 160) : SetAngle(DynaRatR, angleRatR);
-        bool reachedPoint = (color == GREEN) ? RateauReachPoint(cvs, 160) : RateauReachPoint(cvs, 160) ;
+        (color == GREEN) ? SetAngle(DynaRatL, 160) : SetAngle(DynaRatR, 180);
+        bool reachedPoint = (color == GREEN) ? RateauReachPoint(cvs, 160) : RateauReachPoint(cvs, 150) ;
         if(reachedPoint){
             cvs->stateAction4 = Recule;
         }
@@ -593,7 +597,7 @@ bool Action4(CtrlStruct *cvs)
     }
      case(Recule) :{
         RateauReachPoint(cvs, 200);
-        (color == GREEN) ? SetAngle(DynaRatL, 160) : SetAngle(DynaRatR, angleRatR);
+        (color == GREEN) ? SetAngle(DynaRatL, 160) : SetAngle(DynaRatR, 180);
         SpeedRefToDC(cvs,cvs->MotorL,-5);
         SpeedRefToDC(cvs,cvs->MotorR,-5);
         bool goodY = (color == GREEN) ? cvs->Odo->y > 0.9 :  cvs->Odo->y < -0.9;
@@ -607,7 +611,7 @@ bool Action4(CtrlStruct *cvs)
         break;
     }
     case(DecaleWithFishes) :{
-        (color == GREEN) ? SetAngle(DynaRatL, 160) : SetAngle(DynaRatR, angleRatR);
+        (color == GREEN) ? SetAngle(DynaRatL, 160) : SetAngle(DynaRatR, 180);
         bool decale = (color == GREEN) ? ReachPointPotential(cvs, 0.75 , 0.6, 0.03) : ReachPointPotential(cvs, 0.75, -0.6, 0.03);
         if(decale)
         {
@@ -617,7 +621,7 @@ bool Action4(CtrlStruct *cvs)
         break;
     }
     case(MoveWithFish) :{
-        (color == GREEN) ? SetAngle(DynaRatL, 160) : SetAngle(DynaRatR, angleRatR);
+        (color == GREEN) ? SetAngle(DynaRatL, 160) : SetAngle(DynaRatR, 180);
         cvs->Obstacles->RectangleList[7].isActive = false;
         bool decale = (color == GREEN) ? ReachPointPotential(cvs, 0.83 , 0.3, 0.04) : ReachPointPotential(cvs, 0.83 , -0.3, 0.04);
         if(decale)
@@ -628,7 +632,7 @@ bool Action4(CtrlStruct *cvs)
         break;
      }
      case(AlignedWithNet) :{
-        (color == GREEN) ? SetAngle(DynaRatL, 160) : SetAngle(DynaRatR, angleRatR);
+        (color == GREEN) ? SetAngle(DynaRatL, 160) : SetAngle(DynaRatR, 180);
         bool isAligned = (color == GREEN) ? IsAlignedWithTheta(cvs, -91, 2) : IsAlignedWithTheta(cvs, 91, 2);
         if(isAligned){
             cvs->stateAction4 = ReleaseFish;

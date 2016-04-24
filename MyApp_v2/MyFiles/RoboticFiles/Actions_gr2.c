@@ -18,7 +18,7 @@ bool Action1(CtrlStruct *cvs){
         cvs->Obstacles->RectangleList[6].isActive = false;
         cvs->Obstacles->RectangleList[8].isActive = false;
         cvs->Obstacles->RectangleList[9].isActive = false;
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , 1.2, 0.15) : ReachPointPotential(cvs, -0.6 , -1.2 , 0.15) ;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , 1.2, 0.1) : ReachPointPotential(cvs, -0.6 , -1.2 , 0.1) ;
             if(reached){
                 cvs->stateAction1 = GoToHouse1Precision;
             }
@@ -372,7 +372,7 @@ bool Action3(CtrlStruct *cvs){
            }
             if(cvs->Odo->x < -0.8 || IsTimerTimout(cvs,cvs->TimerCalibration) )
            {
-           isClosed = ClosePince(cvs,30);
+           isClosed = ClosePince(cvs,35);
             if(isClosed){
                       SpeedRefToDC(cvs, cvs->MotorL, 0);
                       SpeedRefToDC(cvs, cvs->MotorR, 0);
@@ -390,12 +390,12 @@ bool Action3(CtrlStruct *cvs){
         cvs->MotorR->dutyCycle = -15;
         if(cvs->Odo->x > -0.6)
         {
-            isClosed = ClosePince(cvs, 30);
+            isClosed = ClosePince(cvs, 35);
             if(isClosed){
                 if(cvs->MotorPince->position <= -340){
                     SpeedRefToDC(cvs, cvs->MotorL, 0);
                     SpeedRefToDC(cvs, cvs->MotorR, 0);
-                    cvs->stateAction3 = BringBlockTwoViaPoint;
+                    //cvs->stateAction3 = BringBlockTwoViaPoint;
                     return true;
                 }
                 else{
@@ -460,9 +460,9 @@ bool Action4(CtrlStruct *cvs)
    int angleRatR;
    switch(cvs->stateAction4){
     case(GoToFish) :{
-        PinceReachPosition(cvs, -300);
+        PinceCalibration(cvs);
         RatGoBottom(cvs, (color == GREEN) ? cvs->MotorRatL : cvs->MotorRatR);
-        bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0.76 , 1.0, 0.02) : ReachPointPotential(cvs, 0.76 , -1.0 , 0.02) ;
+        bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0.75 , 0.9, 0.02) : ReachPointPotential(cvs, 0.75 , -0.9 , 0.02) ;
         if(reached){
             cvs->stateAction4 = AlignForCalibFishes;
         }
@@ -470,7 +470,7 @@ bool Action4(CtrlStruct *cvs)
         break;
     }
     case(AlignForCalibFishes) :{
-        PinceReachPosition(cvs, -300);
+        PinceCalibration(cvs);
         RatGoBottom(cvs, (color == GREEN) ? cvs->MotorRatL : cvs->MotorRatR);
         bool isAligned = IsAlignedWithTheta(cvs, 180, 2);
         if(isAligned){
@@ -480,7 +480,7 @@ bool Action4(CtrlStruct *cvs)
         break;
     }
     case(CalibFishes) :{
-        PinceReachPosition(cvs, -300);
+        ClosePince(cvs, -30);
         (color == GREEN) ? RatGoTop(cvs, cvs->MotorRatL) : RatGoTop(cvs, cvs->MotorRatR) ;
         bool isCalibrate = XCalibration(cvs, 1-0.1322, 180) ;
         if(isCalibrate){
@@ -490,8 +490,10 @@ bool Action4(CtrlStruct *cvs)
            break;
     }
     case(DecaleBordFishes) :{
+        ClosePince(cvs, -30);
+        cvs->Param->maxSpeed = 2*M_PI;
         (color == GREEN) ? RatGoTop(cvs, cvs->MotorRatL) : RatGoTop(cvs, cvs->MotorRatR) ;
-        bool isReached = (color == GREEN) ? ReachPointPotential(cvs, 0.83 , 0.6, 0.1) : ReachPointPotential(cvs, 0.83 , -0.6 , 0.1); // y 0.5
+        bool isReached = (color == GREEN) ? ReachPointPotential(cvs, 0.83 , 0.65, 0.1) : ReachPointPotential(cvs, 0.83 , -0.65 , 0.1); // y 0.5
         if(isReached){
             cvs->stateAction4 = AlignForCreneau;
         }
@@ -661,7 +663,7 @@ bool Action5(CtrlStruct *cvs){ // Dune
             PinceCalibration(cvs);
             cvs->Param->maxSpeed = 2 * M_PI * 1.5;
             cvs->Param->radiusBot = 0.14;
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.53 , 0.75, 0.04) : ReachPointPotential(cvs, -0.53 , -0.75 , 0.04) ;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.5 , 0.7, 0.04) : ReachPointPotential(cvs, -0.5 , -0.7 , 0.04) ;
             if(reached){
                 cvs->stateAction5 = GotoDune;
             }
@@ -683,8 +685,8 @@ bool Action5(CtrlStruct *cvs){ // Dune
                     return true;
              }
             PinceCalibration(cvs);
-            cvs->Param->maxSpeed = 2 * M_PI * 1.6;
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.53 , 0.05, 0.05) : ReachPointPotential(cvs, -0.53 , -0.05 , 0.05) ;
+            cvs->Param->maxSpeed = 2 * M_PI * 0.5;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.53 , 0.02, 0.05) : ReachPointPotential(cvs, -0.53 , -0.02 , 0.05) ;
             if(reached){
                 ResetTimer(cvs->TimerCalibration);
                 //cvs->Obstacles->RectangleList[5].isActive = true;
@@ -706,7 +708,7 @@ bool Action5(CtrlStruct *cvs){ // Dune
              }
             PinceCalibration(cvs);
             cvs->Param->maxSpeed = 2 * M_PI ;
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , 0.0, 0.02) : ReachPointPotential(cvs, -0.6 , 0.0 , 0.02) ;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.53 , 0.0, 0.03) : ReachPointPotential(cvs, -0.53 , 0.0 , 0.03) ;
             if(reached){
                 ResetTimer(cvs->TimerCalibration);
                 cvs->stateAction5 = AlignedForDune;
@@ -785,7 +787,7 @@ bool Action5(CtrlStruct *cvs){ // Dune
         else{
             cvs->Obstacles->RectangleList[4].isActive = false;
         }
-            bool isReached = (color == GREEN) ? ReachPointPotential(cvs, -0.55, 0.8 , 0.1) : ReachPointPotential(cvs, -0.55, -0.8 , 0.1);
+            bool isReached = (color == GREEN) ? ReachPointPotential(cvs, -0.5, 0.8 , 0.1) : ReachPointPotential(cvs, -0.5, -0.8 , 0.1);
             if(isReached){
                 cvs->stateAction5 = GoToViaPoint2;
                 cvs->Param->maxSpeed = 2 * M_PI * 2.0;
@@ -841,7 +843,7 @@ void ActionBase(CtrlStruct *cvs)
 bool ActionParasol(CtrlStruct *cvs){
     MyDelayMs(2000);
     SetAngle(DynaPara, 100);
-    MyDelayMs(1000);
+    MyDelayMs(100);
     SetAngle(DynaPara, 170);
 }
 #ifndef REALBOT

@@ -86,7 +86,7 @@ void InitDyna(){
     MyDelayMs(100);
     SetAngle(DynaPara, 170);
     MyDelayMs(100);
-    SetAngle(DynaRatL, 140);
+    SetAngle(DynaRatL, 150);
     MyDelayMs(100);
     SetAngle(DynaRatR, 140);
     MyDelayMs(100);

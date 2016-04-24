@@ -42,7 +42,8 @@ void controller_init(CtrlStruct *cvs){
     cvs->stateAction3 = CalibY;
     cvs->stateAction4 = GoToFish;
     cvs->stateAction5 = GotoDuneViaPoint;
-    cvs->stateStrategy =  (cvs->Tower->StrategyWithRushDunes) ? GoAction5 : GoAction2; //GoAction4;// 
+    //cvs->stateStrategy =  (cvs->Tower->StrategyWithRushDunes) ? GoAction5 : GoAction2; //GoAction4;// 
+    cvs->stateStrategy = GoAction2;
 #ifdef REALBOT
     InitRegMotor(cvs->MotorL);
     InitRegMotor(cvs->MotorR);
@@ -73,7 +74,7 @@ void controller_loop(CtrlStruct *cvs){
         cvs->MotorRatR->dutyCycle = RateauRDC; 
         cvs->MotorPince->dutyCycle = PinceDC;
     }
-    else if(cvs->time >= endtime +0.5 && cvs->time < endtime + 1.5){
+    else if(cvs->time >= endtime +0.5 && cvs->time < endtime + 3.5){
         cvs->MotorL->dutyCycle = 0;
         cvs->MotorR->dutyCycle = 0;
         cvs->MotorTower->dutyCycle = 0;
@@ -91,8 +92,8 @@ void controller_loop(CtrlStruct *cvs){
         cvs->MotorPince->dutyCycle = 0;
     }
     else{ //During match
-        ChooseStratDuneOrNot(cvs);
-        ChooseBetweenMatchOrTest(cvs);
+        //ChooseStratDuneOrNot(cvs);
+        /*ChooseBetweenMatchOrTest(cvs);
         if(!cvs->Param->ChooseToMatch)
         {
             
@@ -110,8 +111,22 @@ void controller_loop(CtrlStruct *cvs){
             else{
                 getStrategy(cvs);
                 cvs->MotorRatR->dutyCycle = 0; 
-            }
+            }%*/
+        //}
+        
+        
+        
+        
+        //ChooseBetweenMatchOrTest(cvs);
+        //cvs->Param->ChooseToMatch
+        //MyStrategy(cvs, 1);
+        Action4(cvs);
+        /*if(1){
+             MyStrategy(cvs, 0);
         }
+        else{
+             MyStrategy(cvs, 1);
+        }*/
     /* char theStr[256];
     sprintf(theStr, "speedG = %f \t speedDroite = %f \t \n", cvs->MotorL->speed, cvs->MotorR->speed);
     MyConsole_SendMsg(theStr);*/

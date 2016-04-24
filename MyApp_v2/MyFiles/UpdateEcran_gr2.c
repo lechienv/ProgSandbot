@@ -60,7 +60,7 @@ void getStrategy(CtrlStruct *cvs)
         {   cvs->Param->ChooseToMatch = true;
             cvs->Param->maxSpeed = 2*M_PI * 1.5;
             cvs->Param->maxSpeedRot = 30*cvs->Param->maxSpeed;
-            MyStrategy(cvs);
+            MyStrategy(cvs, 1);
             break;
         }
         default: break;
@@ -69,7 +69,7 @@ void getStrategy(CtrlStruct *cvs)
 }
 void ChooseBetweenMatchOrTest(CtrlStruct *cvs)
 {
-    unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
+    /*unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
     switch(M){
         case(14) :
         {
@@ -77,6 +77,14 @@ void ChooseBetweenMatchOrTest(CtrlStruct *cvs)
             break;
         }
         case(15) :
+        {
+            cvs->Param->ChooseToMatch = true;
+            break;
+        }
+        default: break;*/
+    unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
+    switch(M){
+        case(2) :
         {
             cvs->Param->ChooseToMatch = true;
             break;

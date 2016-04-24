@@ -15,7 +15,7 @@ void OdometryLoop(CtrlStruct *cvs) {
     
 	double dl = cvs->Odo->speedL*cvs->Param->wheelLRadius*timeStep;
 	double dr = cvs->Odo->speedR*cvs->Param->wheelRRadius*timeStep;
-	double dc = (dl + dr) / 2;
+	double dc = (dl + dr) / 2.0;
 	double phi = (dr - dl) / dbaseline;
 
 	cvs->Odo->x += dc * cos(DEGtoRAD*cvs->Odo->theta);

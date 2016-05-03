@@ -103,7 +103,7 @@ void controller_loop(CtrlStruct *cvs){
     }
     else{ //During match
         //ChooseStratDuneOrNot(cvs);
-        /*ChooseBetweenMatchOrTest(cvs);
+        ChooseBetweenMatchOrTest(cvs);
         if(!cvs->Param->ChooseToMatch)
         {
             
@@ -114,15 +114,9 @@ void controller_loop(CtrlStruct *cvs){
         }
         else
         {          
-            if(cvs->robotID == PINK){
                 getStrategy(cvs);
-                cvs->MotorRatL->dutyCycle = 0;  
-            }
-            else{
-                getStrategy(cvs);
-                cvs->MotorRatR->dutyCycle = 0; 
-            }%*/
-        //}
+
+        }
         
         
         //SpeedRefToDC(cvs,cvs->MotorR,5);
@@ -133,7 +127,7 @@ void controller_loop(CtrlStruct *cvs){
         //MyStrategy(cvs, 1);
         //Action4(cvs);
         //MyConsole_SendMsg("demarrage\n");
-       // MyStrategy(cvs, 1);
+      //  MyStrategy(cvs, 1);
       
         /*if(cvs->time>=5){
         SpeedRefToDC(cvs,cvs->MotorR,8);

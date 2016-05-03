@@ -15,7 +15,7 @@
 /*****************************************************************************
  * MAIN
  *****************************************************************************/
-#define SD_CARD
+//#define SD_CARD
 #define WEB
 
 
@@ -126,7 +126,7 @@ void MyMiniProjet_Task(void)
                     /* Stopping condition*/
                     //unsigned int A = MyCyclone_Read(CYCLONE_IO_A_Data);
                     //int newTurn = extractBits(A,15,15);
-                    if(cvs->time > 15 && !hasSaved){  
+                    if(cvs->time > 10 && !hasSaved){  
                        // WriteSDMemory(X, "X.txt", size);  
                         WriteSDMemory(DISTANCE, "DISTANCE.txt", size);  
                         WriteSDMemory(THETA, "THETA.txt", size);

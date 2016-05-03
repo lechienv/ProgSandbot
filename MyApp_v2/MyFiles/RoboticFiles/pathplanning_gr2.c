@@ -86,11 +86,12 @@ void RepulsiveForce(CtrlStruct *cvs) {
 	double FXInertial = 0;
 	double FYInertial = 0;
 	int i;
-    /*
+#ifdef ACTIVATE_FIELDAVOIDANCE
 	for (i = 0; i < cvs->Obstacles->NumberOfCircles; i++) {
 		if (cvs->Obstacles->CircleList[i].isActive) 
 			ComputeFrepCircle(cvs, &(cvs->Obstacles->CircleList[i]), &FXInertial, &FYInertial);
-	}*/
+	}
+#endif
 	for (i = 0; i < cvs->Obstacles->NumberOfRectangles; i++) {
 		if(cvs->Obstacles->RectangleList[i].isActive)
 			ComputeFrepRectangle(cvs, &(cvs->Obstacles->RectangleList[i]), &FXInertial, &FYInertial);

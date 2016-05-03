@@ -15,11 +15,11 @@ bool Action1(CtrlStruct *cvs){
 //enum StateAction1{GoToHouses, AlignedWithHouses, PushHouses, FreeHouses};
    switch(cvs->stateAction1){
     case(GoToHouse1) :{
-        cvs->Param->maxSpeed = 2*M_PI*2.0;
+        cvs->Param->maxSpeed = 2*M_PI*1.0;
         cvs->Obstacles->RectangleList[6].isActive = false;
         cvs->Obstacles->RectangleList[8].isActive = false;
         cvs->Obstacles->RectangleList[9].isActive = false;
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , 1.18, 0.1) : ReachPointPotential(cvs, -0.6 , -1.18 , 0.1) ;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.57 , 1.18, 0.1) : ReachPointPotential(cvs, -0.57 , -1.18 , 0.1) ;
             if(reached){
                 cvs->stateAction1 = GoToHouse1Precision;
             }
@@ -34,7 +34,7 @@ bool Action1(CtrlStruct *cvs){
             bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , 1.18, 0.05) : ReachPointPotential(cvs, -0.6 , -1.18 , 0.05) ;
             if(reached){
                 cvs->stateAction1 = AlignedWithHouse1;
-                cvs->Param->maxSpeed = 2*M_PI*1.5;
+                cvs->Param->maxSpeed = 2*M_PI*1.0;
             }
             return false;
             break;
@@ -83,7 +83,7 @@ bool Action1(CtrlStruct *cvs){
             cvs->Obstacles->RectangleList[4].isActive = false;
             cvs->Obstacles->RectangleList[6].isActive = false;
             PinceCalibration(cvs);
-            cvs->Param->maxSpeed = 2*M_PI*2.0;
+            cvs->Param->maxSpeed = 2*M_PI*1.0;
             bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.55, 1.08, 0.06) : ReachPointPotential(cvs, -0.55, -1.08, 0.06);
             if(reached){
                 cvs->stateAction1 = GoToHouse2Precision;
@@ -97,11 +97,11 @@ bool Action1(CtrlStruct *cvs){
             cvs->Obstacles->RectangleList[4].isActive = false;
             cvs->Obstacles->RectangleList[6].isActive = false;
             PinceCalibration(cvs);
-            cvs->Param->maxSpeed = 2*M_PI*1.5;
+            cvs->Param->maxSpeed = 2*M_PI*1.0;
             bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.55, 1.02, 0.06) : ReachPointPotential(cvs, -0.55, -1.02, 0.06);
             if(reached){
                 cvs->stateAction1 = AlignedWithHouse2;
-                cvs->Param->maxSpeed = 2*M_PI*1.5;
+                cvs->Param->maxSpeed = 2*M_PI*1.0;
             }
             return false;
             break;
@@ -146,7 +146,7 @@ bool Action1(CtrlStruct *cvs){
         }
          case(FreeHouse2) :{
             PinceCalibration(cvs);
-            cvs->Param->maxSpeed = 2*M_PI*2.0;
+            cvs->Param->maxSpeed = 2*M_PI*1.0;
             bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.4, 1.3, 0.05) : ReachPointPotential(cvs, -0.4, -1.3, 0.05);
             return reached;
             break;
@@ -337,7 +337,7 @@ bool Action3(CtrlStruct *cvs){
         case(GoToBlocTwoPrecision) :{
             cvs->Param->maxSpeed = M_PI;
             bool isOpen = PinceCalibration(cvs);
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , (0.7 - 0.1375 - 0.022 + 0.01 ), 0.01) : ReachPointPotential(cvs, -0.6 , -(0.7 - 0.1375 - 0.022 + 0.01), 0.01); // 0.7 - 0.1375 - 0.02
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.55 , (0.7 - 0.1375 - 0.022  +0.005), 0.01) : ReachPointPotential(cvs, -0.55 , -(0.7 - 0.1375 - 0.022+0.05), 0.01); // 0.7 - 0.1375 - 0.02
             if(reached){
                 cvs->stateAction3 = AlignForBlocTwo;
                 cvs->Param->maxSpeed = 2*M_PI*1.5;
@@ -506,7 +506,7 @@ bool Action4(CtrlStruct *cvs)
    switch(cvs->stateAction4){
     case(GoCalibY_Action4) :{
      PinceCalibration(cvs);
-     cvs->Param->maxSpeed = 2*M_PI*2.0;
+     cvs->Param->maxSpeed = 2*M_PI*1.0;
      bool reached = (color == GREEN) ? ReachPointPotential(cvs, 0 , 1.1, 0.05) : ReachPointPotential(cvs, 0 , -1.1 , 0.05) ;
      if(reached){
          cvs->stateAction4 = AlignCalibY_Action4;
@@ -523,7 +523,7 @@ bool Action4(CtrlStruct *cvs)
     break;
     } 
     case(calibY_Action4) :{
-        bool isCalibrate = (color == GREEN) ? YCalibration(cvs, (1.5-0.1322), -90) : YCalibration(cvs, -(1.5-0.1322), 90);
+        bool isCalibrate = (color == GREEN) ? YCalibration(cvs, (1.5-0.1375), -90) : YCalibration(cvs, -(1.5-0.1375), 90);
         if(isCalibrate){
             cvs->stateAction4 = GoToFish;
         }
@@ -560,7 +560,7 @@ bool Action4(CtrlStruct *cvs)
     }
     case(DecaleBordFishes) :{
         ClosePince(cvs, -30);
-        cvs->Param->maxSpeed = 2*M_PI*1.0;
+        cvs->Param->maxSpeed = 1.5*M_PI*1.0;
         (color == GREEN) ? RatGoTop(cvs, cvs->MotorRatL) : RatGoTop(cvs, cvs->MotorRatR) ;
         bool isReached = (color == GREEN) ? ReachPointPotential(cvs, 0.75 , 0.65, 0.05) : ReachPointPotential(cvs, 0.75 , -0.65 , 0.05); // y 0.5
         if(isReached){
@@ -579,9 +579,10 @@ bool Action4(CtrlStruct *cvs)
         break;
     }
     case(DoTheCreneau) :{
+         cvs->Param->maxSpeed = M_PI;
         (color == GREEN) ? RatGoTop(cvs, cvs->MotorRatL) : RatGoTop(cvs, cvs->MotorRatR) ;
          cvs->Obstacles->RectangleList[7].isActive = false;
-         bool creneauDone = (color == GREEN) ? ReachPointPotential(cvs, 0.83 ,0.9, 0.02) : ReachPointPotential(cvs, 0.83 , -0.9, 0.02);
+         bool creneauDone = (color == GREEN) ? ReachPointPotential(cvs, 0.85 ,0.9, 0.02) : ReachPointPotential(cvs, 0.85 , -0.9, 0.02);
          if(creneauDone)//|| (cvs->Odo->speedL == 0 && cvs->Odo->speedR == 0))
          {
             cvs->stateAction4 = AlignedWithFishes;
@@ -633,7 +634,7 @@ bool Action4(CtrlStruct *cvs)
     case(Avance) :{
         SpeedRefToDC(cvs,cvs->MotorL,4);
         SpeedRefToDC(cvs,cvs->MotorR,4);
-        bool goodY = (color == GREEN) ? cvs->Odo->y < 0.78 :  cvs->Odo->y > -0.78;
+        bool goodY = (color == GREEN) ? cvs->Odo->y < 0.77 :  cvs->Odo->y > -0.77;
         if(goodY)
         {
             SpeedRefToDC(cvs,cvs->MotorL,0);
@@ -677,7 +678,7 @@ bool Action4(CtrlStruct *cvs)
     }
     case(DecaleWithFishes) :{
         (color == GREEN) ? SetAngle(DynaRatL, 160) : SetAngle(DynaRatR, 200);
-        cvs->Param->maxSpeed = 1.0 * M_PI*1.3;
+        cvs->Param->maxSpeed = 1.0 * M_PI*1.0;
         bool decale = (color == GREEN) ? ReachPointPotential(cvs, 0.75 , 0.6, 0.03) : ReachPointPotential(cvs, 0.75, -0.6, 0.03);
         if(decale)
         {
@@ -734,7 +735,7 @@ bool Action5(CtrlStruct *cvs){ // Dune
             PinceCalibration(cvs);
             cvs->Param->maxSpeed = 2 * M_PI * 1.5;
             cvs->Param->radiusBot = 0.14;
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.6 , 0.7, 0.05) : ReachPointPotential(cvs, -0.6 , -0.7 , 0.05) ;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.55 , 0.7, 0.04) : ReachPointPotential(cvs, -0.55 , -0.7 , 0.04) ;
             if(reached){
                 cvs->stateAction5 = GotoDune;
             }
@@ -757,7 +758,7 @@ bool Action5(CtrlStruct *cvs){ // Dune
              }
             PinceCalibration(cvs);
             cvs->Param->maxSpeed = 2 * M_PI * 1.0;
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.53 , 0.02, 0.05) : ReachPointPotential(cvs, -0.53 , -0.02 , 0.05) ;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.55 , 0.02, 0.04) : ReachPointPotential(cvs, -0.55 , -0.02 , 0.04) ;
             if(reached){
                 ResetTimer(cvs->TimerCalibration);
                 //cvs->Obstacles->RectangleList[5].isActive = true;
@@ -779,7 +780,7 @@ bool Action5(CtrlStruct *cvs){ // Dune
              }
             PinceCalibration(cvs);
             cvs->Param->maxSpeed = 2 * M_PI ;
-            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.57 , 0.0, 0.03) : ReachPointPotential(cvs, -0.57 , 0.0 , 0.03) ;
+            bool reached = (color == GREEN) ? ReachPointPotential(cvs, -0.55 , 0.0, 0.03) : ReachPointPotential(cvs, -0.55 , 0.0 , 0.03) ;
             if(reached){
                 ResetTimer(cvs->TimerCalibration);
                 cvs->stateAction5 = AlignedForDune;
@@ -825,7 +826,7 @@ bool Action5(CtrlStruct *cvs){ // Dune
             SpeedRefToDC(cvs, cvs->MotorR, 5);
            if(!cvs->TimerCalibration->isSet)
            {
-               SetTimer(cvs, cvs->TimerCalibration, 4);
+               SetTimer(cvs, cvs->TimerCalibration, 3);
            }
             if(cvs->Odo->x < -0.9 || IsTimerTimout(cvs,cvs->TimerCalibration) )
            {
@@ -891,7 +892,7 @@ bool Action5(CtrlStruct *cvs){ // Dune
         else{
             cvs->Obstacles->RectangleList[4].isActive = false;
         }
-            bool isReached = (color == GREEN) ? ReachPointPotential(cvs, -0.52, 0.9 , 0.1) : ReachPointPotential(cvs, -0.52, -0.9 , 0.1);
+            bool isReached = (color == GREEN) ? ReachPointPotential(cvs, -0.5, 0.75 , 0.07) : ReachPointPotential(cvs, -0.5, -0.75 , 0.07);
             if(isReached){
                 cvs->stateAction5 = GoToViaPoint2;
                 cvs->Param->maxSpeed = 2 * M_PI * 2.0;
@@ -908,7 +909,7 @@ bool Action5(CtrlStruct *cvs){ // Dune
         else{
             cvs->Obstacles->RectangleList[4].isActive = true;
         }
-        bool isReached = (color == GREEN) ? ReachPointPotential(cvs, 0.05, 0.62 , 0.05) : ReachPointPotential(cvs, 0.05, -0.62 , 0.05);
+        bool isReached = (color == GREEN) ? ReachPointPotential(cvs, 0.05, 0.63 , 0.05) : ReachPointPotential(cvs, 0.05, -0.63 , 0.05);
         if(isReached){
             cvs->stateAction5 = AlignForDune;
         }

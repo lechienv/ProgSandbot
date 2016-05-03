@@ -352,6 +352,7 @@ void PointHomologation(CtrlStruct *cvs){
                     break;
         }
     }
+#ifndef ACTIVATE_FIELDAVOIDANCE
     int i;
     for(i = 0; i < cvs->AllFiltersTower->numberOfEnnemy; i++){
         if(cvs->AllFiltersTower->FilterTowerList[i].detectedVeryClose && cvs->Tower->ActivateTooClose){
@@ -361,6 +362,7 @@ void PointHomologation(CtrlStruct *cvs){
             cvs->MotorR->totalError = 0;
         }
     }
+#endif
 }
 
 void SetTimer(CtrlStruct *cvs, MyTimer *Timer, double time){
@@ -490,7 +492,7 @@ bool YCalibration(CtrlStruct *cvs, double Y, double Theta){
             SpeedRefToDC(cvs, cvs->MotorR, -8);
         if(!cvs->TimerCalibration->isSet)
         {
-            SetTimer(cvs, cvs->TimerCalibration, 4);
+            SetTimer(cvs, cvs->TimerCalibration, 6);
         }
         if(IsTimerTimout(cvs,cvs->TimerCalibration))
         {
@@ -515,7 +517,7 @@ int color = cvs->robotID;
             SpeedRefToDC(cvs, cvs->MotorR, -8);
         if(!cvs->TimerCalibration->isSet)
         {
-            SetTimer(cvs, cvs->TimerCalibration, 4);
+            SetTimer(cvs, cvs->TimerCalibration, 6);
         }
         if(IsTimerTimout(cvs,cvs->TimerCalibration))
         {

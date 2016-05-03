@@ -170,6 +170,7 @@ void InitParam(CtrlStruct *cvs) {
     cvs->Param->PasFiletVisPince = PasFiletVisPince_INIT;
     cvs->Param->PasFiletVisRat = PasFiletVisRat_INIT;
     cvs->Param->ChooseToMatch           = false;
+    cvs->Param->start                   =false;
 }
 
 void InitSensors(CtrlStruct *cvs) {

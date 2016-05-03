@@ -63,8 +63,8 @@ enum StateHomologation {PinceCalib, reachViaPoint, AlignWithTheta, ReachBlocs, C
 enum StateAction1{GoToHouse1, GoToHouse1Precision, AlignedWithHouse1, PushHouse1, FreeHouse1, GoToHouse2Precision, AlignedWithHouse2, PushHouse2, FreeHouse2};
 enum StateAction2{GoToBlocOne, AlignForBlocOne, TakeBlocOne, BringBlockOne, ReleaseBlockOne, AlignForBlockOne,EndBlocOneViaPoint};
 enum StateAction3{CalibY, AlignForCalibYblocTwo, Calib_yBlocTwo, GoToBlocTwoCalib, AlignForCalibAction3, Calib_x, GoToBlocTwo, GoToBlocTwoPrecision, AlignForBlocTwo,AlignForBlocTwoPrecision, AvanceForBlockTwo, ReculeForBlockTwo, TestIfBlockAction3, BringBlockTwoViaPoint, TakeBlocTwo, BringBlockTwo, ReleaseBlockTwo, AlignForBlockTwo};
-enum StateAction4{GoToFish, AlignForCalibFishes, CalibFishes, DecaleBordFishes, AlignForCreneau, DoTheCreneau, AlignedWithFishes,RatGoTopStartFish, DyntakeFish1, RatDescend, DyntakeFish2, Avance, DyntakeFish3, RatGoUp, DecaleWithFishes, Recule, MoveWithFish, AlignedWithNet, ReleaseFish};
-enum StateAction5{GotoDuneViaPoint, GotoDune,GotoDunePrecision, AlignedForDune, AvanceForBlocs, CloseForDune,DesAlignedForDune, GoToViaPoint, GoToViaPoint2,AlignForDune, DeposeDune};
+enum StateAction4{GoCalibY_Action4, AlignCalibY_Action4, calibY_Action4, GoToFish, AlignForCalibFishes, CalibFishes, DecaleBordFishes, AlignForCreneau, DoTheCreneau, AlignedWithFishes,RatGoTopStartFish, DyntakeFish1, RatDescend, DyntakeFish2, Avance, DyntakeFish3, RatGoUp, DecaleWithFishes, Recule, MoveWithFish, AlignedWithNet, ReleaseFish};
+enum StateAction5{GotoDuneViaPoint, GotoDune,GotoDunePrecision, AlignedForDune, AlignedForDunePrecision, AvanceForBlocs, CloseForDune,DesAlignedForDune, Calib_x_Action5, GoToViaPoint, GoToViaPoint2,AlignForDune, DeposeDune};
 enum StateStrategy{GoCalibration, GoAction1, GoAction2, GoAction3,GoAction4, GoAction5, GoBase};
 
 
@@ -110,6 +110,7 @@ typedef struct Parametres {
     double PasFiletVisRat;
     double PasFiletVisPince;
     bool ChooseToMatch;
+    bool start;
 } Parametres;
 
 typedef struct Sensors {

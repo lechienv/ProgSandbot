@@ -15,7 +15,7 @@
 /*****************************************************************************
  * MAIN
  *****************************************************************************/
-//#define SD_CARD
+#define SD_CARD
 #define WEB
 
 
@@ -51,17 +51,21 @@ void MyMiniProjet_Task(void)
      * SD Memory *********************
      ********************************/
     unsigned int size = 8192;    
-    char X1[size];
-    CreateBuffer(X1);
+    char TIME[size];
+    CreateBuffer(TIME);
         
-    char Y1[size];
-    CreateBuffer(Y1);
+    char THETA[size];
+    CreateBuffer(THETA);
+  
+     char DISTANCE[size];
+    CreateBuffer(DISTANCE);
     
-    char X2[size];
-    CreateBuffer(X2);
+   /* char X[size];
+    CreateBuffer(X);
     
-    char Y2[size];
-    CreateBuffer(Y2);
+        char Y[size];
+    CreateBuffer(Y);*/
+
     
     bool hasSaved = false;
     /*********************************
@@ -71,19 +75,16 @@ void MyMiniProjet_Task(void)
         unsigned int A = MyCyclone_Read(CYCLONE_IO_A_Data);
         unsigned int I = MyCyclone_Read(CYCLONE_IO_I_Data);
       //  MyConsole_SendMsg("wtf \n");
-        bool start = (bool) extractBits(A,13,13);
+        bool start = (bool) !extractBits(A,13,13);
+
+       // ChooseStratDuneOrNot(cvs);// if calib X pressed choooose to start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         if(start){
+            cvs->Param->start =true;
             //MyConsole_SendMsg("Starting\n");
             cvs->timeOffset = getTime();
             cvs->previousTime = 0;
             cvs->time = 0;
-            /*char s1[128];
-            sprintf(s1, "Avant = %f\n", extractBits(A,13,13));
-            MyConsole_SendMsg(s1);
-            */while((bool) extractBits(A,13,13)){
-                /*char s2[128];
-                sprintf(s2, "Après = %f\n", extractBits(A,13,13));
-                MyConsole_SendMsg(s2);*/
+            while(start){ //(bool) extractBits(A,13,13)){ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 MyConsole_Task();
                 //MyCAN_Task();
 #ifdef WEB
@@ -107,19 +108,17 @@ void MyMiniProjet_Task(void)
                         previousTimeData = currentTime;                     
 #ifdef WEB
                         /* Refresh Web Variables */
-                        //RefreshWebVariables(cvs);
+                        RefreshWebVariables(cvs);
 #endif
                         
 #ifdef SD_CARD
                         /* Save on SD */
                         if(!hasSaved){
-                            AddElement(cvs->Obstacles->CircleList[0].x, X1);
+                            AddElement(cvs->Tower->distance, DISTANCE);
                             MyDelayMs(1);
-                            AddElement(cvs->Obstacles->CircleList[0].y, Y1);
+                            AddElement(cvs->Tower->angle, THETA);
                             MyDelayMs(1);
-                            AddElement(cvs->Obstacles->CircleList[1].x, X2);
-                            MyDelayMs(1);
-                            AddElement(cvs->Obstacles->CircleList[1].y, Y2);
+                            AddElement(cvs->time, TIME);
                         }
 #endif
                     }
@@ -127,11 +126,11 @@ void MyMiniProjet_Task(void)
                     /* Stopping condition*/
                     //unsigned int A = MyCyclone_Read(CYCLONE_IO_A_Data);
                     //int newTurn = extractBits(A,15,15);
-                    if(cvs->time > 30 && !hasSaved){  
-                        WriteSDMemory(X1, "X1.txt", size);  
-                        WriteSDMemory(Y1, "Y1.txt", size);  
-                        WriteSDMemory(X2, "X2.txt", size);
-                        WriteSDMemory(Y2, "Y2.txt",size);                      
+                    if(cvs->time > 15 && !hasSaved){  
+                       // WriteSDMemory(X, "X.txt", size);  
+                        WriteSDMemory(DISTANCE, "DISTANCE.txt", size);  
+                        WriteSDMemory(THETA, "THETA.txt", size);
+                        WriteSDMemory(TIME, "TIME.txt", size);                   
                         hasSaved = true;
                     }
 #endif

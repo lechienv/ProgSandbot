@@ -29,7 +29,7 @@ NAMESPACE_INIT(ctrlGr2);
     #define wheelRRadius_DEFAULT    0.022749
     #define wheelLRadius_DEFAULT    0.022725
 	#define width_DEFAULT           0.2625
-	#define MaxAcceleration_DEFAULT	2
+	#define MaxAcceleration_DEFAULT	1
 #endif // MINIBOT
     #define clicNumberRatL_DEFAULT  10000
     #define clicNumberRatR_DEFAULT  10000
@@ -41,8 +41,8 @@ NAMESPACE_INIT(ctrlGr2);
 	#define MaxAcceleration_DEFAULT	100
 #endif //REALBOT
 
-#define Kp_DEFAULT 0.3
-#define Ki_DEFAULT 5
+#define Kp_DEFAULT 0.62//0.3 //0.6
+#define Ki_DEFAULT 14.44//5 //15
 
 /************************************
  * MOTORS ***************************

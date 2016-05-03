@@ -40,7 +40,7 @@ void controller_init(CtrlStruct *cvs){
     cvs->stateAction1 = GoToHouse1;// FreeHouse1;//
     cvs->stateAction2 = GoToBlocOne;
     cvs->stateAction3 = CalibY;
-    cvs->stateAction4 = GoToFish;
+    cvs->stateAction4 = GoCalibY_Action4;
     cvs->stateAction5 = GotoDuneViaPoint;
     //cvs->stateStrategy =  (cvs->Tower->StrategyWithRushDunes) ? GoAction5 : GoAction2; //GoAction4;// 
     cvs->stateStrategy = GoAction2;
@@ -64,7 +64,8 @@ void controller_loop(CtrlStruct *cvs){
     
 //#define WEBSITETEST
 #ifndef WEBSITETEST
-    int endtime = 90;
+    int endtime = 180;
+    int starttime = 0;
     cvs->Param->MotorCommandByHand = CommandMotorByHand;
     if(cvs->Param->MotorCommandByHand){
         cvs->MotorL->dutyCycle = LeftMotorDC;
@@ -74,7 +75,16 @@ void controller_loop(CtrlStruct *cvs){
         cvs->MotorRatR->dutyCycle = RateauRDC; 
         cvs->MotorPince->dutyCycle = PinceDC;
     }
-    else if(cvs->time >= endtime +0.5 && cvs->time < endtime + 3.5){
+   /* else if(cvs->time <= starttime)
+    {
+        cvs->MotorL->dutyCycle = 0;
+        cvs->MotorR->dutyCycle = 0;
+        cvs->MotorTower->dutyCycle = 0;
+        cvs->MotorRatL->dutyCycle = 0; 
+        cvs->MotorRatR->dutyCycle = 0; 
+        cvs->MotorPince->dutyCycle = 0;
+    }*/
+    else if( cvs->time >= endtime +0.5 && cvs->time < endtime + 3.5){
         cvs->MotorL->dutyCycle = 0;
         cvs->MotorR->dutyCycle = 0;
         cvs->MotorTower->dutyCycle = 0;
@@ -115,22 +125,28 @@ void controller_loop(CtrlStruct *cvs){
         //}
         
         
+        //SpeedRefToDC(cvs,cvs->MotorR,5);
         
-        
+        //SpeedRefToDC(cvs,cvs->MotorL,5);
         //ChooseBetweenMatchOrTest(cvs);
         //cvs->Param->ChooseToMatch
         //MyStrategy(cvs, 1);
         //Action4(cvs);
         //MyConsole_SendMsg("demarrage\n");
-        MyStrategy(cvs, 0);
-        /*if(1){
-             MyStrategy(cvs, 0);
+       // MyStrategy(cvs, 1);
+      
+        /*if(cvs->time>=5){
+        SpeedRefToDC(cvs,cvs->MotorR,8);
+        SpeedRefToDC(cvs,cvs->MotorL,8);
         }
         else{
-             MyStrategy(cvs, 1);
+          SpeedRefToDC(cvs,cvs->MotorR,4);
+        SpeedRefToDC(cvs,cvs->MotorL,4);           
         }*/
-    /* char theStr[256];
-    sprintf(theStr, "speedG = %f \t speedDroite = %f \t \n", cvs->MotorL->speed, cvs->MotorR->speed);
+        
+   /*unsigned int A = MyCyclone_Read(CYCLONE_IO_A_Data);
+     char theStr[256];
+        sprintf(theStr, "speedG = %f \t speedDroite = %f \t mystart = %d  \n", cvs->MotorL->speed, cvs->MotorR->speed, (bool) extractBits(A,13,13));
     MyConsole_SendMsg(theStr);*/
     }
        

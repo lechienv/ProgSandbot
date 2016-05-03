@@ -40,11 +40,11 @@ void MyStrategy(CtrlStruct *cvs, int dune)
                     if(IsTimerTimout(cvs,cvs->TimerAction))
                     {
                     ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = (dune==0) ? GoAction3 : GoAction5;
+                    cvs->stateStrategy = (dune==0) ? GoAction3 : GoAction3;
                     }
                     if(succeed){
                     ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = (dune==0) ? GoAction3 : GoAction5;
+                    cvs->stateStrategy = (dune==0) ? GoAction3 : GoAction3;
                      }
                 break;
         }
@@ -60,12 +60,12 @@ void MyStrategy(CtrlStruct *cvs, int dune)
                     ResetTimer(cvs->TimerReleaseBlocksAvance);
                     ResetTimer(cvs->TimerAction);
                     //cvs->stateStrategy = (cvs->Tower->StrategyWithRushDunes || cvs->Tower->StrategyWithFish) ? GoAction1 : GoAction5;
-                    cvs->stateStrategy = GoAction1;
+                    cvs->stateStrategy = GoAction5;
                     }
                     if(succeed){
                     ResetTimer(cvs->TimerAction);
                     //cvs->stateStrategy = (cvs->Tower->StrategyWithRushDunes || cvs->Tower->StrategyWithFish) ? GoAction1 : GoAction5;
-                    cvs->stateStrategy = GoAction1;
+                    cvs->stateStrategy = GoAction5;
                      }
                 break;
         }
@@ -79,7 +79,7 @@ void MyStrategy(CtrlStruct *cvs, int dune)
                     {
                         ResetTimer(cvs->TimerAction);
                         if(dune == 1){
-                            cvs->stateStrategy = GoAction5;
+                            cvs->stateStrategy = GoAction4;
                         }
                         else{
                             cvs->stateStrategy = GoAction4;
@@ -88,7 +88,7 @@ void MyStrategy(CtrlStruct *cvs, int dune)
                     if(succeed){
                         ResetTimer(cvs->TimerAction);
                         if(dune == 1){
-                            cvs->stateStrategy = GoAction5;
+                            cvs->stateStrategy = GoAction4;
                         }
                         else{
                             cvs->stateStrategy = GoAction4;
@@ -107,20 +107,20 @@ void MyStrategy(CtrlStruct *cvs, int dune)
                     ResetTimer(cvs->TimerAction);
                     //cvs->stateStrategy = (cvs->Tower->StrategyWithFish ) ? GoAction5 : GoBase;
                         if(dune == 1){
-                            cvs->stateStrategy = GoAction3;
+                            cvs->stateStrategy = GoBase;
                         }
                         else{
-                            cvs->stateStrategy = GoAction3;
+                            cvs->stateStrategy = GoBase;
                         }
                     }
                     if(succeed){
                     ResetTimer(cvs->TimerAction);
                     //cvs->stateStrategy = (cvs->Tower->StrategyWithFish ) ? GoAction5 : GoBase;
                     if(dune == 1){
-                            cvs->stateStrategy = GoAction3;
+                            cvs->stateStrategy = GoBase;
                         }
                         else{
-                            cvs->stateStrategy = GoAction3;
+                            cvs->stateStrategy = GoBase;
                         }
                      }
                 break;
@@ -147,7 +147,7 @@ void MyStrategy(CtrlStruct *cvs, int dune)
                         {
                             cvs->stateStrategy = GoAction3;
                         }*/
-                    cvs->stateStrategy = GoAction3;
+                    cvs->stateStrategy = GoAction1;
                     }
                             
                    
@@ -165,7 +165,7 @@ void MyStrategy(CtrlStruct *cvs, int dune)
                           {
                               cvs->stateStrategy = GoAction1;
                           }*/
-                        cvs->stateStrategy = GoAction3;
+                        cvs->stateStrategy = GoAction1;
                      }
                 break;
         }
@@ -460,7 +460,7 @@ bool DeposeBlock(CtrlStruct *cvs){
         {
                 if(!cvs->TimerReleaseBlocksRecule->isSet)
                     {
-                        SetTimer(cvs, cvs->TimerReleaseBlocksRecule, 1);
+                        SetTimer(cvs, cvs->TimerReleaseBlocksRecule, 1.5);
                     }            
                  if(IsTimerTimout(cvs,cvs->TimerReleaseBlocksRecule)){
                  ResetTimer(cvs->TimerReleaseBlocksRecule);
@@ -470,15 +470,15 @@ bool DeposeBlock(CtrlStruct *cvs){
                  return true;
             }
             else{
-                SpeedRefToDC(cvs, cvs->MotorL, -7);
-                SpeedRefToDC(cvs, cvs->MotorR, -7);
+                SpeedRefToDC(cvs, cvs->MotorL, -7.5);
+                SpeedRefToDC(cvs, cvs->MotorR, -7.5);
                 return false;
             }
         }
         else{
             PinceCalibration(cvs);
-            SpeedRefToDC(cvs, cvs->MotorL, 7);
-            SpeedRefToDC(cvs, cvs->MotorR, 7);
+            SpeedRefToDC(cvs, cvs->MotorL, 5);
+            SpeedRefToDC(cvs, cvs->MotorR, 5);
             return false;
         }
         return false;
@@ -509,13 +509,13 @@ bool YCalibration(CtrlStruct *cvs, double Y, double Theta){
 }
 
 bool XCalibration(CtrlStruct *cvs, double X, double Theta){
-    int color = cvs->robotID;
+int color = cvs->robotID;
     if (!cvs->Sensors->uSwitchLeft && !cvs->Sensors->uSwitchRight) {
             SpeedRefToDC(cvs, cvs->MotorL, -8);
             SpeedRefToDC(cvs, cvs->MotorR, -8);
         if(!cvs->TimerCalibration->isSet)
         {
-            SetTimer(cvs, cvs->TimerCalibration,4);
+            SetTimer(cvs, cvs->TimerCalibration, 4);
         }
         if(IsTimerTimout(cvs,cvs->TimerCalibration))
         {
@@ -523,8 +523,9 @@ bool XCalibration(CtrlStruct *cvs, double X, double Theta){
             return true;
         }
         return false;
-    }
-    else{
+    }   
+    else  
+    {
         ResetTimer(cvs->TimerCalibration);
         cvs->Odo->x = X;
         cvs->Odo->theta = Theta;

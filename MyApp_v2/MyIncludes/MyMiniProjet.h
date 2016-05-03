@@ -7,7 +7,7 @@
 #include "../MyFiles/RoboticFiles/CtrlStruct_gr2.h"
 
 #define TIMESTEP_REALBOT 0.002
-#define TIME_DATAREFRESH 0.1
+#define TIME_DATAREFRESH 0.01
 /*******************************************************************************
 * Functions Prototypes                                                         *
 *******************************************************************************/

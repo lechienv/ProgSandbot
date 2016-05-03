@@ -33,7 +33,8 @@ void ChooseStratDuneOrNot(CtrlStruct *cvs)
     switch(M){
         case(2) :
         {
-            cvs->Tower->StrategyWithRushDunes   = true;
+           // cvs->Param->start = true;
+           cvs->Tower->StrategyWithRushDunes   = true;
             break;
         }
         case(3) :
@@ -69,7 +70,7 @@ void getStrategy(CtrlStruct *cvs)
 }
 void ChooseBetweenMatchOrTest(CtrlStruct *cvs)
 {
-    /*unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
+    unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
     switch(M){
         case(14) :
         {
@@ -81,17 +82,9 @@ void ChooseBetweenMatchOrTest(CtrlStruct *cvs)
             cvs->Param->ChooseToMatch = true;
             break;
         }
-        default: break;*/
-    unsigned int M = MyCyclone_Read(CYCLONE_IO_M_Data);
-    switch(M){
-        case(2) :
-        {
-            cvs->Param->ChooseToMatch = true;
-            break;
-        }
-        default: break;
+        default: cvs->Param->ChooseToMatch = false; break;
+
     }
-    
 }
 void getTests(CtrlStruct *cvs)
 {

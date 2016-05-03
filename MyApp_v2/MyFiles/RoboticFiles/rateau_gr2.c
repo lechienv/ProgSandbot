@@ -76,13 +76,13 @@ else
     if( Motor->position >= 10)
    {
       //SpeedRefToDC(cvs,Motor,-7);
-        Motor->dutyCycle = 25;
+        Motor->dutyCycle = -25;
       return false;
    }
    else if(Motor->position >= 5)
    {
       //SpeedRefToDC(cvs,Motor,-5);
-       Motor->dutyCycle = 15;
+       Motor->dutyCycle = -15;
       return true;
    }
    else{

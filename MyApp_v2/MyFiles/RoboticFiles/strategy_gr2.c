@@ -129,7 +129,7 @@ void MyStrategy(CtrlStruct *cvs, int dune)
                     bool succeed = Action5(cvs);
                     if(!cvs->TimerAction->isSet)
                     {
-                    SetTimer(cvs, cvs->TimerAction, 45); // ??
+                    SetTimer(cvs, cvs->TimerAction, 60); // ??
                     }
                     if(IsTimerTimout(cvs,cvs->TimerAction))
                     {

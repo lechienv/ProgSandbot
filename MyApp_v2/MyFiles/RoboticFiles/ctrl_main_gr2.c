@@ -64,7 +64,7 @@ void controller_loop(CtrlStruct *cvs){
     
 //#define WEBSITETEST
 #ifndef WEBSITETEST
-    int endtime = 180;
+    int endtime = 160;
     int starttime = 0;
     cvs->Param->MotorCommandByHand = CommandMotorByHand;
     if(cvs->Param->MotorCommandByHand){

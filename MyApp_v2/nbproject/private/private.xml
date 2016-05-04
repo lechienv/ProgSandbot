@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/Users/sebtims/Documents/CodeRealBot/ProgSandbot/MyApp_v2/MyFiles/interfaceFPGA.c</file>
             <file>file:/C:/Users/sebtims/Documents/CodeRealBot/ProgSandbot/MyApp_v2/MyFiles/MyHTTP.c</file>
+            <file>file:/C:/Users/sebtims/Documents/CodeRealBot/ProgSandbot/MyApp_v2/MyIncludes/MyMiniProjet.h</file>
             <file>file:/C:/Users/sebtims/Documents/CodeRealBot/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/Actions_gr2.c</file>
             <file>file:/C:/Users/sebtims/Documents/CodeRealBot/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/tower_gr2.h</file>
             <file>file:/C:/Users/sebtims/Documents/CodeRealBot/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/tower_gr2.c</file>
@@ -21,6 +22,7 @@
             <file>file:/C:/Users/sebtims/Documents/CodeRealBot/ProgSandbot/MyApp_v2/MyFiles/SDInterface.c</file>
             <file>file:/C:/Users/sebtims/Documents/CodeRealBot/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/CtrlStruct_gr2.h</file>
             <file>file:/C:/Users/sebtims/Documents/CodeRealBot/ProgSandbot/MyApp_v2/MyFiles/MyMIWI.c</file>
+            <file>file:/C:/Users/sebtims/Documents/CodeRealBot/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/pathplanning_gr2.c</file>
             <file>file:/C:/Users/sebtims/Documents/CodeRealBot/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/strategy_gr2.c</file>
             <file>file:/C:/Users/sebtims/Documents/CodeRealBot/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/dynamixel_gr2.c</file>
             <file>file:/C:/Users/sebtims/Documents/CodeRealBot/ProgSandbot/MyApp_v2/MyFiles/RoboticFiles/ctrl_main_gr2.c</file>

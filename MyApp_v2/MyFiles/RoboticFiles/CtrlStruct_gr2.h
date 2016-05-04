@@ -54,7 +54,7 @@ NAMESPACE_INIT(ctrlGr2);
 #define BEACON_POSITION_TOLERANCE 0.1
 #define MAXSPEED_ENNEMYBOT 3
 #define NUMBER_WITHOUT_DETECTION_MAX 3
-#define MINDISTANCE_TOWER 0.30
+#define MINDISTANCE_TOWER 0.70
 //#define ACTIVATE_FIELDAVOIDANCE
 enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, ReturnToBase, AlignForBase, ReturnInIt, Wait}; // GoToBlocOne, AlignBlocOne, TakeBlocOne, BringBlocOne, ReleaseBlockOne, AlignForBlockOne};
 enum StateDyna {grap, release};

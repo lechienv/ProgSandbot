@@ -55,6 +55,7 @@ NAMESPACE_INIT(ctrlGr2);
 #define MAXSPEED_ENNEMYBOT 3
 #define NUMBER_WITHOUT_DETECTION_MAX 3
 #define MINDISTANCE_TOWER 0.70
+#define CONE_OPENING 80 //Angle of the half cone (30 degrees to left, 30 to right))
 //#define ACTIVATE_FIELDAVOIDANCE
 enum StateCalib {Cal_y_arr, GoToPoint, AlignAngle, Cal_x_arr, ReturnToBase, AlignForBase, ReturnInIt, Wait}; // GoToBlocOne, AlignBlocOne, TakeBlocOne, BringBlocOne, ReleaseBlockOne, AlignForBlockOne};
 enum StateDyna {grap, release};
@@ -63,7 +64,7 @@ enum StateHomologation {PinceCalib, reachViaPoint, AlignWithTheta, ReachBlocs, C
 enum StateAction1{GoToHouse1, GoToHouse1Precision, AlignedWithHouse1, PushHouse1, FreeHouse1, GoToHouse2Precision, AlignedWithHouse2, PushHouse2, FreeHouse2};
 enum StateAction2{GoToBlocOne, AlignForBlocOne, TakeBlocOne, BringBlockOne, ReleaseBlockOne, AlignForBlockOne,EndBlocOneViaPoint};
 enum StateAction3{CalibY, AlignForCalibYblocTwo, Calib_yBlocTwo, GoToBlocTwoCalib, AlignForCalibAction3, Calib_x, GoToBlocTwo, GoToBlocTwoPrecision, AlignForBlocTwo,AlignForBlocTwoPrecision, AvanceForBlockTwo, ReculeForBlockTwo, TestIfBlockAction3, BringBlockTwoViaPoint, TakeBlocTwo, BringBlockTwo, ReleaseBlockTwo, AlignForBlockTwo};
-enum StateAction4{GoCalibY_Action4, AlignCalibY_Action4, calibY_Action4, GoToFish, AlignForCalibFishes, CalibFishes, DecaleBordFishes, AlignForCreneau, DoTheCreneau, AlignedWithFishes,RatGoTopStartFish, DyntakeFish1, RatDescend, DyntakeFish2, Avance, DyntakeFish3, RatGoUp, DecaleWithFishes, Recule, MoveWithFish, AlignedWithNet, ReleaseFish};
+enum StateAction4{GoCalibY_Action4, AlignCalibY_Action4, calibY_Action4, AvanceToFish,GoToFish, AlignForCalibFishes, CalibFishes, AvanceToFishX,DecaleBordFishes, AlignForCreneau, DoTheCreneau, AlignedWithFishes,RatGoTopStartFish, DyntakeFish1, RatDescend, DyntakeFish2, Avance, DyntakeFish3, RatGoUp, DecaleWithFishes, Recule, MoveWithFish, AlignedWithNet, ReleaseFish};
 enum StateAction5{GotoDuneViaPoint, GotoDune,GotoDunePrecision, AlignedForDune, AlignedForDunePrecision, AvanceForBlocs, CloseForDune,DesAlignedForDune, Calib_x_Action5, GoToViaPoint, GoToViaPoint2,AlignForDune, DeposeDune};
 enum StateStrategy{GoCalibration, GoAction1, GoAction2, GoAction3,GoAction4, GoAction5, GoBase};
 
@@ -230,7 +231,6 @@ typedef struct Tower {
 	int nb_falling_fixed; 
     double distance;
     double angle;
-    bool TooClose;
     bool ActivateTooClose;
     bool StrategyWithRushDunes;
     bool StrategyWithFish;
@@ -242,7 +242,9 @@ typedef struct FilterTower {
     int numberWithoutDetection;
 	double xList[TOWER_AVERAGING_NUMBER];
 	double yList[TOWER_AVERAGING_NUMBER];
-	bool detectedVeryClose;
+    bool detectedTooClose;
+    bool tooCloseAhead;
+    bool tooCloseBehind;
     bool firstInit;
 } FilterTower;
 

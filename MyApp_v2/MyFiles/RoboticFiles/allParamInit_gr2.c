@@ -207,9 +207,8 @@ void InitTower(CtrlStruct * cvs)
 	cvs->Tower->tower_prevPos		= cvs->Tower->tower_pos;
     cvs->Tower->distance            = distance_INIT;
     cvs->Tower->angle               = angle_INIT;
-    cvs->Tower->TooClose            = false;
     cvs->Tower->ActivateTooClose    = true;
-    cvs->Tower->StrategyWithRushDunes   = false;
+    cvs->Tower->StrategyWithRushDunes   = true;
     cvs->Tower->StrategyWithFish        = false;
 }
 
@@ -424,7 +423,9 @@ void InitTowerFilters(CtrlStruct *cvs) {
 	for (i = 0; i < NumberOfCircles_INIT; i++) {
 		cvs->AllFiltersTower->FilterTowerList[i].currentIndex = 0;
 		cvs->AllFiltersTower->FilterTowerList[i].currentCountOutliers = 0;
-		cvs->AllFiltersTower->FilterTowerList[i].detectedVeryClose = false;
+		cvs->AllFiltersTower->FilterTowerList[i].tooCloseAhead = false;
+        cvs->AllFiltersTower->FilterTowerList[i].tooCloseBehind = false;
+        cvs->AllFiltersTower->FilterTowerList[i].detectedTooClose = false;
         cvs->AllFiltersTower->FilterTowerList[i].firstInit = true;
         cvs->AllFiltersTower->FilterTowerList[i].numberWithoutDetection = 0;
 		for (j = 0; j < TOWER_AVERAGING_NUMBER; j++) {

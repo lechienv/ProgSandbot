@@ -34,7 +34,7 @@ void ChooseStratDuneOrNot(CtrlStruct *cvs)
         case(2) :
         {
            // cvs->Param->start = true;
-           cvs->Tower->StrategyWithRushDunes   = true;
+           cvs->Tower->StrategyWithRushDunes   = false;
             break;
         }
         case(3) :
@@ -61,7 +61,16 @@ void getStrategy(CtrlStruct *cvs)
         {   cvs->Param->ChooseToMatch = true;
             cvs->Param->maxSpeed = 2*M_PI * 1.5;
             cvs->Param->maxSpeedRot = 30*cvs->Param->maxSpeed;
-            MyStrategy(cvs, 1);
+            
+            if(cvs->Tower->StrategyWithRushDunes )
+            {
+                MyStrategy(cvs, 1);
+            }
+            else
+            {
+                MyStrategy(cvs, 0);
+            }
+
             break;
         }
         default: break;

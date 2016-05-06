@@ -29,7 +29,7 @@ NAMESPACE_INIT(ctrlGr2);
     #define wheelRRadius_DEFAULT    0.022749
     #define wheelLRadius_DEFAULT    0.022725
 	#define width_DEFAULT           0.2625
-	#define MaxAcceleration_DEFAULT	2
+	#define MaxAcceleration_DEFAULT	1.5
 #endif // MINIBOT
     #define clicNumberRatL_DEFAULT  10000
     #define clicNumberRatR_DEFAULT  10000

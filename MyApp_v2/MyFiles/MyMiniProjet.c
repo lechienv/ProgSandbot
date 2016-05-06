@@ -35,7 +35,7 @@ void MyMiniProjet_Task(void)
     unsigned long long currentTime = 0;
     unsigned long long previousTime = 0;
     unsigned long long previousTimeData = 0;
-    
+   
     cvs->colorIsSet = false;
     while(!cvs->colorIsSet){
        getRobotID(cvs);
@@ -76,7 +76,7 @@ void MyMiniProjet_Task(void)
         unsigned int I = MyCyclone_Read(CYCLONE_IO_I_Data);
       //  MyConsole_SendMsg("wtf \n");
         bool start = (bool) !extractBits(A,13,13);
-
+        ChooseStratDuneOrNot(cvs);
        // ChooseStratDuneOrNot(cvs);// if calib X pressed choooose to start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         if(start){
             cvs->Param->start =true;

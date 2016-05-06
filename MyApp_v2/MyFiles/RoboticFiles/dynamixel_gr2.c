@@ -99,6 +99,7 @@ void AllumeLed(int id, int value){
     SendMessageDyna(id,0x0005,0x0019,value);
 }
 void TurnCCW(int id, int value){
+    SendMessageDyna(id,0x0005,0x0008,0x0000);
     //SendMessageDyna(0x06,0x0005,0x0008,0x0000);
     if(value <0) value = 0;
     if(value > 100) value = 100;
@@ -106,6 +107,7 @@ void TurnCCW(int id, int value){
     SendMessageDyna(id, 0x0005, 0x0020, value);
 }
 void TurnCW(int id, int value){
+    SendMessageDyna(id,0x0005,0x0008,0x0000);
     if(value <0) value = 0;
     if(value > 100) value = 100;
     else value = (value * 1023/100) + 1024;

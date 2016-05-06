@@ -61,11 +61,10 @@ void controller_init(CtrlStruct *cvs){
  */
 void controller_loop(CtrlStruct *cvs){
 	AlwaysInController(cvs);
-    
+    int endtime = 120;
+    int starttime = 0;
 //#define WEBSITETEST
 #ifndef WEBSITETEST
-    int endtime = 160;
-    int starttime = 0;
     cvs->Param->MotorCommandByHand = CommandMotorByHand;
     if(cvs->Param->MotorCommandByHand){
         cvs->MotorL->dutyCycle = LeftMotorDC;
@@ -145,7 +144,31 @@ void controller_loop(CtrlStruct *cvs){
     }
        
 #else
-      StrategyTest(cvs);
+    StrategyTest(cvs);
+    cvs->Tower->ActivateTooClose = true;
+    if(cvs->Tower->ActivateTooClose){
+        int i;
+        for(i = 0; i < cvs->AllFiltersTower->numberOfEnnemy; i++){
+            // Case "Dection Ahead"
+            if(cvs->AllFiltersTower->FilterTowerList[i].tooCloseAhead){
+                if(((cvs->MotorL->dutyCycle > 0) || (cvs->MotorR->dutyCycle > 0)) && (cvs->MotorR->dutyCycle != -cvs->MotorL->dutyCycle)){ //Robot tends to go ahead and does not move on itself
+                    cvs->MotorL->dutyCycle = 0;
+                    cvs->MotorR->dutyCycle = 0;
+                    cvs->MotorL->totalError = 0;
+                    cvs->MotorR->totalError = 0;
+                }
+            }
+            // Case "Dection Behind"
+            else if(cvs->AllFiltersTower->FilterTowerList[i].tooCloseBehind){
+                if(((cvs->MotorL->dutyCycle < 0) || (cvs->MotorR->dutyCycle < 0)) && (cvs->MotorR->dutyCycle != -cvs->MotorL->dutyCycle)){ //Robot tends to go behind and not move on itself
+                    cvs->MotorL->dutyCycle = 0;
+                    cvs->MotorR->dutyCycle = 0;
+                    cvs->MotorL->totalError = 0;
+                    cvs->MotorR->totalError = 0;
+                }
+            }
+        }
+    }
 #endif
 
 	AlwaysEndController(cvs, endtime);
@@ -250,6 +273,7 @@ void AlwaysInController(CtrlStruct *cvs) {
 }
 
 void AlwaysEndController(CtrlStruct *cvs, double endtime) {
+#ifndef WEBSITETEST
 	if(cvs->time >= endtime){
         cvs->MotorL->dutyCycle = 0;//RightMotorDC;
         cvs->MotorR->dutyCycle = 0;// RightMotorDC;
@@ -258,6 +282,7 @@ void AlwaysEndController(CtrlStruct *cvs, double endtime) {
         cvs->MotorRatR->dutyCycle = 0; //RightMotorDC;//RightMotorDC;
         cvs->MotorPince->dutyCycle = 0;//RightMotorDC;
     }
+#endif
     SendMotorCommand(cvs);
 }
 

@@ -40,15 +40,16 @@ void MyStrategy(CtrlStruct *cvs, int dune)
                     if(IsTimerTimout(cvs,cvs->TimerAction))
                     {
                     ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = (dune==0) ? GoAction3 : GoAction3;
+                    cvs->stateStrategy =  cvs->Tower->StrategyWithFish ? GoAction4 : GoAction3;
                     }
                     if(succeed){
                     ResetTimer(cvs->TimerAction);
-                    cvs->stateStrategy = (dune==0) ? GoAction3 : GoAction3;
+                    cvs->stateStrategy =  cvs->Tower->StrategyWithFish ? GoAction4 : GoAction3;
                      }
                 break;
         }
         case(GoAction2) :{
+            
                bool succeed = Action2(cvs);
                     if(!cvs->TimerAction->isSet)
                     {
@@ -60,12 +61,12 @@ void MyStrategy(CtrlStruct *cvs, int dune)
                     ResetTimer(cvs->TimerReleaseBlocksAvance);
                     ResetTimer(cvs->TimerAction);
                     //cvs->stateStrategy = (cvs->Tower->StrategyWithRushDunes || cvs->Tower->StrategyWithFish) ? GoAction1 : GoAction5;
-                    cvs->stateStrategy = GoAction5;
+                    cvs->stateStrategy = (dune==0) ? GoAction1 : GoAction5;
                     }
                     if(succeed){
                     ResetTimer(cvs->TimerAction);
                     //cvs->stateStrategy = (cvs->Tower->StrategyWithRushDunes || cvs->Tower->StrategyWithFish) ? GoAction1 : GoAction5;
-                    cvs->stateStrategy = GoAction5;
+                    cvs->stateStrategy = (dune==0) ? GoAction1 : GoAction5;
                      }
                 break;
         }
@@ -78,21 +79,11 @@ void MyStrategy(CtrlStruct *cvs, int dune)
                     if(IsTimerTimout(cvs,cvs->TimerAction))
                     {
                         ResetTimer(cvs->TimerAction);
-                        if(dune == 1){
                             cvs->stateStrategy = GoAction4;
-                        }
-                        else{
-                            cvs->stateStrategy = GoAction4;
-                        }
                     }
                     if(succeed){
                         ResetTimer(cvs->TimerAction);
-                        if(dune == 1){
                             cvs->stateStrategy = GoAction4;
-                        }
-                        else{
-                            cvs->stateStrategy = GoAction4;
-                        }
                      }
                 break;
         }
@@ -105,23 +96,12 @@ void MyStrategy(CtrlStruct *cvs, int dune)
                     if(IsTimerTimout(cvs,cvs->TimerAction))
                     {
                     ResetTimer(cvs->TimerAction);
-                    //cvs->stateStrategy = (cvs->Tower->StrategyWithFish ) ? GoAction5 : GoBase;
-                        if(dune == 1){
                             cvs->stateStrategy = GoBase;
-                        }
-                        else{
-                            cvs->stateStrategy = GoBase;
-                        }
                     }
                     if(succeed){
                     ResetTimer(cvs->TimerAction);
                     //cvs->stateStrategy = (cvs->Tower->StrategyWithFish ) ? GoAction5 : GoBase;
-                    if(dune == 1){
                             cvs->stateStrategy = GoBase;
-                        }
-                        else{
-                            cvs->stateStrategy = GoBase;
-                        }
                      }
                 break;
         }
@@ -129,42 +109,17 @@ void MyStrategy(CtrlStruct *cvs, int dune)
                     bool succeed = Action5(cvs);
                     if(!cvs->TimerAction->isSet)
                     {
-                    SetTimer(cvs, cvs->TimerAction, 60); // ??
+                    SetTimer(cvs, cvs->TimerAction, 70); // ??
                     }
                     if(IsTimerTimout(cvs,cvs->TimerAction))
                     {
                     ResetTimer(cvs->TimerAction);
-                        
-                        /*if(cvs->Tower->StrategyWithRushDunes)
-                        {
-                            cvs->stateStrategy = GoAction2;
-                        }
-                         else if(cvs->Tower->StrategyWithFish)
-                        {
-                            cvs->stateStrategy = GoBase;
-                        }
-                        else
-                        {
-                            cvs->stateStrategy = GoAction3;
-                        }*/
                     cvs->stateStrategy = GoAction1;
                     }
                             
                    
                     if(succeed){
                     ResetTimer(cvs->TimerAction);
-                        /*if(cvs->Tower->StrategyWithRushDunes)
-                          {
-                              cvs->stateStrategy = GoAction2;
-                          }
-                           else if(cvs->Tower->StrategyWithFish)
-                          {
-                              cvs->stateStrategy = GoBase;
-                          }
-                          else
-                          {
-                              cvs->stateStrategy = GoAction1;
-                          }*/
                         cvs->stateStrategy = GoAction1;
                      }
                 break;
@@ -180,15 +135,31 @@ void MyStrategy(CtrlStruct *cvs, int dune)
             }
     default: break;
     }
-   int i;
+   
+   //DETECTION DE L'ADVERSAIRE
+    if(cvs->Tower->ActivateTooClose){
+        int i;
         for(i = 0; i < cvs->AllFiltersTower->numberOfEnnemy; i++){
-            if(cvs->AllFiltersTower->FilterTowerList[i].detectedVeryClose && cvs->Tower->ActivateTooClose){
-                cvs->MotorL->dutyCycle = 0;
-                cvs->MotorR->dutyCycle = 0;
-                cvs->MotorL->totalError = 0;
-                cvs->MotorR->totalError = 0;
+            // Case "Dection Ahead"
+            if(cvs->AllFiltersTower->FilterTowerList[i].tooCloseAhead){
+                if(((cvs->MotorL->dutyCycle > 0) || (cvs->MotorR->dutyCycle > 0))){ //Robot tends to go ahead
+                    cvs->MotorL->dutyCycle = 0;
+                    cvs->MotorR->dutyCycle = 0;
+                    cvs->MotorL->totalError = 0;
+                    cvs->MotorR->totalError = 0;
+                }
+            }
+            // Case "Dection Behind"
+            if(cvs->AllFiltersTower->FilterTowerList[i].tooCloseBehind){
+                if(((cvs->MotorL->dutyCycle < 0) || (cvs->MotorR->dutyCycle < 0))){ //Robot tends to go behind
+                    cvs->MotorL->dutyCycle = 0;
+                    cvs->MotorR->dutyCycle = 0;
+                    cvs->MotorL->totalError = 0;
+                    cvs->MotorR->totalError = 0;
+                }
             }
         }
+    }
 }
 
 void ActivateBase(CtrlStruct *cvs) {
@@ -355,11 +326,23 @@ void PointHomologation(CtrlStruct *cvs){
 #ifndef ACTIVATE_FIELDAVOIDANCE
     int i;
     for(i = 0; i < cvs->AllFiltersTower->numberOfEnnemy; i++){
-        if(cvs->AllFiltersTower->FilterTowerList[i].detectedVeryClose && cvs->Tower->ActivateTooClose){
-            cvs->MotorL->dutyCycle = 0;
-            cvs->MotorR->dutyCycle = 0;
-            cvs->MotorL->totalError = 0;
-            cvs->MotorR->totalError = 0;
+        // Case "Dection Ahead"
+        if(cvs->AllFiltersTower->FilterTowerList[i].tooCloseAhead){
+            if(((cvs->MotorL->dutyCycle > 0) || (cvs->MotorR->dutyCycle > 0)) && (cvs->MotorR->dutyCycle != -cvs->MotorL->dutyCycle)){ //Robot tends to go ahead and does not move on itself
+                cvs->MotorL->dutyCycle = 0;
+                cvs->MotorR->dutyCycle = 0;
+                cvs->MotorL->totalError = 0;
+                cvs->MotorR->totalError = 0;
+            }
+        }
+        // Case "Dection Behind"
+        if(cvs->AllFiltersTower->FilterTowerList[i].tooCloseBehind){
+            if(((cvs->MotorL->dutyCycle < 0) || (cvs->MotorR->dutyCycle < 0)) && (cvs->MotorR->dutyCycle != -cvs->MotorL->dutyCycle)){ //Robot tends to go ahead and not move on itself
+                cvs->MotorL->dutyCycle = 0;
+                cvs->MotorR->dutyCycle = 0;
+                cvs->MotorL->totalError = 0;
+                cvs->MotorR->totalError = 0;
+            }
         }
     }
 #endif
@@ -492,7 +475,7 @@ bool YCalibration(CtrlStruct *cvs, double Y, double Theta){
             SpeedRefToDC(cvs, cvs->MotorR, -8);
         if(!cvs->TimerCalibration->isSet)
         {
-            SetTimer(cvs, cvs->TimerCalibration, 6);
+            SetTimer(cvs, cvs->TimerCalibration, 7);
         }
         if(IsTimerTimout(cvs,cvs->TimerCalibration))
         {
@@ -517,7 +500,7 @@ int color = cvs->robotID;
             SpeedRefToDC(cvs, cvs->MotorR, -8);
         if(!cvs->TimerCalibration->isSet)
         {
-            SetTimer(cvs, cvs->TimerCalibration, 6);
+            SetTimer(cvs, cvs->TimerCalibration, 7);
         }
         if(IsTimerTimout(cvs,cvs->TimerCalibration))
         {
